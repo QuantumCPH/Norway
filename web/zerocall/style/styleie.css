@@ -117,35 +117,35 @@ width:232px;
     text-align: center;
 }
 .right-col .box-last{ margin:0px;}
-.dash-nav{ width:575px; float:left;}
-.dash-nav a{ width:78px; height:61px; float:left; overflow:hidden; display:block; text-indent:9000em; white-space:nowrap; background-image:url(../images/dash-nav-sprite.gif); background-repeat:no-repeat; margin-right:0px;}
-.dash-nav a.dashboard{ background-position:0px 0px}
-.dash-nav a.dashboard:hover{ background-position:-90px 0px}
-.dash-nav a.dashboard-s{ background-position:-90px 0px}
+.navigation{ width:575px; float:left;}
+.navigation a{ width:78px; height:61px; float:left; overflow:hidden; display:block; text-indent:9000em; white-space:nowrap; background-image:url(../images/dash-nav-sprite.gif); background-repeat:no-repeat; margin-right:0px;}
+.navigation a.dashboard{ background-position:0px 0px}
+.navigation a.dashboard:hover{ background-position:-90px 0px}
+.navigation a.dashboard-s{ background-position:-90px 0px}
 
-.dash-nav a.refil{ background-position:0px -64px}
-.dash-nav a.refil:hover{ background-position:-90px -64px}
-.dash-nav a.refil-s{ background-position:-90px -64px}
+.navigation a.refil{ background-position:0px -64px}
+.navigation a.refil:hover{ background-position:-90px -64px}
+.navigation a.refil-s{ background-position:-90px -64px}
 
-.dash-nav a.callhistory{ background-position:0px -127px}
-.dash-nav a.callhistory:hover{ background-position:-90px -127px}
-.dash-nav a.callhistory-s{ background-position:-90px -127px}
+.navigation a.callhistory{ background-position:0px -127px}
+.navigation a.callhistory:hover{ background-position:-90px -127px}
+.navigation a.callhistory-s{ background-position:-90px -127px}
 
-.dash-nav a.paymenthistory{ background-position:0px -188px}
-.dash-nav a.paymenthistory:hover{ background-position:-90px -188px}
-.dash-nav a.paymenthistory-s{ background-position:-90px -188px}
+.navigation a.paymenthistory{ background-position:0px -188px}
+.navigation a.paymenthistory:hover{ background-position:-90px -188px}
+.navigation a.paymenthistory-s{ background-position:-90px -188px}
 
-.dash-nav a.settings{ background-position:0px -250px}
-.dash-nav a.settings:hover{ background-position:-90px -250px}
-.dash-nav a.settings-s{ background-position:-90px -250px}
+.navigation a.settings{ background-position:0px -250px}
+.navigation a.settings:hover{ background-position:-90px -250px}
+.navigation a.settings-s{ background-position:-90px -250px}
 
-.dash-nav a.websms{ background-position:0px -314px}
-.dash-nav a.websms:hover{ background-position:-90px -314px}
-.dash-nav a.websms-s{ background-position:-90px -314px}
+.navigation a.websms{ background-position:0px -314px}
+.navigation a.websms:hover{ background-position:-90px -314px}
+.navigation a.websms-s{ background-position:-90px -314px}
 
-.dash-nav a.logout{ background-position:0px -382px}
-.dash-nav a.logout:hover{ background-position:-90px -382px}
-.dash-nav a.logout-s{ background-position:-90px -382px}
+.navigation a.logout{ background-position:0px -382px}
+.navigation a.logout:hover{ background-position:-90px -382px}
+.navigation a.logout-s{ background-position:-90px -382px}
 
 .split-form{padding-top:20px; float:left; clear:both; width:515px; padding-bottom:30px;}
 .col{width:250px; float: left !important; position: relative}
@@ -587,35 +587,35 @@ margin-top:12px;
     padding-right: 0;
     width: 132px;
 }
-.dash-navg{ width:575px; float:left;}
-.dash-navg a{ width:78px; height:61px; float:left; overflow:hidden; display:block; text-indent:9000em; white-space:nowrap; background-image:url(../images/dash-nav-spriteg.gif); background-repeat:no-repeat; margin-right:0px;}
-.dash-navg a.dashboard{ background-position:0px 0px}
-.dash-navg a.dashboard:hover{ background-position:-90px 0px}
-.dash-navg a.dashboard-s{ background-position:-90px 0px}
+.navigasjon{ width:575px; float:left;}
+.navigasjon a{ width:78px; height:61px; float:left; overflow:hidden; display:block; text-indent:9000em; white-space:nowrap; background-image:url(../images/dash-nav-spriteg.gif); background-repeat:no-repeat; margin-right:0px;}
+.navigasjon a.dashboard{ background-position:-5px 0px}
+.navigasjon a.dashboard:hover{ background-position:-90px 0px}
+.navigasjon a.dashboard-s{ background-position:-90px 0px}
 
-.dash-navg a.refil{ background-position:0px -64px}
-.dash-navg a.refil:hover{ background-position:-90px -64px}
-.dash-navg a.refil-s{ background-position:-90px -64px}
+.navigasjon a.refil{ background-position:-5px -56px;}
+.navigasjon a.refil:hover{ background-position:-90px -56px}
+.navigasjon a.refil-s{ background-position:-90px -56px}
 
-.dash-navg a.callhistory{ background-position:0px -127px}
-.dash-navg a.callhistory:hover{ background-position:-90px -127px}
-.dash-navg a.callhistory-s{ background-position:-90px -127px}
+.navigasjon a.callhistory{ background-position:-5px -112px;}
+.navigasjon a.callhistory:hover{ background-position:-90px -112px;}
+.navigasjon a.callhistory-s{ background-position:-90px -112px;}
 
-.dash-navg a.paymenthistory{ background-position:0px -188px}
-.dash-navg a.paymenthistory:hover{ background-position:-90px -188px}
-.dash-navg a.paymenthistory-s{ background-position:-90px -188px}
+.navigasjon a.paymenthistory{ background-position:-5px -169px}
+.navigasjon a.paymenthistory:hover{ background-position:-90px -169px}
+.navigasjon a.paymenthistory-s{ background-position:-90px -169px}
 
-.dash-navg a.settings{ background-position:0px -250px}
-.dash-navg a.settings:hover{ background-position:-90px -250px}
-.dash-navg a.settings-s{ background-position:-90px -250px}
+.navigasjon a.settings{ background-position:-5px -227px}
+.navigasjon a.settings:hover{ background-position:-90px -227px}
+.navigasjon a.settings-s{ background-position:-90px -227px}
 
-.dash-navg a.websms{ background-position:0px -314px}
-.dash-navg a.websms:hover{ background-position:-90px -314px}
-.dash-navg a.websms-s{ background-position:-90px -314px}
+.navigasjon a.websms{ background-position:-5px -284px}
+.navigasjon a.websms:hover{ background-position:-90px -284px}
+.navigasjon a.websms-s{ background-position:-90px -284px}
 
-.dash-navg a.logout{ background-position:0px -382px}
-.dash-navg a.logout:hover{ background-position:-90px -382px}
-.dash-navg a.logout-s{ background-position:-90px -382px}
+.navigasjon a.logout{ background-position:-6px -340px;}
+.navigasjon a.logout:hover{ background-position:-90px -340px}
+.navigasjon a.logout-s{ background-position:-90px -340px}
 
 label.extra_refill{
     display: block;
@@ -636,4 +636,13 @@ a.changePass{
 }
 #forgot_password_form p.text1{
     margin-bottom: 18px !important;
+}
+.submitBtn{
+   background-image: url("../images/b.png");
+   background-repeat: repeat-x;
+   border: 0 none;
+   color: #FFFFFF;
+   height: 21px;
+   padding-bottom: 3px;
+   width: 62px;   
 }
