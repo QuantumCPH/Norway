@@ -73,7 +73,7 @@
 <div id="sf_admin_container"><h1><?php echo __('Account Refill') ?></h1></div>
         
   <div class="borderDiv"> 
-<form action="https://payment.architrade.com/paymentweb/start.action"  method="post" id="refill" onsubmit="return checkForm()">
+<form action="<?php echo $target?>agentRefil"  method="post" id="refill" onsubmit="return checkForm()">
 
     <table>
 
@@ -83,9 +83,9 @@
             </td>
             <td>
                 <select name="amount" id="amount">
-                    <option value="50000">500</option>
-                    <option value="100000">1000</option>
-                    <option value="150000">1500</option>
+                    <option value="500">500</option>
+                    <option value="1000">1000</option>
+                    <option value="1500">1500</option>
                 </select>
             </td>
         </tr>
@@ -94,15 +94,26 @@
 
             </td>
             <td align="right">
-                <input type="hidden" name="merchant" value="90049676" />
+                <input type="hidden" name="cmd" value="_xclick" /> 
+                <input type="hidden" name="no_note" value="1" />
+                <input type="hidden" name="lc" value="NO" />
+                <input type="hidden" name="currency_code" value="NOK" />
+                <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
+                <input type="hidden" name="rm" value="2" />
+                <input type="hidden" name="firstName" value="<?php echo $agent->getContactName();?>"  />
+                <input type="hidden" name="lastName" value="<?php echo $agent->getContactName();?>"  />
+                <input type="hidden" name="payer_email" value="<?php echo $agent->getEmail();?>"  />
+                <input type="hidden" name="item_number" value="<?php echo $agent_order->getAgentOrderId() ?>" />
+                
+<!--                <input type="hidden" name="merchant" value="90049676" />
                 <input type="hidden" name="currency" value="978" />
                 <input type="hidden" name="orderid" id="orderid" value="<?php echo $agent_order->getAgentOrderId() ?>" />
                 <input type="hidden" name="test" value="yes" />
                 <input type="hidden" name="account" value="YTIP" />
                 <input type="hidden" name="status" value="" />
-                <input type="hidden" name="cancelurl" value="<?php echo sfConfig::get('app_main_url') . "affiliate/" ?>thankyou/?accept=cancel" />
-                <input type="hidden" name="callbackurl" value="<?php echo sfConfig::get('app_main_url') . "affiliate/" ?>accountRefill" />
-                <input type="hidden" name="accepturl" id="accepturl"  value="<?php echo sfConfig::get('app_main_url') . "affiliate/" ?>thankyou?accept=yes&subscriptionid=&orderid=<?php echo $agent_order->getAgentOrderId(); ?>&amount=50000">
+                <input type="hidden" name="cancelurl" value="<?php echo $target; ?>thankyou/?accept=cancel" />
+                <input type="hidden" name="callbackurl" value="<?php echo $target; ?>accountRefill" />
+                <input type="hidden" name="accepturl" id="accepturl"  value="<?php echo $target; ?>thankyou?accept=yes&subscriptionid=&orderid=<?php echo $agent_order->getAgentOrderId(); ?>&amount=50000">-->
                 <input type="submit" value="<?php echo __('Recharge');?>" style="margin-left:26px !important;margin-top:10px;" />
             </td>
         </tr>

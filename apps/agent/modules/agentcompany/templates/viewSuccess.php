@@ -61,12 +61,12 @@
 
       <label class="grid_2 required"><?php echo __('Country:') ?></label>
       <div class="grid_2 content">
-            <?php echo $agent_company->getEnableCountry()->getName() ?>
+            <?php echo $agent_company->getCountryName();?>
       </div>
 
       <label class="grid_2 required"><?php echo __('City:') ?></label>
       <div class="grid_2 content">
-            <?php echo $agent_company->getCityname()?$agent_company->getCityname():'N/A' ?>
+            <?php echo $agent_company->getCity()?$agent_company->getCity()->getName():'N/A' ?>
       </div>
 
       <div class="clear"></div>

@@ -3,7 +3,7 @@ require_once(sfConfig::get('sf_lib_dir') . '/changeLanguageCulture.php');
 require_once(sfConfig::get('sf_lib_dir') . '/emailLib.php');
 require_once(sfConfig::get('sf_lib_dir') . '/commissionLib.php');
 require_once(sfConfig::get('sf_lib_dir') . '/smsCharacterReplacement.php');
-
+require_once(sfConfig::get('sf_lib_dir') . '/payment.class.php');
 
 
 /**
@@ -116,7 +116,7 @@ class paymentsActions extends sfActions {
         //$getCultue = $this->getUser()->getCulture();
         // Store data in the user session
         //$this->getUser()->setAttribute('activelanguage', $getCultue);
-
+        $this->targetUrl = $this->getTargetUrl();
         $this->form = new PaymentForm();
 
 ///////////////////////postal charges section//////////////////////////////
@@ -271,37 +271,30 @@ class paymentsActions extends sfActions {
     }
 
     public function executeConfirmpayment(sfWebRequest $request) {
+        $Parameters=$request->getURI();
 
-           $this->getUser()->setCulture($request->getParameter('lng'));
-        $urlval = $request->getParameter('transact');
         $email2 = new DibsCall();
-        $email2->setCallurl($urlval);
-        $email2->save();
-        $dibs = new DibsCall();
-        $dibs->setCallurl("Ticket Number:".$request->getParameter('ticket'));
-        $dibs->save();
-       
+        $email2->setCallurl($Parameters);
 
-        if ($request->getParameter('transact') != '') {
+        $email2->save();
+        
+        $order_id = "";
+        $order_amount = "";
+        $order_id = $request->getParameter('order_id'); 
+        $order_amount = $request->getParameter('amount');
+        $ticket_id = "";
+        $this->getUser()->setCulture($request->getParameter('lng'));
+              
+
+        if ($order_id != '') {
 
             $this->logMessage(print_r($_GET, true));
 
             $is_transaction_ok = false;
             $subscription_id = '';
-            $order_id = "";
-            $order_amount = "";
-            //get the order_id from the session
-            //change the status of that order to complete,
-            //change the customer status to compete too
-            $order_id = $request->getParameter('orderid');
-            $ticket_id = $request->getParameter('ticket');
-            // echo $order_id.'<br />';
-            $subscription_id = $request->getParameter('subscriptionid');
-            $this->logMessage('sub id: ' . $subscription_id);
-            $order_amount = $request->getParameter('amount') / 100;
 
-            $this->forward404Unless($order_id || $order_amount);
-
+            $this->forward404Unless($order_id);
+            //$this->forward404Unless($order_id || $order_amount);
             //get order object
             $order = CustomerOrderPeer::retrieveByPK($order_id);
 
@@ -352,7 +345,7 @@ class paymentsActions extends sfActions {
             if (CustomerProductPeer::doCount($c) != 0) {
 
                 //Customer is already registered.
-                echo 'Kunden er allerede registrert';
+                echo __('The customer is already registered');
                 //exit the script successfully
                 return sfView::NONE;
             }
@@ -369,7 +362,7 @@ class paymentsActions extends sfActions {
             $c = new Criteria;
             $c->add(TransactionPeer::ORDER_ID, $order_id);
             $transaction = TransactionPeer::doSelectOne($c);
-
+            $order_amount = $transaction->getAmount();
             //  echo 'retrieved transaction<br />';
 
             if ($transaction->getAmount() > $order_amount || $transaction->getAmount() < $order_amount) {
@@ -487,7 +480,7 @@ class paymentsActions extends sfActions {
                       // For Telinta Add Account
                
                    Telienta::createAAccount($TelintaMobile,$this->customer);
-                   Telienta::createCBAccount($TelintaMobile, $this->customer);
+                  // Telienta::createCBAccount($TelintaMobile, $this->customer);
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 //if the customer is invited, Give the invited customer a bonus of 10dkk
                 $invite_c = new Criteria();
@@ -636,5 +629,45 @@ class paymentsActions extends sfActions {
   
        return sfView::NONE;
     }
- 
+
+    public function executeTransaction(sfWebRequest $request)
+    {
+        $order_id = $request->getParameter('item_number');
+        $item_amount = $request->getParameter('amount');
+        
+        
+        $return_url = $this->getTargetUrl();
+        $cancel_url = $this->getTargetUrl().'payments/reject/orderid='.$order_id;
+        $notify_url = $this->getTargetUrl().'payments/confirmpayment?order_id='.$order_id.'&amount='.$item_amount;
+
+     
+        $querystring = '';
+        if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])){
+
+	
+        $order = CustomerOrderPeer::retrieveByPK($order_id);
+        $item_name = $order->getProduct()->getName();
+        
+	//loop for posted values and append to querystring
+	foreach($_POST as $key => $value){
+		$value = urlencode(stripslashes($value));
+		$querystring .= "$key=$value&";
+	}
+        
+        $querystring .= "item_name=".urlencode($item_name)."&";
+        $querystring .= "return=".urldecode($return_url)."&";
+        $querystring .= "cancel_return=".urldecode($cancel_url)."&";
+	$querystring .= "notify_url=".urldecode($notify_url);
+        
+        //$environment = "sandbox";
+        if($order_id && $item_amount){
+	   Payment::SendPayment($querystring);
+        }else{
+           echo 'error';  
+        }
+	return sfView::NONE;
+	//exit();
+
+        }
+    }   
 }

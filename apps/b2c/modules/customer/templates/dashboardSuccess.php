@@ -164,7 +164,7 @@ echo " ";   echo substr($Telintambs, 15,2);
 
 <?php } ?>
 <?php   if($pus==0){?>
-
+<!--
   <?php if($voip_customer!=''){?>
         
         
@@ -227,6 +227,7 @@ echo " ";   echo substr($Telintambs, 15,2);
 			</td>
 		<td></td></tr>
 	</table>
+        -->
     </div>
   </div>
 

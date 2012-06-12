@@ -116,7 +116,7 @@ function countChar(str)
                     
                     <tr> 
                         <td ><input type="text" name="email" /></td>
-                        <td style="display:none;" ><input type="text" name="country" value="Sweden" disabled /></td>
+                        <td style="display:none;" ><input type="text" name="country" value="Norway" disabled /></td>
                     </tr>
                     <tr>
                         <td  colspan="2" align="center"><?php echo __("Your Message") ?></td>
