@@ -101,8 +101,8 @@
                 <target>Send SMS over hele verden til de beste prisene i markedet</target>
             </trans-unit>
             <trans-unit id="25" translate="yes" reformat="yes" xml:space="default">
-                <source>International calls from 0 cents * With WLS, you can call the whole world.</source>
-                <target>Internasjonale samtaler fra 0 cents * Med WLS, kan du ringe hele verden.</target>
+                <source>International calls from 0 cents * With Zapna, you can call the whole world.</source>
+                <target>Internasjonale samtaler fra 0 cents * Med Zapna, kan du ringe hele verden.</target>
             </trans-unit>
             
             <trans-unit id="26" translate="yes" reformat="yes" xml:space="default">
@@ -359,16 +359,16 @@
                 <target>Det er foreløpig ingen SMS-poster å vise.</target>
             </trans-unit>
             <trans-unit id="88" translate="yes" reformat="yes" xml:space="default">
-                <source>Tell your friends about Wls &amp; tjene ekstra balanse!</source>
-                <target>Fortell vennene dine om WLS &amp; </target>
+                <source>Tell your friends about Zapna &amp; tjene ekstra balanse!</source>
+                <target>Fortell vennene dine om Zapna &amp; </target>
             </trans-unit>
             <trans-unit id="89" translate="yes" reformat="yes" xml:space="default">
-                <source>Tell your friends about Wls and earn 10 euro as soon as your friends have made their first payment with Wls! Spread the word about Wls and let your friends know about WLS2 services.</source>
-                <target>Fortell vennene dine om WLS og tjene 10 euro så snart dine venner har gjort sin første innbetaling med WLS! Spre ordet om WLS og la vennene dine om WLS2 tjenester.</target>
+                <source>Tell your friends about Zapna and earn 10 euro as soon as your friends have made their first payment with Zapna! Spread the word about Zapna and let your friends know about Zapna services.</source>
+                <target>Fortell vennene dine om Zapna og tjene 10 euro så snart dine venner har gjort sin første innbetaling med Zapna! Spre ordet om Zapna og la vennene dine om Zapna tjenester.</target>
             </trans-unit>
             <trans-unit id="90" translate="yes" reformat="yes" xml:space="default">
-                <source>You can tell your friends about Wls in two simple ways:</source>
-                <target>Du kan fortelle dine venner om WLS i to enkle måter:</target>
+                <source>You can tell your friends about Zapna in two simple ways:</source>
+                <target>Du kan fortelle dine venner om Zapna i to enkle måter:</target>
             </trans-unit>
             <trans-unit id="91" translate="yes" reformat="yes" xml:space="default">
                 <source>Fill out the fields below and click the Send Email button - your friend will receive an Email</source>
@@ -379,8 +379,8 @@
                 <target>Hva får du av dette?</target>
             </trans-unit>
             <trans-unit id="93" translate="yes" reformat="yes" xml:space="default">
-                <source>As soon as your friends have made their first payment with Wls, youll automatically receive 10 euro in your Wls balance - so if 10 of your friends register on Wls, youll gain 100 euro in your account. Just share the news and enjoy this great new treat from Wls.</source>
-                <target>Så snart dine venner har gjort sin første innbetaling med WLS, youll automatisk motta 10 euro i din WLS balanse - så hvis 10 av vennene dine registrerer seg på WLS, youll få 100 euro på kontoen din. Bare dele nyhetene og nyte denne flotte nye godbiten fra WLS.</target>
+                <source>As soon as your friends have made their first payment with Zapna, youll automatically receive 10 euro in your Zapna balance - so if 10 of your friends register on Zapna, youll gain 100 euro in your account. Just share the news and enjoy this great new treat from Zapna.</source>
+                <target>Så snart dine venner har gjort sin første innbetaling med Zapna, youll automatisk motta 10 euro i din Zapna balanse - så hvis 10 av vennene dine registrerer seg på Zapna, youll få 100 euro på kontoen din. Bare dele nyhetene og nyte denne flotte nye godbiten fra Zapna.</target>
             </trans-unit>
       
             <trans-unit id="94" translate="yes" reformat="yes" xml:space="default">
@@ -701,8 +701,8 @@
                 <target>er sendt</target>
             </trans-unit>
             <trans-unit id="172" translate="yes" reformat="yes" xml:space="default">
-                <source>Tell a friend about Wls!</source>
-                <target>Tips en venn om WLS!</target>
+                <source>Tell a friend about Zapna!</source>
+                <target>Tips en venn om Zapna!</target>
             </trans-unit>
             <trans-unit id="173" translate="yes" reformat="yes" xml:space="default">
                 <source>HI</source>
@@ -748,8 +748,8 @@
                 <target>SmartSim inkludert pot</target>
             </trans-unit>
             <trans-unit id="183" translate="yes" reformat="yes" xml:space="default">
-                <source>Thank you for ordering &lt;b&gt;%1%&lt;/b&gt; and becoming wls2 Customer. We welcome you to a new and huge mobile world. </source>
-                <target>Takk for bestilling &lt;b&gt;%1%&lt;/b&gt; og bli wls2 Kunden. Vi ønsker deg velkommen til en ny og stor mobile verden. </target>
+                <source>Thank you for ordering &lt;b&gt;%1%&lt;/b&gt; and becoming Zapna Customer. We welcome you to a new and huge mobile world. </source>
+                <target>Takk for bestilling &lt;b&gt;%1%&lt;/b&gt; og bli Zapna Kunden. Vi ønsker deg velkommen til en ny og stor mobile verden. </target>
             </trans-unit>
             <trans-unit id="184" translate="yes" reformat="yes" xml:space="default">
                 <source>Your customer number is </source>
@@ -776,16 +776,16 @@
                 <target></target>
             </trans-unit>
             <trans-unit id="190" translate="yes" reformat="yes" xml:space="default">
-                <source>Thank you for ordering &lt;b&gt;%1%&lt;/b&gt; and becoming wls2 Customer. We welcome you to a new and huge mobile world.</source>
-                <target>Takk for bestilling &lt;b&gt;%1%&lt;/b&gt; og bli wls2 Kunden. Vi ønsker deg velkommen til en ny og stor mobile verden.</target>
+                <source>Thank you for ordering &lt;b&gt;%1%&lt;/b&gt; and becoming Zapna Customer. We welcome you to a new and huge mobile world.</source>
+                <target>Takk for bestilling &lt;b&gt;%1%&lt;/b&gt; og bli Zapna Kunden. Vi ønsker deg velkommen til en ny og stor mobile verden.</target>
             </trans-unit>
             <trans-unit id="191" translate="yes" reformat="yes" xml:space="default">
                 <source>Your Password have been saved.</source>
                 <target>Ditt passord er lagret.</target>
             </trans-unit>
             <trans-unit id="192" translate="yes" reformat="yes" xml:space="default">
-                <source>WLS2 invitation</source>
-                <target>WLS2 invitasjon</target>
+                <source>Zapna invitation</source>
+                <target>Zapna invitasjon</target>
             </trans-unit>
             <trans-unit id="193" translate="yes" reformat="yes" xml:space="default">
                 <source>Hi </source>
@@ -796,16 +796,16 @@
                 <target>Denne invitasjonen er sendt til deg med referanse til</target>
             </trans-unit>
             <trans-unit id="195" translate="yes" reformat="yes" xml:space="default">
-                <source>a user of Smartsim from the WLS2.</source>
-                <target>en bruker av SmartSim fra WLS2</target>
+                <source>a user of Smartsim from the Zapna.</source>
+                <target>en bruker av SmartSim fra Zapna</target>
             </trans-unit>
             <trans-unit id="196" translate="yes" reformat="yes" xml:space="default">
                 <source>Please click accept to start saving money immediately with Smartsim.</source>
                 <target>Vennligst klikk godta å begynne å spare penger umiddelbart med SmartSim.</target>
             </trans-unit>
               <trans-unit id="197" translate="yes" reformat="yes" xml:space="default">
-                <source>dash-nav</source>
-                <target>dash-nav</target>
+                <source>navigation</source>
+                <target>navigasjon</target>
             </trans-unit>
             <trans-unit id="198" translate="yes" reformat="yes" xml:space="default">
                 <source>Accept</source>
@@ -816,8 +816,8 @@
                 <target>Les mer</target>
             </trans-unit>
             <trans-unit id="200" translate="yes" reformat="yes" xml:space="default">
-                <source>Your password has been changed. Please use the following information to login to your WLS2 account.</source>
-                <target>Ditt passord er endret. Vennligst bruk følgende informasjon for å logge på WLS2 konto.</target>
+                <source>Your password has been changed. Please use the following information to login to your Zapna account.</source>
+                <target>Ditt passord er endret. Vennligst bruk følgende informasjon for å logge på Zapna konto.</target>
             </trans-unit>
             <trans-unit id="201" translate="yes" reformat="yes" xml:space="default">
                 <source>Mobile Number: %s</source>
@@ -938,8 +938,8 @@
             </trans-unit>
 
     <trans-unit id="230" translate="yes" reformat="yes" xml:space="default">
-                <source>We hereby confirm that you have received commissions deposited into your account that you have referred a friend about Smartsim from wls.Go in to "Payment History" to see what you have earned.</source>
-                <target>Vi bekrefter at du har mottatt bestillinger inn på kontoen din som du har henvist en venn om SmartSim fra wls.Go i å "Payment History" for å se hva du har tjent.</target>
+                <source>We hereby confirm that you have received commissions deposited into your account that you have referred a friend about Smartsim from Zapna.Go in to "Payment History" to see what you have earned.</source>
+                <target>Vi bekrefter at du har mottatt bestillinger inn på kontoen din som du har henvist en venn om SmartSim fra Zapna.Go i å "Payment History" for å se hva du har tjent.</target>
             </trans-unit>
 
     <trans-unit id="231" translate="yes" reformat="yes" xml:space="default">
@@ -1037,7 +1037,42 @@
                 <source>Print</source>
                 <target>Skrive ut</target>
             </trans-unit>
-            
+            <trans-unit id="253" translate="yes" reformat="yes" xml:space="default">
+                <source>The customer is already registered</source>
+                <target>Kunden er allerede registrert</target>
+            </trans-unit>
+            <trans-unit id="254" translate="yes" reformat="yes" xml:space="default">
+                <source>Call</source>
+                <target>Ring</target>
+            </trans-unit>
+            <trans-unit id="255" translate="yes" reformat="yes" xml:space="default">
+                <source>There are currently no call records to show.</source>
+                <target>Det er foreløpig ingen anropregistreringene å vise.</target>
+            </trans-unit>
+            <trans-unit id="256" translate="yes" reformat="yes" xml:space="default">
+                <source>Other events</source>
+                <target>andre arrangementer</target>
+            </trans-unit>
+            <trans-unit id="257" translate="yes" reformat="yes" xml:space="default">
+                <source>Here you can join Option Package travel number. Simply press the Join button at the bottom of the page. After successful registration you will receive an email confirming the registration of additional package</source>
+                <target>Her kan du bli med utstyrspakke reiser tall. Bare trykk på Join-knappen nederst på siden. Etter vellykket registrering vil du motta en e-post som bekrefter registreringen av tilleggspakke</target>
+            </trans-unit>
+            <trans-unit id="258" translate="yes" reformat="yes" xml:space="default">
+                <source>What is Resenumber</source>
+                <target>Hva er Resenumber</target>
+            </trans-unit>
+            <trans-unit id="259" translate="yes" reformat="yes" xml:space="default">
+                <source>With Resenumber you can receive cheap calls on this number while travelling abroad.</source>
+                <target>Med Resenumber kan du motta billige samtaler på dette nummeret når du reiser utenlands.</target>
+            </trans-unit>
+            <trans-unit id="260" translate="yes" reformat="yes" xml:space="default">
+                <source>The price of the package is: 10 NOK per. Month</source>
+                <target>Prisen på pakken er: 10 NOK pr. måned</target>
+            </trans-unit>
+            <trans-unit id="261" translate="yes" reformat="yes" xml:space="default">
+                <source>The activation price is: 30 NOK</source>
+                <target>Aktiveringen Prisen er: 30 NOK</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

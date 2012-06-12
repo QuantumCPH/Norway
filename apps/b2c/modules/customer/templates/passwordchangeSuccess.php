@@ -40,7 +40,7 @@
             ?>
             <li>
              <?php echo $form['password']->renderLabel() ?>
-             <?php echo $form['password'] ?>
+             <?php echo $form['password']->render(array('value' => '')) ?>
              <?php if ($error_password): ?>
              <span id="cardno_decl" class="alertstep1">
 			  	<?php echo image_tag('../zerocall/images/decl.png', array('absolute'=>true)) ?>

@@ -447,5 +447,23 @@ div .sf_admin_action_delete
 } 
 .UpdateBtn:hover{
     background: url("../images/login-button-hover.png") no-repeat scroll 0 0 transparent !important;    
-}  
+} 
+button#trigger_startdate {
+    background-image: url("../images/date.png") !important;
+    border: medium none !important;
+    height: 16px;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle !important;
+    width: 16px;
+}
+button#trigger_enddate {
+    background-image: url("../images/date.png") !important;
+    border: medium none !important;
+    height: 16px;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle !important;
+    width: 16px;
+}
     

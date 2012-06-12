@@ -13,13 +13,13 @@
 <h3 class="newh3" style="font-size:30px"><?php //echo __("Register to Resenumber") ?></h3>
 <p><?php echo __("Here you can join Option Package travel number. Simply press the Join button at the bottom of the page. After successful registration you will receive an email confirming the registration of additional package") ?></p>
 <br/>
-<p><b><?php echo __("What is Resenumber") ?></b></p>
+<p><b><?php echo __("What is Resenumber") ?>?</b></p>
 <p>
 <?php echo __("With Resenumber you can receive cheap calls on this number while travelling abroad.") ?>
 <br/><br/>
 <?php echo __("The price of the package is: 10 NOK per. Month") ?>
 <br/>
-<?php echo __("The activation price is:     30 NOK ") ?>
+<?php echo __("The activation price is: 30 NOK") ?>
 </p>
 	<script type="text/javascript">
 	    $(function() {

@@ -29,7 +29,7 @@ $is_auto_refill_activated = $customer_form->getObject()->getAutoRefillAmount()!=
 
 $('#refill').submit(function() {
 			extra_refill = jQuery("#extra_refill option:selected").val();
-			extra_refill = parseInt(extra_refill)*100;
+			extra_refill = parseInt(extra_refill);
                         jQuery('#idcallbackurl').val(jQuery('#callbackurlfixed').val()+extra_refill);
 			jQuery('#total').val(extra_refill);
   return true;
@@ -92,15 +92,16 @@ if($is_auto_refill_activated){  ?>  <div class="left-col">
      
     <?php include_partial('navigation', array('selected'=>'refill', 'customer_id'=>$customer->getId())) ?>
 	<div class="split-form">
-    <div style="width:500px;">
-              <div> <?php echo __('The most convenient way to fill the pot is to enable automatic refilling (below), then you do not need to worry about the pot running out. Especially important is such trip abroad where it can be difficult to fill in in any other way.');?><br /><br /></div>
-            <div>     <b style="text-decoration:underline;"><?php echo __('Automatic replenishment');?></b> </div>
+          <div style="width:500px;">
+              <div style='display:none;'> 
+                <div> <?php echo __('The most convenient way to fill the pot is to enable automatic refilling (below), then you do not need to worry about the pot running out. Especially important is such trip abroad where it can be difficult to fill in in any other way.');?><br /><br /></div>
+                <div>     <b style="text-decoration:underline;"><?php echo __('Automatic replenishment');?></b> </div>
                  <br />
-              <div>   <b><?php echo __('Automatic Replenishment is: Inactive');?></b></div>
-                
+                <div>   <b><?php echo __('Automatic Replenishment is: Inactive');?></b></div>
+              </div>  
       <div class="fl col">
       <div class="split-form">  
-   <form action="https://payment.architrade.com/paymentweb/start.action" method="post" id="frmarchitrade" >
+   <form action="https://payment.architrade.com/paymentweb/start.action" method="post" id="frmarchitrade" style="display: none;" >
   <input type="hidden" name="merchant" value="90049676" />
   <input type="hidden" name="amount" value="1" />
       <input type="hidden" name="customerid" value="<?php echo   $customer_form->getObject()->getId() ?>" />
@@ -149,7 +150,7 @@ if($is_auto_refill_activated){  ?>  <div class="left-col">
     
 <br/>
 <br/>
-  <form action="https://payment.architrade.com/paymentweb/start.action"  method="post" id="refill" >
+  <form action="<?php echo $target;?>customer/refilTransaction"  method="post" id="refill" >
      <div style="width:500px;">
      <div  style="width:340px;float:left;">    <ul>
          	<!-- customer product -->
@@ -184,21 +185,20 @@ if($is_auto_refill_activated){  ?>  <div class="left-col">
   
         <!-- hidden fields -->
       
-        <input type="hidden" name="merchant" value="90049676" />
+        
         <input type="hidden" name="amount" id="total" value="" />
-        <input type="hidden" name="currency" value="978" />
-        <input type="hidden" name="orderid" value="<?php echo $randomOrderId; ?>" />
-
-    <input type="hidden" name="test" value="yes" />
-        <input type="hidden" name="lang" value="de" />
-        <input type="hidden" name="account" value="YTIP" />
-        <input type="hidden" name="addfee" value="0" />
-        <input type="hidden" name="status" value="" />
-       <input type="hidden" name="cancelurl" value="<?php echo sfConfig::get('app_epay_relay_script_url').url_for('@epay_refill_reject', true)  ?>?accept=cancel&lng=<?php echo  $sf_user->getCulture() ?>&subscriptionid=&orderid=<?php echo $order->getId(); ?>&amount=<?php echo $order->getExtraRefill(); ?>" />
-        <input type="hidden" name="callbackurl" id="idcallbackurl" value="<?php echo sfConfig::get('app_epay_relay_script_url').url_for('@dibs_refill_accept', true)  ?>?accept=yes&lng=<?php echo  $sf_user->getCulture() ?>&subscriptionid=&orderid=<?php echo $order->getId(); ?>&amount=<?php echo $order->getExtraRefill(); ?>" />
-        <input type="hidden" name="accepturl" id="idaccepturl" value="<?php echo sfConfig::get('app_epay_relay_script_url').url_for('@epay_refill_accept', true)  ?>?accept=yes&lng=<?php echo  $sf_user->getCulture() ?>&subscriptionid=&orderid=<?php echo $order->getId(); ?>&amount=<?php echo $order->getExtraRefill(); ?>" />
-        <input type="hidden" id="callbackurlfixed" value="<?php echo sfConfig::get('app_epay_relay_script_url').url_for('@dibs_refill_accept', true)  ?>?accept=yes&lng=<?php echo  $sf_user->getCulture() ?>&subscriptionid=&orderid=<?php echo $order->getId(); ?>&amount=" />
-            </div>
+        
+        <input type="hidden" name="cmd" value="_xclick" /> 
+        <input type="hidden" name="no_note" value="1" />
+        <input type="hidden" name="lc" value="NO" />
+        <input type="hidden" name="currency_code" value="NOK" />
+        <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
+        <input type="hidden" name="firstName" value="<?php echo $order->getCustomer()->getFirstName();?>"  />
+        <input type="hidden" name="lastName" value="<?php echo $order->getCustomer()->getLastName();?>"  />
+        <input type="hidden" name="payer_email" value="<?php echo $order->getCustomer()->getEmail();?>"  />
+        <input type="hidden" name="item_number" value="<?php echo $order->getId();?>" />
+        <input type="hidden" name="rm" value="2" />        
+                    </div>
           <div style="float:left;margin-top:30px;">   
        
                 <input type="submit" class="butonsigninsmall" name="button" style="width:101px;cursor: pointer;float: left; margin-left: -5px !important; margin-top: -5px;"  value="<?php echo __('Load') ?>" />

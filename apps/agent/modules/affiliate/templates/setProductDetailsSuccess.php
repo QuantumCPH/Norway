@@ -1,6 +1,6 @@
 <?php use_helper('I18N') ?>
 <?php use_helper('Number') ?>
-
+<?php ?>
 
 <script type="text/javascript">
 	

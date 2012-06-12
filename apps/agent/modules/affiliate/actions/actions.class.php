@@ -39,6 +39,7 @@ class affiliateActions extends sfActions {
         $c = new Criteria();
         $agent_company_id = $this->getUser()->getAttribute('agent_company_id', '', 'agentsession');
         $c->add(AgentCompanyPeer::ID, $agent_company_id);
+        $agent = AgentCompanyPeer::doSelectOne($c);
 
         $this->forward404Unless(AgentCompanyPeer::doSelectOne($c));
 
@@ -76,6 +77,7 @@ class affiliateActions extends sfActions {
         $ar = new Criteria();
         $ar->add(TransactionPeer::AGENT_COMPANY_ID, $agent_company_id);
         $ar->add(TransactionPeer::DESCRIPTION, 'Registration', Criteria::NOT_EQUAL);
+        $ar->addAnd(TransactionPeer::DESCRIPTION, 'Fee for change number (' . $agent->getName() . ')', Criteria::NOT_EQUAL);
         $ar->addDescendingOrderByColumn(TransactionPeer::CREATED_AT);
         $ar->addAnd(TransactionPeer::TRANSACTION_STATUS_ID, 3);
         $refills = TransactionPeer::doSelect($ar);
@@ -84,8 +86,16 @@ class affiliateActions extends sfActions {
 //                    $transactions[$i]=$refill;
 //                    $i=$i+1;
 //                }
-
+        
+        $cn = new Criteria();
+        $cn->add(TransactionPeer::AGENT_COMPANY_ID, $agent_company_id);
+        $cn->addAnd(TransactionPeer::DESCRIPTION, 'Fee for change number (' . $agent->getName() . ')', Criteria::EQUAL);
+        $cn->addDescendingOrderByColumn(TransactionPeer::CREATED_AT);
+        $cn->addAnd(TransactionPeer::TRANSACTION_STATUS_ID, 3);
+        $numberchange = TransactionPeer::doSelect($cn);
+        //var_dump($numberchange);
         $this->registrations = $registrations;
+        $this->numberchanges = $numberchange;
         $this->refills = $refills;
         $this->counter = $i - 1;
     }
@@ -291,7 +301,7 @@ class affiliateActions extends sfActions {
 
         $this->browser = new Browser();
         $this->form = new AccountRefillAgent();
-
+        $this->target = $this->getTargetUrl();
         $this->error_msg = "";
         $this->error_mobile_number = "";
         $validated = false;
@@ -510,21 +520,12 @@ class affiliateActions extends sfActions {
     public function executeRegisterCustomer(sfWebRequest $request) {
 
 
-
-        //call Culture Method For Get Current Set Culture - Against Feature# 6.1 --- 03/09/11 - Ahtsham
-      
-
-        //set referrer id
-
-
         $this->getUser()->getAttribute('agent_company_id', '', 'agentsession');
         $this->browser = new Browser();
 
         $c = new Criteria();
         $c->add(AgentCompanyPeer::ID, $this->getUser()->getAttribute('agent_company_id', '', 'agentsession'));
-        $referrer_id = AgentCompanyPeer::doSelectOne($c); //->getId();
-
-
+        $referrer_id = AgentCompanyPeer::doSelectOne($c); 
 
         if ($request->isMethod('post')) {
 
@@ -800,22 +801,8 @@ class affiliateActions extends sfActions {
 
 
             $transaction->save();
-
-
-
-
-/////////////////////////end of commission setting ////////////////////////////////////////////
-            // echo 'entering if';
-            //  echo '<br/>';
+            
             if ($agent->getIsPrepaid() == true) {
-
-                // echo 'agent is prepaid';
-                //  echo '<br/>';
-                //  echo $agent->getBalance();
-                // echo '<br/>';
-                //  echo $transaction->getCommissionAmount();
-                // echo '<br/>';
-                // echo $agent->getBalance() < $transaction->getCommissionAmount();
 
                 if ($agent->getBalance() < ($transaction->getAmount() - $transaction->getCommissionAmount())) {
                     $this->redirect('affiliate/setProductDetails?product_id=' . $order->getProductId() . '&customer_id=' . $transaction->getCustomerId() . '&balance_error=1');
@@ -833,26 +820,15 @@ class affiliateActions extends sfActions {
                     $aph->setAmount($amount);
                     $aph->setRemainingBalance($remainingbalance);
                     $aph->save();
-
-
-
-
+                    
                     ////////////////////////////////////////////
                 }
             }
         }
-
-
-
-
-
-
         $order->save();
 
-
-
         if ($is_transaction_completed) {
-            //set customer's proudcts in use
+            
             $customer_product = new CustomerProduct();
 
             $customer_product->setCustomer($order->getCustomer());
@@ -884,8 +860,6 @@ class affiliateActions extends sfActions {
             $this->customer->setUniqueid(str_replace(' ', '', $uniqueid));
             $this->customer->save();
 
-
-
             $cc = new Criteria();
             $cc->add(EnableCountryPeer::ID, $this->customer->getCountryId());
             $country = EnableCountryPeer::doSelectOne($cc);
@@ -910,11 +884,10 @@ class affiliateActions extends sfActions {
 
             Telienta::ResgiterCustomer($this->customer, $order->getExtraRefill());
             Telienta::createAAccount($TelintaMobile, $this->customer);
-            //Telienta::createCBount($TelintaMobile, $this->customer->getUniqueid());
-            //generate Email
-           // $this->getUser()->setCulture('de');
+            //Telienta::createCBAccount($TelintaMobile, $this->customer);
+           
             emailLib::sendCustomerRegistrationViaAgentEmail($this->customer, $order);
-         //   $this->getUser()->setCulture('en');
+          
             $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('Customer ') . $this->customer->getMobileNumber() . $this->getContext()->getI18N()->__(' is registered successfully'));
             $this->redirect('affiliate/receipts');
         }
@@ -993,11 +966,11 @@ class affiliateActions extends sfActions {
 
         //call Culture Method For Get Current Set Culture - Against Feature# 6.1 --- 01/24/11 - Ahtsham
       
-
-
+        $this->target = $this->getTargetUrl();
         $ca = new Criteria();
         $ca->add(AgentCompanyPeer::ID, $agent_company_id = $this->getUser()->getAttribute('agent_company_id', '', 'agentsession'));
         $agent = AgentCompanyPeer::doSelectOne($ca);
+        $this->agent = $agent;
         $this->forward404Unless($agent);
 
 
@@ -1030,26 +1003,32 @@ class affiliateActions extends sfActions {
     }
 
     public function executeThankyou(sfWebRequest $request) {
+        
+        $Parameters=$request->getURI();
 
+        $email2 = new DibsCall();
+        $email2->setCallurl($Parameters);
+        $email2->save();
+        
         $order_id = $request->getParameter('orderid');
         $amount = $request->getParameter('amount');
-
+       
         if ($order_id and $amount) {
             $c = new Criteria();
             $c->add(AgentOrderPeer::AGENT_ORDER_ID, $order_id);
             $c->add(AgentOrderPeer::STATUS, 1);
             $agent_order = AgentOrderPeer::doSelectOne($c);
 
-            $agent_order->setAmount($amount / 100);
+            $agent_order->setAmount($amount);
             $agent_order->setStatus(3);
             $agent_order->save();
 
             $agent = AgentCompanyPeer::retrieveByPK($agent_order->getAgentCompanyId());
-            $agent->setBalance($agent->getBalance() + ($amount / 100));
+            $agent->setBalance($agent->getBalance() + ($amount));
             $agent->save();
             $this->agent = $agent;
 
-            $amount = $amount / 100;
+            $amount = $amount;
             $remainingbalance = $agent->getBalance();
             $aph = new AgentPaymentHistory();
             $aph->setAgentId($agent_order->getAgentCompanyId());
@@ -1058,7 +1037,7 @@ class affiliateActions extends sfActions {
             $aph->setRemainingBalance($remainingbalance);
             $aph->save();
 
-            $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('Your Credit Card recharge of ') . $amount . $this->getContext()->getI18N()->__(' EURO is approved'));
+            $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('Your Credit Card recharge of ') . $amount . $this->getContext()->getI18N()->__(' NOK is approved'));
             emailLib::sendAgentRefilEmail($this->agent, $agent_order);
             $this->redirect('affiliate/agentOrder');
         }
@@ -1260,7 +1239,7 @@ class affiliateActions extends sfActions {
                 $transaction->setCustomerId($customer->getId());
                 $transaction->setAmount($extra_refill);
                 //get agent nam
-                $transaction->setDescription('Avgift för förändring nummer (' . $agent->getName() . ')');
+                $transaction->setDescription('Fee for change number (' . $agent->getName() . ')');
                 $transaction->setAgentCompanyId($agent->getId());
                 //assign commission to transaction;
                 
@@ -1310,7 +1289,14 @@ class affiliateActions extends sfActions {
 
                     $transaction->save();
                     if ($customer) {
-                        $newMobileNo=$countrycode.substr($newnumber,1);
+                        $getFirstnumberofMobile = substr($newnumber, 0, 1);
+                        if ($getFirstnumberofMobile == 0) {
+                             $newMobileNo = substr($newnumber, 1);
+                             $newMobileNo = $countrycode.$newMobileNo;
+                        } else {
+                            $newMobileNo = $countrycode.$newnumber;
+                        }
+                        
                         $customerids = $customer->getId();
                         $uniqueId=$customer->getUniqueid();
                         $customer->setMobileNumber($newnumber);
@@ -1338,7 +1324,36 @@ class affiliateActions extends sfActions {
                                 Telienta::terminateAccount($telintaAccount);
                             }
 
-                            Telienta::createAAccount($newMobileNo, $customer);   
+                            Telienta::createAAccount($newMobileNo, $customer);  
+                            
+                            $cb = new Criteria;
+                            $cb->add(TelintaAccountsPeer::ACCOUNT_TITLE, 'cb'. $activeNumber->getMobileNumber());
+                            $cb->addAnd(TelintaAccountsPeer::STATUS, 3);
+
+                            if(TelintaAccountsPeer::doCount($cb)>0){
+                                $telintaAccountsCB = TelintaAccountsPeer::doSelectOne($cb);
+                                Telienta::terminateAccount($telintaAccountsCB);
+                            }
+                            //Telienta::createCBAccount($newMobileNo, $customer);
+
+                            $getvoipInfo = new Criteria();
+                            $getvoipInfo->add(SeVoipNumberPeer::CUSTOMER_ID, $customerids);
+                            $getvoipInfo->addAnd(SeVoipNumberPeer::IS_ASSIGNED, 1);
+                            $getvoipInfos = SeVoipNumberPeer::doSelectOne($getvoipInfo);//->getId();
+                            if(isset($getvoipInfos)){
+                                $voipnumbers = $getvoipInfos->getNumber() ;
+                                $voipnumbers =  substr($voipnumbers,2);
+
+                                $tc = new Criteria();
+                                $tc->add(TelintaAccountsPeer::ACCOUNT_TITLE, $voipnumbers);
+                                $tc->add(TelintaAccountsPeer::STATUS,3);
+                                if(TelintaAccountsPeer::doCount($tc)>0){
+                                    $telintaAccountR = TelintaAccountsPeer::doSelectOne($tc);
+                                    Telienta::terminateAccount($telintaAccountR);
+                                }
+                                Telienta::createReseNumberAccount($voipnumbers, $customer, $newMobileNo);
+                            }else{
+                            }
                         }
 
                             $callbacklog = new CallbackLog();
@@ -1349,14 +1364,14 @@ class affiliateActions extends sfActions {
 
                          $mobile_number=substr($mobile_number,1);
                          $number = $countrycode . $mobile_number;
-                         $sms = SmsTextPeer::retrieveByPK(8);
+                         $sms = SmsTextPeer::retrieveByPK(1);
                          $sms_text = $sms->getMessageText();
                          $sms_text = str_replace(array("(oldnumber)", "(newnumber)"),array($mobile_number, $newnumber),$sms_text);
                                    
-                         ROUTED_SMS::Send($number, $sms_text,"Zapna");
+                         //ROUTED_SMS::Send($number, $sms_text,"Zapna");
                          //Send SMS ----
                          $number = $newMobileNo;
-                         ROUTED_SMS::Send($number, $sms_text,"Zapna");
+                         //ROUTED_SMS::Send($number, $sms_text,"Zapna");
                        
                     }
 //exit;
@@ -1380,7 +1395,7 @@ class affiliateActions extends sfActions {
                     $order->save();
                     $transaction->save();
                     $this->customer = $order->getCustomer();
-                    emailLib::sendRefillEmail($this->customer, $order);
+                    emailLib::sendChangeNumberEmail($this->customer, $order);
                     $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('%1% Mobile Number is changed successfully  with %2% dkk.', array("%1%" => $customer->getMobileNumber(), "%2%" => $transaction->getAmount())));
 
                     $this->redirect('affiliate/receipts');
@@ -1396,5 +1411,50 @@ class affiliateActions extends sfActions {
                 $this->error_mobile_number = 'invalid mobile number';
                 $this->getUser()->setFlash('error', 'invalid mobile number');
             }
-        }    
+        }
+   public function executeAgentRefil(sfWebRequest $request)
+    {
+        $order_id = $request->getParameter('item_number');
+        $item_amount = $request->getParameter('amount');
+                
+        $return_url = $this->getTargetUrl().'accountRefill';
+        $cancel_url = $this->getTargetUrl().'thankyou/?accept=cancel';
+        $notify_url = 'http://wls2.zerocall.com/b2c.php/pScripts/agentRefillThankyou?orderid='.$order_id.'&amount='.$item_amount;
+
+        $c = new Criteria;
+        $c->add(AgentOrderPeer::AGENT_ORDER_ID, $order_id);
+        $c->add(AgentOrderPeer::STATUS, 1);
+        $agent_order = AgentOrderPeer::doSelectOne($c);
+
+        $agent_order->setAmount($item_amount);
+        $agent_order->save();
+        
+        $querystring = '';
+        if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])){
+        
+        $item_name = "Agent Refill";
+        
+	//loop for posted values and append to querystring
+	foreach($_POST as $key => $value){
+	   $value = urlencode(stripslashes($value));
+	   $querystring .= "$key=$value&";
+	}
+        
+        $querystring .= "item_name=".urlencode($item_name)."&";
+        $querystring .= "return=".urldecode($return_url)."&";
+        $querystring .= "cancel_return=".urldecode($cancel_url)."&";
+	$querystring .= "notify_url=".urldecode($notify_url);
+        
+        //$environment = "sandbox";
+//        echo $querystring;
+        if($order_id && $item_amount){
+	   Payment::SendPayment($querystring);
+        }else{
+           echo 'error';  
+        }
+	return sfView::NONE;
+	//exit();
+
+        }
+    }
 }
