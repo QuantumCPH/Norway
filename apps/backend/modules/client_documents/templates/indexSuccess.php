@@ -35,12 +35,12 @@ while($qryObj = mysql_fetch_object($Qry)){?>
     <td><a href="<?php echo $_SERVER['PHP_SELF'];?>/edit/id/<?php echo $qryObj->id;?>"><?php echo $qryObj->id;?></a></td>
     <td><?php echo $qryObj->title;?></td>
       
-      <td>http://wls2.zerocall.com/uploads/documents/<?php echo $qryObj->filename;?></td>
-      <td><a href="http://wls2.zerocall.com/uploads/documents/<?php echo $qryObj->filename;?>" target="_blank">DOWNLOAD DOCUMENT</a></td>
+      <td>http://admin.zapna.no/uploads/documents/<?php echo $qryObj->filename;?></td>
+      <td><a href="http://admin.zapna.no/uploads/documents/<?php echo $qryObj->filename;?>" target="_blank">DOWNLOAD DOCUMENT</a></td>
   <td>
 <ul class="sf_admin_td_actions">
-  <li><a href="<?php echo $_SERVER['PHP_SELF'];?>/delete/id/<?php echo $qryObj->id;?>" onclick="if (confirm('Are you sure?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'post'; f.action = this.href;f.submit(); };return false;"><img src="http://landncall.zerocall.com/sf/sf_admin/images/delete_icon.png" title="delete" alt="delete"></a></li>
-  <li><a href="<?php echo $_SERVER['PHP_SELF'];?>/edit/id/<?php echo $qryObj->id;?>"><img src="http://wls2.zerocall.com/sf/sf_admin/images/edit_icon.png" title="edit" alt="edit"></a></li>
+  <li><a href="<?php echo $_SERVER['PHP_SELF'];?>/delete/id/<?php echo $qryObj->id;?>" onclick="if (confirm('Are you sure?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'post'; f.action = this.href;f.submit(); };return false;"><img src="http://admin.zapna.no/sf/sf_admin/images/delete_icon.png" title="delete" alt="delete"></a></li>
+  <li><a href="<?php echo $_SERVER['PHP_SELF'];?>/edit/id/<?php echo $qryObj->id;?>"><img src="http://admin.zapna.no/sf/sf_admin/images/edit_icon.png" title="edit" alt="edit"></a></li>
 </ul>
 </td>
 </tr>
@@ -50,7 +50,7 @@ while($qryObj = mysql_fetch_object($Qry)){?>
 } ?>
 </table>
 <ul class="sf_admin_actions">
-  <li><input type="button" onclick="document.location.href='http://wls2.zerocall.com/backend_dev.php/client_documents/create';" value="create" class="sf_admin_action_create"></li>
+  <li><input type="button" onclick="document.location.href='http://admin.zapna.no/backend.php/client_documents/create';" value="create" class="sf_admin_action_create"></li>
 </ul>
 </div>
 
