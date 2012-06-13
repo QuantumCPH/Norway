@@ -55,7 +55,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
 	
 	
 	<p>
-	<?php echo __('We hereby confirm that you have received commissions deposited into your account that you have referred a friend about Smartsim from zapna.Go in to "Payment History" to see what you have earned.') ?>
+	<?php echo __('We hereby confirm that you have received commissions deposited into your account that you have referred a friend about Smartsim from Zapna.Go in to "Payment History" to see what you have earned.') ?>
 	</p>
         <p>
             <a href="mailto:support@zapna.no">support@zapna.no</a>
@@ -70,7 +70,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
 <?php endif; ?>
 <table width="600px">
 	<tr style="border:0px solid #fff">
-		<td colspan="4" align="right" style="text-align:right; border:0px solid #fff"><?php echo image_tag('http://wls2.zerocall.com/images/zapna_logo_small.jpg',array('width' => '170'));?></td>
+		<td colspan="4" align="right" style="text-align:right; border:0px solid #fff"><?php echo image_tag('http://customer.zapna.no/images/zapna_logo_small.jpg',array('width' => '170'));?></td>
 	</tr>
 </table>
 
