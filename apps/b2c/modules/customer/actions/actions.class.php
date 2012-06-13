@@ -1802,12 +1802,25 @@ public function executeSmsHistory(sfWebrequest $request){
     {
         $order_id = $request->getParameter('item_number');
         $item_amount = $request->getParameter('amount');
-        
+
+
+                $order = CustomerOrderPeer::retrieveByPK($order_id);
+                $order->setExtraRefill();
+                $order->save();
+
+                $c = new Criteria;
+                $c->add(TransactionPeer::ORDER_ID, $order_id);
+                $transaction = TransactionPeer::doSelectOne($c);
+                $transaction->setAmount($item_amount);
+                $transaction->save();
+
+
+
         if($item_amount=="") $item_amount = $request->getParameter('extra_refill');
         
-        $return_url = $this->getTargetUrl().'refillAccept';
+        $return_url = $this->getTargetUrl().'customer/refillAccept';
         $cancel_url = $this->getTargetUrl().'customer/refillReject/';
-        $notify_url = $this->getTargetUrl().'pScripts/calbackrefill?order_id='.$order_id.'&amount='.$item_amount;
+        $notify_url = $this->getTargetUrl().'pScripts/calbackrefill?order_id='.$order_id.'&amountval='.$item_amount;
 
      
         $querystring = '';

@@ -273,6 +273,7 @@ class paymentsActions extends sfActions {
     public function executeConfirmpayment(sfWebRequest $request) {
         $Parameters=$request->getURI();
 
+        $Parameters=$Parameters.$request->getParameter('amount');
         $email2 = new DibsCall();
         $email2->setCallurl($Parameters);
 
