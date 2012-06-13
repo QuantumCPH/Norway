@@ -2555,7 +2555,7 @@ if(($caltype!="IC") && ($caltype!="hc")){
 
                         if ($customer->getUsageAlertEmail()) {
                             echo "Email Active<br/>";
-                            $message = '<img src="http://wls2.zerocall.com/images/zapna_logo_small.jpg" /><br>' . $usageAlert->getEmailAlertMessage() . '<br>Hilsen <br>' . $senderName;
+                            $message = '<img src="http://customer.zapna.no/images/zapna_logo_small.jpg" /><br>' . $usageAlert->getEmailAlertMessage() . '<br>Hilsen <br>' . $senderName;
                             emailLib::sendCustomerBalanceEmail($customer, $message);
                             $msgSentE->setAlertSent(1);
                         }

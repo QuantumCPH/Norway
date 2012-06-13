@@ -1419,7 +1419,7 @@ class affiliateActions extends sfActions {
                 
         $return_url = $this->getTargetUrl().'accountRefill';
         $cancel_url = $this->getTargetUrl().'thankyou/?accept=cancel';
-        $notify_url = 'http://wls2.zerocall.com/b2c.php/pScripts/agentRefillThankyou?orderid='.$order_id.'&amount='.$item_amount;
+        $notify_url = 'http://customer.zapna.no/b2c.php/pScripts/agentRefillThankyou?orderid='.$order_id.'&amount='.$item_amount;
 
         $c = new Criteria;
         $c->add(AgentOrderPeer::AGENT_ORDER_ID, $order_id);
