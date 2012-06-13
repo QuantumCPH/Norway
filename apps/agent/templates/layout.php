@@ -90,7 +90,7 @@
                 </div>
             </div>
             <div id="slogan">
-                <h1><?php echo __('CRM/Billing/Agent Portal'); ?></h1>
+                <h1 style="padding-left: 400px;"><?php echo __('CRM/Billing/Agent Portal'); ?></h1>
 <?php if ($sf_user->getAttribute('username', '', 'agentsession')) { ?>
                 <div id="loggedInUser">
                     <?php echo __('Logged in as:') ?><b>&nbsp;<?php echo $sf_user->getAttribute('username', '', 'agentsession') ?></b><br />
@@ -254,8 +254,8 @@
 <?php if ($sf_user->isAuthenticated()): ?>
                                         <div class="clr"></div>
                                         <p ><?php echo __('Provide this link to your customers while they signup with your reference.') ?>
-                                            <a href="http://wls2.zerocall.com/b2c.php/signup/step1?ref=<?php echo $sf_user->getAttribute('agent_company_id', '', 'agentsession') ?>">
-                        				http://wls2.zerocall.com/b2c.php/signup/step1?ref=<?php echo $sf_user->getAttribute('agent_company_id', '', 'agentsession') ?>
+                                            <a href="http://agent.zapna.no/b2c.php/signup/step1?ref=<?php echo $sf_user->getAttribute('agent_company_id', '', 'agentsession') ?>">
+                        				http://agent.zapna.no/b2c.php/signup/step1?ref=<?php echo $sf_user->getAttribute('agent_company_id', '', 'agentsession') ?>
                                             </a>
                                         </p>
 <?php endif; ?>
