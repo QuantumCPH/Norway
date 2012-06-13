@@ -4,7 +4,7 @@
     <?php include_http_metas() ?>
     <?php include_metas() ?>
     <?php include_title() ?>
-    <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="shortcut icon" href="http://admin.zapna.no/images/favicon.ico" type="image/x-icon">
     
     <script type="text/javascript">
     <!--

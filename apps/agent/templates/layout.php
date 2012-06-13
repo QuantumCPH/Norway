@@ -12,7 +12,7 @@
         ?>
 
 
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="http://customer.zapna.no/images/favicon.ico" type="image/x-icon">
         <style>
             .error{
                 color:!important:#F00000;
