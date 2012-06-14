@@ -42,12 +42,15 @@
             <?php echo $form['password'] ?>
             <?php // echo input_hidden_tag('referer', $_SERVER["HTTP_REFERER"])  ?>
             </div>
+
+  
               
             <div class="submitButton">
                 <button  type="submit"><?php echo __('Login') ?></button>
             </div>    
         </div>
-            <div class="right"></div>  
+            <div class="right"></div>
+              <span class="powered">Powered by <a href="http://zapna.com/" target="_blank">Zapna</a></span>
     </div>
 </form>
 </div>
