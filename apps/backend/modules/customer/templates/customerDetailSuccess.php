@@ -43,7 +43,7 @@ $pus=0;
 
 
         echo  $customer_balance;
-          echo "NOK";
+          echo " NOK";
                             }
                           
                      ?> </td>
@@ -129,7 +129,7 @@ if(isset($val) && $val!=""){  ?>
                         <td id="sf_admin_list_th_auto_refill" class="leftHeadign" >Unique ID</td>
                          <td>  <?php  echo $customer->getUniqueid();     ?>   </td>
                         </tr  >
-                         <tr style="background-color:#EEEEFF">
+<!--                         <tr style="background-color:#EEEEFF">
                        <td id="sf_admin_list_th_auto_refill" class="leftHeadign" >Active No</td>
                         <td>  <?php  $unid   =  $customer->getUniqueid();
         if(isset($unid) && $unid!=""){
@@ -149,7 +149,7 @@ if(isset($val) && $val!=""){  ?>
                }
 
          }else{  }  ?> </td>
-                         </tr>
+                         </tr>-->
                          <?php  $uid=0;
                       $uid=$customer->getUniqueid();
                       if(isset($uid) && $uid>0){
