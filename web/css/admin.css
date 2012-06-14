@@ -337,3 +337,8 @@ a.userDelete, a.userCancel{
     padding: 6px 5px;
     text-decoration: none !important;
 }
+.powered {
+    float: right;
+    font-size: 11px;
+    margin-top: 10px;
+}
