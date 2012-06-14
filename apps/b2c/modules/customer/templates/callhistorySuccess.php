@@ -36,18 +36,17 @@
 
                     <div class="dateBox-pt">
                         <div class="formRow-pt" style="float:left;">
-                            <label class="datelable">Från:</label>
+                            <label class="datelable"><?php echo __('From');?>:</label>
                             <input type="text"   name="startdate" autocomplete="off" id="startdate" style="width: 110px;" value="<?php echo @$fromdate ? $fromdate : date('Y-m-d', strtotime('-15 days')); ?>" />
                         </div>
                         <div class="formRow-pt1" style="float:left;margin-left:7px;">
-                            &nbsp;<label class="datelable">Till:</label>
+                            &nbsp;<label class="datelable"><?php echo __('To');?>:</label>
                             <input type="text"   name="enddate" autocomplete="off" id="enddate" style="width: 110px;" value="<?php echo @$todate ? $todate : date('Y-m-d'); ?>" />
                         </div>
                         <div class="formRow-pt1" style="float:left;margin-left:7px;">
 
-                            <span style="margin-left:10px;"><input type="submit" name="sök" value="sök" class="submitBtn" /></span>
+                            <span style="margin-left:10px;"><input type="submit" name="sök" value="<?php echo __('Search')?>" class="submitBtn" /></span>
                         </div>
-
                     </div>
 
                 </form>
@@ -83,13 +82,13 @@
                     </tr>
 
                     <tr>
-                        <th align="left" colspan="5"  style="background-color: #CCCCFF;color: #000000;text-align: left;">Call History</th>
+                        <th align="left" colspan="5"  style="background-color: #CCCCFF;color: #000000;text-align: left;"><?php echo __('Call History');?></th>
 
                     </tr>
                     <tr  style="background-color: #CCCCFF;color: #000000;">
-                        <th width="20%"   align="left"><?php echo __('Date &amp; time') ?></th>
-                        <th  width="20%"  align="left"><?php echo __('till Number') ?></th>
-                        <th  width="20%"  align="left"><?php echo __('från Number') ?></th>
+                        <th width="20%"   align="left"><?php echo __('Date & time') ?></th>
+                        <th  width="20%"  align="left"><?php echo __('To Number') ?></th>
+                        <th  width="20%"  align="left"><?php echo __('From Number') ?></th>
                         <th width="10%"   align="left"><?php echo __('Duration') ?></th>
                         <th width="20%"   align="left"><?php echo __('Cost') ?> (NOK)</th>
                         <th width="10%"   align="left"><?php echo __('Typ') ?></th>
@@ -172,7 +171,7 @@
                     <h1><?php echo __("Other events"); ?> </h1>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="callhistory">
                         <tr>
-                            <td class="title"><?php echo __('Date &amp; time') ?></td>
+                            <td class="title"><?php echo __('Date & time') ?></td>
                             <td class="title" width="40%"><?php echo __('Description') ?></td>
                                 <td class="title"><?php echo __('Amount') ?></td>
                             </tr>
@@ -185,7 +184,7 @@
 
                             <tr>
                                 <td><?php echo date("Y-m-d H:i:s", strtotime($xdr->bill_time)); ?></td>
-                                <td><?php echo $xdr->CLD; ?></td>
+                                <td><?php echo __($xdr->CLD); ?></td>
                                 <td><?php echo $xdr->charged_amount; ?></td>
                             </tr>
                             <?php } }else {
@@ -198,7 +197,7 @@
                                             <h1><?php echo __("Payment History"); ?> </h1>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="callhistory">
                         <tr>
-                            <td class="title"><?php echo __('Date &amp; time') ?></td>
+                            <td class="title"><?php echo __('Date & time') ?></td>
                             <td class="title" width="40%"><?php echo __('Description') ?></td>
                                 <td class="title"><?php echo __('Amount') ?></td>
                             </tr>
@@ -211,8 +210,8 @@
 
                             <tr>
                                 <td><?php echo date("Y-m-d H:i:s", strtotime($xdr->bill_time)); ?></td>
-                                <td><?php echo $xdr->CLD; ?></td>
-                                <td><?php echo $xdr->charged_amount*-1; ?></td>
+                                <td><?php echo __($xdr->CLD); ?></td>
+                                <td><?php echo $xdr->charged_amount*-1; ?>NOK</td>
                             </tr>
                             <?php } }else {
 
@@ -223,22 +222,16 @@
                     <h1><?php echo __("Call"); ?> </h1>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="callhistory">
                             <tr>
-                                <td class="title"><?php echo __('Date &amp; time') ?></td>
+                                <td class="title"><?php echo __('Date & time') ?></td>
                                 <td class="title" width="40%"><?php echo __('Phone Number') ?></td>
                                 <td class="title"><?php echo __('Duration') ?></td>
                                 <td class="title"><?php echo __('VAT') ?></td>
                                 <td class="title"><?php echo __('Cost') ?></td>
-                                <td class="title"><?php echo __('Samtalstyp') ?></td>
+                                <td class="title"><?php echo __('Call Type') ?></td>
                             </tr>
 
 <?php
                             $amount_total = 0;
-
-
-
-
-
-
                             $tilentaCallHistryResult = Telienta::callHistory($customer, $fromdate . ' 00:00:00', $todate . ' 23:59:59');
 
 
@@ -321,10 +314,7 @@
 ?>
 
 
-                                    <tr><td colspan="6" align="left">Samtalstyp  type detail <br/> Int. = Internationella samtal<br/>
-                                            Cb M = Callback mottaga<br/>
-                    	Cb S = Callback samtal<br/>
-                    	R = resenummer samtal<br/>
+                                    <tr><td colspan="6" align="left">
                                         </td></tr> <?php } ?>
                                 </table>
 

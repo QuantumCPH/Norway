@@ -303,8 +303,8 @@
                 <target>Bestill Nummer</target>
             </trans-unit>
             <trans-unit id="75" translate="yes" reformat="yes" xml:space="default">
-                <source>Date &amp; time</source>
-                <target>Dato &amp; tid</target>
+                <source>Date & time</source>
+                <target>Dato og tid</target>
             </trans-unit>
             <trans-unit id="76" translate="yes" reformat="yes" xml:space="default">
                 <source>Description</source>
@@ -359,8 +359,8 @@
                 <target>Det er foreløpig ingen SMS-poster å vise.</target>
             </trans-unit>
             <trans-unit id="88" translate="yes" reformat="yes" xml:space="default">
-                <source>Tell your friends about Zapna &amp; tjene ekstra balanse!</source>
-                <target>Fortell vennene dine om Zapna &amp; </target>
+                <source>Tell your friends about Zapna & tjene ekstra balanse!</source>
+                <target>Fortell vennene dine om Zapna & </target>
             </trans-unit>
             <trans-unit id="89" translate="yes" reformat="yes" xml:space="default">
                 <source>Tell your friends about Zapna and earn 10 euro as soon as your friends have made their first payment with Zapna! Spread the word about Zapna and let your friends know about Zapna services.</source>
@@ -586,7 +586,7 @@
             </trans-unit>
              <trans-unit id="144" translate="yes" reformat="yes" xml:space="default">
                 <source>Auto refill amount:</source>
-                <target>Auto refill beløp::</target>
+                <target>Auto refill beløp:</target>
             </trans-unit>
              <trans-unit id="145" translate="yes" reformat="yes" xml:space="default">
                 <source>Zapna recommends to activate this service so you &lt;br /&gt; do not have to manually  refill when your account&lt;br /&gt;  balance runs low. 100 or 200 NOK each  when the &lt;br /&gt; balances reaches 25 or 50 NOK. This facility is &lt;br /&gt; added to your account in minutes.</source>
@@ -1051,7 +1051,7 @@
             </trans-unit>
             <trans-unit id="256" translate="yes" reformat="yes" xml:space="default">
                 <source>Other events</source>
-                <target>andre arrangementer</target>
+                <target>Andre arrangementer</target>
             </trans-unit>
             <trans-unit id="257" translate="yes" reformat="yes" xml:space="default">
                 <source>Here you can join Option Package travel number. Simply press the Join button at the bottom of the page. After successful registration you will receive an email confirming the registration of additional package</source>
@@ -1072,6 +1072,42 @@
             <trans-unit id="261" translate="yes" reformat="yes" xml:space="default">
                 <source>The activation price is: 30 NOK</source>
                 <target>Aktiveringen Prisen er: 30 NOK</target>
+            </trans-unit>
+            <trans-unit id="262" translate="yes" reformat="yes" xml:space="default">
+                <source>To Number</source>
+                <target>Til Nummer</target>
+            </trans-unit>
+            <trans-unit id="263" translate="yes" reformat="yes" xml:space="default">
+                <source>From Number</source>
+                <target>Fra Nummer</target>
+            </trans-unit>
+            <trans-unit id="264" translate="yes" reformat="yes" xml:space="default">
+                <source>Cost</source>
+                <target>Kostnad</target>
+            </trans-unit>
+            <trans-unit id="265" translate="yes" reformat="yes" xml:space="default">
+                <source>Search</source>
+                <target>Søk</target>
+            </trans-unit>
+            <trans-unit id="266" translate="yes" reformat="yes" xml:space="default">
+                <source>To</source>
+                <target>Til</target>
+            </trans-unit>
+            <trans-unit id="267" translate="yes" reformat="yes" xml:space="default">
+                <source>From</source>
+                <target>Fra</target>
+            </trans-unit>
+            <trans-unit id="268" translate="yes" reformat="yes" xml:space="default">
+                <source>Manual payment</source>
+                <target>Manuell Betaling</target>
+            </trans-unit>
+            <trans-unit id="269" translate="yes" reformat="yes" xml:space="default">
+                <source>Charge</source>
+                <target>Charge</target>
+            </trans-unit>
+            <trans-unit id="270" translate="yes" reformat="yes" xml:space="default">
+                <source>Refill</source>
+                <target>Refill</target>
             </trans-unit>
         </body>
     </file>
