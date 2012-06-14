@@ -11,9 +11,14 @@
 
 <label> Start date/time</label>
 <?php echo input_date_tag('startdate', date('Y-m-d'), 'rich=true') ?>
+  <input type="text"   name="startdate" autocomplete="off" id="startdate" style="width: 90px;"  />
 <br /><br />
 <label>  End date/time</label>
- <?php echo input_date_tag('enddate', date('Y-m-d'), 'rich=true') ?>
+
+ <input type="text"   name="enddate" autocomplete="off" id="enddate" style="width: 90px;"  />
 <br/>
 <input type="submit" value="Generate Report" />
 </div>
+
+
+
