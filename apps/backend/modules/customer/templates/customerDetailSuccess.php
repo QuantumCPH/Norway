@@ -33,8 +33,6 @@ $pus=0;
                                    $pus = 0;
 
                                   $pus=$products->getProductCountryUs();
-                                   
-
                if($pus==1){
                             $Tes=ForumTel::getBalanceForumtel($customer->getId());
                                echo  $amt=CurrencyConverter::convertUsdToSek($Tes);
