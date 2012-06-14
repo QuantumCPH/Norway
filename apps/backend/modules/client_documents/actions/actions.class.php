@@ -18,7 +18,8 @@ class client_documentsActions extends sfActions
         //$DB_Password 	= "";
 	$DB_DBName   	= "norway";
 	$success= mysql_pconnect($DB_Server, $DB_Username, $DB_Password);	
-	mysql_select_db($DB_DBName);	
+	mysql_select_db($DB_DBName);
+            
   }
 
   public function executeNew(sfWebRequest $request)
@@ -31,7 +32,7 @@ class client_documentsActions extends sfActions
   	
 	$DB_Server 	= "localhost";
 	$DB_Username 	= "root";
-	$DB_Password 	= "1Qazxsw@";
+	$DB_Password 	= "@wsxzaQ1";
         //$DB_Password 	= "";
 	$DB_DBName   	= "norway";
 	$success= mysql_pconnect($DB_Server, $DB_Username, $DB_Password);	
@@ -66,7 +67,7 @@ class client_documentsActions extends sfActions
 	$this->editId = $EditId;
   	$DB_Server 	= "localhost";
 	$DB_Username 	= "root";
-	$DB_Password 	= "1Qazxsw@";
+	$DB_Password 	= "@wsxzaQ1";
         //$DB_Password 	= "";
 	$DB_DBName   	= "norway";
 	$success= mysql_pconnect($DB_Server, $DB_Username, $DB_Password);	
