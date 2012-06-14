@@ -82,9 +82,9 @@
                 	<td colspan="3" align="right"><strong>Total</strong></td>
                 	<td colspan="3"><?php echo format_number($amount_total) ?>
                             <?php if($lang=="pl"){
-                               // echo ('plz');
+                                echo ('plz');
                             }else if($lang=="en"){
-                               // echo ('eur');
+                                echo ('eur');
                             }else{
                                 echo ('nok');
                             } ?></td>

@@ -2,7 +2,9 @@
 header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
 ?>
 <?php use_helper('I18N') ?>
-<?php use_helper('Number') ?>
+<?php use_helper('Number') ;
+
+?>
 <?php include_partial('dashboard_header', array('customer'=> $customer, 'section'=>__('Dashboard')) ) ?>
   <div class="left-col">
     <?php include_partial('navigation', array('selected'=>'dashboard', 'customer_id'=>$customer->getId())) ?>

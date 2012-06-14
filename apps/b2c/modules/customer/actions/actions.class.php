@@ -244,7 +244,8 @@ class customerActions extends sfActions {
 
     public function executeDashboard(sfWebRequest $request) {
         //call Culture Method For Get Current Set Culture - Against Feature# 6.1 --- 02/28/11
-       
+        $languages = $request->getLanguages();
+       // var_dump($languages);
         $this->customer = CustomerPeer::retrieveByPK($this->getUser()->getAttribute('customer_id', '', 'usersession'));
 
         $this->redirectUnless($this->customer, "@homepage");
