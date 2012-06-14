@@ -88,16 +88,7 @@ class customerActions extends autocustomerActions
       $response_text .= '<br/>';
 
       $response_text .= "Exiting gracefully ... done!";
-        ForumTel::reSetBalance($customer_id);
-
-         $tc = new Criteria();
-            $tc->add(UsNumberPeer::CUSTOMER_ID, $customer_id);
-            $usnumber = UsNumberPeer::doSelectOne($tc);
-            $usnumber->setActiveStatus(1);
-            $usnumber->setUsMobileNumber(null);
-            $usnumber->setCustomerId(null);
-
-             $usnumber->save();
+     
 
 
       $this->response_text=$response_text;
