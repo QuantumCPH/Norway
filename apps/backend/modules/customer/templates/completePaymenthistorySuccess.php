@@ -68,7 +68,7 @@
                             }else if($lang=="en"){
                                 echo ('eur');
                             }else{
-                                echo ('DK');
+                                echo ('NOK');
                             } ?></td>
                 
                 </tr>
@@ -86,7 +86,7 @@
                             }else if($lang=="en"){
                                 echo ('eur');
                             }else{
-                                echo ('DK');
+                                echo ('NOK');
                             } ?></td>
                 </tr>	
                 <?php endif; ?>

@@ -36,7 +36,7 @@
         </div>
         <div class="form-row">
             <div class="content">
-                <input type="submit" name="Refill Customer" value="Refill Customer"  style='background: url("http://admin.zerocall.com/sf/sf_admin/images/b.png") repeat-x scroll left center transparent;
+                <input type="submit" name="Refill Customer" value="Refill Customer"  style='background: url("http://admin.zapna.no/sf/sf_admin/images/b.png") repeat-x scroll left center transparent;
     border: 1px solid #D44D05 !important;color: #FFFFff;' />
             </div>
         </div>
