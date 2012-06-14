@@ -45,6 +45,7 @@
 // set alert if customer is not yet registered with fonet
 
 //$alert_fonet_customer = CustomerPeer::
+echo "culture-----".$this->getUser()->getCulture();
 ?>
 
 <!-- end header --> <?php echo $sf_content; ?></div>
