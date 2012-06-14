@@ -389,7 +389,7 @@ public function executePaymenthistory(sfWebRequest $request)
                 $transaction->setTransactionFrom(2);
 
                     $transaction->save();
-                    BillingSystem::charge($customer, $transaction->getAmount());
+                    Telienta::charge($customer, $transaction->getAmount(),$request->getParameter('transaction_description'));
                     //set status
                     $order->setOrderStatusId(3);
                     $transaction->setTransactionStatusId(3);
@@ -397,7 +397,7 @@ public function executePaymenthistory(sfWebRequest $request)
                     $transaction->save();
                     $this->customer = $order->getCustomer();
                     emailLib::sendAdminRefillEmail($this->customer, $order);
-                    $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('%1% account is successfully charged with %2% dkk.', array("%1%" => $customer->getMobileNumber(), "%2%" => $transaction->getAmount())));
+                    $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('%1% account is successfully charged with %2% NOK.', array("%1%" => $customer->getMobileNumber(), "%2%" => $transaction->getAmount())));
 //                                        echo 'rehcarged, redirecting';
                     $this->redirect($this->getTargetURL() . 'customer/selectChargeCustomer');
                 } else {
@@ -468,7 +468,7 @@ public function executePaymenthistory(sfWebRequest $request)
                 $transaction->setDescription($request->getParameter('transaction_description'));
                 $transaction->setTransactionFrom('2');
                 $transaction->save();
-                BillingSystem::refill($customer, $transaction->getAmount());
+                Telienta::recharge($customer, $transaction->getAmount(),$request->getParameter('transaction_description'));
                 //set status
                 $order->setOrderStatusId(3);
                 $transaction->setTransactionStatusId(3);
@@ -476,7 +476,7 @@ public function executePaymenthistory(sfWebRequest $request)
                 $transaction->save();
                 $this->customer = $order->getCustomer();
                 emailLib::sendAdminRefillEmail($this->customer, $order);
-                $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('%1% account is successfully refilled with %2% dkk.', array("%1%" => $customer->getMobileNumber(), "%2%" => $transaction->getAmount())));
+                $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('%1% account is successfully refilled with %2% NOK.', array("%1%" => $customer->getMobileNumber(), "%2%" => $transaction->getAmount())));
                 //                                        echo 'rehcarged, redirecting';
                 $this->redirect($this->getTargetURL() . 'customer/selectRefillCustomer');
                 } else {
