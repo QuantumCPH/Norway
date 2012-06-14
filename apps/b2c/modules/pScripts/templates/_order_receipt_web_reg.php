@@ -68,7 +68,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
 	<?php echo __('Yours sincerely,') ?>
 	</p>
         <p>
-	<?php echo __('XXXXXXX') ?>
+	<?php echo __('Zapn APs') ?>
 	</p>
 	<br />
 <?php endif; ?>
@@ -162,7 +162,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
   </tr>
   <tr class="footer">
     <td class="payer_summary" colspan="4" style="font-weight:normal; white-space: nowrap;"> 
-    <?php echo __('Zapna&nbsp;&nbsp;&nbsp;Box XXXXX, XX-XXX XX XXXXXXX&nbsp;&nbsp;&nbsp; Org.nr.XXXXXX-XXXX')?> </td>
+    <?php echo __('Zapna ApS - Postboks 5093 Majorstua - 0301 Oslo')?> </td>
   </tr>
 </table>
         
