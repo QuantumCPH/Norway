@@ -525,6 +525,18 @@ jQuery('#sf_admin_edit_form').validate({
 <?php } ?>
     <script language="javascript" type="text/javascript">
 
+jQuery(function(){
+
+
+
+	jQuery( "#startdate" ).datepicker({ minDate: '-2m +0w',maxDate: '0m +0w', dateFormat: 'yy-mm-dd' });
+	jQuery( "#enddate" ).datepicker({ minDate: '-2m +0w',maxDate: '0m +0w', dateFormat: 'yy-mm-dd'});
+        jQuery( "#stdate" ).datepicker({maxDate: '0m +0w', dateFormat: 'yy-mm-dd' });
+        jQuery( "#endate" ).datepicker({maxDate: '0m +0w', dateFormat: 'yy-mm-dd'});
+
+    });
+
+
 	jQuery('#company_vat_no').blur(function(){
 		//remove all the class add the messagebox classes and start fading
 		jQuery("#msgbox").removeClass().addClass('messagebox').text('<?php echo __('Checking...') ?>').fadeIn("slow");
