@@ -1,7 +1,10 @@
 fields:
-  usage_alert{alert_amount}:
+  usage_alert{alert_amount_min}:
     required:
-      msg:              The alert amount cannot be left blank.
+      msg:              The alert amount min cannot be left blank.
+  usage_alert{alert_amount_max}:
+    required:
+      msg:              The alert amount max cannot be left blank.
   usage_alert{sms_alert_message}:
     required:
       msg:              The sms alert message cannot be left blank.
