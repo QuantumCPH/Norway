@@ -1021,10 +1021,6 @@
                 <source>Your settings have been saved.</source>
                 <target>Innstillingene er lagret</target>
             </trans-unit>
-            <trans-unit id="148" translate="yes" reformat="yes" xml:space="default">
-                <source>Active</source>
-                <target>Aktiv</target>
-            </trans-unit>
             <trans-unit id="250" translate="yes" reformat="yes" xml:space="default">
                 <source>Invaild mobile number or password.</source>
                 <target>Invaild mobilnummer eller passord.</target>
