@@ -1478,5 +1478,104 @@ public static function sendAdminRefilEmail(AgentCompany $agent,$agent_order)
         endif;
         //-----------------------------------------
     }
+
+
+public static function sendAdminRefilEmail(AgentCompany $agent,$agent_order)
+
+    {
+        $vat = 0;
+
+        //create transaction
+
+
+
+
+
+        //This Section For Get The Agent Information
+        $agent_company_id = $agent->getId();
+        if($agent_company_id!=''){
+            $c = new Criteria();
+            $c->add(AgentCompanyPeer::ID, $agent_company_id);
+            $recepient_agent_email  = AgentCompanyPeer::doSelectOne($c)->getEmail();
+            $recepient_agent_name = AgentCompanyPeer::doSelectOne($c)->getName();
+        }else{
+            $recepient_agent_email  = '';
+            $recepient_agent_name = '';
+        }
+
+        //$this->renderPartial('affiliate/order_receipt', array(
+        $agentamount=$agent_order->getAmount();
+        $createddate=$agent_order->getCreatedAt('m-d-Y');
+        $agentid=$agent_order->getAgentOrderId();
+        $order_des=$agent_order->getOrderDescription();
+        sfContext::getInstance()->getConfiguration()->loadHelpers('Partial');
+        $message_body = get_partial('agent_company/agent_order_receipt', array(
+                'order'=>$agentid,
+                'transaction'=>$agentamount,
+                'createddate'=>$createddate,
+                'description'=>$order_des,
+                'vat'=>$vat,
+                'agent_name'=>$recepient_agent_name,
+                'wrap'=>false,
+                'agent' => $agent
+        ));
+
+
+        $subject = __('Agent Payment Confirmation');
+
+
+       //Support Information
+        $sender_email = sfConfig::get('app_email_sender_email', 'okhan@zapna.com');
+        $sender_emailcdu = sfConfig::get('app_email_sender_email_cdu', 'jan.larsson@landncall.com');
+        $sender_name = sfConfig::get('app_email_sender_name', 'LandNCall AB');
+        $sender_namecdu = sfConfig::get('app_email_sender_name_cdu', 'LandNCall AB');
+
+        //------------------Sent The Email To Customer
+
+        //----------------------------------------
+
+        //------------------Sent the Email To Agent
+        if (trim($recepient_agent_email)!=''):
+
+            $email2 = new EmailQueue();
+            $email2->setSubject($subject);
+            $email2->setReceipientName($recepient_agent_name);
+            $email2->setReceipientEmail($recepient_agent_email);
+            $email2->setAgentId($agent_company_id);
+             $email2->setEmailType('LandNCall Agent refill via admin');
+            $email2->setMessage($message_body);
+
+            $email2->save();
+         endif;
+        //---------------------------------------
+
+       //--------------Sent The Email To okhan
+         if (trim($sender_email)!=''):
+            $email3 = new EmailQueue();
+            $email3->setSubject($subject);
+            $email3->setReceipientName($sender_name);
+            $email3->setReceipientEmail($sender_email);
+            $email3->setAgentId($agent_company_id);
+            $email3->setEmailType('LandNCall Agent refill via admin');
+            $email3->setMessage($message_body);
+            $email3->save();
+        endif;
+        //-----------------------------------------
+          //--------------Sent The Email To cdu
+         if (trim($sender_emailcdu)!=''):
+            $email4 = new EmailQueue();
+            $email4->setSubject($subject);
+            $email4->setReceipientName($sender_namecdu);
+            $email4->setReceipientEmail($sender_emailcdu);
+            $email4->setAgentId($agent_company_id);
+            $email4->setEmailType('LandNCall Agent refill via admin');
+            $email4->setMessage($message_body);
+            $email4->save();
+        endif;
+        //-----------------------------------------
+    }
+
+
+
 }
 ?>
