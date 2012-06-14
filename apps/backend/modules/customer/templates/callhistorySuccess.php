@@ -153,7 +153,7 @@ if($pus==1){
         </div>
             
 
-                <h1><?php echo 'Övriga händelser'; ?> </h1>
+                <h1><?php echo 'Call History'; ?> </h1>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="callhistory">
                         <tr>
                             <td class="title"><?php echo __('Date &amp; time') ?></td>
@@ -179,7 +179,7 @@ if($pus==1){
                             } ?>
                         </table><br/><br/>
 
-                           <h1><?php echo 'Betalningshistorik'; ?> </h1>
+                           <h1><?php echo 'Payment History'; ?> </h1>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="callhistory">
                         <tr>
                             <td class="title"><?php echo __('Date &amp; time') ?></td>
@@ -321,11 +321,11 @@ echo  date('i:s',$callval);
           if($pus==0){
         ?>
 
-                    <tr><td colspan="6" align="left">Samtalstyp  type detail <br/> Int. = Internationella samtal<br/>
+<!--                    <tr><td colspan="6" align="left">Samtalstyp  type detail <br/> Int. = Internationella samtal<br/>
                             Cb M = Callback mottaga<br/>
                         	Cb S = Callback samtal<br/>
                         	R = resenummer samtal<br/>
-                        </td></tr>
+                        </td></tr>-->
 
                     <?php } ?>
                 </table>
