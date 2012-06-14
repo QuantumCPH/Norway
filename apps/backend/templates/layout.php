@@ -195,18 +195,18 @@
             <li>
                 <a href="#"
                 onmouseover="mopen('m7')"
-                onmouseout="mclosetime()" <?php echo $modulName=='newupdate' ||  $modulName=='agent_company' || $modulName=='faqs' || $modulName=='userguide'? 'class = "current"':''?>><?php echo __('Updates') ?></a>
+                onmouseout="mclosetime()" <?php echo $modulName=='newupdate' ||  $modulName=='faqs' || $modulName=='userguide'? 'class = "current"':''?>><?php echo __('Updates') ?></a>
                 <div id="m7"
                     onmouseover="mcancelclosetime()"
                     onmouseout="mclosetime()">
 
 
                       <?php
-                    if($actionName=='newsList' && $modulName=="agent_company"){
-                      echo link_to(__('List All Updates'), 'agent_company/newsList', array('class'=>'subSelect'));
-                    }else{
-                      echo link_to(__('List All Updates'), 'agent_company/newsList');
-                    }
+//                    if($actionName=='newsList' && $modulName=="agent_company"){
+//                      echo link_to(__('List All Updates'), 'agent_company/newsList', array('class'=>'subSelect'));
+//                    }else{
+//                      echo link_to(__('List All Updates'), 'agent_company/newsList');
+//                    }
                     ?>
 
 

@@ -6,7 +6,7 @@ generator:
     css:     /sf/sf_admin/css/admin_main.css
     list:
       title: New update List
-      display: [  heading , message ,   starting_date ,  expire_date,created_at]
+      display: [id,  heading , message ,   starting_date ,  expire_date,created_at]
       object_actions:
         _edit: ~
         _delete: ~
