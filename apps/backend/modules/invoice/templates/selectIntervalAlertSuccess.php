@@ -10,7 +10,7 @@
 
 
 <label> Start date/time</label>
-<?php echo input_date_tag('startdate', date('Y-m-d'), 'rich=true') ?>
+ 
   <input type="text"   name="startdate" autocomplete="off" id="startdate" style="width: 90px;"  />
 <br /><br />
 <label>  End date/time</label>
