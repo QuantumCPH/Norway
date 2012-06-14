@@ -1,6 +1,6 @@
 <?php use_helper('I18N') ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="no" lang="no">
 <head>
 
 <?php include_http_metas() ?>
@@ -45,7 +45,7 @@
 // set alert if customer is not yet registered with fonet
 
 //$alert_fonet_customer = CustomerPeer::
-echo "culture-----".$this->getUser()->getCulture();
+
 ?>
 
 <!-- end header --> <?php echo $sf_content; ?></div>

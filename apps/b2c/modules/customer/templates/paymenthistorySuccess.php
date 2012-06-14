@@ -76,7 +76,7 @@
                   <td><?php echo  $transaction->getCreatedAt() ?></td>
                   <td><?php 
                   if($transaction->getDescription()=="Anmeldung inc. sprechen"){
-                      echo "Smartsim inklusive pott";
+                   //   echo "Smartsim inklusive pott";
                       
                   }else{
                     echo  $transaction->getDescription();
@@ -88,7 +88,7 @@
                             }else if($lang=="en"){
                                 echo ('eur');
                             }else{
-                                echo ('SEK');
+                                echo ('NOK');
                             } ?></td>
 <!--                  <td><a href="#" class="receipt" onclick="javascript: window.open('<?php echo url_for('payments/showReceipt?tid='.$transaction->getId(), true) ?>')"><?php echo $transaction->getAmount()>=0?__('Paid'):__('Refund') ?></a></td>-->
                 </tr>
@@ -106,7 +106,7 @@
                             }else if($lang=="en"){
                                 echo ('eur');
                             }else{
-                                echo ('SEK');
+                                echo ('NOK');
                             } ?></td>
                 	<td>&nbsp;</td>
                 </tr>	
