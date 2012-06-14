@@ -70,17 +70,9 @@ $wrap_content  = isset($wrap)?$wrap:false;
   </tr>
   <tr>
   <td colspan="4" class="payer_summary">
-	Telefonv&atilde;XXX XX
-	<br />
-	XXX XX X&atilde;XXXXXX
-	<br />
-	
-	<br />
-	Tel:      +XX XX XX XX XXX
-	<br />	
-	<br />
-	Cvr:     XXXXXXX
-	<br />
+	Zapna ApS <br />Postboks 5093 Majorstua<br />
+        0301 Oslo
+	 	<br />
   </td>
   </tr>
   <tr bgcolor="#CCCCCC" class="receipt_header"> 
@@ -179,5 +171,5 @@ $wrap_content  = isset($wrap)?$wrap:false;
 
 <p>
 <?php echo __('Support') ?><br />
-Zapna
+Zapna ApS
 </p>

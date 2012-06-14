@@ -53,16 +53,10 @@ $wrap_content  = isset($wrap)?$wrap:false;
   </tr>
   <tr>
   <td colspan="4" class="payer_summary">
-	Telefonv&atilde;gen 30
-	<br />
-	126 37 H&atilde;gersten
-	<br />
+	Zapna ApS<br />	
+        Postboks 5093 Majorstua<br />
+        0301 Oslo
 	
-	<br />
-	Tel:      +46 85 17 81 100
-	<br />	
-	<br />
-	Cvr:     32068219
 	<br />
   </td>
   </tr>
