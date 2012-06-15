@@ -39,7 +39,7 @@ if($pus==1){
         <th  width="20%"  align="left"><?php echo __('From Number') ?></th>
         <th width="10%"   align="left"><?php echo __('Duration') ?></th>
         <th width="20%"   align="left"><?php echo __('Cost') ?> (NOK)</th>
-        <th width="10%"   align="left"><?php echo __('Typ') ?></th>
+        <th width="10%"   align="left"><?php echo __('Type') ?></th>
     </tr>
         <?php
         $customerid = $customer->getId();

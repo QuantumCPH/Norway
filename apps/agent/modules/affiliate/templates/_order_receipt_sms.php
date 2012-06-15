@@ -136,7 +136,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('VAT') ?> (<?php echo $vat==0?'0%':'25%' ?>)</td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($vat) ?>NOK</td>
+    <td><?php echo format_number($vat) ?> NOK</td>
   </tr>
   <tr class="footer">
     <td>&nbsp;</td>
