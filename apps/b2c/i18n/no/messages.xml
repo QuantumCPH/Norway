@@ -434,7 +434,7 @@
             </trans-unit>
             <trans-unit id="106" translate="yes" reformat="yes" xml:space="default">
                 <source>Message upto 302 characters will be considered as 2 sms</source>
-                <target>Message upto 302 characters will be considered as 2 sms</target>
+                <target>Melding opptil 302 tegn vil bli vurdert som 2 sms</target>
             </trans-unit>
             <trans-unit id="107" translate="yes" reformat="yes" xml:space="default">
                 <source>Message upto 432 characters will be considered as 3 SMS</source>
@@ -1020,11 +1020,7 @@
             <trans-unit id="249" translate="yes" reformat="yes" xml:space="default">
                 <source>Your settings have been saved.</source>
                 <target>Innstillingene er lagret</target>
-            </trans-unit>
-            <trans-unit id="250" translate="yes" reformat="yes" xml:space="default">
-                <source>Invaild mobile number or password.</source>
-                <target>Invaild mobilnummer eller passord.</target>
-            </trans-unit>
+            </trans-unit>            
              <trans-unit id="251" translate="yes" reformat="yes" xml:space="default">
                 <source>Refund</source>
                 <target>Tilbakebetaling</target>

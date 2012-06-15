@@ -1153,7 +1153,7 @@ public function executeBalanceEmail(sfWebRequest $request)
                    $email_msg .= "\r\n balance < 25 && balance > 10";
                     //echo 'mail sent to you';
                    $subject         = 'Test Email: Balance Email ' ;
-                   $message_body    = "Test Email:  Your balance is below 25dkk , please refill otherwise your account will be closed. \r\n - Zerocall Support \r\n Company Contact Info";
+                   $message_body    = "Test Email:  Your balance is below 25NOK , please refill otherwise your account will be closed. \r\n - Zerocall Support \r\n Company Contact Info";
 
                     //This Seciton For Make The Log History When Complete registration complete - Agent
                     //echo sfConfig::get('sf_data_dir');

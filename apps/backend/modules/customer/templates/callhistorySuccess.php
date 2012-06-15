@@ -132,15 +132,15 @@ if($pus==1){
                     <div class="form-row">
                         <label><?php echo __('From');?>:</label>
                         <div class="content">
-
-                            <?php echo input_date_tag('startdate', $fromdate, 'rich=true') ?>
+                            <input id="startdate" class="hasDatepicker" type="text" size="12" value="" name="startdate" />
+                            <?php //echo input_date_tag('startdate', $fromdate, 'rich=true') ?>
                         </div>
                     </div>
                     <div class="form-row">
                         <label><?php echo __('To');?>:</label>
                         <div class="content">
-
-                            <?php echo input_date_tag('enddate', $todate, 'rich=true') ?>
+                                <input id="enddate" class="hasDatepicker" type="text" size="12" value="" name="enddate" />
+                            <?php //echo input_date_tag('enddate', $todate, 'rich=true') ?>
                         </div>
                     </div>
 
@@ -153,12 +153,12 @@ if($pus==1){
         </div>
             
 
-                <h1><?php echo 'Call History'; ?> </h1>
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="callhistory">
-                        <tr>
-                            <td class="title"><?php echo __('Date &amp; time') ?></td>
-                            <td class="title" width="40%"><?php echo __('Description') ?></td>
-                                <td class="title"><?php echo __('Amount') ?></td>
+                <h1><?php echo 'Other Events'; ?> </h1>
+                    <table width="100%" cellspacing="0" cellpadding="2" class="tblAlign" border='0'>
+                        <tr class="headings">
+                            <th class="title"><?php echo __('Date &amp; time') ?></th>
+                            <th class="title" width="40%"><?php echo __('Description') ?></th>
+                                <th class="title"><?php echo __('Amount') ?></th>
                             </tr>
                         <?php
                         $tilentaCallHistryResult = Telienta::callHistory($customer, $fromdate . ' 00:00:00', $todate . ' 23:59:59', false, 1);
@@ -180,11 +180,11 @@ if($pus==1){
                         </table><br/><br/>
 
                            <h1><?php echo 'Payment History'; ?> </h1>
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="callhistory">
-                        <tr>
-                            <td class="title"><?php echo __('Date &amp; time') ?></td>
-                            <td class="title" width="40%"><?php echo __('Description') ?></td>
-                                <td class="title"><?php echo __('Amount') ?></td>
+                    <table width="100%" cellspacing="0" cellpadding="2" class="tblAlign" border='0'>
+                        <tr class="headings">
+                            <th class="title"><?php echo __('Date &amp; time') ?></th>
+                            <th class="title" width="40%"><?php echo __('Description') ?></th>
+                                <th class="title"><?php echo __('Amount') ?></th>
                             </tr>
                         <?php
                         $tilentaCallHistryResult = Telienta::callHistory($customer, $fromdate . ' 00:00:00', $todate . ' 23:59:59', false, 2);
@@ -207,7 +207,7 @@ if($pus==1){
 
 
 
-    <h1>Samtal</h1>
+    <h1>Call</h1>
 
                 <table width="100%" cellspacing="0" cellpadding="2" class="tblAlign" border='0'>
                 <tr class="headings">
@@ -217,7 +217,7 @@ if($pus==1){
                     <th  width="10%"  align="left"><?php echo __('VAT') ?></th>
                     <th width="20%"   align="left"><?php echo __('Cost') ?></th>
                    
-                    <th  width="20%"   align="left">Samtalstyp</th>
+                    <th  width="20%"   align="left">Call Type</th>
                   </tr>
    <?php
                 $amount_total = 0;

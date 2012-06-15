@@ -92,7 +92,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td><?php echo __('Date') ?></td>
     <td><?php echo __('Description') ?></td>
     <td><?php echo __('Quantity') ?></td>
-    <td><?php echo __('Amount') ?></td>
+    <td><?php echo __('Amount') ?>(NOK)</td>
   </tr>
   <tr> 
     <td><?php echo $createddate ?></td>
@@ -114,7 +114,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Subtotal') ?></td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($subtotal) ?>NOK</td>
+    <td><?php echo format_number($subtotal) ?></td>
   </tr>
   <tr class="footer"> 
     <td>&nbsp;</td>
