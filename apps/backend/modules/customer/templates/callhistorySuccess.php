@@ -156,9 +156,9 @@ if($pus==1){
                 <h1><?php echo 'Call History'; ?> </h1>
                     <table width="100%" cellspacing="0" cellpadding="2" class="tblAlign" border='0'>
                         <tr class="headings">
-                            <td class="title"><?php echo __('Date &amp; time') ?></td>
-                            <td class="title" width="40%"><?php echo __('Description') ?></td>
-                                <td class="title"><?php echo __('Amount') ?></td>
+                            <th class="title"><?php echo __('Date &amp; time') ?></th>
+                            <th class="title" width="40%"><?php echo __('Description') ?></th>
+                                <th class="title"><?php echo __('Amount') ?></th>
                             </tr>
                         <?php
                         $tilentaCallHistryResult = Telienta::callHistory($customer, $fromdate . ' 00:00:00', $todate . ' 23:59:59', false, 1);
@@ -182,9 +182,9 @@ if($pus==1){
                            <h1><?php echo 'Payment History'; ?> </h1>
                     <table width="100%" cellspacing="0" cellpadding="2" class="tblAlign" border='0'>
                         <tr class="headings">
-                            <td class="title"><?php echo __('Date &amp; time') ?></td>
-                            <td class="title" width="40%"><?php echo __('Description') ?></td>
-                                <td class="title"><?php echo __('Amount') ?></td>
+                            <th class="title"><?php echo __('Date &amp; time') ?></th>
+                            <th class="title" width="40%"><?php echo __('Description') ?></th>
+                                <th class="title"><?php echo __('Amount') ?></th>
                             </tr>
                         <?php
                         $tilentaCallHistryResult = Telienta::callHistory($customer, $fromdate . ' 00:00:00', $todate . ' 23:59:59', false, 2);
