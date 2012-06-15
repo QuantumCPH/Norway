@@ -18,8 +18,8 @@
    
   <tr>
     <th width="25%"><?php echo __('Transaction Type') ?></th>
-    <th width="25%"><?php echo __('Amount') ?>NOK </th>
-    <th width="25%"><?php echo __('Remaining Balance') ?> </th>
+    <th width="25%"><?php echo __('Amount') ?> (NOK) </th>
+    <th width="25%"><?php echo __('Remaining Balance') ?> (NOK)</th>
     <th width="25%"><?php echo __('Date') ?> </th>
       
   </tr>
@@ -44,7 +44,7 @@
         echo $tdd->getTitle();        
     }
      ?></td>
-  <td><?php  echo $agent->getAmount();   ?>NOK</td>
+  <td><?php  echo $agent->getAmount();   ?> </td>
     <td><?php  echo $agent->getRemainingBalance();  ?></td>
       <td><?php  echo $agent->getCreatedAt();  ?></td>
       

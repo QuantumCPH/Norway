@@ -802,7 +802,7 @@ class customerActions extends sfActions {
         if ($country_id) {
             $langSym = $country_id->getLanguageSymbol();
         } else {
-            $langSym = 'da';
+            $langSym = 'no';
         }
         //--------------------------------------------------------
         //$lang =  $this->getUser()->getAttribute('activelanguage');

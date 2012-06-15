@@ -1,6 +1,14 @@
 <?php use_helper('I18N') ?>
 <?php use_helper('Number') ?>
+<script type="text/javascript">
+    jQuery(function() {
 
+        jQuery( "#startdate" ).datepicker({  dateFormat: 'yy-mm-dd' });
+        jQuery( "#enddate" ).datepicker({ dateFormat: 'yy-mm-dd'});
+
+
+    });
+</script>
 <div id="sf_admin_container">
 <div class="alert_bar">
     <?php echo __('Call history is a 5 -10 min delay.') ?>
@@ -39,7 +47,7 @@ if($pus==1){
         <th  width="20%"  align="left"><?php echo __('From Number') ?></th>
         <th width="10%"   align="left"><?php echo __('Duration') ?></th>
         <th width="20%"   align="left"><?php echo __('Cost') ?> (NOK)</th>
-        <th width="10%"   align="left"><?php echo __('Typ') ?></th>
+        <th width="10%"   align="left"><?php echo __('Type') ?></th>
     </tr>
         <?php
         $customerid = $customer->getId();
@@ -132,15 +140,15 @@ if($pus==1){
                     <div class="form-row">
                         <label><?php echo __('From');?>:</label>
                         <div class="content">
-                            <input id="startdate" class="hasDatepicker" type="text" size="12" value="" name="startdate" />
-                            <?php //echo input_date_tag('startdate', $fromdate, 'rich=true') ?>
+                            <input type="text" value="2012-05-31"  id="startdate" autocomplete="off" name="startdate" class="hasDatepicker" />
+                            <?php //echo input_text_tag('startdate', $fromdate, 'rich=true') ?>
                         </div>
                     </div>
                     <div class="form-row">
                         <label><?php echo __('To');?>:</label>
                         <div class="content">
-                                <input id="enddate" class="hasDatepicker" type="text" size="12" value="" name="enddate" />
-                            <?php //echo input_date_tag('enddate', $todate, 'rich=true') ?>
+                                <input id="enddate" class="hasDatepicker" type="text" size="12" value="2012-05-31" name="enddate" autocomplete="off" />
+                            <?php //echo input_text_tag('enddate', $todate, 'rich=true') ?>
                         </div>
                     </div>
 
@@ -158,7 +166,7 @@ if($pus==1){
                         <tr class="headings">
                             <th class="title"><?php echo __('Date &amp; time') ?></th>
                             <th class="title" width="40%"><?php echo __('Description') ?></th>
-                                <th class="title"><?php echo __('Amount') ?></th>
+                                <th class="title"><?php echo __('Amount') ?> NOK</th>
                             </tr>
                         <?php
                         $tilentaCallHistryResult = Telienta::callHistory($customer, $fromdate . ' 00:00:00', $todate . ' 23:59:59', false, 1);
@@ -215,7 +223,7 @@ if($pus==1){
                     <th  width="20%"  align="left"><?php echo __('Phone Number') ?></th>
                     <th width="10%"   align="left"><?php echo __('Duration') ?></th>
                     <th  width="10%"  align="left"><?php echo __('VAT') ?></th>
-                    <th width="20%"   align="left"><?php echo __('Cost') ?></th>
+                    <th width="20%"   align="left"><?php echo __('Cost') ?> NOK</th>
                    
                     <th  width="20%"   align="left">Call Type</th>
                   </tr>

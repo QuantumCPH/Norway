@@ -9,7 +9,7 @@
                 <?php echo $sf_user->getFlash('message') ?>
         </div>
         <?php endif;?>
-</div>   
+</div>   <br />
 <div id="sf_admin_container"  style="border: 1px solid #D44D05;background-color: #FCD9C9;">
    
     <h1 style="margin-top: 0;"><?php echo __('Refill Customer') ?></h1><br />

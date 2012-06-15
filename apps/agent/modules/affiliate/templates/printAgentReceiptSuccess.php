@@ -115,7 +115,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Total') ?></td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($agent_order->getAmount()) ?>NOK</td>
+    <td><?php echo format_number($agent_order->getAmount()) ?> NOK</td>
   </tr>
 </table>
 <?php if($wrap_content): ?>

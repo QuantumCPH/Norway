@@ -69,7 +69,7 @@
 //                            }else if($lang=="en"){
 //                                echo ('eur');
 //                            }else{
-//                                echo ('NOK');
+                                echo ('NOK');
 //                            } ?></td>
                 
                 </tr>
@@ -82,13 +82,14 @@
                 <tr>
                 	<td align="right" colspan="3"><strong>Total</strong></td>
                 	<td ><?php echo format_number($amount_total) ?>
-                            <?php if($lang=="pl"){
-                                echo ('plz');
-                            }else if($lang=="en"){
-                                echo ('eur');
-                            }else{
+                            <?php 
+//                            if($lang=="pl"){
+//                                echo ('plz');
+//                            }else if($lang=="en"){
+//                                echo ('eur');
+//                            }else{
                                 echo ('NOK');
-                            } ?></td>
+//                            } ?></td>
                 </tr>	
                 <?php endif; ?>
               </table>
