@@ -33,6 +33,7 @@ class CompanyEmployeActivation {
         $pb = new PortaBillingSoapClient(self::$telintaSOAPUrl, 'Admin', 'Customer');
         
         $vatNumber = "NOB2B" . $company->getVatNo();
+
         while (!$tCustomer && $retry_count < $max_retries) {
             try {
                 $tCustomer = $pb->add_customer(array('customer_info' => array(
@@ -41,7 +42,7 @@ class CompanyEmployeActivation {
                                 'i_parent' => self::$iParent,
                                 'i_customer_type' => 1,
                                 'opening_balance' => -(5000),
-                                'credit_limit' => null,
+                                'credit_limit' => '5000',
                                 'dialing_rules' => array('ip' => '00'),
                                 'email' => 'okh@zapna.com'
                                 )));
@@ -393,6 +394,34 @@ class CompanyEmployeActivation {
         }
         
         return $xdrList;
+    }
+
+    public static function updateCustomer($update_customer_request){
+        $customer = false;
+        $max_retries = 5;
+        $retry_count = 0;
+
+        $pb = new PortaBillingSoapClient(self::$telintaSOAPUrl, 'Admin', 'Customer');
+
+        while (!$customer && $retry_count < $max_retries) {
+            try {
+                $customer = $pb->update_customer(array('customer_info' => $update_customer_request));
+            } catch (SoapFault $e) {
+                if ($e->faultstring != 'Could not connect to host') {
+                    emailLib::sendErrorInTelinta("Customer Update: " . $update_customer_request["i_customer"] . " Error!", "We have faced an issue in Company updation on telinta. this is the error for comapny with icustomer: " . $update_customer_request["i_customer"] . " error is " . $e->faultstring . " <br/> Please Investigate.");
+
+                    return false;
+                }
+            }
+            sleep(0.5);
+            $retry_count++;
+        }
+        if ($retry_count == $max_retries) {
+            emailLib::sendErrorInTelinta("Customer Update: " . $update_customer_request["i_customer"] . " Error!", "We have faced an issue in Company updation on telinta. Error is Even After Max Retries".$max_retries." <br/> Please Investigate.");
+            return false;
+        }
+        return true;
+
     }
 
     public static function randomPrefix($length) {
