@@ -251,7 +251,8 @@ class paymentsActions extends sfActions {
 
         //set customer order
         $customer_order = CustomerOrderPeer::retrieveByPK($transaction->getOrderId());
-
+       // $this->customer_order = $customer_order;
+        $customerorder = $customer_order->getIsFirstOrder();
         if ($customer_order) {
             $vat = $customer_order->getIsFirstOrder() ?
                     ($customer_order->getProduct()->getRegistrationFee()+$postalcharge) * .25 : 0;
@@ -266,6 +267,7 @@ class paymentsActions extends sfActions {
             'transaction' => $transaction,
             'vat' => $vat,
             'postalcharge'=>$postalcharge,
+            'customerorder'=>$customerorder,
         ));
 
         return sfView::NONE;
