@@ -84,7 +84,7 @@
                 <tr>
                 	<td colspan="2" align="right"><strong><?php echo __('Subtotal') ?></strong></td>
                 	<!--
-                	<td><?php echo format_number($amount_total-$amount_total*.20) ?> dkk</td>
+                	<td><?php echo format_number($amount_total-$amount_total*.20) ?> NOK</td>
                 	 -->
                          <td><?php echo number_format($amount_total, 2, ',', '') ?> NOK</td>
                 </tr>
