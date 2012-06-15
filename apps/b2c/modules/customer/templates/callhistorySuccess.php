@@ -168,7 +168,7 @@
 
                         <?php } else {
  ?>        
-                    <div class="callhistoryheadings"><h2><?php echo __("Other events"); ?> </h2></div>
+                    <div class="callhistoryheadings"><h2><?php echo __("Other events"); ?> </h2></div><br />
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="callhistory">
                         <tr>
                             <td class="title"><?php echo __('Date & time') ?></td>
@@ -194,7 +194,7 @@
                             } ?>
                         </table><br/><br/>
 
-                                           <div class="callhistoryheadings"><h2><?php echo __("Payment History"); ?> </h2></div>
+                                           <div class="callhistoryheadings"><h2><?php echo __("Payment History"); ?> </h2></div><br />
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="callhistory">
                         <tr>
                             <td class="title"><?php echo __('Date & time') ?></td>
@@ -219,7 +219,7 @@
 
                             } ?>
                         </table><br/><br/>
-                    <div class="callhistoryheadings"><h2><?php echo __("Call"); ?> </h2></div>
+                    <div class="callhistoryheadings"><h2><?php echo __("Call"); ?> </h2></div><br />
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="callhistory">
                             <tr>
                                 <td class="title"><?php echo __('Date & time') ?></td>
