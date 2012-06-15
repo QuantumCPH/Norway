@@ -84,7 +84,7 @@ function countChar(str)
           
 
 <br/>
-<h3><?php echo __('Tell your friends about Zapna & earn extra balance!') ?></h3>
+<h3><?php echo __('Tell your friends about Zapna and earn extra balance!') ?></h3>
 <p style="align:justified;"><?php echo __('Tell your friends about Zapna and earn 10 euro as soon as your friends have made their first payment with Zapna! Spread the word about Zapna and let your friends know about Zapna services.') ?></p>
 <br/>
 <h3><?php echo __('How does it work?'); ?></h3>
