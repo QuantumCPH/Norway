@@ -101,6 +101,12 @@
 				  	<?php echo $company->getWebsite()?$company->getWebsite():'N/A' ?>
 				  </div>
 				</div>
+                                <div class="form-row">
+				  <label class="required"><?php echo  __('Credit Limit:') ?></label>
+				  <div class="content">
+				  	<?php echo $company->getWebsite()?$company->getWebsite():'N/A' ?>
+				  </div>
+				</div>
 
 				<div class="form-row">
 				  <label class="required"><?php echo  __('Company Size') ?></label>
@@ -126,7 +132,7 @@
 				<div class="form-row">
 				  <label class="required"><?php echo  __('Customer Type:') ?></label>
 				  <div class="content">
-				  	<?php echo $company->getCustomerType()?$company->getCustomerType():'N/A' ?>
+				  	<?php echo $company->getCreditLimit();?>
 				  </div>
 				</div>
 				
