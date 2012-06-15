@@ -140,15 +140,15 @@ if($pus==1){
                     <div class="form-row">
                         <label><?php echo __('From');?>:</label>
                         <div class="content">
-                            <input type="text" value="2012-05-31"  id="startdates" autocomplete="off" name="startdate" class="hasDatepicker" />
-                            <?php //echo input_text_tag('startdate', $fromdate, 'rich=true') ?>
+<!--                            <input type="text" value="2012-05-31"  id="startdates" autocomplete="off" name="startdate" class="hasDatepicker" />-->
+                            <?php echo input_text_tag('startdate', $fromdate, 'rich=true') ?>
                         </div>
                     </div>
                     <div class="form-row">
                         <label><?php echo __('To');?>:</label>
                         <div class="content">
-                                <input id="enddates" class="hasDatepicker" type="text" size="12" value="2012-05-31" name="enddate" autocomplete="off" />
-                            <?php //echo input_text_tag('enddate', $todate, 'rich=true') ?>
+<!--                                <input id="enddates" class="hasDatepicker" type="text" size="12" value="2012-05-31" name="enddate" autocomplete="off" />-->
+                            <?php echo input_text_tag('enddate', $todate, 'rich=true') ?>
                         </div>
                     </div>
 
