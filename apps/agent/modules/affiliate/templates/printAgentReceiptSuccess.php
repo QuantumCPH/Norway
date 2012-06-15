@@ -9,9 +9,6 @@ use_helper('Number');
 
 	table.receipt {
 		width: 600px;
-		//font-family: arial;
-		//font-size: .7em;
-
 		border: 2px solid #ccc;
 	}
 
@@ -89,7 +86,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td><?php echo __('Date') ?></td>
     <td><?php //echo __('Description') ?></td>
     <td><?php echo __('Quantity') ?></td>
-    <td><?php echo __('Amount') ?></td>
+    <td><?php echo __('Amount') ?>(NOK)</td>
   </tr>
   <tr>
     <td><?php echo $agent_order->getCreatedAt('m-d-Y') ?></td>
@@ -118,7 +115,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Total') ?></td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($agent_order->getAmount()) ?></td>
+    <td><?php echo format_number($agent_order->getAmount()) ?>NOK</td>
   </tr>
 </table>
 <?php if($wrap_content): ?>

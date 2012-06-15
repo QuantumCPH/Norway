@@ -75,7 +75,7 @@ use_helper('Number');
     <td><?php echo __('Date') ?></td>
     <td><?php echo __('Description') ?></td>
     <td><?php echo __('Quantity') ?></td>
-    <td><?php echo __('Amount') ?></td>
+    <td><?php echo __('Amount') ?>(NOK)</td>
   </tr>
   <tr>
     <td><?php echo $order->getCreatedAt('m-d-Y') ?></td>
@@ -86,7 +86,7 @@ use_helper('Number');
     ?>
 	</td>
     <td><?php echo $order->getQuantity() ?></td>
-    <td><?php echo format_number($transaction->getAmount()); ?>NOK</td>
+    <td><?php echo format_number($transaction->getAmount()); ?></td>
   </tr>
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>
@@ -95,7 +95,7 @@ use_helper('Number');
     <td>&nbsp;</td>
     <td><?php echo __('Subtotal') ?></td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($subTotal = $transaction->getAmount()) ?>NOK</td>
+    <td><?php echo format_number($subTotal = $transaction->getAmount()) ?></td>
   </tr>
 
   <tr class="footer">

@@ -95,7 +95,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td><?php echo __('Date') ?></td>
     <td><?php echo __('Description') ?></td>
     <td><?php echo __('Quantity') ?></td>
-    <td><?php echo __('Amount') ?></td>
+    <td><?php echo __('Amount') ?>(NOK)</td>
   </tr>
   <tr>
     <td><?php echo $agent_order->getCreatedAt('m-d-Y') ?></td>
@@ -103,7 +103,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
 
     </td>
     <td><?php //echo $agent_order->getQuantity() ?></td>
-    <td><?php echo format_number($subtotal = $agent_order->getAmount()) //($order->getProduct()->getPrice() - $order->getProduct()->getPrice()*.2) * $order->getQuantity()) ?>NOK</td>
+    <td><?php echo format_number($subtotal = $agent_order->getAmount()) //($order->getProduct()->getPrice() - $order->getProduct()->getPrice()*.2) * $order->getQuantity()) ?></td>
   </tr>
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>
@@ -112,7 +112,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Subtotal') ?></td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($subtotal) ?>NOK</td>
+    <td><?php echo format_number($subtotal) ?></td>
   </tr>
   <tr class="footer">
     <td>&nbsp;</td>
