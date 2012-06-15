@@ -148,6 +148,7 @@ class companyActions extends sfActions {
 
             //var_dump($companyData);
             //var_dump($company);
+            $company->setCreditLimit('5000');
             $company->save();
 
             $transaction = new CompanyTransaction();
@@ -159,6 +160,9 @@ class companyActions extends sfActions {
             $transaction->setDescription('Company Registered');
             $transaction->save();
         } elseif (!$company->isNew()) {
+            $update_customer['i_customer']=$company->getICustomer();
+            $update_customer['credit_limit']=($company->getCreditLimit()!='')?$company->getCreditLimit():'0';
+            $res = CompanyEmployeActivation::updateCustomer($update_customer);
             $company->save();
         } elseif (!$res) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -223,6 +227,9 @@ class companyActions extends sfActions {
         }
         if (isset($company['agent_company_id'])) {
             $this->company->setAgentCompanyId($company['agent_company_id'] ? $company['agent_company_id'] : null);
+        }
+        if (isset($company['credit_limit'])) {
+            $this->company->setCreditLimit($company['credit_limit'] ? $company['credit_limit'] : null);
         }
         if (isset($company['registration_date'])) {
             if ($company['registration_date']) {
@@ -368,6 +375,7 @@ class companyActions extends sfActions {
             'company{registration_date}' => 'Registration date:',
             'company{created_at}' => 'Created at:',
             'company{file_path}' => 'Registration Doc:',
+            'company{credit_limit}' => 'Credit Limit:',
         );
     }
 
@@ -448,6 +456,39 @@ class companyActions extends sfActions {
         } else {
             echo "yes";
         }
+    }
+
+    public function executeIndexAll(sfWebRequest $request) {
+        $c = new Criteria();
+        $this->companies = CompanyPeer::doSelect($c);
+    }
+
+     public function executeEditCreditLimit(sfWebRequest $request) {
+      $count=0;
+      $count=count($request->getParameter('company_id'));
+      $creditlimit=$request->getParameter('creditlimit');
+
+        for($i=0; $i<$count; $i++){
+            $id=$request->getParameter('company_id');
+
+            $company = CompanyPeer::retrieveByPk($id[$i]);
+            $oldcreditlimit=$company->getCreditLimit();
+            $company->setCreditLimit($creditlimit);
+            $company->save();
+               $update_customer['i_customer']=$company->getICustomer();
+            $update_customer['credit_limit']=($company->getCreditLimit()!='')?$company->getCreditLimit():'0';
+          if(!CompanyEmployeActivation::updateCustomer($update_customer)){
+               $company->setCreditLimit($oldcreditlimit);
+            $company->save();
+          }
+
+
+
+        }
+
+          $this->getUser()->setFlash('message', 'All Selected Companies Credit Limit is updated');
+             $this->redirect('company/indexAll');
+                return sfView::NONE;
     }
 
 }
