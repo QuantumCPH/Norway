@@ -434,7 +434,7 @@
             </trans-unit>
             <trans-unit id="106" translate="yes" reformat="yes" xml:space="default">
                 <source>Message upto 302 characters will be considered as 2 sms</source>
-                <target>Message upto 302 characters will be considered as 2 sms</target>
+                <target>Melding opptil 302 tegn vil bli vurdert som 2 sms</target>
             </trans-unit>
             <trans-unit id="107" translate="yes" reformat="yes" xml:space="default">
                 <source>Message upto 432 characters will be considered as 3 SMS</source>
