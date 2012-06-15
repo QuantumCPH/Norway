@@ -380,7 +380,7 @@ public function executePaymenthistory(sfWebRequest $request)
                 $transaction->setTransactionFrom(2);
 
                     $transaction->save();
-                    Telienta::charge($customer, $transaction->getAmount(),$request->getParameter('transaction_description'));
+                    Telienta::charge($customer, $extra_refill,$request->getParameter('transaction_description'));
                     //set status
                     $order->setOrderStatusId(3);
                     $transaction->setTransactionStatusId(3);
