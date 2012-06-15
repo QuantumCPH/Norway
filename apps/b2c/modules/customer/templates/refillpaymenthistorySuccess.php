@@ -51,7 +51,7 @@
                             }else if($lang=="en"){
                                // echo ('eur');
                             }else{
-                                echo ('nok');
+                                echo ('NOK');
                             } ?></td>
                   <td><a href="#" class="receipt" onclick="javascript: window.open('<?php echo url_for('payments/showReceipt?tid='.$transaction->getId(), true) ?>')"><?php echo $transaction->getAmount()>=0?__('Paid'):__('Refund') ?></a></td>
                   <td nowrap="nowrap"><a href="#" style=" white-space: nowrap" class="receipt" onclick="iprint(preview_<?php echo $transaction->getId();?>);return false;"><?php echo __('Print'); ?>
@@ -86,7 +86,7 @@
                             }else if($lang=="en"){
                                 echo ('eur');
                             }else{
-                                echo ('nok');
+                                echo ('NOK');
                             } ?></td>
                 </tr>	
                 <?php endif; ?>
