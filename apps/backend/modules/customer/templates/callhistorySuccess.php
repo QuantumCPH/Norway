@@ -153,7 +153,7 @@ if($pus==1){
         </div>
             
 
-                <h1><?php echo 'Call History'; ?> </h1>
+                <h1><?php echo 'Other Events'; ?> </h1>
                     <table width="100%" cellspacing="0" cellpadding="2" class="tblAlign" border='0'>
                         <tr class="headings">
                             <th class="title"><?php echo __('Date &amp; time') ?></th>
