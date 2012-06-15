@@ -156,7 +156,7 @@
         }
         }
       echo  $balnc=(float)$telintaGetBalance+(float)$telintaGetBalancecb+(float)$telintaGetBalanceres;
-          echo " Sek";
+          echo " NOK";
                                                 ?></td>
 
       <?php } ?>
