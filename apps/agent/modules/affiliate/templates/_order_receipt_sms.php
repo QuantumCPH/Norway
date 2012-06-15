@@ -130,19 +130,19 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Subtotal') ?></td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($subtotal) ?></td>
+    <td><?php echo format_number($subtotal) ?>NOK</td>
   </tr>
   <tr class="footer"> 
     <td>&nbsp;</td>
     <td><?php echo __('VAT') ?> (<?php echo $vat==0?'0%':'25%' ?>)</td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($vat) ?></td>
+    <td><?php echo format_number($vat) ?>NOK</td>
   </tr>
   <tr class="footer">
     <td>&nbsp;</td>
     <td><?php echo __('Total') ?></td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($transaction->getAmount()) ?></td>
+    <td><?php echo format_number($transaction->getAmount()) ?>NOK</td>
   </tr>
 </table>
 <?php if($wrap_content): ?>

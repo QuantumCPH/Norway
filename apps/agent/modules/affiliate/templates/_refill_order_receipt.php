@@ -86,7 +86,7 @@ use_helper('Number');
     ?>
 	</td>
     <td><?php echo $order->getQuantity() ?></td>
-    <td><?php echo format_number($transaction->getAmount()); ?></td>
+    <td><?php echo format_number($transaction->getAmount()); ?>NOK</td>
   </tr>
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>
@@ -95,7 +95,7 @@ use_helper('Number');
     <td>&nbsp;</td>
     <td><?php echo __('Subtotal') ?></td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($subTotal = $transaction->getAmount()) ?></td>
+    <td><?php echo format_number($subTotal = $transaction->getAmount()) ?>NOK</td>
   </tr>
 
   <tr class="footer">
@@ -108,14 +108,14 @@ use_helper('Number');
     <td>&nbsp;</td>
     <td><?php echo __('Total') ?></td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($subTotal+$vat) ?></td>
+    <td><?php echo format_number($subTotal+$vat) ?>NOK</td>
   </tr>
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>
   </tr>
   <tr class="footer">
     <td class="payer_summary" colspan="4" style="font-weight:normal; white-space: nowrap;">
-    <?php echo __('Zapna&nbsp;&nbsp;&nbsp;&nbsp;Box XXXXX, XX-XXX XX XXXXXXX&nbsp;&nbsp;&nbsp; XXX.XX.XXXXXX-XXXX');?> </td>
+    <?php echo __('Zapna - Postboks 5093 Majorstua - 0301 Oslo');?> </td>
   </tr>
 </table>
         

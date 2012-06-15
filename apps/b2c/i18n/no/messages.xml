@@ -1101,6 +1101,15 @@
                 <source>Charge</source>
                 <target>Charge</target>
             </trans-unit>
+            <trans-unit id="270" translate="yes" reformat="yes" xml:space="default">
+                <source>Please Enter The Destination Number</source>
+                <target>Skriv inn målnummer</target>
+            </trans-unit>
+            <trans-unit id="270" translate="yes" reformat="yes" xml:space="default">
+                <source>Please Enter The Message</source>
+                <target>Skriv inn melding</target>
+            </trans-unit>
+            
         </body>
     </file>
 </xliff>
