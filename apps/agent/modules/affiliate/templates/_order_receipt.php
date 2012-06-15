@@ -107,7 +107,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td><?php echo __('Date') ?></td>
     <td><?php echo __('Description') ?></td>
     <td><?php echo __('Quantity') ?></td>
-    <td><?php echo __('Amount') ?></td>
+    <td><?php echo __('Amount') ?>(NOK)</td>
   </tr>
   <tr>
     <td><?php echo $order->getCreatedAt('m-d-Y') ?></td>
@@ -118,7 +118,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     ?>
 	</td>
     <td><?php echo $order->getQuantity() ?></td>
-    <td><?php echo format_number($order->getProduct()->getRegistrationFee()); ?>NOK</td>
+    <td><?php echo format_number($order->getProduct()->getRegistrationFee()); ?></td>
   </tr>
   <tr>
     <td></td>
@@ -129,7 +129,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     ?>
 	</td>
     <td><?php echo $order->getQuantity() ?></td>
-    <td><?php echo format_number($order->getProduct()->getPrice()); ?>NOK</td>
+    <td><?php echo format_number($order->getProduct()->getPrice()); ?></td>
   </tr>
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>
@@ -151,7 +151,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Total') ?></td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($subTotal+$vat) ?>NOK</td>
+    <td><?php echo format_number($subTotal+$vat) ?></td>
   </tr>
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>
