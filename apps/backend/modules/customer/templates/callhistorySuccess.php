@@ -1,6 +1,14 @@
 <?php use_helper('I18N') ?>
 <?php use_helper('Number') ?>
+<script type="text/javascript">
+    jQuery(function() {
 
+        jQuery( "#startdate" ).datepicker({  dateFormat: 'yy-mm-dd' });
+        jQuery( "#enddate" ).datepicker({ dateFormat: 'yy-mm-dd'});
+
+
+    });
+</script>
 <div id="sf_admin_container">
 <div class="alert_bar">
     <?php echo __('Call history is a 5 -10 min delay.') ?>
@@ -132,7 +140,7 @@ if($pus==1){
                     <div class="form-row">
                         <label><?php echo __('From');?>:</label>
                         <div class="content">
-                            <input type="text" value="2012-05-31" style="width: 110px;" id="startdate" autocomplete="off" name="startdate" class="hasDatepicker" />
+                            <input type="text" value="2012-05-31"  id="startdate" autocomplete="off" name="startdate" class="hasDatepicker" />
                             <?php //echo input_text_tag('startdate', $fromdate, 'rich=true') ?>
                         </div>
                     </div>
