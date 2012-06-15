@@ -242,7 +242,7 @@ public function executePaymenthistory(sfWebRequest $request)
                 if($country_id){
                     $langSym = $country_id->getLanguageSymbol();
                 }else{
-                    $langSym = 'da';
+                    $langSym = 'no';
                 }
                 //--------------------------------------------------------
                 //$lang =  $this->getUser()->getAttribute('activelanguage');
@@ -541,7 +541,7 @@ public function executeCompletePaymenthistory(sfWebRequest $request)
                     if($country_id){
                     $langSym = $country_id->getLanguageSymbol();
                     }else{
-                    $langSym = 'da';
+                    $langSym = 'no';
                     }
                     //--------------------------------------------------------
                     //$lang =  $this->getUser()->getAttribute('activelanguage');
