@@ -127,6 +127,14 @@ if(isset($val) && $val!=""){  ?>
                         <td id="sf_admin_list_th_auto_refill" class="leftHeadign" >Unique ID</td>
                          <td>  <?php  echo $customer->getUniqueid();     ?>   </td>
                         </tr  >
+                        <tr>
+                        <td id="sf_admin_list_th_auto_refill" class="leftHeadign" >Usage Email Alerts</td>
+                         <td>  <?php  echo ($customer->getUsageAlertEmail()==1)?"Yes":"No";     ?>   </td>
+                        </tr  >
+                        <tr>
+                        <td id="sf_admin_list_th_auto_refill" class="leftHeadign" >Usage SMS Alerts</td>
+                         <td>  <?php  echo ($customer->getUsageAlertSMS()==1)?"Yes":"No";     ?>   </td>
+                        </tr  >
 <!--                         <tr style="background-color:#EEEEFF">
                        <td id="sf_admin_list_th_auto_refill" class="leftHeadign" >Active No</td>
                         <td>  <?php  $unid   =  $customer->getUniqueid();
