@@ -85,7 +85,7 @@ function countChar(str)
 
 <br/>
 <h3><?php echo __('Tell your friends about Zapna and earn extra balance!') ?></h3>
-<p style="align:justified;"><?php echo __('Tell your friends about Zapna and earn 10 euro as soon as your friends have made their first payment with Zapna! Spread the word about Zapna and let your friends know about Zapna services.') ?></p>
+<p style="align:justified;"><?php echo __('Tell your friends about Zapna and earn 10 NOK as soon as your friends have made their first payment with Zapna! Spread the word about Zapna and let your friends know about Zapna services.') ?></p>
 <br/>
 <h3><?php echo __('How does it work?'); ?></h3>
 <p style="align:justified;"><?php echo __('You can tell your friends about Zapna in two simple ways:') ?><br />
@@ -93,7 +93,7 @@ function countChar(str)
 <?php echo __('Fill out the fields below and click the Send Email button - your friend will receive an Email') ?></p>
 <br/>
 <h3><?php echo __("What you'll get from this?") ?></h3>
-<p style="align:justified;"><?php echo __("As soon as your friends have made their first payment with Zapna, you will automatically receive 10 euro in your Zapna balance - so if 10 of your friends register on Zapna, youll gain 100 euro in your account. Just share the news and enjoy this great new treat from Zapna.") ?> </p>
+<p style="align:justified;"><?php echo __("As soon as your friends have made their first payment with Zapna, you will automatically receive 10 NOK in your Zapna balance - so if 10 of your friends register on Zapna, youll gain 100 NOK in your account. Just share the news and enjoy this great new treat from Zapna.") ?> </p>
      <div class="split-form">
       <div class="fl col">
 	    <form  id="form1" method="POST" action="<?php echo url_for('customer/tellAFriend', true) ?>">
@@ -123,7 +123,7 @@ function countChar(str)
 
                     </tr>
                     <tr>
-                        <td  colspan="2" align="center"><textarea name="message" ><?php echo __("Smartsim use to make extremely cheap international calls (save up to 90%) and to cut prices when you are abroad (you'll save 30-80%). Right now costing Smartsim 99 euro and you can call for the full amount. Smartsim has no monthly fee or hidden charges.") ?> </textarea></td>
+                        <td  colspan="2" align="center"><textarea name="message" ><?php echo __("Smartsim use to make extremely cheap international calls (save up to 90%) and to cut prices when you are abroad (you'll save 30-80%). Right now costing Smartsim 99 NOK and you can call for the full amount. Smartsim has no monthly fee or hidden charges.") ?> </textarea></td>
 
                     </tr>
                 </table><br />

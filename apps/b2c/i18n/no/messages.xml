@@ -363,8 +363,8 @@
                 <target>Fortell vennene dine om Zapna and tjene ekstra balanse!</target>
             </trans-unit>
             <trans-unit id="89" translate="yes" reformat="yes" xml:space="default">
-                <source>Tell your friends about Zapna and earn 10 euro as soon as your friends have made their first payment with Zapna! Spread the word about Zapna and let your friends know about Zapna services.</source>
-                <target>Fortell vennene dine om Zapna og tjene 10 euro så snart dine venner har gjort sin første innbetaling med Zapna! Spre ordet om Zapna og la vennene dine om Zapna tjenester.</target>
+                <source>Tell your friends about Zapna and earn 10 NOK as soon as your friends have made their first payment with Zapna! Spread the word about Zapna and let your friends know about Zapna services.</source>
+                <target>Fortell vennene dine om Zapna og tjene 10 NOK så snart dine venner har gjort sin første innbetaling med Zapna! Spre ordet om Zapna og la vennene dine om Zapna tjenester.</target>
             </trans-unit>
             <trans-unit id="90" translate="yes" reformat="yes" xml:space="default">
                 <source>You can tell your friends about Zapna in two simple ways:</source>
@@ -379,8 +379,8 @@
                 <target>Hva får du av dette?</target>
             </trans-unit>
             <trans-unit id="93" translate="yes" reformat="yes" xml:space="default">
-                <source>As soon as your friends have made their first payment with Zapna, you will automatically receive 10 euro in your Zapna balance - so if 10 of your friends register on Zapna, youll gain 100 euro in your account. Just share the news and enjoy this great new treat from Zapna.</source>
-                <target>Så snart dine venner har gjort sin første innbetaling med Zapna, vil du automatisk motta 10 euro i din Zapna balanse - så hvis 10 av vennene dine registrerer seg på Zapna, youll få 100 euro på kontoen din. Bare dele nyhetene og nyte denne flotte nye godbiten fra Zapna.</target>
+                <source>As soon as your friends have made their first payment with Zapna, you will automatically receive 10 NOK in your Zapna balance - so if 10 of your friends register on Zapna, youll gain 100 NOK in your account. Just share the news and enjoy this great new treat from Zapna.</source>
+                <target>Så snart dine venner har gjort sin første innbetaling med Zapna, vil du automatisk motta 10 NOK i din Zapna balanse - så hvis 10 av vennene dine registrerer seg på Zapna, youll få 100 NOK på kontoen din. Bare dele nyhetene og nyte denne flotte nye godbiten fra Zapna.</target>
             </trans-unit>
       
             <trans-unit id="94" translate="yes" reformat="yes" xml:space="default">
@@ -400,8 +400,8 @@
                 <target>Din Melding</target>
             </trans-unit>
             <trans-unit id="98" translate="yes" reformat="yes" xml:space="default">
-                <source>Smartsim use to make extremely cheap international calls (save up to 90%) and to cut prices when you are abroad (you'll save 30-80%). Right now costing Smartsim 99 euro and you can call for the full amount. Smartsim has no monthly fee or hidden charges.</source>
-                <target>SmartSim bruke til å lage ekstremt billige internasjonale samtaler (lagre opptil 90%) og å kutte prisene når du er i utlandet (du vil spare 30-80%). Akkurat nå koster SmartSim 99 euro, og du kan ringe for hele beløpet. SmartSim har ingen månedspris eller skjulte kostnader.</target>
+                <source>Smartsim use to make extremely cheap international calls (save up to 90%) and to cut prices when you are abroad (you'll save 30-80%). Right now costing Smartsim 99 NOK and you can call for the full amount. Smartsim has no monthly fee or hidden charges.</source>
+                <target>SmartSim bruke til å lage ekstremt billige internasjonale samtaler (lagre opptil 90%) og å kutte prisene når du er i utlandet (du vil spare 30-80%). Akkurat nå koster SmartSim 99 NOK, og du kan ringe for hele beløpet. SmartSim har ingen månedspris eller skjulte kostnader.</target>
             </trans-unit>
             <trans-unit id="99" translate="yes" reformat="yes" xml:space="default">
                 <source>Send Email to join Smartsim</source>
