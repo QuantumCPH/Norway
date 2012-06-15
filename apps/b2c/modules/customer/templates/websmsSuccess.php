@@ -51,7 +51,7 @@ return true;}
    <?php }else{ ?>
                 
                 <h3 style="width: 400px;"><?php echo __("Your Current Balance is:") ?> <?php echo $balance ?> NOK</h3>
-                Du har desværre ikke penge nok på kontoen, du bedes venligst tank op <b><a href="<?php echo url_for('customer/refill', true) ?><?php echo "/customer_id/".$customer->getId()?>">her</a></b>
+                <?php echo __("You do not have enough money in the account, you are kindly asked to refill");?> <b><a href="<?php echo url_for('customer/refill', true) ?><?php echo "/customer_id/".$customer->getId()?>">her</a></b>
 <?php }?>
        <ul>
         <li>  </li>
