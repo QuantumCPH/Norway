@@ -367,14 +367,14 @@ public function executePaymenthistory(sfWebRequest $request)
                 $order->setCustomerId($customer->getId());
                 $order->setProductId($customer_product->getId());
                 $order->setQuantity(1);
-                $order->setExtraRefill($extra_refill);
+                $order->setExtraRefill(-$extra_refill);
                 $order->setIsFirstOrder(false);
                 $order->setOrderStatusId(1);
                 //$order->setAgentCommissionPackageId($agent->getAgentCommissionPackageId());
                 $order->save();
                 $transaction->setOrderId($order->getId());
                 $transaction->setCustomerId($customer->getId());
-                $transaction->setAmount($extra_refill);
+                $transaction->setAmount(-$extra_refill);
                 //get agent name
                 $transaction->setDescription($request->getParameter('transaction_description'));
                 $transaction->setTransactionFrom(2);
