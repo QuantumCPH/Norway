@@ -500,7 +500,7 @@ public function executePaymenthistory(sfWebRequest $request)
   public function executeSelectChargeCustomer($request){
         $ct = new Criteria();
         $ct->add(TransactionDescriptionPeer::TRANSACTION_TYPE_ID,2); // For charge
-//        $ct->add(TransactionDescriptionPeer::B2C,1); // For charge
+        $ct->add(TransactionDescriptionPeer::B2C,1); // For charge
         $ct->addAnd(TransactionDescriptionPeer::TRANSACTION_SECTION_ID,1); // 1, Description is for Admin and 2, for  Agent
         $this->transactionDescriptions = TransactionDescriptionPeer::doSelect($ct);
     }
