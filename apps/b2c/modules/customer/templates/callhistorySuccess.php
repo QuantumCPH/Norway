@@ -49,7 +49,7 @@
                         </div>
                     </div>
 
-                </form>
+                </form><br />
                 <div class="fl col">
 
             <?php ?>
@@ -167,8 +167,8 @@
 
 
                         <?php } else {
- ?>
-                    <h1><?php echo __("Other events"); ?> </h1>
+ ?>        
+                    <div class="callhistoryheadings"><h2><?php echo __("Other events"); ?> </h2></div>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="callhistory">
                         <tr>
                             <td class="title"><?php echo __('Date & time') ?></td>
@@ -194,7 +194,7 @@
                             } ?>
                         </table><br/><br/>
 
-                                            <h1><?php echo __("Payment History"); ?> </h1>
+                                           <div class="callhistoryheadings"><h2><?php echo __("Payment History"); ?> </h2></div>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="callhistory">
                         <tr>
                             <td class="title"><?php echo __('Date & time') ?></td>
