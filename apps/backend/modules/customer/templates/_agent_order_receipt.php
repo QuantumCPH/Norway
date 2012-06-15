@@ -92,7 +92,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td><?php echo __('Date') ?></td>
     <td><?php echo __('Description') ?></td>
     <td><?php echo __('Quantity') ?></td>
-    <td><?php echo __('Amount') ?></td>
+    <td><?php echo __('Amount') ?>(NOK)</td>
   </tr>
   <tr> 
     <td><?php echo $createddate ?></td>
@@ -105,7 +105,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
             }
     ?></td>
     <td>1</td>
-    <td><?php echo format_number($subtotal=$transaction) //($order->getProduct()->getPrice() - $order->getProduct()->getPrice()*.2) * $order->getQuantity()) ?>&euro;</td>
+    <td><?php echo format_number($subtotal=$transaction) //($order->getProduct()->getPrice() - $order->getProduct()->getPrice()*.2) * $order->getQuantity()) ?></td>
   </tr>
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>
@@ -114,7 +114,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Subtotal') ?></td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($subtotal) ?>&euro;</td>
+    <td><?php echo format_number($subtotal) ?></td>
   </tr>
   <tr class="footer"> 
     <td>&nbsp;</td>
@@ -126,7 +126,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Total') ?></td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($subtotal) ?>&euro;</td>
+    <td><?php echo format_number($subtotal) ?>NOK</td>
   </tr>
 </table>
 

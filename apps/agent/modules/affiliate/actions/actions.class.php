@@ -436,7 +436,7 @@ class affiliateActions extends sfActions {
                   //  $this->getUser()->setCulture('de');
                     emailLib::sendRefillEmail($this->customer, $order);
                  //   $this->getUser()->setCulture('en');
-                    $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('%1% account is successfully refilled with %2% EURO.', array("%1%" => $customer->getMobileNumber(), "%2%" => $transaction->getAmount())));
+                    $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('%1% account is successfully refilled with %2% NOK.', array("%1%" => $customer->getMobileNumber(), "%2%" => $transaction->getAmount())));
 //                                      echo 'rehcarged, redirecting';
                     $this->redirect('affiliate/receipts');
                 } else {
