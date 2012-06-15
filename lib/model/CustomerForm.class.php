@@ -453,7 +453,7 @@ class CustomerForm extends BaseCustomerForm
   					'min_length'=>6,
 
                                     ),
-                                array('min_length' => 'password "%value%" at least six characters.')
+                                array('min_length' => 'Password "%value%" at least six characters.')
 
   			),
   			

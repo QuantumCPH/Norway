@@ -1058,7 +1058,7 @@ class customerActions extends sfActions {
                 if ($request->isXmlHttpRequest())
                     $this->renderText('invalid');
                 else {
-                    $this->getUser()->setFlash('error_message', $this->getContext()->getI18N()->__('Invaild mobile number or password.'));
+                    $this->getUser()->setFlash('error_message', $this->getContext()->getI18N()->__('Invalid mobile number or password.'));
                 }
             }
         } else {
