@@ -14,3 +14,4 @@ Cufon.replace('.dashboard-info button', { fontFamily: 'Barmeno' });
 Cufon.replace('.callhistory tbody td.title', { fontFamily: 'Barmeno-Medium' });
 Cufon.replace('.step-details strong', { fontFamily: 'Barmeno-Medium' });
 Cufon.replace('.split-form-sign-up ul li button', { fontFamily: 'Barmeno-Medium' });
+Cufon.replace('.callhistoryheadings h2', { fontFamily: 'Barmeno-Medium' });

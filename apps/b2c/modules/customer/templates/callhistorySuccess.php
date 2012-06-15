@@ -49,7 +49,7 @@
                         </div>
                     </div>
 
-                </form><br />
+                </form><br /><br />
                 <div class="fl col">
 
             <?php ?>
@@ -219,7 +219,7 @@
 
                             } ?>
                         </table><br/><br/>
-                    <h1><?php echo __("Call"); ?> </h1>
+                    <div class="callhistoryheadings"><h2><?php echo __("Call"); ?> </h2></div>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="callhistory">
                             <tr>
                                 <td class="title"><?php echo __('Date & time') ?></td>
