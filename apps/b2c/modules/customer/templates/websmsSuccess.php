@@ -136,11 +136,11 @@ return true;}
             <br />
             <input type="submit" class="buton" name="submit"  value="<?php echo __("Send SMS") ?>" onclick="
                             if(document.getElementById('number').value==''){
-                                alert('Please Enter The Destination Number');
+                                alert('<?php echo __("Please Enter The Destination Number") ?>');
                                 document.getElementById('number').focus();
                                 return false;
                             }else if(document.getElementById('message').value==''){
-                                alert('Please Enter The Message');
+                                alert('<?php echo __("Please Enter The Message") ?>');
                                 document.getElementById('message').focus();
                                 return false;
                             }else{

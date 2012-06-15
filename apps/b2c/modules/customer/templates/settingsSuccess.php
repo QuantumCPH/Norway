@@ -34,7 +34,7 @@
          
        
 
-            <li>
+<!--            <li>
             <label class="required"><?php echo __("Active Mobile No") ?></label>
            
             <input type="text" value="<?php
@@ -50,8 +50,22 @@
             echo "00".$unumber->getMobileNumber();
          }else{ echo $customer->getMobileNumber(); }  ?>" disabled="true" />
             <div class="inline-error">&nbsp;</div>
+            </li>-->
+            <?php
+            $error_po_box_number = false;;
+            if($form['po_box_number']->hasError())
+            	$error_po_box_number = true;
+            ?>
+            <li>
+             <?php echo $form['po_box_number']->renderLabel() ?>
+             <?php echo $form['po_box_number'] ?>
+             <?php if ($error_po_box_number): ?>
+             <span id="cardno_decl" class="alertstep1">
+			  	<?php echo image_tag('../zerocall/images/decl.png', array('absolute'=>true)) ?>
+			 </span>
+			 <?php endif; ?>
+             <div class='inline-error'><?php echo $error_po_box_number?$form['po_box_number']->renderError():'&nbsp;'?></div>
             </li>
-            
             <?php
             $error_first_name = false;;
             if($form['first_name']->hasError())
@@ -107,21 +121,7 @@
         <ul>
             
            
-            <?php
-            $error_po_box_number = false;;
-            if($form['po_box_number']->hasError())
-            	$error_po_box_number = true;
-            ?>
-            <li>
-             <?php echo $form['po_box_number']->renderLabel() ?>
-             <?php echo $form['po_box_number'] ?>
-             <?php if ($error_po_box_number): ?>
-             <span id="cardno_decl" class="alertstep1">
-			  	<?php echo image_tag('../zerocall/images/decl.png', array('absolute'=>true)) ?>
-			 </span>
-			 <?php endif; ?>
-             <div class='inline-error'><?php echo $error_po_box_number?$form['po_box_number']->renderError():'&nbsp;'?></div>
-            </li>
+            
             <!-- end pobox number -->
             <?php
             $error_city = false;;

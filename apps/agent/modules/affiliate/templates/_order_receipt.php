@@ -67,7 +67,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
 	<?php echo __('Yours sincerely,') ?>
 	</p>
         <p>
-	<?php echo __('XXXXXXX') ?>
+	<?php echo __('Zapna') ?>
 	</p>
 	<br />
 <?php endif; ?>
@@ -118,7 +118,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     ?>
 	</td>
     <td><?php echo $order->getQuantity() ?></td>
-    <td><?php echo format_number($order->getProduct()->getRegistrationFee()); ?></td>
+    <td><?php echo format_number($order->getProduct()->getRegistrationFee()); ?>NOK</td>
   </tr>
   <tr>
     <td></td>
@@ -129,7 +129,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     ?>
 	</td>
     <td><?php echo $order->getQuantity() ?></td>
-    <td><?php echo format_number($order->getProduct()->getPrice()); ?></td>
+    <td><?php echo format_number($order->getProduct()->getPrice()); ?>NOK</td>
   </tr>
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>
@@ -138,7 +138,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Subtotal') ?></td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($subTotal = $order->getProduct()->getPrice()+$order->getProduct()->getRegistrationFee()) ?></td>
+    <td><?php echo format_number($subTotal = $order->getProduct()->getPrice()+$order->getProduct()->getRegistrationFee()) ?>NOK</td>
   </tr>
 
   <tr class="footer">
@@ -158,7 +158,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
   </tr>
   <tr class="footer">
     <td class="payer_summary" colspan="4" style="font-weight:normal; white-space: nowrap;">
-    <?php echo __('Zapna ApS - Postboks 5093 Majorstua - 0301 Oslo');?> </td>
+    <?php echo __('Zapna - Postboks 5093 Majorstua - 0301 Oslo');?> </td>
   </tr>
 </table>
         
