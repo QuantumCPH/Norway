@@ -21,7 +21,7 @@
     </thead>
     <tfoot>
         <tr>
-            <td colspan="9" style="text-align:center;font-weight: bold;">
+            <td colspan="10" style="text-align:center;font-weight: bold;">
                 Total SMS sent :
             <?php
                 $c = new Criteria();
@@ -85,7 +85,7 @@ $i++;
       <thead>
       <tfoot>
         <tr>
-            <td colspan="9" style="text-align:center;font-weight: bold;">
+            <td colspan="10" style="text-align:center;font-weight: bold;">
                 Total Email sent : <?php
                 $c = new Criteria();
 		$c->add(EmailAlertSentPeer::CREATED_AT, $startdate,CRITERIA::GREATER_EQUAL);
