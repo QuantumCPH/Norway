@@ -359,8 +359,8 @@
                 <target>Det er foreløpig ingen SMS-poster å vise.</target>
             </trans-unit>
             <trans-unit id="88" translate="yes" reformat="yes" xml:space="default">
-                <source>Tell your friends about Zapna &amp; earn extra balance!</source>
-                <target>Fortell vennene dine om Zapna &amp; tjene ekstra balanse!</target>
+                <source>Tell your friends about Zapna and earn extra balance!</source>
+                <target>Fortell vennene dine om Zapna and tjene ekstra balanse!</target>
             </trans-unit>
             <trans-unit id="89" translate="yes" reformat="yes" xml:space="default">
                 <source>Tell your friends about Zapna and earn 10 euro as soon as your friends have made their first payment with Zapna! Spread the word about Zapna and let your friends know about Zapna services.</source>
@@ -824,7 +824,7 @@
                 <target>Mobilnummer: %s</target>
             </trans-unit>
             <trans-unit id="202" translate="yes" reformat="yes" xml:space="default">
-                <source>Inviald mobile number or password.</source>
+                <source>Invalid mobile number or password.</source>
                 <target>Ugyldig mobilnummer eller passord.</target>
             </trans-unit>
             <trans-unit id="203" translate="yes" reformat="yes" xml:space="default">
@@ -836,8 +836,8 @@
                 <target>Vennligst godta vilkårene og betingelsene</target>
             </trans-unit>
             <trans-unit id="205" translate="yes" reformat="yes" xml:space="default">
-                <source>password "%value%" at least six characters.</source>
-                <target>passord "%value%" minst seks tegn.</target>
+                <source>Password "%value%" at least six characters.</source>
+                <target>Passord "%value%" minst seks tegn.</target>
             </trans-unit>
             <trans-unit id="206" translate="yes" reformat="yes" xml:space="default">
                 <source>Please enter a valid Email address. </source>
@@ -953,7 +953,7 @@
 
  <trans-unit id="233" translate="yes" reformat="yes" xml:space="default">
                 <source>Registration</source>
-                <target>registrering</target>
+                <target>Registrering</target>
             </trans-unit>
 
  <trans-unit id="234" translate="yes" reformat="yes" xml:space="default">
