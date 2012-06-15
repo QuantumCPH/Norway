@@ -111,6 +111,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td><?php echo __('Quantity') ?></td>
     <td><?php echo __('Amount') ?>(NOK)</td>
   </tr>
+<?php if($customer_order->getIsFirstOrder()){?>  
   <tr> 
     <td><?php echo $order->getCreatedAt('m-d-Y') ?></td>
     <td>
@@ -154,12 +155,45 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo format_number($vat) ?></td>
   </tr>
- 
+  <?php } else{  //////// for Othere orders
+  ?>
+  <tr> 
+    <td><?php echo $order->getCreatedAt('m-d-Y') ?></td>
+    <td>
+    <?php 
+         if($transaction->getDescription()=="Refill"){
+           echo "Refill ".$transaction->getAmount();
+        }else{
+           echo $transaction->getDescription();  
+        }  
+    
+    ?>
+	</td>
+    <td><?php echo $order->getQuantity() ?></td>
+    <td><?php echo format_number($subtotal = $transaction->getAmount()-$vat) ?></td>
+  </tr>
+  <tr>
+  	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>
+  </tr>
+  <tr class="footer"> 
+    <td>&nbsp;</td>
+    <td><?php echo __('Subtotal') ?></td>
+    <td>&nbsp;</td>
+    <td><?php echo format_number($subtotal); ?></td>
+  </tr>  
+  <tr class="footer"> 
+    <td>&nbsp;</td>
+    <td><?php echo __('VAT') ?> (<?php echo $vat==0?'0%':'25%' ?>)</td>
+    <td>&nbsp;</td>
+    <td><?php echo format_number($vat) ?></td>
+  </tr>
+  <?php    
+  }?>
   <tr class="footer">
     <td>&nbsp;</td>
     <td><?php echo __('Total') ?></td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($subtotal+$vat+$postalcharge); ?>NOK</td>
+    <td><?php echo format_number($transaction->getAmount()); ?>NOK</td>
   </tr>
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>
