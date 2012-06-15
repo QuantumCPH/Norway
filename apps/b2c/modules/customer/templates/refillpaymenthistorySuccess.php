@@ -46,13 +46,14 @@
                         } 
                   }?></td>
                   <td><?php echo $transaction->getAmount(); $amount_total += $transaction->getAmount() ?>
-                            <?php if($lang=="pl"){
-                               // echo ('plz');
-                            }else if($lang=="en"){
-                               // echo ('eur');
-                            }else{
+                            <?php 
+//                            if($lang=="pl"){
+//                               // echo ('plz');
+//                            }else if($lang=="en"){
+//                               // echo ('eur');
+//                            }else{
                                 echo ('NOK');
-                            } ?></td>
+//                            } ?></td>
                   <td><a href="#" class="receipt" onclick="javascript: window.open('<?php echo url_for('payments/showReceipt?tid='.$transaction->getId(), true) ?>')"><?php echo $transaction->getAmount()>=0?__('Paid'):__('Refund') ?></a></td>
 <!--                  <td nowrap="nowrap"><a href="#" style=" white-space: nowrap" class="receipt" onclick="iprint(preview_<?php echo $transaction->getId();?>);return false;"><?php echo __('Print'); ?>
                   </a>
@@ -81,13 +82,14 @@
                 <tr>
                 	<td colspan="3" align="right"><strong>Total</strong></td>
                 	<td colspan="3"><?php echo format_number($amount_total) ?>
-                            <?php if($lang=="pl"){
-                                echo ('plz');
-                            }else if($lang=="en"){
-                                echo ('eur');
-                            }else{
+                            <?php 
+//                            if($lang=="pl"){
+//                                echo ('plz');
+//                            }else if($lang=="en"){
+//                                echo ('eur');
+//                            }else{
                                 echo ('NOK');
-                            } ?></td>
+//                            } ?></td>
                 </tr>	
                 <?php endif; ?>
               </table>
