@@ -185,7 +185,7 @@
                             <tr>
                                 <td><?php echo date("Y-m-d H:i:s", strtotime($xdr->bill_time)); ?></td>
                                 <td><?php echo __($xdr->CLD); ?></td>
-                                <td><?php echo $xdr->charged_amount; ?></td>
+                                <td><?php echo $xdr->charged_amount; ?>&nbsp;NOK</td>
                             </tr>
                             <?php } }else {
 
@@ -211,7 +211,7 @@
                             <tr>
                                 <td><?php echo date("Y-m-d H:i:s", strtotime($xdr->bill_time)); ?></td>
                                 <td><?php echo __($xdr->CLD); ?></td>
-                                <td><?php echo $xdr->charged_amount*-1; ?>NOK</td>
+                                <td><?php echo $xdr->charged_amount*-1; ?>&nbsp;NOK</td>
                             </tr>
                             <?php } }else {
 
@@ -263,7 +263,7 @@
                                 } ?></td>
                             <td><?php echo number_format($xdr->charged_amount / 4, 2); ?></td>
                             <td><?php echo number_format($xdr->charged_amount, 2);
-                                $amount_total+= number_format($xdr->charged_amount, 2); ?> NOK</td>
+                                $amount_total+= number_format($xdr->charged_amount, 2); ?>&nbsp;NOK</td>
                             <td><?php
                                 $typecall = substr($xdr->account_id, 0, 1);
                                 if ($typecall == 'a') {
@@ -304,7 +304,7 @@
                                         <!--
                                         <td><?php echo format_number($amount_total - $amount_total * .20) ?> NOK</td>
                                     	 -->
-                                        <td><?php echo number_format($amount_total, 2, ',', '') ?> NOK</td>
+                                        <td><?php echo number_format($amount_total, 2, ',', '') ?>&nbsp;NOK</td>
                                         <td>&nbsp;</td>
                                     </tr>
 <?php
