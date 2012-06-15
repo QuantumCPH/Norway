@@ -43,7 +43,7 @@
       <th  width="15%"  class="title"><?php echo __('Order Numer') ?></th>
       <th  width="20%" class="title"><?php echo __('Date &amp; Time') ?></th>
       <th  width="55%" class="title"><?php echo __('Description') ?></th>
-      <th width="10%" class="title"><?php echo __('Amount') ?></th>       
+      <th width="10%" class="title"><?php echo __('Amount') ?>(NOK)</th>       
     </tr>
                 <?php 
                 $amount_total = 0;
@@ -63,13 +63,14 @@
                   <td><?php echo  $transaction->getCreatedAt() ?></td>
                   <td><?php echo $transaction->getDescription() ?></td>
                   <td><?php echo $transaction->getAmount(); $amount_total += $transaction->getAmount() ?>
-                            <?php if($lang=="pl"){
-                                echo ('plz');
-                            }else if($lang=="en"){
-                                echo ('eur');
-                            }else{
-                                echo ('NOK');
-                            } ?></td>
+                            <?php 
+//                            if($lang=="pl"){
+//                                echo ('plz');
+//                            }else if($lang=="en"){
+//                                echo ('eur');
+//                            }else{
+//                                echo ('NOK');
+//                            } ?></td>
                 
                 </tr>
                 <?php endforeach; ?>
