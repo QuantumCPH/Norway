@@ -483,7 +483,7 @@ class paymentsActions extends sfActions {
                    Telienta::createAAccount($TelintaMobile,$this->customer);
                   // Telienta::createCBAccount($TelintaMobile, $this->customer);
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                //if the customer is invited, Give the invited customer a bonus of 10dkk
+                //if the customer is invited, Give the invited customer a bonus of 10NOK
                 $invite_c = new Criteria();
                 $invite_c->add(InvitePeer::INVITE_NUMBER, $this->customer->getMobileNumber());
                 $invite_c->add(InvitePeer::INVITE_STATUS, 2);
@@ -498,7 +498,7 @@ class paymentsActions extends sfActions {
                     $products->add(ProductPeer::ID, 2);
                     $products = ProductPeer::doSelectOne($products);
                     $extrarefill = $products->getInitialBalance();
-                    //if the customer is invited, Give the invited customer a bonus of 10dkk
+                    //if the customer is invited, Give the invited customer a bonus of 10NOK
                     $inviteOrder = new CustomerOrder();
                     $inviteOrder->setProductId(2);
                     $inviteOrder->setQuantity(1);
@@ -517,7 +517,7 @@ class paymentsActions extends sfActions {
 
                     $this->customers = CustomerPeer::retrieveByPK($invite->getCustomerId());
 
-                    //send Telinta query to update the balance of invite by 10dkk
+                    //send Telinta query to update the balance of invite by 10NOK
                     $getFirstnumberofMobile = substr($this->customers->getMobileNumber(), 0, 1);     // bcdef
                     if ($getFirstnumberofMobile == 0) {
                         $TelintaMobile = substr($this->customers->getMobileNumber(), 1);
