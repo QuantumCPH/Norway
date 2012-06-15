@@ -93,7 +93,7 @@ function countChar(str)
 <?php echo __('Fill out the fields below and click the Send Email button - your friend will receive an Email') ?></p>
 <br/>
 <h3><?php echo __("What you'll get from this?") ?></h3>
-<p style="align:justified;"><?php echo __("As soon as your friends have made their first payment with Zapna, youll automatically receive 10 euro in your Zapna balance - so if 10 of your friends register on Zapna, youll gain 100 nok in your account. Just share the news and enjoy this great new treat from Zapna.") ?> </p>
+<p style="align:justified;"><?php echo __("As soon as your friends have made their first payment with Zapna, you will automatically receive 10 euro in your Zapna balance - so if 10 of your friends register on Zapna, youll gain 100 euro in your account. Just share the news and enjoy this great new treat from Zapna.") ?> </p>
      <div class="split-form">
       <div class="fl col">
 	    <form  id="form1" method="POST" action="<?php echo url_for('customer/tellAFriend', true) ?>">
