@@ -71,14 +71,6 @@
                                 */                ?>
 				  </div>
 				</div>
-
-                            
-                            
-                            
-                            
-                            
-                            
-                            
 				<div class="form-row">
 				  <label class="required">Email:</label>
 				  <div class="content">

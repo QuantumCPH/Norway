@@ -379,8 +379,8 @@
                 <target>Hva får du av dette?</target>
             </trans-unit>
             <trans-unit id="93" translate="yes" reformat="yes" xml:space="default">
-                <source>As soon as your friends have made their first payment with Zapna, youll automatically receive 10 euro in your Zapna balance - so if 10 of your friends register on Zapna, youll gain 100 euro in your account. Just share the news and enjoy this great new treat from Zapna.</source>
-                <target>Så snart dine venner har gjort sin første innbetaling med Zapna, youll automatisk motta 10 euro i din Zapna balanse - så hvis 10 av vennene dine registrerer seg på Zapna, youll få 100 euro på kontoen din. Bare dele nyhetene og nyte denne flotte nye godbiten fra Zapna.</target>
+                <source>As soon as your friends have made their first payment with Zapna, you will automatically receive 10 euro in your Zapna balance - so if 10 of your friends register on Zapna, youll gain 100 euro in your account. Just share the news and enjoy this great new treat from Zapna.</source>
+                <target>Så snart dine venner har gjort sin første innbetaling med Zapna, vil du automatisk motta 10 euro i din Zapna balanse - så hvis 10 av vennene dine registrerer seg på Zapna, youll få 100 euro på kontoen din. Bare dele nyhetene og nyte denne flotte nye godbiten fra Zapna.</target>
             </trans-unit>
       
             <trans-unit id="94" translate="yes" reformat="yes" xml:space="default">
@@ -1109,7 +1109,10 @@
                 <source>Please Enter The Message</source>
                 <target>Skriv inn melding</target>
             </trans-unit>
-            
+            <trans-unit id="270" translate="yes" reformat="yes" xml:space="default">
+                <source>You do not have enough money in the account, you are kindly asked to refill</source>
+                <target>Du har ikke nok penger på konto, er du bes om å fylle</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
