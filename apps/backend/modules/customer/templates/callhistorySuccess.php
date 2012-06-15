@@ -3,8 +3,8 @@
 <script type="text/javascript">
     jQuery(function() {
 
-        jQuery( "#startdates" ).datepicker({  dateFormat: 'yy-mm-dd' });
-        jQuery( "#enddates" ).datepicker({ dateFormat: 'yy-mm-dd'});
+        jQuery( "#trigger_startdate" ).hide();
+        jQuery( "#trigger_enddate" ).hide();
 
 
     });
