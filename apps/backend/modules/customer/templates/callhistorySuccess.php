@@ -139,7 +139,7 @@ if($pus==1){
                     <div class="form-row">
                         <label><?php echo __('To');?>:</label>
                         <div class="content">
-                                <input id="enddate" class="hasDatepicker" type="text" size="12" value="2012-06-15" name="enddate" />
+                                <input id="enddate" class="hasDatepicker" type="text" size="12" value="" name="enddate" />
                             <?php //echo input_date_tag('enddate', $todate, 'rich=true') ?>
                         </div>
                     </div>
