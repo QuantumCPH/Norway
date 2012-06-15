@@ -100,7 +100,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
         
     </td>
     <td>1<?php //echo $agent_order->getQuantity() ?></td>
-    <td><?php echo format_number($subtotal = $agent_order->getAmount()) //($order->getProduct()->getPrice() - $order->getProduct()->getPrice()*.2) * $order->getQuantity()) ?></td>
+    <td><?php echo format_number($subtotal = $agent_order->getAmount()) //($order->getProduct()->getPrice() - $order->getProduct()->getPrice()*.2) * $order->getQuantity()) ?>NOK</td>
   </tr>
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>
@@ -109,7 +109,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Subtotal') ?></td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($subtotal) ?></td>
+    <td><?php echo format_number($subtotal) ?>NOK</td>
   </tr>
   <tr class="footer">
     <td>&nbsp;</td>
@@ -121,7 +121,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Total') ?></td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($agent_order->getAmount()) ?></td>
+    <td><?php echo format_number($agent_order->getAmount()) ?>NOK</td>
   </tr>
 </table>
 <?php if($wrap_content): ?>
