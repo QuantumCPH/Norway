@@ -111,7 +111,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td><?php echo __('Quantity') ?></td>
     <td><?php echo __('Amount') ?>(NOK)</td>
   </tr>
-<?php if($customer_order->getIsFirstOrder()){?>  
+<?php if($customerorder){?>  
   <tr> 
     <td><?php echo $order->getCreatedAt('m-d-Y') ?></td>
     <td>
