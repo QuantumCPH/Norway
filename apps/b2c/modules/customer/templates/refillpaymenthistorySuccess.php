@@ -23,7 +23,7 @@
 			  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="callhistory">
                 <tr>
                   <td class="title"><?php echo __('Order Numer') ?></td>
-                  <td class="title" nowrap><?php echo __('Date &amp; Time') ?></td>
+                  <td class="title" nowrap><?php echo __('Date &amp; time') ?></td>
                   <td class="title"><?php echo __('Description') ?></td>
                   <td class="title"><?php echo __('Amount') ?></td>
                   <td class="title"><?php echo __('Type') ?></td>
