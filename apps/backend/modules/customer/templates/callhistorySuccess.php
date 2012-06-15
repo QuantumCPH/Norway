@@ -132,7 +132,7 @@ if($pus==1){
                     <div class="form-row">
                         <label><?php echo __('From');?>:</label>
                         <div class="content">
-                            <input id="startdate" class="" type="text" size="12" value="" name="startdate" />
+                            <input id="startdate" class="hasDatepicker" type="text" size="12" value="" name="startdate" />
                             <?php //echo input_date_tag('startdate', $fromdate, 'rich=true') ?>
                         </div>
                     </div>
