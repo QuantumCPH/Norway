@@ -527,6 +527,25 @@ jQuery('#sf_admin_edit_form').validate({
 
 jQuery(function(){
 
+    // add multiple select / deselect functionality
+    jQuery("#selectall").click(function () {
+          jQuery('.case').attr('checked', this.checked);
+    });
+
+    // if all checkbox are selected, check the selectall checkbox
+    // and viceversa
+    jQuery(".case").click(function(){
+
+        if(jQuery(".case").length == jQuery(".case:checked").length) {
+            jQuery("#selectall").attr("checked", "checked");
+        } else {
+            jQuery("#selectall").removeAttr("checked");
+        }
+
+    });
+});
+jQuery(function(){
+
 
 
 	jQuery( "#startdate" ).datepicker({ minDate: '-2m +0w',maxDate: '0m +0w', dateFormat: 'yy-mm-dd' });
@@ -643,6 +662,8 @@ jQuery(function(){
 
 
     });
+
+    
 
 
 </script>
