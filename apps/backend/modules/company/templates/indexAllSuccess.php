@@ -2,7 +2,7 @@
 <?php use_helper('Number') ?>
 
 <div  id="sf_admin_container">
-    <h1><?php echo __('Edit Credit Limit of Agents') ?></h1><br />
+    <h1><?php echo __('Edit Credit Limit of Companies') ?></h1><br />
 
 <?php if ($sf_user->hasFlash('message')): ?>
     <br />
@@ -27,7 +27,7 @@
 <table width="100%" cellspacing="0" cellpadding="2" class="tblAlign">
         <tr class="headings">
       <th><input type="checkbox" id="selectall"  checked="checked"/></th>
-      <th><?php echo __('Agent Name') ?></th>
+      <th><?php echo __('Company Name') ?></th>
       <th><?php echo __('Vat no') ?></th>
          <th><?php echo __('Credit Limit') ?></th>
       <th><?php echo __('Contact name') ?></th>
