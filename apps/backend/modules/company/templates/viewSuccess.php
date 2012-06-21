@@ -132,7 +132,7 @@
 				<div class="form-row">
 				  <label class="required"><?php echo  __('Customer Type:') ?></label>
 				  <div class="content">
-				  	<?php echo $company->getCreditLimit();?>
+				  	<?php echo $company->getCustomerType()?$company->getCustomerType():'N/A'?>
 				  </div>
 				</div>
 				
