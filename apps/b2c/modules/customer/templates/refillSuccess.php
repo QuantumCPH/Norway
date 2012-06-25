@@ -150,7 +150,7 @@ if($is_auto_refill_activated){  ?>  <div class="left-col">
     
 <br/>
 <br/>
-  <form action="<?php echo $target;?>customer/refilTransaction"  method="post" id="refill" >
+  <form action="<?php echo $target;?>customer/refilTransaction"  method="post" id="refill"  target="_parent">
      <div style="width:500px;">
      <div  style="width:340px;float:left;">    <ul>
          	<!-- customer product -->
@@ -201,7 +201,7 @@ if($is_auto_refill_activated){  ?>  <div class="left-col">
                     </div>
           <div style="float:left;margin-top:30px;">   
        
-                <input type="submit" class="butonsigninsmall" name="button" style="width:101px;cursor: pointer;float: left; margin-left: -5px !important; margin-top: -5px;"  value="<?php echo __('Load') ?>" />
+                <input type="submit" class="butonsigninsmall" name="button" style="width:101px;cursor: pointer;float: left; margin-left: -5px !important; margin-top: -5px;"  value="<?php echo __('Load') ?>"  onclick='new_window()'/>
         </div>
         </div></form> 
        </div>
