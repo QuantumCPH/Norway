@@ -192,7 +192,7 @@ width:232px;
     background-repeat:repeat-x;
     height:27px;
     font-size:13px;
-    border:0px;
+    border:0px !important;
     color:#ffffff;
     outline:none;
     font-weight:bold;
@@ -217,11 +217,12 @@ width:232px;
 
 a.receipt{ background-image:url(../images/green-bullet.jpg); background-repeat:no-repeat; padding-left:15px; float:left; display:block; text-decoration:none; color:#000;}
 
-.split-form-sign-up{padding-top:20px; float:left; clear:both; width:750px; padding-bottom:30px; min-height:412px; background-image: url("../images/bg-map-sign-up.jpg"); background-color:#D86327; padding-left:30px; margin-bottom:10px; background-repeat: no-repeat;}
+.split-form-sign-up{padding-top:20px; float:left; clear:both; width:750px; padding-bottom:30px; min-height:412px; padding-left:30px; margin-bottom:10px;  }
+/*.split-form-sign-up{padding-top:20px; float:left; clear:both; width:750px; padding-bottom:30px; min-height:412px; background-image: url("../images/bg-map-sign-up.jpg"); background-color:#D86327; padding-left:30px; margin-bottom:10px; background-repeat: no-repeat;}*/
 .split-form-sign-up .col{width:314px; float: left; position: relative;height: 250px;}
 .split-form-sign-up ul{list-style:none;}
 .split-form-sign-up ul li{list-style:none; margin-bottom:10px; float:left; clear:both;width:350px; white-space:nowrap; z-index:100; position:relative; color:#000;}
-.split-form-sign-up ul li label{width:130px; float:left; padding-top:3px; font-weight:bold; color:#FFF; }
+.split-form-sign-up ul li label{width:130px; float:left; padding-top:3px; font-weight:bold; color:#000; }
 .split-form-sign-up ul li input{width:130px; border:1px solid #999999; font-size:11px; padding:3px;}
 .split-form-sign-up ul li select{width:137px; border:1px solid #999999;font-size:11px; padding:3px; }
 
@@ -251,8 +252,8 @@ a.receipt{ background-image:url(../images/green-bullet.jpg); background-repeat:n
 .split-form-sign-up ul li button{ background-image:url("../images/button-orange-big.png");border:0 none;color:#FFFFFF;font-size:22px;height:48px;margin-top:20px;padding-bottom:7px;padding-top:5px; width:132px;}
 
 .step-details{ width:100%; float:left; clear:both; padding-bottom:20px;}
-.step-details strong{ color:#FFF; font-size:18px;}
-.step-details span.active{ color:#FFF;}
+.step-details strong{ color:#000; font-size:18px;}
+.step-details span.active{ color:#000;}
 .step-details span.inactive{ color:#686868}
 
 .signup-steps{float:left; clear:both; width:780px; overflow:hidden;}
@@ -423,7 +424,7 @@ width:252px;
 }
 
 .inline-error{
-	color:#FFF;
+	color:#000;
 	float:right;
 	margin-right:83px;
 	text-align:right;
