@@ -14,7 +14,7 @@
             </trans-unit>
             <trans-unit id="3" translate="yes" reformat="yes" xml:space="default">
                 <source>Email</source>
-                <target>E-post</target>
+                <target>E-mail</target>
             </trans-unit>
             <trans-unit id="4" translate="yes" reformat="yes" xml:space="default">
                 <source>Password</source>
@@ -116,11 +116,11 @@
             </trans-unit>
             <trans-unit id="28" translate="yes" reformat="yes" xml:space="default">
                 <source>Mobile number</source>
-                <target>Mobilnummer</target>
+                <target>Ditt mobilnummer</target>
             </trans-unit>
             <trans-unit id="29" translate="yes" reformat="yes" xml:space="default">
                 <source>Product</source>
-                <target>Produkt</target>
+                <target>Startpakke</target>
             </trans-unit>
             <trans-unit id="30" translate="yes" reformat="yes" xml:space="default">
                 <source>First name</source>
@@ -501,8 +501,8 @@
                 <target>Trinn 2</target>
             </trans-unit>
             <trans-unit id="123" translate="yes" reformat="yes" xml:space="default">
-                <source>Become a Customer</source>
-                <target>Bli kunde</target>
+                <source>Become a Zapna Customer</source>
+                <target>Bli Zapna kunde</target>
             </trans-unit>
             <trans-unit id="124" translate="yes" reformat="yes" xml:space="default">
                 <source>Extra refill amount</source>
@@ -510,11 +510,11 @@
             </trans-unit>
             <trans-unit id="125" translate="yes" reformat="yes" xml:space="default">
                 <source>Mobile number</source>
-                <target>Mobilnummer</target>
+                <target>Ditt mobilnummer</target>
             </trans-unit>
             <trans-unit id="126" translate="yes" reformat="yes" xml:space="default">
                 <source>Product</source>
-                <target>produkt</target>
+                <target>Startpakke</target>
             </trans-unit>
                <trans-unit id="127" translate="yes" reformat="yes" xml:space="default">
                 <source>First name</source>
@@ -553,8 +553,8 @@
                 <target>Jeg aksepterer alle betingelser og vilkår</target>
             </trans-unit>
                <trans-unit id="136" translate="yes" reformat="yes" xml:space="default">
-                <source>Next</source>
-                <target>Neste</target>
+                <source>Process To Payment</source>
+                <target>Gå videre til betaling</target>
             </trans-unit>
                <trans-unit id="137" translate="yes" reformat="yes" xml:space="default">
                 <source>We are sorry we have difficulties in our database, please try again in 2 hours</source>
