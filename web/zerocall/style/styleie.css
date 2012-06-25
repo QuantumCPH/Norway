@@ -171,6 +171,22 @@ width:232px;
     border:1px solid #D44D05 !important;
 }
 .butonsignin{ background-image:url("../images/button-orange-big.png");border:0 none;color:#333333;font-size:22px;height:48px;width:132px;float:right;margin-right:40px;}
+.butonsigninsmall1{
+    background-image:url(../images/b1.png);
+
+    height:50px;
+    font-size:13px;
+    border:0px !important;
+    border-color: none !important;
+    color:#ffffff;
+    outline:none;
+    font-weight:bold;
+    cursor:pointer;
+    margin-left: 35px;
+    font-size: 13px !important;
+
+    width: 170px !important;
+}
 .butonsigninsmall{
     background-image:url(../images/b.png);
     background-repeat:repeat-x;
@@ -201,11 +217,11 @@ width:232px;
 
 a.receipt{ background-image:url(../images/green-bullet.jpg); background-repeat:no-repeat; padding-left:15px; float:left; display:block; text-decoration:none; color:#000;}
 
-.split-form-sign-up{padding-top:20px; float:left; clear:both; width:750px; padding-bottom:30px; min-height:412px; background-color:FFFFFF; padding-top:20px; padding-left:30px; margin-bottom:10px;}
+.split-form-sign-up{padding-top:20px; float:left; clear:both; width:750px; padding-bottom:30px; min-height:412px; background-image: url("../images/bg-map-sign-up.jpg"); background-color:#D86327; padding-left:30px; margin-bottom:10px; background-repeat: no-repeat;}
 .split-form-sign-up .col{width:314px; float: left; position: relative;height: 250px;}
 .split-form-sign-up ul{list-style:none;}
 .split-form-sign-up ul li{list-style:none; margin-bottom:10px; float:left; clear:both;width:350px; white-space:nowrap; z-index:100; position:relative; color:#000;}
-.split-form-sign-up ul li label{width:130px; float:left; padding-top:3px; font-weight:bold; color:#000; }
+.split-form-sign-up ul li label{width:130px; float:left; padding-top:3px; font-weight:bold; color:#FFF; }
 .split-form-sign-up ul li input{width:130px; border:1px solid #999999; font-size:11px; padding:3px;}
 .split-form-sign-up ul li select{width:137px; border:1px solid #999999;font-size:11px; padding:3px; }
 
@@ -235,8 +251,8 @@ a.receipt{ background-image:url(../images/green-bullet.jpg); background-repeat:n
 .split-form-sign-up ul li button{ background-image:url("../images/button-orange-big.png");border:0 none;color:#FFFFFF;font-size:22px;height:48px;margin-top:20px;padding-bottom:7px;padding-top:5px; width:132px;}
 
 .step-details{ width:100%; float:left; clear:both; padding-bottom:20px;}
-.step-details strong{ color:#000; font-size:18px;}
-.step-details span.active{ color:#000;}
+.step-details strong{ color:#FFF; font-size:18px;}
+.step-details span.active{ color:#FFF;}
 .step-details span.inactive{ color:#686868}
 
 .signup-steps{float:left; clear:both; width:780px; overflow:hidden;}
@@ -253,7 +269,7 @@ a.receipt{ background-image:url(../images/green-bullet.jpg); background-repeat:n
 .split-form-sign-up .buttonplacement2 button{ background-image:url("../images/button-orange-big.png");border:0px;color:#FFFFFF;font-size:22px;height:48px;width:132px;float:right;}
 
 /*.split-form-sign-up ul li.error{ background-color:#fff899; float:left; width:270px; padding:3px; color:#000000; white-space: normal;}*/
-.split-form-sign-up ul li.error {
+.split-form-sign-up ul li span.error {
 background:#D88256 url(http://zerocall.com/b2c/images/../zerocall/images/decl.png) no-repeat scroll 4px 50%;
 border:1px solid #D84A00;
 clear:both;
@@ -263,7 +279,7 @@ margin-bottom:5px;
 margin-top:5px;
 padding:5px 5px 5px 5px;
 white-space:normal;
-width:218px;
+width:230px;
 }
 .split-form-sign-up ul li.error label{ color:#000000;}
 .split-form-sign-up ul li.error input.error{ color:#FF0000}
@@ -407,7 +423,7 @@ width:252px;
 }
 
 .inline-error{
-	color:#FF0000;
+	color:#FFF;
 	float:right;
 	margin-right:83px;
 	text-align:right;
