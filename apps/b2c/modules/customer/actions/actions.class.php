@@ -1819,7 +1819,7 @@ public function executeSmsHistory(sfWebrequest $request){
         if($item_amount=="") $item_amount = $request->getParameter('extra_refill');
         
         $return_url = $this->getTargetUrl().'customer/refillAccept';
-        $cancel_url = $this->getTargetUrl().'customer/refillReject/';
+        $cancel_url = $this->getTargetUrl().'customer/refillReject?orderid='.$order_id;
         $notify_url = $this->getTargetUrl().'pScripts/calbackrefill?order_id='.$order_id.'&amountval='.$item_amount;
 
      

@@ -49,7 +49,7 @@ function countChar(str)
 	    label.error { width: 250px; display: block; float: left; color: red; padding-left: 10px; }
 	    input[type=text], text { width: 200px;  }
             input[type=textarea], textarea { width: 400px;  }
-	    textarea { height: 80px; }
+	    textarea { height: 95px; }
           
 	  </style>
 
