@@ -87,24 +87,25 @@ width:232px;
 .right-col .box-a{background-image:url(../images/bg-box-a.png); background-repeat:no-repeat;}
 .right-col .box-b{background-image:url(../images/bg-box-b.png); background-repeat:no-repeat;}.right-col .box-c{background-image:url(../images/bg-box-c.png); background-repeat:no-repeat;}
 /*.right-col .box h3{ color:#d86327; font-size:18px;}
-.right-col .box h3 span{ color:#000;}*/
+.right-col .box h3 span{ color:#000;}g-greenbutton-*/
 .right-col .box small{ font-size:11px;}
 .right-col .box p{ margin-top:5px; margin-bottom:20px; font-size:12px;padding:0px;}
 .right-col .box a{
-    background-image: url("../images/bg-greenbutton-.png");
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    color: #000000;
-    display: block;
-    font-size: 11px;
-    height: 16px;
-    width:auto !important;
-    padding-bottom: 0px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 2px;
-    text-decoration: none;
-    white-space: nowrap;
+background-image: url("../images/b.png");
+    background-repeat: repeat-x;
+    border: 0 none !important;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    height: 25px;
+    margin-left: 0px;
+    outline: medium none;
+    padding-left:9px;
+    padding-right:9px;
+	padding-top:6px;
+	text-align:center;
+	background-color:#D44D05;
 }
 .right-col .box a span{
     background-image: url("../images/bg-greenbutton-.png");
@@ -115,6 +116,7 @@ width:232px;
     line-height: 7px;
     padding-right: 7px;
     text-align: center;
+	
 }
 .right-col .box-last{ margin:0px;}
 .navigation{ width:575px; float:left;}
@@ -206,7 +208,7 @@ width:232px;
 .butonsigninsmall-outer{position: relative; padding: 0px !important}
 .settingbutton{ background-image:url(../images/btn-dashboard.jpg);border:0 none;color:#333333;font-size:22px;width:133px; height:36px; margin-top:20px; float:right;}
 .dashboard-info{min-height:400px; float:left; width:100%;}
-.dashboard-info-text{ width:100%; padding-top:20px; font-size:15px;}
+.dashboard-info-text{ width:100%; padding-top:15px; font-size:20px;}
 .dashboard-info-text span{ padding-right:6px;}
 .dashboard-info button{ background-image:url(../images/btn-dashboard.jpg);border:0 none;color:#333333; font-weight:normal !important; font-size:16px;padding-bottom:7px;padding-top:5px;width:132px; float:right; height:36px; margin-top:10px;}
 .callhistory{ width:515px;}
@@ -368,7 +370,7 @@ clear:both;
 color:#7E7E7E;
 float:left;
 font-size:11px;
-margin-bottom:10px;
+margin-bottom:5px;
 margin-top:5px;
 width:135px;
 }
