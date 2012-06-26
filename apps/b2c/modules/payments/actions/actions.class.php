@@ -42,7 +42,9 @@ class paymentsActions extends sfActions {
     }
 
     public function executeReject(sfWebRequest $request) {
-      
+
+
+           $this->targetUrl = $this->getTargetUrl();
         //get the order_id
         $order_id = $request->getParameter('orderid');
         //$error_text = substr($request->getParameter('errortext'), 0, strpos($request->getParameter('errortext'), '!'));
@@ -641,7 +643,7 @@ class paymentsActions extends sfActions {
         
         
         $return_url = $this->getTargetUrl();
-        $cancel_url = $this->getTargetUrl().'payments/reject/orderid='.$order_id;
+        $cancel_url = $this->getTargetUrl().'payments/reject?orderid='.$order_id;
         $notify_url = $this->getTargetUrl().'payments/confirmpayment?order_id='.$order_id.'&amount='.$item_amount;
 
      
