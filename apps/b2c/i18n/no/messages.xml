@@ -630,7 +630,7 @@
             </trans-unit>
               <trans-unit id="147" translate="yes" reformat="yes" xml:space="default">
                 <source>Load</source>
-                <target>Laste</target>
+                <target>kjøp kreditt</target>
             </trans-unit>
               <trans-unit id="155" translate="yes" reformat="yes" xml:space="default">
                 <source>Load automatically &lt;br /&gt; when the pot is below:</source>
