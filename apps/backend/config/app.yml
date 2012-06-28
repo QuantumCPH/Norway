@@ -12,3 +12,5 @@ all:
   sender_name: ZapnaAps
   subject: Invoive for
   body_header: Invoice is attached for your reference.<br /><br />
+ backend_url: http://admin.zapna.no/backend.php/
+ main_url: http://admin.zapna.no/

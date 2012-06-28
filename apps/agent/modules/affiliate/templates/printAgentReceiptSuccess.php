@@ -50,17 +50,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
   </tr>
   <tr>
   <td colspan="4" class="payer_summary">
-	xxxx xxxx xxxx
-	<br />
-	xxxxx xxxxx
-	<br />
-	
-	<br />
-	Tel:      +49 xxxxxx
-	<br />	
-	<br />
-	Cvr:     xxxxxx
-	<br />
+	Postboks 5093 Majorstua 0301 Oslo
   </td>
   </tr>
   <tr bgcolor="#CCCCCC" class="receipt_header">

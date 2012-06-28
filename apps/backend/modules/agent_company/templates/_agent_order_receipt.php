@@ -68,7 +68,8 @@ $wrap_content  = isset($wrap)?$wrap:false;
   </tr>
   <tr>
   <td colspan="4" class="payer_summary">
-	Telefonv&atilde;gen 30
+	Postboks 5093 Majorstua 0301 Oslo
+<!--      Telefonv&atilde;gen 30
 	<br />
 	126 37 H&atilde;gersten
 	<br />
@@ -78,7 +79,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
 	<br />	
 	<br />
 	Cvr:     32068219
-	<br />  </td>
+	<br />  </td>-->
   </tr>
   <tr bgcolor="#CCCCCC" class="receipt_header"> 
     <th colspan="3"><?php echo __('Order Receipt') ?></th>

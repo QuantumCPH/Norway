@@ -49,7 +49,11 @@
                 </tr>-->
                  <tr>
         <td style="padding: 5px;">Mobile number:</td>
-        <td style="padding: 5px;"> <input type="text" name="mobile_number" id="employee_mobile_number"  size="25"   class="required digits"  minlength="8" /><span id="msgbox" style="display:none"></span> </td>
+        <td style="padding: 5px;"> 
+            <input type="text" name="mobile_number" id="employee_mobile_number"  size="25"   class="required digits"  minlength="8" />
+            <span id="msgbox" style="display:none"></span>
+            <br> <span style="font-size:10px">Enter Mobile No without Country Code</span>
+        </td>
                 </tr>
                  <tr>
         <td style="padding: 5px;">Email:</td>
