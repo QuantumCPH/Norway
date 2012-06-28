@@ -571,7 +571,7 @@ jQuery(function(){
                         jQuery('#error').val("error");
                 }else{
 		//check the username exists or not from ajax
-		jQuery.post("http://admin.zapna.no/backend.php/company/vat",{ vat_no:val } ,function(data)
+		jQuery.post("<?PHP echo sfConfig::get('app_backend_url');?>company/vat",{ vat_no:val } ,function(data)
         {//alert(data);
 		  if(data=='no') //if username not avaiable
 		  {
@@ -619,7 +619,7 @@ jQuery(function(){
                         jQuery('#error').val("error");
                 }else{
 
-		jQuery.post("http://admin.zapna.no/backend.php/employee/mobile",{ mobile_no: val} ,function(data)
+		jQuery.post("<?PHP echo sfConfig::get('app_backend_url');?>employee/mobile",{ mobile_no: val} ,function(data)
         {
 		  if(data=='no') //if username not avaiable
 		  {

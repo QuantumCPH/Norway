@@ -30,6 +30,8 @@
 <?php if ($company->isNew()){ ?>
   <?php $value = object_input_tag($company, 'getVatNo', array (
   'size' => 7,
+  'minlength'=>9,
+  'maxlength'=>9,
   'control_name' => 'company[vat_no]',
 )); echo $value ? $value : '&nbsp;' ?>
       <span id="msgbox" style="display:none"></span>
