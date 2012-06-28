@@ -41,7 +41,7 @@
   'control_name' => 'company[vat_no]',
 )); echo $value ? $value : '&nbsp;' ;
 
-      }?><br>write prefix 'test' with Vat number .
+      }?><br>
  
     </div>
 </div>

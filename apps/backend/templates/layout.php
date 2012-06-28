@@ -383,11 +383,11 @@
                         }
                         ?>
                         <?php 
-                        if($actionName=='list' && $modulName=="enable_country"){
+                        /*if($actionName=='list' && $modulName=="enable_country"){
                           echo link_to(__('Country List'), 'enable_country/index',array('class'=>'subSelect'));
                         }else{
                           echo link_to(__('Country List'), 'enable_country/index');
-                        }
+                        }*/
                         ?>
                         <?php 
                         if($actionName=='list' && $modulName=="city"){

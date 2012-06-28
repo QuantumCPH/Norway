@@ -56,15 +56,17 @@ jQuery(function(){
                         <option value="<?php echo $country->getCallingCode(); ?>"><?php echo $country->getName(); ?></option>
                         </select>
             </li>
-            <li>
+<!--            <li>
                 <label><?php echo __('Product Name') ?></label>
                 <?php  $c = new Criteria();
                 $c->add(ProductPeer::ID, 3);
                 $product = ProductPeer::doSelectOne($c);  ?>
+                
                 <select name="product">
                     <option value="<?php echo $product->getID(); ?>" ><?php echo $product->getName(); ?></option>
                 </select>
-            </li>
+            </li>-->
+            <input type="hidden" value="<?php echo $product->getID(); ?>" name="product">
              <?php
           if( $browser->getBrowser() == Browser::BROWSER_IE  )
           {
