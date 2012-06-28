@@ -247,7 +247,7 @@
             </span>
             <?php } ?>
              <?php echo $form['terms_conditions'] ?>
-             <span><a href="../customer/termsAndCondition" target="_blank" style="outline:none"><?php echo $form['terms_conditions']->renderHelp() ?></a></span>             
+             <span><a href="../../termsandcondition.pdf" target="_blank" style="outline:none"><?php echo $form['terms_conditions']->renderHelp() ?></a></span>             
           </li>
           <li>
              <?php
