@@ -45,12 +45,16 @@ $wrap_content  = isset($wrap)?$wrap:false;
 
 <table class="receipt" cellspacing="0" width="600px">
 <tr bgcolor="#CCCCCC" class="receipt_header">
-    <td colspan="4"> Zapna
+    <td colspan="4"> Zapna ApS
     </td>
   </tr>
   <tr>
   <td colspan="4" class="payer_summary">
-	Postboks 5093 Majorstua 0301 Oslo
+	Zapna ApS<br>
+        Postboks 5093 Majorstua<br>
+        0301 Oslo
+
+	<br>
   </td>
   </tr>
   <tr bgcolor="#CCCCCC" class="receipt_header">
