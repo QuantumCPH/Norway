@@ -68,7 +68,11 @@ $wrap_content  = isset($wrap)?$wrap:false;
   </tr>
   <tr>
   <td colspan="4" class="payer_summary">
-	Postboks 5093 Majorstua 0301 Oslo
+	Zapna ApS<br>
+        Postboks 5093 Majorstua<br>
+        0301 Oslo
+
+	<br>
 <!--      Telefonv&atilde;gen 30
 	<br />
 	126 37 H&atilde;gersten
