@@ -5,6 +5,11 @@ fields:
   agent_company{cvr_number}:
     required:
       msg:              The vat number cannot be left blank.
+    sfStringValidator:
+      min:       9
+      min_error: This vat number is too short (9 characters minimum)
+      max:       9
+      max_error: This vat number is too long. (9 characters maximum)
   agent_company{address}:
     required:
       msg:              The address  cannot be left blank.

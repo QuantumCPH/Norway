@@ -23,7 +23,7 @@
 </div>
 
 <div class="form-row">
-  <?php echo label_for('agent_company[cvr_number]', "Vat Number", 'class="required" ') ?>
+  <?php echo label_for('agent_company[cvr_number]', "Vat Number:", 'class="required" ') ?>
   <div class="content<?php if ($sf_request->hasError('agent_company{cvr_number}')): ?> form-error<?php endif; ?>">
   <?php if ($sf_request->hasError('agent_company{cvr_number}')): ?>
     <?php echo form_error('agent_company{cvr_number}', array('class' => 'form-error-msg')) ?>
@@ -32,6 +32,20 @@
   <?php $value = object_input_tag($agent_company, 'getCvrNumber', array (
   'size' => 7,
   'control_name' => 'agent_company[cvr_number]',
+)); echo $value ? $value : '&nbsp;' ?>
+    </div>
+</div>
+
+<div class="form-row">
+  <?php echo label_for('agent_company[ean_number]', "Agent Number:", 'class="required" ') ?>
+  <div class="content<?php if ($sf_request->hasError('agent_company{ean_number}')): ?> form-error<?php endif; ?>">
+  <?php if ($sf_request->hasError('agent_company{ean_number}')): ?>
+    <?php echo form_error('agent_company{ean_number}', array('class' => 'form-error-msg')) ?>
+  <?php endif; ?>
+
+  <?php $value = object_input_tag($agent_company, 'getEanNumber', array (
+  'size' => 7,
+  'control_name' => 'agent_company[ean_number]',
 )); echo $value ? $value : '&nbsp;' ?>
     </div>
 </div>
