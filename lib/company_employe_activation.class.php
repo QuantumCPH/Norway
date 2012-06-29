@@ -32,7 +32,7 @@ class CompanyEmployeActivation {
 
         $pb = new PortaBillingSoapClient(self::$telintaSOAPUrl, 'Admin', 'Customer');
         
-        $vatNumber = "NOB2B" . $company->getId().$company->getVatNo();
+        $vatNumber = "NOB2B" . $company->getVatNo();
 
         while (!$tCustomer && $retry_count < $max_retries) {
             try {
