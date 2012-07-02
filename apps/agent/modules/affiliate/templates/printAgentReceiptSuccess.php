@@ -51,7 +51,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
   <tr>
   <td colspan="4" class="payer_summary">
 	Zapna ApS<br>
-        Postboks 5093 Majorstua<br>
+        Softgarden, Postboks 5093 Majorstua <br>
         0301 Oslo
 
 	<br>
