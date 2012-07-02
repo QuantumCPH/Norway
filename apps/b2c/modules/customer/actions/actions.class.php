@@ -581,7 +581,7 @@ class customerActions extends sfActions {
         $this->redirectUnless($this->customer, "@homepage");
 
         $this->form = new ManualRefillForm($customer_id);
-
+        unset($this->form['i_customer']);
 
         //new order
         $this->order = new CustomerOrder();
