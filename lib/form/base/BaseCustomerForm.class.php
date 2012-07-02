@@ -48,14 +48,9 @@ class BaseCustomerForm extends BaseFormPropel
       'i_customer'               => new sfWidgetFormInput(),
       'usage_alert_sms'          => new sfWidgetFormInput(),
       'usage_alert_email'        => new sfWidgetFormInput(),
-<<<<<<< HEAD
       'sim_type_id'              => new sfWidgetFormPropelChoice(array('model' => 'SimTypes', 'add_empty' => false)),
-=======
-      'sim_type_id'              => new sfWidgetFormInput(),
- 
       'comments'                 => new sfWidgetFormTextarea(),
 
->>>>>>> fb1066c9cd7d25227d12cfb5759eb8e54918020b
     ));
 
     $this->setValidators(array(
@@ -95,14 +90,9 @@ class BaseCustomerForm extends BaseFormPropel
       'i_customer'               => new sfValidatorString(array('max_length' => 50, 'required' => false)),
       'usage_alert_sms'          => new sfValidatorInteger(array('required' => false)),
       'usage_alert_email'        => new sfValidatorInteger(array('required' => false)),
-<<<<<<< HEAD
       'sim_type_id'              => new sfValidatorPropelChoice(array('model' => 'SimTypes', 'column' => 'id')),
-=======
-      'sim_type_id'              => new sfValidatorInteger(),
- 
       'comments'                 => new sfValidatorString(array('required' => false)),
 
->>>>>>> fb1066c9cd7d25227d12cfb5759eb8e54918020b
     ));
 
     $this->widgetSchema->setNameFormat('customer[%s]');
