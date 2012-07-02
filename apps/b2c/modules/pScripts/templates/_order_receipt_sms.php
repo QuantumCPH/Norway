@@ -70,7 +70,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
   </tr>
   <tr>
   <td colspan="4" class="payer_summary">
-	Zapna ApS <br />Postboks 5093 Majorstua<br />
+	Zapna ApS <br />Softgarden, Postboks 5093 Majorstua <br />
         0301 Oslo
 	 	<br />
   </td>
