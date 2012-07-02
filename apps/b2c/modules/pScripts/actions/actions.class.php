@@ -2618,6 +2618,8 @@ if(($caltype!="IC") && ($caltype!="hc")){
     }
     
     public function executeCalbackrefill(sfWebRequest $request) {
+         echo $culture = sfContext::getInstance()->getUser()->getCulture();
+     die;
         $this->getUser()->setCulture($request->getParameter('lng'));
         $Parameters=$request->getURI();
         $order_id = $request->getParameter("order_id");
