@@ -294,7 +294,7 @@ $customer_form->unsetAllExcept(array('auto_refill_amount', 'auto_refill_min_bala
                                                                                                         'id'=>'user_attr_3',
 			  										'style'=>'width: 80px;'
 			  									)) 
-			  ?> NOK       
+			  ?> Nkr       
             </li>
            <li id="user_attr_2_field">
               <label for="user_attr_2" style="margin-right: 50px;"><?php echo __('Auto refill amount:') ?></label>

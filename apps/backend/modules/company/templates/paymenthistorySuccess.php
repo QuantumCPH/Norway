@@ -22,7 +22,7 @@
     <th><?php echo __('Date & Time') ?></th>
     <th><?php echo __('Company & Name') ?></th>
     <th><?php echo __('Description') ?></th>
-    <th><?php echo __('Amount') ?> (NOK)</th>
+    <th><?php echo __('Amount') ?> (Nkr)</th>
 </tr>
 <?php 
 $amount_total = 0;
@@ -53,7 +53,7 @@ $incrment++;
 <?php else: ?>
 <tr><td>&nbsp;</td>
     <td colspan="2" align="right"><strong><?php echo __('Total:') ?>&nbsp;&nbsp;</strong></td>
-    <td align="right"><?php echo format_number($amount_total);  ?> NOK</td>
+    <td align="right"><?php echo format_number($amount_total);  ?> Nkr</td>
     
 </tr>	
 <?php endif; ?>

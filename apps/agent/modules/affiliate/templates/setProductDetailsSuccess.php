@@ -11,7 +11,7 @@
         jq("#payment").validate({
             rules: {
                 uniqueid: {
-                    remote: "<?php echo $target; ?>validateUniqueId"
+                    remote: "<?php echo $target; ?>validateUniqueId?orderid=<?php echo $order->getId();?>"
                 }
             }
         });
@@ -124,10 +124,10 @@
                         </label>
 
 
-                        <label><?php echo $order->getProduct()->getRegistrationFee() ?> NOK
+                        <label><?php echo $order->getProduct()->getRegistrationFee() ?> Nkr
                             <br/>
                             <br/>
-                            <?php echo format_number($order->getProduct()->getPrice()) ?> NOK
+                            <?php echo format_number($order->getProduct()->getPrice()) ?> Nkr
                         </label>
 
 
@@ -173,12 +173,12 @@
                         <label class="fr ac" >
                             <span id="vat_span">
 <?php echo format_number($product_price_vat) ?>
-                            </span> NOK
+                            </span> Nkr
                             <br />
 <?php $total = $product_price + $product_price_vat ?>
                             <span id="total_span">
 <?php echo format_number($total) ?>
-                            </span> NOK
+                            </span> Nkr
                         </label>
                     </li>
 <?php if ($sf_user->hasFlash('error_message')): ?>

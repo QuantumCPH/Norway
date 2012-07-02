@@ -33,7 +33,7 @@
         <div class="form-row">
             <label for="agent_commission_agent_company_id"><strong>Refill Amount</strong></label>
             <div class="content">
-                <input type="text" name="refill_amount"  class="required number" min="0" />  NOK
+                <input type="text" name="refill_amount"  class="required number" min="0" />  Nkr
             </div>
         </div>
         <div class="form-row">

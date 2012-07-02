@@ -206,7 +206,7 @@
               	
               	echo $product_price;
               	?>" />
-              <label class="fr ac"><span class="vat_span"> <?php echo format_number($product_price) ?> </span>NOK</label>
+              <label class="fr ac"><span class="vat_span"> <?php echo format_number($product_price) ?> </span>Nkr</label>
               <br />
               <input type="hidden" id="extra_refill" value="<?php $extra_refill = $order->getExtraRefill(); echo $extra_refill; ?>" />
 
@@ -247,12 +247,12 @@
               <label class="fr ac" >
               	<span id="vat_span">
               	<?php echo format_number($vat) ?>
-                </span> NOK
+                </span> Nkr
               <br />
               	<?php $total = $product_price + $extra_refill + $vat ?>
               	<span id="total_span">
               	<?php echo format_number($total) ?>
-                </span> NOK
+                </span> Nkr
               </label>
             </li>
             <?php if($sf_user->hasFlash('error_message')): ?>

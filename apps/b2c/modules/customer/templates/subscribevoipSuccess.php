@@ -17,9 +17,9 @@
 <p>
 <?php echo __("With Resenumber you can receive cheap calls on this number while travelling abroad.") ?>
 <br/><br/>
-<?php echo __("The price of the package is: 10 NOK per. Month") ?>
+<?php echo __("The price of the package is: 10 Nkr per. Month") ?>
 <br/>
-<?php echo __("The activation price is: 30 NOK") ?>
+<?php echo __("The activation price is: 30 Nkr") ?>
 </p>
 	<script type="text/javascript">
 	    $(function() {

@@ -510,8 +510,8 @@ margin-bottom:10px;
     background: url('../images/field-img.png') no-repeat top;
     width: 331px;
     height: 27px;
-    border:0px;
-    padding-left:10px;
+    border:0px !important;
+/*    padding-left:10px;*/
     margin-left: 0px !important;
     margin-bottom: 0px !important;
 }
