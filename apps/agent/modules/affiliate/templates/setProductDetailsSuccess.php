@@ -11,7 +11,7 @@
         jq("#payment").validate({
             rules: {
                 uniqueid: {
-                    remote: "<?php echo $target; ?>validateUniqueId"
+                    remote: "<?php echo $target; ?>validateUniqueId?orderid=<?php echo $order->getId();?>"
                 }
             }
         });

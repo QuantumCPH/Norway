@@ -27,18 +27,19 @@ class BaseProductForm extends BaseFormPropel
       'sms_code'              => new sfWidgetFormInput(),
       'country'               => new sfWidgetFormInput(),
       'refill'                => new sfWidgetFormInput(),
-      'country_id'            => new sfWidgetFormPropelChoice(array('model' => 'EnableCountry', 'add_empty' => true)),
+      'country_id'            => new sfWidgetFormPropelChoice(array('model' => 'EnableCountry', 'add_empty' => false)),
       'refill_options'        => new sfWidgetFormInput(),
       'product_order'         => new sfWidgetFormInput(),
       'product_type_package'  => new sfWidgetFormInputCheckbox(),
       'product_country_us'    => new sfWidgetFormInputCheckbox(),
+      'is_in_b2b'             => new sfWidgetFormInputCheckbox(),
     ));
 
     $this->setValidators(array(
       'id'                    => new sfValidatorPropelChoice(array('model' => 'Product', 'column' => 'id', 'required' => false)),
-      'name'                  => new sfValidatorString(array('max_length' => 50, 'required' => false)),
+      'name'                  => new sfValidatorString(array('max_length' => 50)),
       'price'                 => new sfValidatorNumber(),
-      'description'           => new sfValidatorString(array('max_length' => 200, 'required' => false)),
+      'description'           => new sfValidatorString(array('max_length' => 200)),
       'initial_balance'       => new sfValidatorNumber(),
       'registration_fee'      => new sfValidatorInteger(array('required' => false)),
       'subscription_fee'      => new sfValidatorInteger(array('required' => false)),
@@ -50,11 +51,12 @@ class BaseProductForm extends BaseFormPropel
       'sms_code'              => new sfValidatorString(array('max_length' => 2, 'required' => false)),
       'country'               => new sfValidatorInteger(),
       'refill'                => new sfValidatorString(array('max_length' => 400)),
-      'country_id'            => new sfValidatorPropelChoice(array('model' => 'EnableCountry', 'column' => 'id', 'required' => false)),
+      'country_id'            => new sfValidatorPropelChoice(array('model' => 'EnableCountry', 'column' => 'id')),
       'refill_options'        => new sfValidatorString(array('max_length' => 400)),
       'product_order'         => new sfValidatorInteger(array('required' => false)),
       'product_type_package'  => new sfValidatorBoolean(),
       'product_country_us'    => new sfValidatorBoolean(),
+      'is_in_b2b'             => new sfValidatorBoolean(),
     ));
 
     $this->widgetSchema->setNameFormat('product[%s]');

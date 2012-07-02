@@ -68,6 +68,7 @@ class customerActions extends sfActions {
 
             $uc = new Criteria();
             $uc->add(UniqueIdsPeer::REGISTRATION_TYPE_ID, 1);
+            $uc->add(UniqueIdsPeer::SIM_TYPE_ID,$customer->getSimTypeId());
             $uc->addAnd(UniqueIdsPeer::STATUS, 0);
             $availableUniqueCount = UniqueIdsPeer::doCount($uc);
             $availableUniqueId = UniqueIdsPeer::doSelectOne($uc);

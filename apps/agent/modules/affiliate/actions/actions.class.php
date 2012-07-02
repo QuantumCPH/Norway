@@ -1109,8 +1109,10 @@ class affiliateActions extends sfActions {
     public function executeValidateUniqueId(sfWebRequest $request) {
 
         $uniqueId = $request->getParameter('uniqueid');
+        $order = CustomerOrderPeer::retrieveByPK($request->getParameter('orderid'));
         $uc = new Criteria();
         $uc->add(UniqueIdsPeer::REGISTRATION_TYPE_ID, 2);
+        $uc->addAnd(UniqueIdsPeer::SIM_TYPE_ID,$order->getCustomer()->getSimTypeId());
         $uc->addAnd(UniqueIdsPeer::STATUS, 0);
         $uc->addAnd(UniqueIdsPeer::UNIQUE_NUMBER, $uniqueId);
         $availableUniqueCount = UniqueIdsPeer::doCount($uc);
