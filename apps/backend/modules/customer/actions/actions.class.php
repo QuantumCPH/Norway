@@ -389,6 +389,7 @@ public function executePaymenthistory(sfWebRequest $request)
       $customer->setDateOfBirth($dob);
       $customer->setUsageAlertEmail($usage_email);
       $customer->setUsageAlertSMS($usage_sms);
+      $customer->setComments($request->getParameter('comments'));
 
       $customer->save();
 

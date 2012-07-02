@@ -250,7 +250,7 @@ $customer_form->unsetAllExcept(array('auto_refill_amount', 'auto_refill_min_bala
 		<input type="hidden" name="cancelurl" value="<?php echo url_for('@epay_reject_url', true)  ?>?accept=cancel&subscriptionid=&lng=<?php echo  $sf_user->getCulture() ?>&orderid=<?php echo $order->getId(); ?>&amount=<?php echo $order->getExtraRefill(); ?>" />
                 <input type="hidden" name="callbackurl" id="idcallbackurl" value="<?php echo url_for('@dibs_accept_url', true);  ?>?accept=yes&lng=<?php echo  $sf_user->getCulture() ?>&subscriptionid=&orderid=<?php echo $order_id; ?>&amount=<?php echo $total*100; ?>" />
 		<input type="hidden" name="accepturl" id="idaccepturl"  value="<?php echo url_for('@epay_accept_url', true);  ?>?accept=yes&lng=<?php echo  $sf_user->getCulture() ?>&subscriptionid=&orderid=<?php echo $order_id; ?>&amount=<?php echo $total*100; ?>" />-->
-       <ul>   <li><input type="submit"  class="butonsigninsmall"  name="paybutan"  style="cursor: pointer;margin-left: 0px !important;" value="<?php echo __('Pay') ?>" /></li></ul>
+       <input type="submit"  class="butonsigninsmall"  name="paybutan"  style="cursor: pointer;margin-left: 0px !important;" value="<?php echo __('Pay') ?>" /> 
 		      </div>
       <div class="fr col">
           
