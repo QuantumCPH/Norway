@@ -193,7 +193,7 @@
 
                             } ?>
                         </table><br/><br/>
-
+<!--
                                            <div class="callhistoryheadings"><h2><?php echo __("Payment History"); ?> </h2></div><br />
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="callhistory">
                         <tr>
@@ -218,7 +218,7 @@
                                 echo __('There are currently no call records to show.');
 
                             } ?>
-                        </table><br/><br/>
+                        </table><br/><br/>-->
                     <div class="callhistoryheadings"><h2><?php echo __("Call"); ?> </h2></div><br />
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="callhistory">
                             <tr>

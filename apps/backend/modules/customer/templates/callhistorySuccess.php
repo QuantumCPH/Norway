@@ -187,7 +187,7 @@ if($pus==1){
                             } ?>
                         </table><br/><br/>
 
-                           <h1><?php echo 'Payment History'; ?> </h1>
+<!--                           <h1><?php echo 'Payment History'; ?> </h1>
                     <table width="100%" cellspacing="0" cellpadding="2" class="tblAlign" border='0'>
                         <tr class="headings">
                             <th class="title"><?php echo __('Date &amp; time') ?></th>
@@ -211,7 +211,7 @@ if($pus==1){
                                 echo __('There are currently no call records to show.');
 
                             } ?>
-                        </table><br/><br/>
+                        </table><br/><br/>-->
 
 
 
