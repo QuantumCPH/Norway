@@ -644,7 +644,7 @@ class paymentsActions extends sfActions {
         
         $return_url = $this->getTargetUrl();
         $cancel_url = $this->getTargetUrl().'payments/reject?orderid='.$order_id;
-        $notify_url = $this->getTargetUrl().'payments/confirmpayment?order_id='.$order_id.'&amount='.$item_amount;
+        $notify_url = $this->getTargetUrl().'pScripts/confirmpayment?order_id='.$order_id.'&amount='.$item_amount;
 
      
         $querystring = '';
