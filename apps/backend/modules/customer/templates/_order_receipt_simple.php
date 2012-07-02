@@ -116,7 +116,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     ?>
 	</td>
     <td><?php echo $order->getQuantity() ?></td>
-    <td class="align"><?php echo format_number($subtotal = $transaction->getAmount()-$vat) //($order->getProduct()->getPrice() - $order->getProduct()->getPrice()*.2) * $order->getQuantity()) ?></td>
+    <td class="align"><?php echo format_number($subtotal = $transaction->getAmount()-$vat) //($order->getProduct()->getPrice() - $order->getProduct()->getPrice()*.2) * $order->getQuantity()) ?>&nbsp;Nkr</td>
   </tr>
   
   
@@ -127,13 +127,13 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Subtotal') ?></td>
     <td>&nbsp;</td>
-    <td class="align"><?php echo format_number($subtotal) ?> </td>
+    <td class="align"><?php echo format_number($subtotal) ?>&nbsp;Nkr</td>
   </tr>
   <tr class="footer"> 
     <td>&nbsp;</td>
     <td><?php echo __('VAT') ?> (<?php echo $vat==0?'0%':'25%' ?>)</td>
     <td>&nbsp;</td>
-    <td class="align"><?php echo format_number($vat) ?> </td>
+    <td class="align"><?php echo format_number($vat) ?>&nbsp;Nkr</td>
   </tr>
   <?php 
   //echo $postalcharge.'ss';
@@ -146,14 +146,14 @@ $wrap_content  = isset($wrap)?$wrap:false;
      ?>    
     </td>
     <td><?php //echo $order->getQuantity() ?></td>
-    <td class="align"><?php echo @$postalcharge ; ?></td>
+    <td class="align"><?php echo @$postalcharge ; ?>&nbsp;Nkr</td>
   </tr>
   <?php } ?>
   <tr class="footer">
     <td>&nbsp;</td>
     <td><?php echo __('Total') ?></td>
     <td>&nbsp;</td>
-    <td class="align"><?php if($postalcharge && $order->getIsFirstOrder()){ echo format_number($transaction->getAmount()+$postalcharge); }else{ echo format_number($transaction->getAmount()); } ?> Nkr</td>
+    <td class="align"><?php if($postalcharge && $order->getIsFirstOrder()){ echo format_number($transaction->getAmount()+$postalcharge); }else{ echo format_number($transaction->getAmount()); } ?>&nbsp;Nkr</td>
 
   </tr>
 </table>

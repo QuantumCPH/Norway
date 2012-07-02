@@ -92,7 +92,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
         
     </td>
     <td>1<?php //echo $agent_order->getQuantity() ?></td>
-    <td class="align"><?php echo format_number($subtotal = $agent_order->getAmount()) //($order->getProduct()->getPrice() - $order->getProduct()->getPrice()*.2) * $order->getQuantity()) ?></td>
+    <td class="align"><?php echo format_number($subtotal = $agent_order->getAmount()) //($order->getProduct()->getPrice() - $order->getProduct()->getPrice()*.2) * $order->getQuantity()) ?>&nbsp;Nkr</td>
   </tr>
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>
@@ -101,19 +101,19 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Subtotal') ?></td>
     <td>&nbsp;</td>
-    <td class="align"><?php echo format_number($subtotal) ?></td>
+    <td class="align"><?php echo format_number($subtotal) ?>&nbsp;Nkr</td>
   </tr>
   <tr class="footer">
     <td>&nbsp;</td>
     <td><?php echo __('VAT') ?> (<?php echo '0%' ?>)</td>
     <td>&nbsp;</td>
-    <td class="align"><?php echo format_number(0.00) ?></td>
+    <td class="align"><?php echo format_number(0.00) ?>&nbsp;Nkr</td>
   </tr>
   <tr class="footer">
     <td>&nbsp;</td>
     <td><?php echo __('Total') ?></td>
     <td>&nbsp;</td>
-    <td class="align"><?php echo format_number($agent_order->getAmount()) ?> Nkr</td>
+    <td class="align"><?php echo format_number($agent_order->getAmount()) ?>&nbsp;Nkrr</td>
   </tr>
 </table>
 <?php if($wrap_content): ?>
