@@ -91,19 +91,19 @@ width:232px;
 .right-col .box small{ font-size:11px;}
 .right-col .box p{ margin-top:5px; margin-bottom:20px; font-size:12px;padding:0px;}
 .right-col .box a{
-background-image: url("../images/b.png");
+background-image: url("../images/b.jpg");
     background-repeat: repeat-x;
     border: 0 none !important;
     color: #FFFFFF;
     cursor: pointer;
     font-size: 13px;
     font-weight: bold;
-    height: 25px;
+    height: 21px;
     margin-left: 0px;
     outline: medium none;
     padding-left:9px;
     padding-right:9px;
-	padding-top:6px;
+	padding-top:5px;
 	text-align:center;
 	background-color:#D44D05;
 }
@@ -203,8 +203,8 @@ background-image: url("../images/b.png");
     font-weight:bold;
     cursor:pointer;
     margin-left: 35px;
-    padding-left: 7px;
-    padding-right:7px;
+    padding-left: 10px;
+    padding-right:10px;
 }
 .butonsigninsmall-right{padding: 0px !important;background-image:url("../images/left-btn-dashboard.jpg"); background-repeat: no-repeat;border:0 none; position: absolute; width: 9px; height: 36px;right:-9px }
 .butonsigninsmall-left{padding: 0px !important;background-image:url("../images/right-btn-dashboard.jpg");border:0 none; background-repeat: no-repeat; position: absolute; width: 9px; height: 36px; left: 22px }
@@ -236,7 +236,7 @@ a.receipt{ background-image:url(../images/green-bullet.jpg); background-repeat:n
 .split-form-sign-up ul li input.radbx{width:20px; padding:0px; border:0px; float:left;}
 .split-form-sign-up ul li.fr {width:285px; text-align:right;}
 .loginbuttun{ 
-    background-image:url(../images/b.png);
+    background-image:url(../images/b.jpg);
     background-repeat:repeat-x;
     height:27px;
     font-size:13px;
