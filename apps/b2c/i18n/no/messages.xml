@@ -120,7 +120,7 @@
             </trans-unit>
             <trans-unit id="29" translate="yes" reformat="yes" xml:space="default">
                 <source>Product</source>
-                <target>Startpakke</target>
+                <target>Velg Startpakke</target>
             </trans-unit>
             <trans-unit id="30" translate="yes" reformat="yes" xml:space="default">
                 <source>First name</source>
@@ -542,11 +542,11 @@
             </trans-unit>
                <trans-unit id="133" translate="yes" reformat="yes" xml:space="default">
                 <source>Retype password</source>
-                <target>Skriv passord</target>
+                <target>Gjenta password</target>
             </trans-unit>
                <trans-unit id="134" translate="yes" reformat="yes" xml:space="default">
                 <source>Telecom operator</source>
-                <target>Teleoperatør</target>
+                <target>Din teleoperatør</target>
             </trans-unit>
                <trans-unit id="135" translate="yes" reformat="yes" xml:space="default">
                 <source>I accept all terms and conditions</source>
@@ -562,7 +562,7 @@
             </trans-unit>
                <trans-unit id="138" translate="yes" reformat="yes" xml:space="default">
                 <source>Minimum 6 digits</source>
-                <target>Minimum 6 siffer</target>
+                <target>Minimum 6 tegn</target>
             </trans-unit>
                <trans-unit id="139" translate="yes" reformat="yes" xml:space="default">
                 <source>Pay</source>
