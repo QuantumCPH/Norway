@@ -295,6 +295,20 @@
   
     </div>
 </div>
+
+<div class="form-row">
+  <?php echo label_for('agent_company[comments]', __($labels['agent_company{comments}']), '') ?>
+  <div class="content<?php if ($sf_request->hasError('agent_company{comments}')): ?> form-error<?php endif; ?>">
+  <?php if ($sf_request->hasError('agent_company{comments}')): ?>
+    <?php echo form_error('agent_company{comments}', array('class' => 'form-error-msg')) ?>
+  <?php endif; ?>
+
+  <?php $value = object_textarea_tag($agent_company, 'getComments', array (
+  'size' => '30x3',
+  'control_name' => 'agent_company[comments]',
+)); echo $value ? $value : '&nbsp;' ?>
+    </div>
+</div>
 <!--
  <div class="form-row">
   <?php echo label_for('agent_company[balance]', __($labels['agent_company{balance}']), '') ?>

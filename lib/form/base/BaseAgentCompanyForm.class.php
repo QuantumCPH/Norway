@@ -37,6 +37,7 @@ class BaseAgentCompanyForm extends BaseFormPropel
       'is_prepaid'                  => new sfWidgetFormInputCheckbox(),
       'balance'                     => new sfWidgetFormInput(),
       'invoice_method_id'           => new sfWidgetFormInput(),
+      'comments'                    => new sfWidgetFormTextarea(),
     ));
 
     $this->setValidators(array(
@@ -65,6 +66,7 @@ class BaseAgentCompanyForm extends BaseFormPropel
       'is_prepaid'                  => new sfValidatorBoolean(array('required' => false)),
       'balance'                     => new sfValidatorNumber(array('required' => false)),
       'invoice_method_id'           => new sfValidatorInteger(),
+      'comments'                    => new sfValidatorString(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('agent_company[%s]');

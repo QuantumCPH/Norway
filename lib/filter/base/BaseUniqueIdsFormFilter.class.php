@@ -19,6 +19,7 @@ class BaseUniqueIdsFormFilter extends BaseFormFilterPropel
       'assigned_at'          => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'registration_type_id' => new sfWidgetFormFilterInput(),
       'status'               => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
+      'sim_type_id'          => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
@@ -27,6 +28,7 @@ class BaseUniqueIdsFormFilter extends BaseFormFilterPropel
       'assigned_at'          => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
       'registration_type_id' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'status'               => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
+      'sim_type_id'          => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
     ));
 
     $this->widgetSchema->setNameFormat('unique_ids_filters[%s]');
@@ -50,6 +52,7 @@ class BaseUniqueIdsFormFilter extends BaseFormFilterPropel
       'assigned_at'          => 'Date',
       'registration_type_id' => 'Number',
       'status'               => 'Boolean',
+      'sim_type_id'          => 'Number',
     );
   }
 }
