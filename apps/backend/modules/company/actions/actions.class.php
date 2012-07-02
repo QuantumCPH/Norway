@@ -284,6 +284,10 @@ class companyActions extends sfActions {
             $this->getRequest()->moveFile('company[file_path]', sfConfig::get('sf_upload_dir') . "//" . $fileName . $ext);
             $this->company->setFilePath($fileName . $ext);
         }
+        if (isset($company['comments']))
+    {
+      $this->company->setComments($company['comments']);
+    }
     }
 
     protected function getCompanyOrCreate($id = 'id') {
@@ -376,6 +380,7 @@ class companyActions extends sfActions {
             'company{created_at}' => 'Created at:',
             'company{file_path}' => 'Registration Doc:',
             'company{credit_limit}' => 'Credit Limit:',
+            'company{comments}' => 'Comments:',
         );
     }
 

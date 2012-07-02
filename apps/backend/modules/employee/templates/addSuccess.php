@@ -96,7 +96,7 @@
                 </tr>
     <tr>
             <td>Comments:</td>
-            <td><textarea name="comments"  id="employee_comments" style="width: 542px !important; height: 230px !important;"><?php echo $employee->getComments(); ?></textarea>
+            <td><textarea name="comments"  id="employee_comments" style="width: 542px !important; height: 230px !important;"> </textarea>
                 </td>
         </tr>
   </table>
