@@ -623,7 +623,8 @@ class emailLib{
 
     public static function sendCustomerRegistrationViaWebEmail(Customer $customer,$order)
     {
-
+        echo $culture = sfContext::getInstance()->getUser()->getCulture();
+     die;
 
         $tc  =new Criteria();
         $tc->add(TransactionPeer::CUSTOMER_ID, $customer->getId() );

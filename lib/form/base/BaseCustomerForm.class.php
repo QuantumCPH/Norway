@@ -48,9 +48,7 @@ class BaseCustomerForm extends BaseFormPropel
       'i_customer'               => new sfWidgetFormInput(),
       'usage_alert_sms'          => new sfWidgetFormInput(),
       'usage_alert_email'        => new sfWidgetFormInput(),
-
       'sim_type_id'              => new sfWidgetFormPropelChoice(array('model' => 'SimTypes', 'add_empty' => false)),
-
       'comments'                 => new sfWidgetFormTextarea(),
     ));
 
@@ -91,9 +89,7 @@ class BaseCustomerForm extends BaseFormPropel
       'i_customer'               => new sfValidatorString(array('max_length' => 50, 'required' => false)),
       'usage_alert_sms'          => new sfValidatorInteger(array('required' => false)),
       'usage_alert_email'        => new sfValidatorInteger(array('required' => false)),
-
       'sim_type_id'              => new sfValidatorPropelChoice(array('model' => 'SimTypes', 'column' => 'id')),
- 
       'comments'                 => new sfValidatorString(array('required' => false)),
     ));
 
