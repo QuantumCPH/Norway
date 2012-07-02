@@ -44,6 +44,22 @@
             </li>
             <!--  end product -->
             <?php
+            $error_sim_type_id = false;;
+            if($form['sim_type_id']->hasError())
+            	$error_sim_type_id = true;
+            ?>
+            <li>
+             <?php echo $form['sim_type_id']->renderLabel() ?>
+             <?php echo $form['sim_type_id'] ?>
+             <?php if ($error_sim_type_id): ?>
+             <span id="cardno_decl" class="alertstep1">
+			  	<?php echo image_tag('../zerocall/images/decl.png', array('absolute'=>true)) ?>
+			 </span>
+			 <?php endif; ?>
+             <div class='inline-error'><?php echo $error_sim_type_id?$form['sim_type_id']->renderError():'&nbsp;'?></div>
+            </li>
+            <!--  end sim type -->
+            <?php
             $error_first_name = false;;
             if($form['first_name']->hasError())
             	$error_first_name = true;

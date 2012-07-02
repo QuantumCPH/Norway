@@ -28,7 +28,7 @@ class BaseEmployeeForm extends BaseFormPropel
       'product_id'            => new sfWidgetFormInput(),
       'country_code'          => new sfWidgetFormInput(),
       'country_mobile_number' => new sfWidgetFormInput(),
-      'comments'              => new sfWidgetFormTextarea(),
+      'sim_type_id'           => new sfWidgetFormInput(),
     ));
 
     $this->setValidators(array(
@@ -48,7 +48,7 @@ class BaseEmployeeForm extends BaseFormPropel
       'product_id'            => new sfValidatorInteger(array('required' => false)),
       'country_code'          => new sfValidatorString(array('max_length' => 50, 'required' => false)),
       'country_mobile_number' => new sfValidatorString(array('max_length' => 250, 'required' => false)),
-      'comments'              => new sfValidatorString(array('required' => false)),
+      'sim_type_id'           => new sfValidatorInteger(),
     ));
 
     $this->widgetSchema->setNameFormat('employee[%s]');

@@ -17,7 +17,7 @@ class CompanyEmployeActivation {
     //put your code here
     //put your code here
     private static $iParent = 82214;                //Company Resller ID on Telinta
-    private static $currency = 'NOK';
+    private static $currency = 'Nkr';
     private static $a_iProduct = 11720;
     private static $CBProduct = 11748;
     private static $VoipProduct = 11749;

@@ -98,5 +98,13 @@ class Customer extends BaseCustomer
             if($balance)
                return $balance;
         }
+        public function getSimType(){
+            $simTypeTitle ="";
+            $cst = new Criteria();
+            $cst->add(SimTypesPeer::ID,$this->getSimTypeId());
+            $simTypes = SimTypesPeer::doSelectOne($cst);
+              if(SimTypesPeer::doCount($cst)>0) $simTypeTitle = $simTypes->getTitle();
+            return $simTypeTitle;
+        }
 	    
 }

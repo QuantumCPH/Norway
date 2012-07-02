@@ -49,11 +49,7 @@ class BaseCustomerFormFilter extends BaseFormFilterPropel
       'i_customer'               => new sfWidgetFormFilterInput(),
       'usage_alert_sms'          => new sfWidgetFormFilterInput(),
       'usage_alert_email'        => new sfWidgetFormFilterInput(),
-      'sim_type_id'              => new sfWidgetFormFilterInput(),
-<<<<<<< HEAD
-      'comments'                 => new sfWidgetFormFilterInput(),
-=======
->>>>>>> a54c321ef3953335b052f4d3239e33c410c6745b
+      'sim_type_id'              => new sfWidgetFormPropelChoice(array('model' => 'SimTypes', 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
@@ -92,11 +88,7 @@ class BaseCustomerFormFilter extends BaseFormFilterPropel
       'i_customer'               => new sfValidatorPass(array('required' => false)),
       'usage_alert_sms'          => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'usage_alert_email'        => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'sim_type_id'              => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-<<<<<<< HEAD
-      'comments'                 => new sfValidatorPass(array('required' => false)),
-=======
->>>>>>> a54c321ef3953335b052f4d3239e33c410c6745b
+      'sim_type_id'              => new sfValidatorPropelChoice(array('required' => false, 'model' => 'SimTypes', 'column' => 'id')),
     ));
 
     $this->widgetSchema->setNameFormat('customer_filters[%s]');
@@ -150,11 +142,7 @@ class BaseCustomerFormFilter extends BaseFormFilterPropel
       'i_customer'               => 'Text',
       'usage_alert_sms'          => 'Number',
       'usage_alert_email'        => 'Number',
-      'sim_type_id'              => 'Number',
-<<<<<<< HEAD
-      'comments'                 => 'Text',
-=======
->>>>>>> a54c321ef3953335b052f4d3239e33c410c6745b
+      'sim_type_id'              => 'ForeignKey',
     );
   }
 }

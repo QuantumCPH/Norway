@@ -363,8 +363,8 @@
                 <target>Fortell vennene dine om Zapna and tjene ekstra balanse!</target>
             </trans-unit>
             <trans-unit id="89" translate="yes" reformat="yes" xml:space="default">
-                <source>Tell your friends about Zapna and earn 10 NOK as soon as your friends have made their first payment with Zapna! Spread the word about Zapna and let your friends know about Zapna services.</source>
-                <target>Fortell vennene dine om Zapna og tjene 10 NOK så snart dine venner har gjort sin første innbetaling med Zapna! Spre ordet om Zapna og la vennene dine om Zapna tjenester.</target>
+                <source>Tell your friends about Zapna and earn 10 Nkr as soon as your friends have made their first payment with Zapna! Spread the word about Zapna and let your friends know about Zapna services.</source>
+                <target>Fortell vennene dine om Zapna og tjene 10 Nkr så snart dine venner har gjort sin første innbetaling med Zapna! Spre ordet om Zapna og la vennene dine om Zapna tjenester.</target>
             </trans-unit>
             <trans-unit id="90" translate="yes" reformat="yes" xml:space="default">
                 <source>You can tell your friends about Zapna in two simple ways:</source>
@@ -379,8 +379,8 @@
                 <target>Hva får du av dette?</target>
             </trans-unit>
             <trans-unit id="93" translate="yes" reformat="yes" xml:space="default">
-                <source>As soon as your friends have made their first payment with Zapna, you will automatically receive 10 NOK in your Zapna balance - so if 10 of your friends register on Zapna, youll gain 100 NOK in your account. Just share the news and enjoy this great new treat from Zapna.</source>
-                <target>Så snart dine venner har gjort sin første innbetaling med Zapna, vil du automatisk motta 10 NOK i din Zapna balanse - så hvis 10 av vennene dine registrerer seg på Zapna, youll få 100 NOK på kontoen din. Bare dele nyhetene og nyte denne flotte nye godbiten fra Zapna.</target>
+                <source>As soon as your friends have made their first payment with Zapna, you will automatically receive 10 Nkr in your Zapna balance - so if 10 of your friends register on Zapna, youll gain 100 Nkr in your account. Just share the news and enjoy this great new treat from Zapna.</source>
+                <target>Så snart dine venner har gjort sin første innbetaling med Zapna, vil du automatisk motta 10 Nkr i din Zapna balanse - så hvis 10 av vennene dine registrerer seg på Zapna, youll få 100 Nkr på kontoen din. Bare dele nyhetene og nyte denne flotte nye godbiten fra Zapna.</target>
             </trans-unit>
       
             <trans-unit id="94" translate="yes" reformat="yes" xml:space="default">
@@ -400,8 +400,8 @@
                 <target>Din Melding</target>
             </trans-unit>
             <trans-unit id="98" translate="yes" reformat="yes" xml:space="default">
-                <source>Smartsim use to make extremely cheap international calls (save up to 90%) and to cut prices when you are abroad (you'll save 30-80%). Right now costing Smartsim 99 NOK and you can call for the full amount. Smartsim has no monthly fee or hidden charges.</source>
-                <target>SmartSim bruke til å lage ekstremt billige internasjonale samtaler (lagre opptil 90%) og å kutte prisene når du er i utlandet (du vil spare 30-80%). Akkurat nå koster SmartSim 99 NOK, og du kan ringe for hele beløpet. SmartSim har ingen månedspris eller skjulte kostnader.</target>
+                <source>Smartsim use to make extremely cheap international calls (save up to 90%) and to cut prices when you are abroad (you'll save 30-80%). Right now costing Smartsim 99 Nkr and you can call for the full amount. Smartsim has no monthly fee or hidden charges.</source>
+                <target>SmartSim bruke til å lage ekstremt billige internasjonale samtaler (lagre opptil 90%) og å kutte prisene når du er i utlandet (du vil spare 30-80%). Akkurat nå koster SmartSim 99 Nkr, og du kan ringe for hele beløpet. SmartSim har ingen månedspris eller skjulte kostnader.</target>
             </trans-unit>
             <trans-unit id="99" translate="yes" reformat="yes" xml:space="default">
                 <source>Send Email to join Smartsim</source>
@@ -589,8 +589,8 @@
                 <target>Auto refill beløp:</target>
             </trans-unit>
              <trans-unit id="145" translate="yes" reformat="yes" xml:space="default">
-                <source>Zapna recommends to activate this service so you &lt;br /&gt; do not have to manually  refill when your account&lt;br /&gt;  balance runs low. 100 or 200 NOK each  when the &lt;br /&gt; balances reaches 25 or 50 NOK. This facility is &lt;br /&gt; added to your account in minutes.</source>
-                <target>Zapna to anbefaler å aktivere denne tjenesten slik at du &lt;br /&gt; trenger ikke å manuelt fylle når kontoen &lt;br /&gt;balanse kjører lav. 100 eller 200 NOK hver da &lt;br /&gt; saldo når 25 eller 50 NOK. Dette anlegget er &lt;br /&gt; lagt til kontoen din på minutter</target>
+                <source>Zapna recommends to activate this service so you &lt;br /&gt; do not have to manually  refill when your account&lt;br /&gt;  balance runs low. 100 or 200 Nkr each  when the &lt;br /&gt; balances reaches 25 or 50 Nkr. This facility is &lt;br /&gt; added to your account in minutes.</source>
+                <target>Zapna to anbefaler å aktivere denne tjenesten slik at du &lt;br /&gt; trenger ikke å manuelt fylle når kontoen &lt;br /&gt;balanse kjører lav. 100 eller 200 Nkr hver da &lt;br /&gt; saldo når 25 eller 50 Nkr. Dette anlegget er &lt;br /&gt; lagt til kontoen din på minutter</target>
             </trans-unit>
              <trans-unit id="146" translate="yes" reformat="yes" xml:space="default">
                 <source>Enter cell phone number</source>
@@ -1058,12 +1058,12 @@
                 <target>Med Resenumber kan du motta billige samtaler på dette nummeret når du reiser utenlands.</target>
             </trans-unit>
             <trans-unit id="260" translate="yes" reformat="yes" xml:space="default">
-                <source>The price of the package is: 10 NOK per. Month</source>
-                <target>Prisen på pakken er: 10 NOK pr. måned</target>
+                <source>The price of the package is: 10 Nkr per. Month</source>
+                <target>Prisen på pakken er: 10 Nkr pr. måned</target>
             </trans-unit>
             <trans-unit id="261" translate="yes" reformat="yes" xml:space="default">
-                <source>The activation price is: 30 NOK</source>
-                <target>Aktiveringen Prisen er: 30 NOK</target>
+                <source>The activation price is: 30 Nkr</source>
+                <target>Aktiveringen Prisen er: 30 Nkr</target>
             </trans-unit>
             <trans-unit id="262" translate="yes" reformat="yes" xml:space="default">
                 <source>To Number</source>

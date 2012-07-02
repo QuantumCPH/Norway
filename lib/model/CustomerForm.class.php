@@ -233,6 +233,13 @@ class CustomerForm extends BaseCustomerForm
             ));
             //----------------------------------------------------------
 
+             //-----------------For get the Sim Types---------------------
+            $this->widgetSchema['sim_type_id'] = new sfWidgetFormPropelChoice(array(
+                    'model' => 'SimTypes',
+                    'order_by' => array('Title','asc'),
+            ));
+            //----------------------------------------------------------
+
         } else if(sfConfig::get('sf_app')=='b2c'){          
 
  
@@ -353,7 +360,12 @@ class CustomerForm extends BaseCustomerForm
                                     //'add_empty' => 'Choose a product',
             ));
             
-
+            //-----------------For get the Sim Types---------------------
+            $this->widgetSchema['sim_type_id'] = new sfWidgetFormPropelChoice(array(
+                    'model' => 'SimTypes',
+                    'order_by' => array('Title','asc'),
+            ));
+            //----------------------------------------------------------
             $this->widgetSchema['manufacturer'] = new sfWidgetFormPropelChoice(array(
 	                'model' => 'Manufacturer',
 	                'order_by' => array('Name','asc'),
@@ -537,12 +549,13 @@ class CustomerForm extends BaseCustomerForm
 			'po_box_number'=>'Post code',
 			'telecom_operator_id'=>'Telecom operator',
 			'manufacturer'=>'Mobile brand',
-                    'to_date'=>'to date',
-                    'from_date'=>'from date',
+                        'to_date'=>'to date',
+                        'from_date'=>'from date',
 			'country_id'=>'Country',
 			'device_id'=>'Mobile Model',
 			'password_confirm'=>'Retype password',
 			'date_of_birth'=>'Birth date <br />(dd-mm-yyyy)',
+                        'sim_type_id'=>'Sim Type',
 		)
 	);
 	

@@ -11,7 +11,7 @@
       <tr class="headings">
         <th class="title"><?php echo __('Date &amp; time') ?></th>
         <th class="title" width="40%"><?php echo __('Description') ?></th>
-        <th class="title"><?php echo __('Amount') ?> NOK</th>
+        <th class="title"><?php echo __('Amount') ?> Nkr</th>
       </tr>
     <?php
     if(count($events)>0){
@@ -81,7 +81,7 @@
                 <td><?php  echo  date('i:s',$xdr->charged_quantity); ?></td>
                 <td><?php echo number_format($xdr->charged_amount / 4, 2); ?></td>
                 <td><?php echo number_format($xdr->charged_amount, 2);
-            $amount_total+= number_format($xdr->charged_amount, 2); ?> NOK</td>
+            $amount_total+= number_format($xdr->charged_amount, 2); ?> Nkr</td>
             <td><?php
                 $typecall = substr($xdr->account_id, 0, 1);
                 if ($typecall == 'a') {
@@ -113,7 +113,7 @@
                 <tr>
                     <td colspan="4" align="right"><strong><?php echo __('Subtotal') ?></strong></td>
 
-                    <td><?php echo number_format($amount_total, 2, ',', '') ?> NOK</td>
+                    <td><?php echo number_format($amount_total, 2, ',', '') ?> Nkr</td>
                     <td>&nbsp;</td>
                 </tr>
 <?php } ?>

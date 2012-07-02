@@ -65,7 +65,7 @@
             <th><?php echo __('Agent Number') ?></th>
             <?}?>
             <th><?php echo __('Description') ?> </th>
-            <th><?php echo __('Amount') ?>(NOK)</th>
+            <th><?php echo __('Amount') ?>(Nkr)</th>
             <th><?php echo __('Show Receipt') ?></th>
         </tr>
         <?php

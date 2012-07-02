@@ -442,6 +442,11 @@
                         }else{
                           echo link_to(__('Edit B2B Credit Limit'), 'company/indexAll');
                         }
+                        if($actionName=='index' && $modulName=="company"){
+                          echo link_to(__('Sim Types'), 'sim_types/index',array('class'=>'subSelect'));
+                        }else{
+                          echo link_to(__('Sim Types'), 'sim_types/index');
+                        }
                         ?>
 
                 </div>
