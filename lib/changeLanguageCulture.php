@@ -46,7 +46,7 @@ class changeLanguageCulture{
                 //----------------------End Code -------------------------------               
             }
         }
-        var_dump($clsObj);die;
+       // var_dump($clsObj);die;
         //-----------------------------------------
       }
 }
