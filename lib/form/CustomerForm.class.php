@@ -72,6 +72,11 @@ class CustomerForm extends BaseCustomerForm
     								'required'	=> 'Please choose a product',
     								'invalid'	=> 'Invalid product',
     							));
+       //-----------------For get the Sim Types---------------------
+            $this->widgetSchema['sim_type_id'] = new sfWidgetFormPropelChoice(array(
+                    'model' => 'SimTypes',
+                    'order_by' => array('Title','asc'),
+            ));
 
     //date of birth
 	$years = range(1950, 2020);

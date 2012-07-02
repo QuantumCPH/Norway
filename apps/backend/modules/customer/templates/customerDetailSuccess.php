@@ -36,12 +36,12 @@ $pus=0;
                if($pus==1){
                             $Tes=ForumTel::getBalanceForumtel($customer->getId());
                                echo  $amt=CurrencyConverter::convertUsdToSek($Tes);
-   echo " NOK";
+   echo " Nkr";
                             }else{
 
 
         echo  $customer_balance;
-          echo " NOK";
+          echo " Nkr";
                             }
                           
                      ?> </td>
@@ -114,7 +114,7 @@ if(isset($val) && $val!=""){  ?>
                     <td id="sf_admin_list_th_date_of_birth" class="leftHeadign" >Date Of Birth</td>
                       <td><?php echo  $customer->getDateOfBirth() ?></td>
                       </tr>
-                         <tr>
+<!--                         <tr>
                       <td id="sf_admin_list_th_auto_refill" class="leftHeadign" >Auto Refill</td>
                         <?php if ($customer->getAutoRefillAmount()!=NULL && $customer->getAutoRefillAmount()>1){ ?>
                   <td>Yes</td>
@@ -122,7 +122,7 @@ if(isset($val) && $val!=""){  ?>
                       { ?>
                   <td>No</td>
                   <?php } ?>
-                        </tr>
+                        </tr>-->
                          <tr>
                         <td id="sf_admin_list_th_auto_refill" class="leftHeadign" >Unique ID</td>
                          <td>  <?php  echo $customer->getUniqueid();     ?>   </td>
@@ -134,7 +134,7 @@ if(isset($val) && $val!=""){  ?>
                         <tr>
                         <td id="sf_admin_list_th_auto_refill" class="leftHeadign" >Usage SMS Alerts</td>
                          <td>  <?php  echo ($customer->getUsageAlertSMS()==1)?"Yes":"No";     ?>   </td>
-                        </tr  >
+                        </tr>
 <!--                         <tr style="background-color:#EEEEFF">
                        <td id="sf_admin_list_th_auto_refill" class="leftHeadign" >Active No</td>
                         <td>  <?php  $unid   =  $customer->getUniqueid();

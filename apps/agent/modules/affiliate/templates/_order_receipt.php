@@ -34,7 +34,10 @@ use_helper('Number');
 	{
 		font-weight: bold;
 	}
-
+        .align{
+                padding-right:80px !important;
+                text-align:right;
+        }
 
 </style>
 
@@ -71,12 +74,12 @@ $wrap_content  = isset($wrap)?$wrap:false;
 	</p>
 	<br />
 <?php endif; ?>
-<table width="600px">
+<table width="520px">
 	<tr style="border:0px solid #fff">
 		<td colspan="4" align="right" style="text-align:right; border:0px solid #fff"><?php echo image_tag('http://customer.zapna.no/images/zapna_logo_small.jpg',array('width' => '170'));?></td>
 	</tr>
 </table>
-<table class="receipt" cellspacing="0" width="600px">
+<table class="receipt" cellspacing="0" width="520px">
   <tr bgcolor="#CCCCCC" class="receipt_header">
     <th colspan="3"><?php echo __('Order Receipt')." (".$order->getProduct()->getName().")" ?></th>
     <th><?php echo __('Order No.') ?> <?php echo $order->getId() ?></th>
@@ -107,7 +110,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td><?php echo __('Date') ?></td>
     <td><?php echo __('Description') ?></td>
     <td><?php echo __('Quantity') ?></td>
-    <td><?php echo __('Amount') ?>(NOK)</td>
+    <td class="align"><?php echo __('Amount') ?>(Nkr)</td>
   </tr>
   <tr>
     <td><?php echo $order->getCreatedAt('m-d-Y') ?></td>
@@ -118,7 +121,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     ?>
 	</td>
     <td><?php echo $order->getQuantity() ?></td>
-    <td><?php echo format_number($order->getProduct()->getRegistrationFee()); ?></td>
+    <td class="align"><?php echo format_number($order->getProduct()->getRegistrationFee()); ?>&nbsp;Nkr</td>
   </tr>
   <tr>
     <td></td>
@@ -129,7 +132,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     ?>
 	</td>
     <td><?php echo $order->getQuantity() ?></td>
-    <td><?php echo format_number($order->getProduct()->getPrice()); ?></td>
+    <td class="align"><?php echo format_number($order->getProduct()->getPrice()); ?>&nbsp;Nkr</td>
   </tr>
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>
@@ -138,27 +141,27 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Subtotal') ?></td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($subTotal = $order->getProduct()->getPrice()+$order->getProduct()->getRegistrationFee()) ?></td>
+    <td class="align"><?php echo format_number($subTotal = $order->getProduct()->getPrice()+$order->getProduct()->getRegistrationFee()) ?>&nbsp;Nkr</td>
   </tr>
 
   <tr class="footer">
     <td>&nbsp;</td>
     <td><?php echo __('VAT') ?> (<?php echo $vat==0?'0%':'25%' ?>)</td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($vat) ?></td>
+    <td class="align"><?php echo format_number($vat) ?>&nbsp;Nkr</td>
   </tr>
   <tr class="footer">
     <td>&nbsp;</td>
     <td><?php echo __('Total') ?></td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($subTotal+$vat) ?> NOK</td>
+    <td class="align"><?php echo format_number($subTotal+$vat) ?>&nbsp;Nkr</td>
   </tr>
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>
   </tr>
   <tr class="footer">
     <td class="payer_summary" colspan="4" style="font-weight:normal; white-space: nowrap;">
-    <?php echo __('Zapna - Postboks 5093 Majorstua - 0301 Oslo');?> </td>
+    <?php echo __('Zapna Aps – Softgarden, Postboks 5093 Majorstua - 0301 Oslo');?> </td>
   </tr>
 </table>
         

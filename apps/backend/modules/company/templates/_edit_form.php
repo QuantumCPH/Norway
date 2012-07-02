@@ -30,6 +30,8 @@
 <?php if ($company->isNew()){ ?>
   <?php $value = object_input_tag($company, 'getVatNo', array (
   'size' => 7,
+  'minlength'=>9,
+  'maxlength'=>9,
   'control_name' => 'company[vat_no]',
 )); echo $value ? $value : '&nbsp;' ?>
       <span id="msgbox" style="display:none"></span>
@@ -41,7 +43,7 @@
   'control_name' => 'company[vat_no]',
 )); echo $value ? $value : '&nbsp;' ;
 
-      }?><br>write prefix 'test' with Vat number .
+      }?><br>
  
     </div>
 </div>
@@ -338,6 +340,23 @@
 )); echo $value ? $value : '&nbsp;' ?>
     </div>
 </div>
+
+ 
+
+<div class="form-row">
+  <?php echo label_for('company[comments]', __($labels['company{comments}']), '') ?>
+  <div class="content<?php if ($sf_request->hasError('company{comments}')): ?> form-error<?php endif; ?>">
+  <?php if ($sf_request->hasError('company{comments}')): ?>
+    <?php echo form_error('company{comments}', array('class' => 'form-error-msg')) ?>
+  <?php endif; ?>
+
+  <?php $value = object_textarea_tag($company, 'getComments', array (
+  'size' => '30x3',
+  'control_name' => 'company[comments]',
+)); echo $value ? $value : '&nbsp;' ?>
+    </div>
+</div> 
+
 
 <?php if($company->isNew()){ ?>
 

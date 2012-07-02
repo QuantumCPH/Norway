@@ -89,7 +89,7 @@
 //                            }else if($lang=="en"){
 //                                echo ('eur');
 //                            }else{
-                                echo ('NOK');
+                                echo ('Nkr');
 //                            } ?></td>
 <!--                  <td><a href="#" class="receipt" onclick="javascript: window.open('<?php echo url_for('payments/showReceipt?tid='.$transaction->getId(), true) ?>')"><?php echo $transaction->getAmount()>=0?__('Paid'):__('Refund') ?></a></td>-->
                 </tr>
@@ -108,7 +108,7 @@
 //                            }else if($lang=="en"){
 //                                echo ('eur');
 //                            }else{
-                                echo ('NOK');
+                                echo ('Nkr');
 //                            } ?></td>
                 	<td>&nbsp;</td>
                 </tr>	

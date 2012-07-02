@@ -44,6 +44,8 @@ class BaseCompanyForm extends BaseFormPropel
       'file_path'              => new sfWidgetFormInput(),
       'rate_table_id'          => new sfWidgetFormInput(),
       'i_customer'             => new sfWidgetFormInput(),
+      'credit_limit'           => new sfWidgetFormInput(),
+      'comments'               => new sfWidgetFormTextarea(),
     ));
 
     $this->setValidators(array(
@@ -79,6 +81,8 @@ class BaseCompanyForm extends BaseFormPropel
       'file_path'              => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'rate_table_id'          => new sfValidatorInteger(),
       'i_customer'             => new sfValidatorString(array('max_length' => 50, 'required' => false)),
+      'credit_limit'           => new sfValidatorInteger(),
+      'comments'               => new sfValidatorString(array('required' => false)),
     ));
 
     $this->validatorSchema->setPostValidator(

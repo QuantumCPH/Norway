@@ -87,24 +87,25 @@ width:232px;
 .right-col .box-a{background-image:url(../images/bg-box-a.png); background-repeat:no-repeat;}
 .right-col .box-b{background-image:url(../images/bg-box-b.png); background-repeat:no-repeat;}.right-col .box-c{background-image:url(../images/bg-box-c.png); background-repeat:no-repeat;}
 /*.right-col .box h3{ color:#d86327; font-size:18px;}
-.right-col .box h3 span{ color:#000;}*/
+.right-col .box h3 span{ color:#000;}g-greenbutton-*/
 .right-col .box small{ font-size:11px;}
 .right-col .box p{ margin-top:5px; margin-bottom:20px; font-size:12px;padding:0px;}
 .right-col .box a{
-    background-image: url("../images/bg-greenbutton-.png");
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    color: #000000;
-    display: block;
-    font-size: 11px;
-    height: 16px;
-    width:auto !important;
-    padding-bottom: 0px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 2px;
-    text-decoration: none;
-    white-space: nowrap;
+background-image: url("../images/b.jpg");
+    background-repeat: repeat-x;
+    border: 0 none !important;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    height: 21px;
+    margin-left: 0px;
+    outline: medium none;
+    padding-left:9px;
+    padding-right:9px;
+	padding-top:5px;
+	text-align:center;
+	background-color:#D44D05;
 }
 .right-col .box a span{
     background-image: url("../images/bg-greenbutton-.png");
@@ -115,6 +116,7 @@ width:232px;
     line-height: 7px;
     padding-right: 7px;
     text-align: center;
+	
 }
 .right-col .box-last{ margin:0px;}
 .navigation{ width:575px; float:left;}
@@ -171,26 +173,45 @@ width:232px;
     border:1px solid #D44D05 !important;
 }
 .butonsignin{ background-image:url("../images/button-orange-big.png");border:0 none;color:#333333;font-size:22px;height:48px;width:132px;float:right;margin-right:40px;}
-.butonsigninsmall{
-    background-image:url(../images/b.png);
-    background-repeat:repeat-x;
-    height:27px;
+.butonsigninsmall1{
+    background-image:url(../images/b1.png);
+
+    height:50px;
     font-size:13px;
-    border:0px;
+    border:0px !important;
+    border-color: none !important;
     color:#ffffff;
     outline:none;
     font-weight:bold;
     cursor:pointer;
     margin-left: 35px;
-    padding-left: 5px;
-    padding-right:5px;
+    font-size: 13px !important;
+
+    width: 170px !important;
+}
+.butonsigninsmall{
+  background-image: url("../images/b.jpg");
+    background-repeat: repeat-x;
+    border: 0 none;
+    border-radius: 5px 5px 5px 5px;
+    background-repeat:repeat-x;
+    height:27px;
+    font-size:13px;
+    border:0px !important;
+    color:#ffffff;
+    outline:none;
+    font-weight:bold;
+    cursor:pointer;
+    margin-left: 35px;
+    padding-left: 10px;
+    padding-right:10px;
 }
 .butonsigninsmall-right{padding: 0px !important;background-image:url("../images/left-btn-dashboard.jpg"); background-repeat: no-repeat;border:0 none; position: absolute; width: 9px; height: 36px;right:-9px }
 .butonsigninsmall-left{padding: 0px !important;background-image:url("../images/right-btn-dashboard.jpg");border:0 none; background-repeat: no-repeat; position: absolute; width: 9px; height: 36px; left: 22px }
 .butonsigninsmall-outer{position: relative; padding: 0px !important}
 .settingbutton{ background-image:url(../images/btn-dashboard.jpg);border:0 none;color:#333333;font-size:22px;width:133px; height:36px; margin-top:20px; float:right;}
 .dashboard-info{min-height:400px; float:left; width:100%;}
-.dashboard-info-text{ width:100%; padding-top:20px; font-size:15px;}
+.dashboard-info-text{ width:100%; padding-top:15px; font-size:20px;}
 .dashboard-info-text span{ padding-right:6px;}
 .dashboard-info button{ background-image:url(../images/btn-dashboard.jpg);border:0 none;color:#333333; font-weight:normal !important; font-size:16px;padding-bottom:7px;padding-top:5px;width:132px; float:right; height:36px; margin-top:10px;}
 .callhistory{ width:515px;}
@@ -201,7 +222,8 @@ width:232px;
 
 a.receipt{ background-image:url(../images/green-bullet.jpg); background-repeat:no-repeat; padding-left:15px; float:left; display:block; text-decoration:none; color:#000;}
 
-.split-form-sign-up{padding-top:20px; float:left; clear:both; width:750px; padding-bottom:30px; min-height:412px; background-color:FFFFFF; padding-top:20px; padding-left:30px; margin-bottom:10px;}
+.split-form-sign-up{padding-top:20px; float:left; clear:both; width:750px; padding-bottom:30px; min-height:412px; padding-left:30px; margin-bottom:10px;  }
+/*.split-form-sign-up{padding-top:20px; float:left; clear:both; width:750px; padding-bottom:30px; min-height:412px; background-image: url("../images/bg-map-sign-up.jpg"); background-color:#D86327; padding-left:30px; margin-bottom:10px; background-repeat: no-repeat;}*/
 .split-form-sign-up .col{width:314px; float: left; position: relative;height: 250px;}
 .split-form-sign-up ul{list-style:none;}
 .split-form-sign-up ul li{list-style:none; margin-bottom:10px; float:left; clear:both;width:350px; white-space:nowrap; z-index:100; position:relative; color:#000;}
@@ -214,7 +236,7 @@ a.receipt{ background-image:url(../images/green-bullet.jpg); background-repeat:n
 .split-form-sign-up ul li input.radbx{width:20px; padding:0px; border:0px; float:left;}
 .split-form-sign-up ul li.fr {width:285px; text-align:right;}
 .loginbuttun{ 
-    background-image:url(../images/b.png);
+    background-image:url(../images/b.jpg);
     background-repeat:repeat-x;
     height:27px;
     font-size:13px;
@@ -232,7 +254,7 @@ a.receipt{ background-image:url(../images/green-bullet.jpg); background-repeat:n
 }
 .loginbuttun{ width:77:!important; }
 .split-form-sign-up ul li.buttonplacement{ position: relative; right:14px;}
-.split-form-sign-up ul li button{ background-image:url("../images/button-orange-big.png");border:0 none;color:#FFFFFF;font-size:22px;height:48px;margin-top:20px;padding-bottom:7px;padding-top:5px; width:132px;}
+.split-form-sign-up ul li button{ background-image:url("../images/button-orange-big.png");border:0 none;color:#FFFFFF;font-size:22px;height:48px;margin-top:20px;padding-bottom:7px;padding-top:5px; width:132px; border-radius: 5px 5px 5px 5px;}
 
 .step-details{ width:100%; float:left; clear:both; padding-bottom:20px;}
 .step-details strong{ color:#000; font-size:18px;}
@@ -253,7 +275,7 @@ a.receipt{ background-image:url(../images/green-bullet.jpg); background-repeat:n
 .split-form-sign-up .buttonplacement2 button{ background-image:url("../images/button-orange-big.png");border:0px;color:#FFFFFF;font-size:22px;height:48px;width:132px;float:right;}
 
 /*.split-form-sign-up ul li.error{ background-color:#fff899; float:left; width:270px; padding:3px; color:#000000; white-space: normal;}*/
-.split-form-sign-up ul li.error {
+.split-form-sign-up ul li span.error {
 background:#D88256 url(http://zerocall.com/b2c/images/../zerocall/images/decl.png) no-repeat scroll 4px 50%;
 border:1px solid #D84A00;
 clear:both;
@@ -263,7 +285,7 @@ margin-bottom:5px;
 margin-top:5px;
 padding:5px 5px 5px 5px;
 white-space:normal;
-width:218px;
+width:230px;
 }
 .split-form-sign-up ul li.error label{ color:#000000;}
 .split-form-sign-up ul li.error input.error{ color:#FF0000}
@@ -351,7 +373,7 @@ clear:both;
 color:#7E7E7E;
 float:left;
 font-size:11px;
-margin-bottom:10px;
+margin-bottom:5px;
 margin-top:5px;
 width:135px;
 }
@@ -407,7 +429,7 @@ width:252px;
 }
 
 .inline-error{
-	color:#FF0000;
+	color:#000;
 	float:right;
 	margin-right:83px;
 	text-align:right;

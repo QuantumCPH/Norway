@@ -19,15 +19,15 @@
             <label>Old Mobile Number</label>
             <label><?php echo  $customer->getMobileNumber(); ?></label><br />
         </li>
-        <li>
+<!--        <li>
             <label>Product Detail</label>
             <label><?php echo $product->getDescription(); ?></label><br />
-        </li>
+        </li>-->
         <li>
             <label>Amount</label>
             <label><?php echo  $product->getPrice(); ?></label><br />
         </li>
-        <li style="margin-left:188px"><input type="submit" name="Pay" value="Pay" /><br /></li>
+        <li style="margin-left:188px"><input type="submit" name="Submit" value="Submit" /><br /></li>
     </ul>
     </form>
     <div class="clr"></div>

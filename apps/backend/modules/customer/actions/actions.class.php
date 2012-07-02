@@ -13,7 +13,7 @@ class customerActions extends autocustomerActions
 {
 
 
-     public function executeDeActivateCustomer(sfWebRequest $request)
+     /*public function executeDeActivateCustomer(sfWebRequest $request)
   {
 
      $response_text = 'Response From Server: <br/>';
@@ -97,9 +97,72 @@ class customerActions extends autocustomerActions
 
       $this->response_text=$response_text;
 
-  }
+  }*/
+
+public function executeDeActivateCustomer(sfWebRequest $request) {
+
+        $response_text = 'Response From Server: <br/>';
+        $this->response_text = $response_text;
+
+        if (isset($_GET['customer_id'])) {
+            $deactive_code = 6;
+            $removal_code = 0;
+
+            $customer_id = $request->getParameter('customer_id');
+            $response_text .= 'searching for customer id = ' . $customer_id;
+            $response_text .= '<br/>';
+
+            $this->response_text = $response_text;
+
+            $c = new Criteria();
+            $c->add(CustomerPeer::ID, $customer_id);
+            $c->add(CustomerPeer::CUSTOMER_STATUS_ID, 6, Criteria::NOT_EQUAL);
+            $customer = CustomerPeer::doSelectOne($c);
+            if (!$customer) {
+
+                $response_text .= 'Customer not active, exiting';
+                $response_text .= '<br/>';
+
+                $this->response_text = $response_text;
+            } else {
+                $response_text .= "Customer Found";
+                $response_text .="<br/>";
+                $response_text .="Mobile Number = " . $customer->getMobileNumber() . " , Unique ID = " . $customer->getUniqueid();
+                $response_text .="<br/>";
+
+                
+                      $cp = new Criteria;
+                      $cp->add(TelintaAccountsPeer::I_CUSTOMER, $customer->getICustomer());
+                      $cp->addAnd(TelintaAccountsPeer::STATUS, 3);
+
+                      if (TelintaAccountsPeer::doCount($cp) > 0) { //echo "here";
+                           $telintaAccounts = TelintaAccountsPeer::doSelect($cp);
+                           foreach ($telintaAccounts as $account) {
+                               $response_text .="Deleting Account: " . $account->getAccountTitle() . "<br/>";
+                               Telienta::terminateAccount($account);
+                           }
+                       }
+
+                $uc = new Criteria();
+                $uc->add(UniqueIdsPeer::UNIQUE_NUMBER,$customer->getUniqueid());
+                $uniqueIdObj = UniqueIdsPeer::doSelectOne($uc);
+                $uniqueIdObj->setStatus(0);
+                $uniqueIdObj->setAssignedAt("0000-00-00 00:00:00");
+                $uniqueIdObj->save();
+                $customer->setCustomerStatusId(5);
+                $customer->save();
+                $response_text .= "Customer De-activated, Customer Id=" . $customer_id;
+                $response_text .= '<br/>';
+
+                $response_text .= "Exiting gracefully ... done!";
 
 
+                $this->response_text = $response_text;
+            }
+        }
+
+        $this->response_text = $response_text;
+    }
     public function executeRegisteredByWeb(sfWebRequest $request)
     {
         $c= new Criteria();
@@ -326,6 +389,7 @@ public function executePaymenthistory(sfWebRequest $request)
       $customer->setDateOfBirth($dob);
       $customer->setUsageAlertEmail($usage_email);
       $customer->setUsageAlertSMS($usage_sms);
+      $customer->setComments($request->getParameter('comments'));
 
       $customer->save();
 
@@ -388,7 +452,7 @@ public function executePaymenthistory(sfWebRequest $request)
                     $transaction->save();
                     $this->customer = $order->getCustomer();
                     emailLib::sendAdminRefillEmail($this->customer, $order);
-                    $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('%1% account is successfully charged with %2% NOK.', array("%1%" => $customer->getMobileNumber(), "%2%" => $transaction->getAmount())));
+                    $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('%1% account is successfully charged with %2% Nkr.', array("%1%" => $customer->getMobileNumber(), "%2%" => $transaction->getAmount())));
 //                                        echo 'rehcarged, redirecting';
                     $this->redirect($this->getTargetURL() . 'customer/selectChargeCustomer');
                 } else {
@@ -467,7 +531,7 @@ public function executePaymenthistory(sfWebRequest $request)
                 $transaction->save();
                 $this->customer = $order->getCustomer();
                 emailLib::sendAdminRefillEmail($this->customer, $order);
-                $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('%1% account is successfully refilled with %2% NOK.', array("%1%" => $customer->getMobileNumber(), "%2%" => $transaction->getAmount())));
+                $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('%1% account is successfully refilled with %2% Nkr.', array("%1%" => $customer->getMobileNumber(), "%2%" => $transaction->getAmount())));
                 //                                        echo 'rehcarged, redirecting';
                 $this->redirect($this->getTargetURL() . 'customer/selectRefillCustomer');
                 } else {

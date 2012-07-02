@@ -134,7 +134,7 @@ class employeeActions extends sfActions {
         $this->companys = CompanyPeer::doSelect($c);
 
         $pr = new Criteria();
-       $pr->add(ProductPeer::ID, 4);
+        $pr->add(ProductPeer::IS_IN_B2B, 1);
         $this->products = ProductPeer::doSelect($pr);
     }
 
@@ -165,12 +165,12 @@ class employeeActions extends sfActions {
      $employeMobileNumber=$contrymobilenumber;
 
         if(!CompanyEmployeActivation::telintaRegisterEmployeeCB($employeMobileNumber, $this->companys)){
-            $this->getUser()->setFlash('messageError', 'Employee  Call Back account is not registered on Telinta please check email');
+            $this->getUser()->setFlash('messageError', 'Employee  Call Back account is not registered please check email');
             $this->redirect('employee/add');
             die;
         }
         if(!CompanyEmployeActivation::telintaRegisterEmployeeCT($employeMobileNumber, $this->companys)){
-            $this->getUser()->setFlash('messageError', 'Employee  Call Through account is not registered on Telinta please check email');
+            $this->getUser()->setFlash('messageError', 'Employee  Call Through account is not registered  please check email');
             $this->redirect('employee/add');
             die;
         }
@@ -269,6 +269,7 @@ class employeeActions extends sfActions {
         $employee->setEmail($request->getParameter('email'));
         $employee->setProductId($request->getParameter('productid'));
        // $employee->setProductPrice($request->getParameter('price'));
+           $employee->setComments($request->getParameter('comments'));
         $employee->save();
         $this->getUser()->setFlash('messageAdd', 'Employee has been Add Sucessfully '.(isset($msg)?"and ".$msg:''));
         $this->redirect('employee/index?message=add');
@@ -407,6 +408,7 @@ $companyCVR=$compny->getVatNo();
         //$employee->setRegistrationType($rtype);
         $employee->setProductId($request->getParameter('productid'));
       //  $employee->setProductPrice($request->getParameter('price'));
+          $employee->setComments($request->getParameter('comments'));
         $employee->setDeleted($request->getParameter('deleted'));
         $employee->save();
          $this->getUser()->setFlash('messageEdit', 'Employee has been modified Sucessfully '.(isset($msg)?"and ".$msg:''));

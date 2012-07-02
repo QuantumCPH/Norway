@@ -132,7 +132,7 @@ $customer_form->unsetAllExcept(array('auto_refill_amount', 'auto_refill_min_bala
 
                 ?>
 
-<form action="<?php echo $targetUrl.'payments/transaction'?>"   method="post" id="payment" onsubmit="return checkForm()">
+<form action="<?php echo $targetUrl.'payments/transaction'?>"   method="post" id="payment" onsubmit="return checkForm()"  target="_new">
   <div class="left-col">
     <div class="split-form-sign-up">
       <div class="step-details"> <strong><?php echo __('Become a Customer') ?> <span class="inactive">- <?php echo __('Step 1') ?>: <?php echo __('Register') ?> </span><span class="active">- <?php echo __('Step 2') ?>: <?php echo __('Payment') ?></span></strong> </div>
@@ -160,10 +160,10 @@ $customer_form->unsetAllExcept(array('auto_refill_amount', 'auto_refill_min_bala
               
               
               <label class="fr ac">
-              	<span class="product_price_span"><?php echo $order->getProduct()->getRegistrationFee() ?> </span>NOK            	<br />
+              	<span class="product_price_span"><?php echo $order->getProduct()->getRegistrationFee() ?> </span>Nkr            	<br />
               	<span id="extra_refill_span">
 					<?php echo $order->getProduct()->getPrice() ?>
-				</span>NOK
+				</span>Nkr
 			  </label>
 
             </li>
@@ -202,11 +202,11 @@ $customer_form->unsetAllExcept(array('auto_refill_amount', 'auto_refill_min_bala
               <input type="hidden" id="vat" value="<?php echo $product_price_vat; ?>" />
                 <input type="hidden" id="postal" value="<?php  echo $postalcharge; ?>" />
               <label class="fr ac" >
-                  <?php echo $postalcharge;  ?>&nbsp; NOK
+                  <?php echo $postalcharge;  ?>&nbsp; Nkr
                 <br />
               	<span id="vat_span">
                     <?php echo format_number($product_price_vat) ?>
-              	</span>NOK
+              	</span>Nkr
                 <br />
               	<?php //$total = $product_price + $extra_refill + $vat 
  //$order->getProduct()->getPrice() + $this->postalcharge + $order->getProduct()->getRegistrationFee()+(($this->postalcharge + $order->getProduct()->getRegistrationFee())*.25)     
@@ -214,7 +214,7 @@ $customer_form->unsetAllExcept(array('auto_refill_amount', 'auto_refill_min_bala
                 <?php $total = $product_price + $postalcharge + $product_price_vat ?>
               	<span id="total_span">
               	<?php echo format_number($total) ?>
-              	</span>NOK
+              	</span>Nkr
               </label>
             </li>
 	
@@ -250,12 +250,13 @@ $customer_form->unsetAllExcept(array('auto_refill_amount', 'auto_refill_min_bala
 		<input type="hidden" name="cancelurl" value="<?php echo url_for('@epay_reject_url', true)  ?>?accept=cancel&subscriptionid=&lng=<?php echo  $sf_user->getCulture() ?>&orderid=<?php echo $order->getId(); ?>&amount=<?php echo $order->getExtraRefill(); ?>" />
                 <input type="hidden" name="callbackurl" id="idcallbackurl" value="<?php echo url_for('@dibs_accept_url', true);  ?>?accept=yes&lng=<?php echo  $sf_user->getCulture() ?>&subscriptionid=&orderid=<?php echo $order_id; ?>&amount=<?php echo $total*100; ?>" />
 		<input type="hidden" name="accepturl" id="idaccepturl"  value="<?php echo url_for('@epay_accept_url', true);  ?>?accept=yes&lng=<?php echo  $sf_user->getCulture() ?>&subscriptionid=&orderid=<?php echo $order_id; ?>&amount=<?php echo $total*100; ?>" />-->
+       <input type="submit"  class="butonsigninsmall"  name="paybutan"  style="cursor: pointer;margin-left: 0px !important;" value="<?php echo __('Pay') ?>" /> 
 		      </div>
       <div class="fr col">
           
         <ul>
             <!-- auto fill -->
-            <li>
+          <!--  <li>
               <label><?php echo __('Auto refill details:') ?></label>
             </li>
             <li>
@@ -270,7 +271,7 @@ $customer_form->unsetAllExcept(array('auto_refill_amount', 'auto_refill_min_bala
                                                                                                         'id'=>'user_attr_3',
 			  										'style'=>'width: 80px;'
 			  									)) 
-                                  ?>NOK
+                                  ?>Nkr
             </li>
            <li id="user_attr_2_field">
               <label for="user_attr_2" style="margin-right: 90px;"><?php echo __('Auto refill amount:') ?></label>
@@ -283,14 +284,14 @@ $customer_form->unsetAllExcept(array('auto_refill_amount', 'auto_refill_min_bala
      ?>
             </li>
             <li id="" style="border-style:solid;border-width:3px;width: 320px; padding-left: 10px;">
-                <br /><b align="justfy">  <?php echo __('Zapna recommends to activate this service so you <br /> do not have to manually  refill when your account<br />  balance runs low. 100 or 200 NOK each  when the <br /> balances reaches 25 or 50 NOK. This facility is <br /> added to your account in minutes.')?></b>
+                <br /><b align="justfy">  <?php echo __('Zapna recommends to activate this service so you <br /> do not have to manually  refill when your account<br />  balance runs low. 100 or 200 Nkr each  when the <br /> balances reaches 25 or 50 Nkr. This facility is <br /> added to your account in minutes.')?></b>
 
 
 
                 <br /><br />
                                 
-            </li>
-            <li><input type="submit"  class="butonsigninsmall"  name="paybutan"  style="cursor: pointer;margin-left: 0px !important;" value="<?php echo __('Pay') ?>" /></li>
+            </li>-->
+          
         </ul>	
        
       </div>

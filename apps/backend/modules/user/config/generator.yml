@@ -5,6 +5,13 @@ generator:
     theme:            default
     css:             /sf/sf_admin/css/admin_main.css
     list:
-      display: [name, email, password, role, is_super_user, created_at]
+      #display: [name, email, password, role, is_super_user, created_at]
+      display: [name, email, password, role, created_at]
       object_actions:
         _edit: ~
+    edit:
+      display: [name, email, password, role_id, created_at]
+      actions:
+        _list: ~
+        _save: ~
+        _save_and_add: ~

@@ -68,6 +68,7 @@ class customerActions extends sfActions {
 
             $uc = new Criteria();
             $uc->add(UniqueIdsPeer::REGISTRATION_TYPE_ID, 1);
+            $uc->add(UniqueIdsPeer::SIM_TYPE_ID,$customer->getSimTypeId());
             $uc->addAnd(UniqueIdsPeer::STATUS, 0);
             $availableUniqueCount = UniqueIdsPeer::doCount($uc);
             $availableUniqueId = UniqueIdsPeer::doSelectOne($uc);
@@ -361,7 +362,7 @@ class customerActions extends sfActions {
         if ($request->isMethod('post')) {
 
             if ($this->customer_balance > 40) {
-                //When the customer register to this – the account should be deducted for 30 NOK for activation + 10 N for monthly fee - Ahtsham Asghar
+                //When the customer register to this – the account should be deducted for 30 Nkr for activation + 10 N for monthly fee - Ahtsham Asghar
                 $voipcharges = "-40";
 
                 $order = new CustomerOrder();
@@ -1819,7 +1820,7 @@ public function executeSmsHistory(sfWebrequest $request){
         if($item_amount=="") $item_amount = $request->getParameter('extra_refill');
         
         $return_url = $this->getTargetUrl().'customer/refillAccept';
-        $cancel_url = $this->getTargetUrl().'customer/refillReject/';
+        $cancel_url = $this->getTargetUrl().'customer/refillReject?orderid='.$order_id;
         $notify_url = $this->getTargetUrl().'pScripts/calbackrefill?order_id='.$order_id.'&amountval='.$item_amount;
 
      

@@ -14,7 +14,7 @@
                        <th width="15%"  align="left"><?php echo __('Order Numer') ?></th>
                           <th width="25%"  align="left"><?php echo __('Date &amp; Time') ?></th>
                           <th width="50%"  align="left"><?php echo __('Description') ?></th>
-                          <th width="10%" align="left"><?php echo __('Amount') ?>(NOK)</th>
+                          <th width="10%" align="left"><?php echo __('Amount') ?>(Nkr)</th>
                               </tr>
                 <?php 
                 $amount_total = 0;
@@ -41,7 +41,7 @@
 //                            }else if($lang=="en"){
 //                                echo ('eur');
 //                            }else{
-                                echo ('NOK');
+                                echo ('Nkr');
 //                            } ?></td>
                 
                 </tr>
@@ -60,7 +60,7 @@
 //                            }else if($lang=="en"){
 //                                echo ('eur');
 //                            }else{
-                                echo ('NOK');
+                                echo ('Nkr');
 //                            } ?></td>
                 	
                 </tr>	

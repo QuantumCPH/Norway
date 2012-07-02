@@ -383,11 +383,11 @@
                         }
                         ?>
                         <?php 
-                        if($actionName=='list' && $modulName=="enable_country"){
+                        /*if($actionName=='list' && $modulName=="enable_country"){
                           echo link_to(__('Country List'), 'enable_country/index',array('class'=>'subSelect'));
                         }else{
                           echo link_to(__('Country List'), 'enable_country/index');
-                        }
+                        }*/
                         ?>
                         <?php 
                         if($actionName=='list' && $modulName=="city"){
@@ -441,6 +441,11 @@
                           echo link_to(__('Edit B2B Credit Limit'), 'company/indexAll',array('class'=>'subSelect'));
                         }else{
                           echo link_to(__('Edit B2B Credit Limit'), 'company/indexAll');
+                        }
+                        if($actionName=='index' && $modulName=="company"){
+                          echo link_to(__('Sim Types'), 'sim_types/index',array('class'=>'subSelect'));
+                        }else{
+                          echo link_to(__('Sim Types'), 'sim_types/index');
                         }
                         ?>
 
@@ -571,7 +576,7 @@ jQuery(function(){
                         jQuery('#error').val("error");
                 }else{
 		//check the username exists or not from ajax
-		jQuery.post("http://admin.zapna.no/backend.php/company/vat",{ vat_no:val } ,function(data)
+		jQuery.post("<?PHP echo sfConfig::get('app_backend_url');?>company/vat",{ vat_no:val } ,function(data)
         {//alert(data);
 		  if(data=='no') //if username not avaiable
 		  {
@@ -619,7 +624,7 @@ jQuery(function(){
                         jQuery('#error').val("error");
                 }else{
 
-		jQuery.post("http://admin.zapna.no/backend.php/employee/mobile",{ mobile_no: val} ,function(data)
+		jQuery.post("<?PHP echo sfConfig::get('app_backend_url');?>employee/mobile",{ mobile_no: val} ,function(data)
         {
 		  if(data=='no') //if username not avaiable
 		  {

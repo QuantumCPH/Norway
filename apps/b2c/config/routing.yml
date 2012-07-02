@@ -60,7 +60,7 @@ default_index:
 default:
   url:   /:module/:action/*
 dibs_accept_url:
-  url: /payments/confirmpayment
+  url: /pScripts/confirmpayment
   param: { module: payments, action: confirmpayment}
 dibs_us_accept_url:
   url: /payments/confirmpaymentus

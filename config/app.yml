@@ -1,0 +1,37 @@
+# default values
+#all:
+
+all:
+ main_url: http://customer.zapna.no/b2c.php/
+ epay:
+   merchant_number: 5116449
+   currency: 208
+   instant_capture: 0
+   auth_email: geniussadi@hotmail.com   
+   relay_script_url: ''
+ email:
+   smtp_host: asmtp.aspecthosting.net
+   smtp_port: 10025
+   smtp_username: csi10201
+   smtp_password: zap6723an
+   sender:
+     name: Zer0Call Support
+     email: no-reply@zerocall.com
+ email_group:
+   admin: rs@zapna.com
+   support: rs@zapna.com
+ status:
+   new: 1
+   verifying: 2
+   completed: 3
+   cancelled: 4
+   error: 5
+ ssl:
+  ignore_non_secure: false
+  secure_actions:
+   - { module: customer, action: signup}
+   - { module: customer, action: refill}
+   - { module: payments,  action: signup}
+   - { module: payments,  action: accept}
+   - { module: payments,  action: reject}
+ dialer_pin: 9998889999

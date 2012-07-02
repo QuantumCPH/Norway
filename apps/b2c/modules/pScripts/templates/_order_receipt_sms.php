@@ -70,7 +70,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
   </tr>
   <tr>
   <td colspan="4" class="payer_summary">
-	Zapna ApS <br />Postboks 5093 Majorstua<br />
+	Zapna ApS <br />Softgarden, Postboks 5093 Majorstua <br />
         0301 Oslo
 	 	<br />
   </td>
@@ -96,7 +96,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td><?php echo __('Date') ?></td>
     <td><?php echo __('Description') ?></td>
     <td><?php echo __('Quantity') ?></td>
-    <td><?php echo __('Amount') ?>(NOK)</td>
+    <td><?php echo __('Amount') ?>(Nkr)</td>
   </tr>
   <tr>
     <td><?php echo $order->getCreatedAt('m-d-Y') ?></td>
@@ -140,7 +140,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Total') ?></td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($subTotal+$vat) ?>NOK</td>
+    <td><?php echo format_number($subTotal+$vat) ?>Nkr</td>
   </tr>
 </table>
 <?php if($wrap_content): ?>

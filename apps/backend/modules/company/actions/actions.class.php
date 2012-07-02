@@ -151,14 +151,14 @@ class companyActions extends sfActions {
             $company->setCreditLimit('5000');
             $company->save();
 
-            $transaction = new CompanyTransaction();
+            /*$transaction = new CompanyTransaction();
             $transaction->setAmount(5000);
             $transaction->setCompanyId($company->getId());
             $transaction->setExtraRefill(5000);
             $transaction->setTransactionStatusId(3);
             $transaction->setPaymenttype(1); //Registered
             $transaction->setDescription('Company Registered');
-            $transaction->save();
+            $transaction->save();*/
         } elseif (!$company->isNew()) {
             $update_customer['i_customer']=$company->getICustomer();
             $update_customer['credit_limit']=($company->getCreditLimit()!='')?$company->getCreditLimit():'0';
@@ -284,6 +284,10 @@ class companyActions extends sfActions {
             $this->getRequest()->moveFile('company[file_path]', sfConfig::get('sf_upload_dir') . "//" . $fileName . $ext);
             $this->company->setFilePath($fileName . $ext);
         }
+        if (isset($company['comments']))
+    {
+      $this->company->setComments($company['comments']);
+    }
     }
 
     protected function getCompanyOrCreate($id = 'id') {
@@ -376,6 +380,7 @@ class companyActions extends sfActions {
             'company{created_at}' => 'Created at:',
             'company{file_path}' => 'Registration Doc:',
             'company{credit_limit}' => 'Credit Limit:',
+            'company{comments}' => 'Comments:',
         );
     }
 
@@ -390,7 +395,9 @@ class companyActions extends sfActions {
         $fromdate = date("Y-m-d", $tomorrow1);
         $tomorrow = mktime(0, 0, 0, date("m"), date("d") + 1, date("Y"));
         $todate = date("Y-m-d", $tomorrow);
-        $this->callHistory = CompanyEmployeActivation::callHistory($this->company, $fromdate, $todate);
+        $this->events = CompanyEmployeActivation::callHistory($this->company, $fromdate . ' 00:00:00', $todate . ' 23:59:59', false, 1);
+        $this->paymentHistory = CompanyEmployeActivation::callHistory($this->company, $fromdate . ' 00:00:00', $todate . ' 23:59:59', false, 2);
+        $this->callHistory = CompanyEmployeActivation::callHistory($this->company, $fromdate . ' 00:00:00', $todate . ' 23:59:59');
     }
 
     public function executeRefill(sfWebRequest $request) {

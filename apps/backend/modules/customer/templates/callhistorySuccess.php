@@ -46,7 +46,7 @@ if($pus==1){
         <th  width="20%"  align="left"><?php echo __('To Number') ?></th>
         <th  width="20%"  align="left"><?php echo __('From Number') ?></th>
         <th width="10%"   align="left"><?php echo __('Duration') ?></th>
-        <th width="20%"   align="left"><?php echo __('Cost') ?> (NOK)</th>
+        <th width="20%"   align="left"><?php echo __('Cost') ?> (Nkr)</th>
         <th width="10%"   align="left"><?php echo __('Type') ?></th>
     </tr>
         <?php
@@ -166,7 +166,7 @@ if($pus==1){
                         <tr class="headings">
                             <th class="title"><?php echo __('Date &amp; time') ?></th>
                             <th class="title" width="40%"><?php echo __('Description') ?></th>
-                                <th class="title"><?php echo __('Amount') ?> NOK</th>
+                                <th class="title"><?php echo __('Amount') ?> Nkr</th>
                             </tr>
                         <?php
                         $tilentaCallHistryResult = Telienta::callHistory($customer, $fromdate . ' 00:00:00', $todate . ' 23:59:59', false, 1);
@@ -187,7 +187,7 @@ if($pus==1){
                             } ?>
                         </table><br/><br/>
 
-                           <h1><?php echo 'Payment History'; ?> </h1>
+<!--                           <h1><?php echo 'Payment History'; ?> </h1>
                     <table width="100%" cellspacing="0" cellpadding="2" class="tblAlign" border='0'>
                         <tr class="headings">
                             <th class="title"><?php echo __('Date &amp; time') ?></th>
@@ -211,7 +211,7 @@ if($pus==1){
                                 echo __('There are currently no call records to show.');
 
                             } ?>
-                        </table><br/><br/>
+                        </table><br/><br/>-->
 
 
 
@@ -223,7 +223,7 @@ if($pus==1){
                     <th  width="20%"  align="left"><?php echo __('Phone Number') ?></th>
                     <th width="10%"   align="left"><?php echo __('Duration') ?></th>
                     <th  width="10%"  align="left"><?php echo __('VAT') ?></th>
-                    <th width="20%"   align="left"><?php echo __('Cost') ?> NOK</th>
+                    <th width="20%"   align="left"><?php echo __('Cost') ?> Nkr</th>
                    
                     <th  width="20%"   align="left">Call Type</th>
                   </tr>
@@ -279,7 +279,7 @@ echo  date('i:s',$callval);
 }       ?></td>
                                     <td><?php echo number_format($xdr->charged_amount / 4, 2); ?></td>
                                     <td><?php echo number_format($xdr->charged_amount, 2);
-                                $amount_total+= number_format($xdr->charged_amount, 2); ?> NOK</td>
+                                $amount_total+= number_format($xdr->charged_amount, 2); ?> Nkr</td>
                                    
                                     <td><?php
                                 $typecall = substr($xdr->account_id, 0, 1);
@@ -322,7 +322,7 @@ echo  date('i:s',$callval);
                         <!--
                         <td><?php echo format_number($amount_total - $amount_total * .20) ?> SEK</td>
                                         	 -->
-                        <td><?php echo number_format($amount_total, 2, ',', '') ?> NOK</td>
+                        <td><?php echo number_format($amount_total, 2, ',', '') ?> Nkr</td>
                     <td>&nbsp;</td>
                 </tr>
         <?php endif;

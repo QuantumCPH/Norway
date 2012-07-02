@@ -4,8 +4,11 @@
 <form method="post" action="<?php url_for('@signup_step1') ?>" id="newCustomerForm" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
   <div class="left-col">
     <div class="split-form-sign-up">
-        <div class="step-details"> <strong><?php echo __('Become a Customer') ?> <span class="active">- <?php echo __('Step 1') ?>: <?php echo __('Register') ?> </span><span class="inactive">- <?php echo __('Step 2') ?>: <?php echo __('Payment') ?></span></strong>
-            <br><br><br><br>* <?php echo __('Required to fill')?>  </div>
+        <div class="step-details"> 
+            <strong><?php echo __('Become a Zapna Customer') ?> <span class="active">- <?php echo __('Step 1') ?>: <?php echo __('Register') ?> </span><span class="inactive">- <?php echo __('Step 2') ?>: <?php echo __('Payment') ?></span></strong>
+<!--            <span style="margin-left:20px;"><img src="http://localhost/Norway/web/zerocall/images/siteseal.gif"></span>
+            <span style="margin-left: 5px"><img src="http://localhost/Norway/web/zerocall/images/ccs.png"></span>-->
+<!--            <br><br><br><br>*--> <?php //echo __('Required to fill')?>  </div>
             <div class="fl col">
         <?php echo $form->renderHiddenFields() ?>
           <ul>   
@@ -45,6 +48,22 @@
              <div class='inline-error'><?php echo $error_product?$form['product']->renderError():'&nbsp;'?></div>
             </li>
             <!--  end product -->
+            <?php
+            $error_sim_type_id = false;;
+            if($form['sim_type_id']->hasError())
+            	$error_sim_type_id = true;
+            ?>
+            <li>
+             <?php echo $form['sim_type_id']->renderLabel() ?>
+             <?php echo $form['sim_type_id'] ?>
+             <?php if ($error_sim_type_id): ?>
+             <span id="cardno_decl" class="alertstep1">
+			  	<?php echo image_tag('../zerocall/images/decl.png', array('absolute'=>true)) ?>
+			 </span>
+			 <?php endif; ?>
+             <div class='inline-error'><?php echo $error_sim_type_id?$form['sim_type_id']->renderError():'&nbsp;'?></div>
+            </li>
+            <!--  end sim type -->
             <?php
             $error_first_name = false;;
             if($form['first_name']->hasError())
@@ -244,7 +263,7 @@
             </span>
             <?php } ?>
              <?php echo $form['terms_conditions'] ?>
-             <span><a href="../customer/termsAndCondition" target="_blank" style="outline:none"><?php echo $form['terms_conditions']->renderHelp() ?></a></span>             
+             <span><a href="../../termsandcondition.pdf" target="_blank" style="outline:none"><?php echo $form['terms_conditions']->renderHelp() ?></a></span>             
           </li>
           <li>
              <?php
@@ -263,7 +282,7 @@
             </span>   
           </li>
           <li>
-              <input type="submit" class="butonsigninsmall" name="submit" style="cursor: pointer; margin-left: 0px !important;"  value="<?php echo __('Next') ?>" />
+              <input type="submit" class="butonsigninsmall" name="submit" style="cursor: pointer; margin-left: 0px !important;"  value="<?php echo __('Process To Payment') ?>" />
           </li>
           </ul>
           <!-- end terms and conditions -->

@@ -9,9 +9,6 @@ use_helper('Number');
 	
 	table.receipt {
 		width: 600px;
-		//font-family: arial;
-		//font-size: .7em;
-		
 		border: 2px solid #ccc;
 	}
 	
@@ -36,7 +33,10 @@ use_helper('Number');
 	{
 		font-weight: bold;
 	}
-	
+	.align{
+                padding-right:80px !important;
+                text-align:right;
+        }
 	
 </style>
 
@@ -61,24 +61,19 @@ $wrap_content  = isset($wrap)?$wrap:false;
 	</p>
 	<br />
 <?php endif; ?>
-<table class="receipt" cellspacing="0" width="600px">
+<table class="receipt" cellspacing="0" width="520px">
 <tr bgcolor="#CCCCCC" class="receipt_header"> 
     <td colspan="4">Zapna ApS 
     </td>
   </tr>
   <tr>
   <td colspan="4" class="payer_summary">
-	Telefonv&atilde;gen 30
-	<br />
-	126 37 H&atilde;gersten
-	<br />
-	
-	<br />
-	Tel:      +46 85 17 81 100
-	<br />	
-	<br />
-	Cvr:     32068219
-	<br />  </td>
+	Zapna ApS<br>
+        Softgarden, Postboks 5093 Majorstua <br>
+        0301 Oslo
+
+	<br>
+
   </tr>
   <tr bgcolor="#CCCCCC" class="receipt_header"> 
     <th colspan="3"><?php echo __('Order Receipt') ?></th>
@@ -92,7 +87,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td><?php echo __('Date') ?></td>
     <td><?php echo __('Description') ?></td>
     <td><?php echo __('Quantity') ?></td>
-    <td><?php echo __('Amount') ?>(NOK)</td>
+    <td class="align"><?php echo __('Amount') ?>(Nkr)</td>
   </tr>
   <tr> 
     <td><?php echo $createddate ?></td>
@@ -105,7 +100,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
             }
     ?></td>
     <td>1</td>
-    <td><?php echo format_number($subtotal=$transaction) //($order->getProduct()->getPrice() - $order->getProduct()->getPrice()*.2) * $order->getQuantity()) ?>NOK</td>
+    <td class="align"><?php echo format_number($subtotal=$transaction) //($order->getProduct()->getPrice() - $order->getProduct()->getPrice()*.2) * $order->getQuantity()) ?>&nbsp;Nkr</td>
   </tr>
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>
@@ -114,19 +109,19 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Subtotal') ?></td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($subtotal) ?></td>
+    <td class="align"><?php echo format_number($subtotal) ?>&nbsp;Nkr</td>
   </tr>
   <tr class="footer"> 
     <td>&nbsp;</td>
     <td><?php echo __('VAT') ?> (<?php echo $vat==0?'0%':'25%' ?>)</td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($vat) ?></td>
+    <td class="align"><?php echo format_number($vat) ?>&nbsp;Nkr</td>
   </tr>
   <tr class="footer">
     <td>&nbsp;</td>
     <td><?php echo __('Total') ?></td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($subtotal) ?>NOK</td>
+    <td class="align"><?php echo format_number($subtotal) ?>&nbsp;Nkr</td>
   </tr>
 </table>
 

@@ -25,7 +25,7 @@
 				  <label class="required"><?php echo  __('Balance view:') ?> </label>
 				  <div class="content"><?php
                                  echo $balance;
-          echo "NOK";
+          echo "Nkr";
                            ?>
 				   
 				  </div>
@@ -104,7 +104,7 @@
                                 <div class="form-row">
 				  <label class="required"><?php echo  __('Credit Limit:') ?></label>
 				  <div class="content">
-				  	<?php echo $company->getCreditLimit(); ?>
+				  	<?php echo -$company->getCreditLimit(); ?>
 				  </div>
 				</div>
 

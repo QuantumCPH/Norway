@@ -62,6 +62,7 @@ class CustomerFormB2C extends CustomerForm
                     'telecom_operator_id',
                     'date_of_birth',
                     'manufacturer',
+                    'sim_type_id'
 
               
 

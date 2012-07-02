@@ -15,7 +15,7 @@ set_time_limit(10000000);
 
 class Telienta {
 
-    private static $currency = 'NOK';
+    private static $currency = 'Nkr';
     private static $iParentRLandnCall = 82214;
     private static $iParentUS = 82214;
     private static $a_iProduct = 11720;
@@ -32,7 +32,7 @@ class Telienta {
 
         $pb = new PortaBillingSoapClient(self::$telintaSOAPUrl, 'Admin', 'Customer');
 
-        $uniqueid="NOB2C".$customer->getUniqueid();
+        $uniqueid="NOB2C".$customer->getId().$customer->getUniqueid();
         if ($USReseller) {
             $Parent = self::$iParentUS;
         } else {

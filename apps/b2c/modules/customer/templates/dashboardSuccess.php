@@ -24,7 +24,7 @@ header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT
                if($pus==1){
                                  $Tes=ForumTel::getBalanceForumtel($customer->getId());
                                   echo   $amt=CurrencyConverter::convertUsdToSek($Tes);
-                              echo " NOK"  ;
+                              echo " Nkr"  ;
                                    $getvoipInfo = new Criteria();
         $getvoipInfo->add(SeVoipNumberPeer::CUSTOMER_ID, $customer->getId());
         $getvoipInfo->add(SeVoipNumberPeer::IS_ASSIGNED, 1);
@@ -38,7 +38,7 @@ header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT
         }
                }else{
 
-        echo $customer_balance==-1?'&oslash;':number_format($customer_balance,2) ;echo " NOK";
+        echo $customer_balance==-1?'&oslash;':number_format($customer_balance,2) ;echo " Nkr";
         //This Section For Get the Language Symbol For Set Currency -
         $getvoipInfo = new Criteria();
         $getvoipInfo->add(SeVoipNumberPeer::CUSTOMER_ID, $customer->getId());
