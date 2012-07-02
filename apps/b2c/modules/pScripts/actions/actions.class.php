@@ -2915,6 +2915,7 @@ if(($caltype!="IC") && ($caltype!="hc")){
                 echo $uniqueId."<br/>";
                 $uc = new Criteria();
                 $uc->add(UniqueIdsPeer::UNIQUE_NUMBER, $uniqueId);
+                $uc->add(UniqueIdsPeer::SIM_TYPE_ID,$this->customer->getSimTypeId());
                 $selectedUniqueId = UniqueIdsPeer::doSelectOne($uc);
                 echo $selectedUniqueId->getStatus()."<br/>Baran";
 
