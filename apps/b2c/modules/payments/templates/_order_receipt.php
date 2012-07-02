@@ -101,11 +101,6 @@ $wrap_content  = isset($wrap)?$wrap:false;
      <?php     $customer->getMobileNumber()    ?>
       <?php echo __('Mobile Number') ?>: <br />
       <?php echo $customer->getMobileNumber() ?>
- 
-
-
-
-
     </td>
   </tr>
   <tr class="order_summary_header" bgcolor="#CCCCCC"> 
