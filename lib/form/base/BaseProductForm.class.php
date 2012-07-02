@@ -56,11 +56,7 @@ class BaseProductForm extends BaseFormPropel
       'product_order'         => new sfValidatorInteger(array('required' => false)),
       'product_type_package'  => new sfValidatorBoolean(),
       'product_country_us'    => new sfValidatorBoolean(),
-<<<<<<< HEAD
       'is_in_b2b'             => new sfValidatorBoolean(),
-=======
-      'is_in_b2b'             => new sfValidatorBoolean(array('required' => false)),
->>>>>>> a54c321ef3953335b052f4d3239e33c410c6745b
     ));
 
     $this->widgetSchema->setNameFormat('product[%s]');
