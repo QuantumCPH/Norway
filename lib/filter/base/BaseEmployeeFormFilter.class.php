@@ -29,7 +29,11 @@ class BaseEmployeeFormFilter extends BaseFormFilterPropel
       'product_id'            => new sfWidgetFormFilterInput(),
       'country_code'          => new sfWidgetFormFilterInput(),
       'country_mobile_number' => new sfWidgetFormFilterInput(),
+<<<<<<< HEAD
       'sim_type_id'           => new sfWidgetFormFilterInput(),
+=======
+      'comments'              => new sfWidgetFormFilterInput(),
+>>>>>>> 9489e056e59b3e77422dfab8eec0b03b86f2cfa2
     ));
 
     $this->setValidators(array(
@@ -48,7 +52,11 @@ class BaseEmployeeFormFilter extends BaseFormFilterPropel
       'product_id'            => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'country_code'          => new sfValidatorPass(array('required' => false)),
       'country_mobile_number' => new sfValidatorPass(array('required' => false)),
+<<<<<<< HEAD
       'sim_type_id'           => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+=======
+      'comments'              => new sfValidatorPass(array('required' => false)),
+>>>>>>> 9489e056e59b3e77422dfab8eec0b03b86f2cfa2
     ));
 
     $this->widgetSchema->setNameFormat('employee_filters[%s]');
@@ -82,7 +90,11 @@ class BaseEmployeeFormFilter extends BaseFormFilterPropel
       'product_id'            => 'Number',
       'country_code'          => 'Text',
       'country_mobile_number' => 'Text',
+<<<<<<< HEAD
       'sim_type_id'           => 'Number',
+=======
+      'comments'              => 'Text',
+>>>>>>> 9489e056e59b3e77422dfab8eec0b03b86f2cfa2
     );
   }
 }
