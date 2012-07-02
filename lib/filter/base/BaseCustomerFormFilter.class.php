@@ -50,6 +50,7 @@ class BaseCustomerFormFilter extends BaseFormFilterPropel
       'usage_alert_sms'          => new sfWidgetFormFilterInput(),
       'usage_alert_email'        => new sfWidgetFormFilterInput(),
       'sim_type_id'              => new sfWidgetFormPropelChoice(array('model' => 'SimTypes', 'add_empty' => true)),
+      'comments'                 => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
@@ -89,6 +90,7 @@ class BaseCustomerFormFilter extends BaseFormFilterPropel
       'usage_alert_sms'          => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'usage_alert_email'        => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'sim_type_id'              => new sfValidatorPropelChoice(array('required' => false, 'model' => 'SimTypes', 'column' => 'id')),
+      'comments'                 => new sfValidatorPass(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('customer_filters[%s]');
@@ -143,6 +145,7 @@ class BaseCustomerFormFilter extends BaseFormFilterPropel
       'usage_alert_sms'          => 'Number',
       'usage_alert_email'        => 'Number',
       'sim_type_id'              => 'ForeignKey',
+      'comments'                 => 'Text',
     );
   }
 }

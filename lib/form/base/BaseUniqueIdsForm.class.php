@@ -18,7 +18,6 @@ class BaseUniqueIdsForm extends BaseFormPropel
       'assigned_at'          => new sfWidgetFormDateTime(),
       'registration_type_id' => new sfWidgetFormInput(),
       'status'               => new sfWidgetFormInputCheckbox(),
-      'sim_type_id'          => new sfWidgetFormInput(),
     ));
 
     $this->setValidators(array(
@@ -28,7 +27,6 @@ class BaseUniqueIdsForm extends BaseFormPropel
       'assigned_at'          => new sfValidatorDateTime(),
       'registration_type_id' => new sfValidatorInteger(),
       'status'               => new sfValidatorBoolean(),
-      'sim_type_id'          => new sfValidatorInteger(),
     ));
 
     $this->widgetSchema->setNameFormat('unique_ids[%s]');

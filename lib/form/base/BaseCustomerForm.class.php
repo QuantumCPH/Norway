@@ -50,7 +50,6 @@ class BaseCustomerForm extends BaseFormPropel
       'usage_alert_email'        => new sfWidgetFormInput(),
       'sim_type_id'              => new sfWidgetFormPropelChoice(array('model' => 'SimTypes', 'add_empty' => false)),
       'comments'                 => new sfWidgetFormTextarea(),
-
     ));
 
     $this->setValidators(array(
@@ -92,7 +91,6 @@ class BaseCustomerForm extends BaseFormPropel
       'usage_alert_email'        => new sfValidatorInteger(array('required' => false)),
       'sim_type_id'              => new sfValidatorPropelChoice(array('model' => 'SimTypes', 'column' => 'id')),
       'comments'                 => new sfValidatorString(array('required' => false)),
-
     ));
 
     $this->widgetSchema->setNameFormat('customer[%s]');
