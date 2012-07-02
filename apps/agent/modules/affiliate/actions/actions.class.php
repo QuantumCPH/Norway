@@ -436,7 +436,7 @@ class affiliateActions extends sfActions {
                   //  $this->getUser()->setCulture('de');
                     emailLib::sendRefillEmail($this->customer, $order);
                  //   $this->getUser()->setCulture('en');
-                    $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('%1% account is successfully refilled with %2% NOK.', array("%1%" => $customer->getMobileNumber(), "%2%" => $transaction->getAmount())));
+                    $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('%1% account is successfully refilled with %2% Nkr.', array("%1%" => $customer->getMobileNumber(), "%2%" => $transaction->getAmount())));
 //                                      echo 'rehcarged, redirecting';
                     $this->redirect('affiliate/receipts');
                 } else {
@@ -1037,7 +1037,7 @@ class affiliateActions extends sfActions {
             $aph->setRemainingBalance($remainingbalance);
             $aph->save();
 
-            $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('Your Credit Card recharge of ') . $amount . $this->getContext()->getI18N()->__(' NOK is approved'));
+            $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('Your Credit Card recharge of ') . $amount . $this->getContext()->getI18N()->__(' Nkr is approved'));
             emailLib::sendAgentRefilEmail($this->agent, $agent_order);
             $this->redirect('affiliate/agentOrder');
         }
@@ -1398,7 +1398,7 @@ class affiliateActions extends sfActions {
                     $transaction->save();
                     $this->customer = $order->getCustomer();
                     emailLib::sendChangeNumberEmail($this->customer, $order);
-                    $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('%1% Mobile Number is changed successfully  with %2% NOK.', array("%1%" => $customer->getMobileNumber(), "%2%" => $transaction->getAmount())));
+                    $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('%1% Mobile Number is changed successfully  with %2% Nkr.', array("%1%" => $customer->getMobileNumber(), "%2%" => $transaction->getAmount())));
 
                     $this->redirect('affiliate/receipts');
                 } else {

@@ -36,12 +36,12 @@ $pus=0;
                if($pus==1){
                             $Tes=ForumTel::getBalanceForumtel($customer->getId());
                                echo  $amt=CurrencyConverter::convertUsdToSek($Tes);
-   echo " NOK";
+   echo " Nkr";
                             }else{
 
 
         echo  $customer_balance;
-          echo " NOK";
+          echo " Nkr";
                             }
                           
                      ?> </td>

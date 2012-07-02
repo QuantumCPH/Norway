@@ -36,6 +36,10 @@ use_helper('Number');
 	{
 		font-weight: bold;
 	}
+        .align{
+                padding-right:80px !important;
+                text-align:right;
+        }
 	
 	
 </style>
@@ -69,7 +73,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
  <td colspan="4" align="right" style="text-align:right; border:0px solid #fff"><?php echo image_tag('http://customer.zapna.no/images/zapna_logo_small.jpg');?></td>
     </tr>
 </table>
-<table class="receipt" cellspacing="0" width="600px">
+<table class="receipt" cellspacing="0" width="520px">
   <tr bgcolor="#CCCCCC" class="receipt_header"> 
     <th colspan="3"><?php echo __('Order Receipt') ?></th>
     <th><?php echo __('Order No.') ?> <?php echo $order->getId() ?></th>
@@ -95,7 +99,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td><?php echo __('Date') ?></td>
     <td><?php echo __('Description') ?></td>
     <td><?php echo __('Quantity') ?></td>
-    <td><?php echo __('Amount') ?>(NOK)</td>
+    <td class="align"><?php echo __('Amount') ?>(Nkr)</td>
   </tr>
   <tr> 
     <td><?php echo $order->getCreatedAt('m-d-Y') ?></td>
@@ -112,7 +116,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     ?>
 	</td>
     <td><?php echo $order->getQuantity() ?></td>
-    <td><?php echo format_number($subtotal = $transaction->getAmount()-$vat) //($order->getProduct()->getPrice() - $order->getProduct()->getPrice()*.2) * $order->getQuantity()) ?></td>
+    <td class="align"><?php echo format_number($subtotal = $transaction->getAmount()-$vat) //($order->getProduct()->getPrice() - $order->getProduct()->getPrice()*.2) * $order->getQuantity()) ?></td>
   </tr>
   
   
@@ -123,13 +127,13 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Subtotal') ?></td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($subtotal) ?> </td>
+    <td class="align"><?php echo format_number($subtotal) ?> </td>
   </tr>
   <tr class="footer"> 
     <td>&nbsp;</td>
     <td><?php echo __('VAT') ?> (<?php echo $vat==0?'0%':'25%' ?>)</td>
     <td>&nbsp;</td>
-    <td><?php echo format_number($vat) ?> </td>
+    <td class="align"><?php echo format_number($vat) ?> </td>
   </tr>
   <?php 
   //echo $postalcharge.'ss';
@@ -142,14 +146,14 @@ $wrap_content  = isset($wrap)?$wrap:false;
      ?>    
     </td>
     <td><?php //echo $order->getQuantity() ?></td>
-    <td><?php echo @$postalcharge ; ?></td>
+    <td class="align"><?php echo @$postalcharge ; ?></td>
   </tr>
   <?php } ?>
   <tr class="footer">
     <td>&nbsp;</td>
     <td><?php echo __('Total') ?></td>
     <td>&nbsp;</td>
-    <td><?php if($postalcharge && $order->getIsFirstOrder()){ echo format_number($transaction->getAmount()+$postalcharge); }else{ echo format_number($transaction->getAmount()); } ?> NOK</td>
+    <td class="align"><?php if($postalcharge && $order->getIsFirstOrder()){ echo format_number($transaction->getAmount()+$postalcharge); }else{ echo format_number($transaction->getAmount()); } ?> Nkr</td>
 
   </tr>
 </table>

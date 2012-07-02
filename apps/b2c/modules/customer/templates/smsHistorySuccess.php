@@ -73,7 +73,7 @@
                   $amt = $country->getCbfRate();
                   
                   ?>
-                  <td><?php $amount_total += $amt; echo number_format($amt, 2, ',', '') ?> NOK</td>
+                  <td><?php $amount_total += $amt; echo number_format($amt, 2, ',', '') ?> Nkr</td>
                 </tr>
                 <?php endforeach; ?>
                 <?php if(count($smsRecords)==0): ?>
@@ -84,9 +84,9 @@
                 <tr>
                 	<td colspan="2" align="right"><strong><?php echo __('Subtotal') ?></strong></td>
                 	<!--
-                	<td><?php echo format_number($amount_total-$amount_total*.20) ?> NOK</td>
+                	<td><?php echo format_number($amount_total-$amount_total*.20) ?> Nkr</td>
                 	 -->
-                         <td><?php echo number_format($amount_total, 2, ',', '') ?> NOK</td>
+                         <td><?php echo number_format($amount_total, 2, ',', '') ?> Nkr</td>
                 </tr>
                 <?php endif; ?>
               </table>
