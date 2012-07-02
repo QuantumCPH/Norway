@@ -33,6 +33,7 @@ class BaseProductFormFilter extends BaseFormFilterPropel
       'product_order'         => new sfWidgetFormFilterInput(),
       'product_type_package'  => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'product_country_us'    => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
+      'is_in_b2b'             => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
     ));
 
     $this->setValidators(array(
@@ -55,6 +56,7 @@ class BaseProductFormFilter extends BaseFormFilterPropel
       'product_order'         => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'product_type_package'  => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
       'product_country_us'    => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
+      'is_in_b2b'             => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
     ));
 
     $this->widgetSchema->setNameFormat('product_filters[%s]');
@@ -92,6 +94,7 @@ class BaseProductFormFilter extends BaseFormFilterPropel
       'product_order'         => 'Number',
       'product_type_package'  => 'Boolean',
       'product_country_us'    => 'Boolean',
+      'is_in_b2b'             => 'Boolean',
     );
   }
 }

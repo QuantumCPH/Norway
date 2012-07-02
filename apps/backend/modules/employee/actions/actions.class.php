@@ -269,6 +269,7 @@ class employeeActions extends sfActions {
         $employee->setEmail($request->getParameter('email'));
         $employee->setProductId($request->getParameter('productid'));
        // $employee->setProductPrice($request->getParameter('price'));
+           $employee->setComments($request->getParameter('comments'));
         $employee->save();
         $this->getUser()->setFlash('messageAdd', 'Employee has been Add Sucessfully '.(isset($msg)?"and ".$msg:''));
         $this->redirect('employee/index?message=add');
@@ -407,6 +408,7 @@ $companyCVR=$compny->getVatNo();
         //$employee->setRegistrationType($rtype);
         $employee->setProductId($request->getParameter('productid'));
       //  $employee->setProductPrice($request->getParameter('price'));
+          $employee->setComments($request->getParameter('comments'));
         $employee->setDeleted($request->getParameter('deleted'));
         $employee->save();
          $this->getUser()->setFlash('messageEdit', 'Employee has been modified Sucessfully '.(isset($msg)?"and ".$msg:''));
