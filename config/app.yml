@@ -2,7 +2,7 @@
 #all:
 
 all:
- main_url: http://localhost/Norway/web/b2c.php/
+ main_url: http://customer.zapna.no/b2c.php/
  epay:
    merchant_number: 5116449
    currency: 208

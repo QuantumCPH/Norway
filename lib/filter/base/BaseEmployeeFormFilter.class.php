@@ -29,6 +29,7 @@ class BaseEmployeeFormFilter extends BaseFormFilterPropel
       'product_id'            => new sfWidgetFormFilterInput(),
       'country_code'          => new sfWidgetFormFilterInput(),
       'country_mobile_number' => new sfWidgetFormFilterInput(),
+      'comments'              => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
@@ -47,6 +48,7 @@ class BaseEmployeeFormFilter extends BaseFormFilterPropel
       'product_id'            => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'country_code'          => new sfValidatorPass(array('required' => false)),
       'country_mobile_number' => new sfValidatorPass(array('required' => false)),
+      'comments'              => new sfValidatorPass(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('employee_filters[%s]');
@@ -80,6 +82,7 @@ class BaseEmployeeFormFilter extends BaseFormFilterPropel
       'product_id'            => 'Number',
       'country_code'          => 'Text',
       'country_mobile_number' => 'Text',
+      'comments'              => 'Text',
     );
   }
 }
