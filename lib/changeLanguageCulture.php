@@ -7,7 +7,7 @@ class changeLanguageCulture{
 
     public static function languageCulture($request,$clsObj)
     {
-     //   $clsObj->getUser()->setAttribute('activelanguage', $getCultue);
+        $clsObj->getUser()->setAttribute('activelanguage', $getCultue);
     }    
 }
 ?>
