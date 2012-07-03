@@ -25,7 +25,7 @@
         </li>-->
         <li>
             <label>Amount</label>
-            <label><?php echo  $product->getPrice(); ?></label><br />
+            <label><?php echo  BaseUtil::format_number($product->getPrice()); ?></label><br />
         </li>
         <li style="margin-left:188px"><input type="submit" name="Submit" value="Submit" /><br /></li>
     </ul>

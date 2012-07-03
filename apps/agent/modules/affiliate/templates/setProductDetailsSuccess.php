@@ -112,11 +112,11 @@
                         <label><?php echo $order->getProduct()->getName() ?> <?php echo __('details') ?>:</label>
                     </li>
                     <li>
-                        <label><?php echo __('Unique Id') ?>:</label>
+                        <label style="text-align:left"><?php echo __('Unique Id') ?>:</label>
                         <input type="text" id="uniqueid" value="" name="uniqueid"/>
                     </li>
                     <li>
-                        <label>
+                        <label style="text-align:left">
                             <?php echo __('Registration Fee') ?>
                             <br/>
                             <br/>
@@ -124,10 +124,10 @@
                         </label>
 
 
-                        <label><?php echo $order->getProduct()->getRegistrationFee() ?> Nkr
+                        <label style="width:180px; padding-right: 0px"><?php echo BaseUtil::format_number($order->getProduct()->getRegistrationFee()) ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?>
                             <br/>
                             <br/>
-                            <?php echo format_number($order->getProduct()->getPrice()) ?> Nkr
+                            <?php echo BaseUtil::format_number($order->getProduct()->getPrice()) ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?>
                         </label>
 
 
@@ -167,18 +167,18 @@
                         </span>
                     </li>
                     <li>
-                        <label><?php echo __('VAT') ?> (25%)<br />
+                        <label style="text-align:left"><?php echo __('VAT') ?> (25%)<br />
 <?php echo __('Total amount') ?></label>
 
-                        <label class="fr ac" >
+                        <label class="fr ac"  style="width:180px; padding-right: 0px">
                             <span id="vat_span">
-<?php echo format_number($product_price_vat) ?>
-                            </span> Nkr
+<?php echo BaseUtil::format_number($product_price_vat) ?>
+                            </span>&nbsp;<?php echo sfConfig::get('app_currency_code')?>
                             <br />
 <?php $total = $product_price + $product_price_vat ?>
                             <span id="total_span">
-<?php echo format_number($total) ?>
-                            </span> Nkr
+<?php echo BaseUtil::format_number($total) ?>
+                            </span>&nbsp;<?php echo sfConfig::get('app_currency_code')?>
                         </label>
                     </li>
 <?php if ($sf_user->hasFlash('error_message')): ?>
@@ -188,7 +188,7 @@
 <?php endif; ?>
                                 
                                 <li class="fr buttonplacement">
-                                        <input type ="submit" value ="<?php echo __('Pay') ?>"  style="cursor: pointer; margin-left: 115px">
+                                        <input type ="submit" value ="<?php echo __('Pay') ?>"  style="cursor: pointer;">
                                     </li>
                         </ul>
                         <!-- hidden fields -->

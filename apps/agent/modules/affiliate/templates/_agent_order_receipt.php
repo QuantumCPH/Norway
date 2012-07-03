@@ -1,7 +1,6 @@
 <?php
 use_helper('I18N');
 use_helper('Number');
-require_once(sfConfig::get('sf_lib_dir') . '/baseUtil.class.php');
 ?>
 <style>
 	p {
@@ -90,7 +89,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td><?php echo __('Date') ?></td>
     <td><?php echo __('Description') ?></td>
     <td><?php echo __('Quantity') ?></td>
-    <td style="padding-right:80px; text-align:right"><?php echo __('Amount') ?>(Nkr)</td>
+    <td style="padding-right:80px; text-align:right"><?php echo __('Amount') ?>(<?php echo sfConfig::get('app_currency_code')?>)</td>
   </tr>
   <tr> 
     <td><?php echo $createddate ?></td>
@@ -98,7 +97,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
    <?php echo __('Agent Refill');?>
 	</td>
     <td>1</td>
-    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($subtotal=$transaction) //($order->getProduct()->getPrice() - $order->getProduct()->getPrice()*.2) * $order->getQuantity()) ?>&nbsp;Nkr</td>
+    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($subtotal=$transaction) //($order->getProduct()->getPrice() - $order->getProduct()->getPrice()*.2) * $order->getQuantity()) ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
   </tr>
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>
@@ -107,19 +106,19 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Subtotal') ?></td>
     <td>&nbsp;</td>
-    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($subtotal) ?>&nbsp;Nkr</td>
+    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($subtotal) ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
   </tr>
   <tr class="footer"> 
     <td>&nbsp;</td>
     <td><?php echo __('VAT') ?> (<?php echo $vat==0?'0%':'25%' ?>)</td>
     <td>&nbsp;</td>
-    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($vat) ?>&nbsp;Nkr</td>
+    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($vat) ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
   </tr>
   <tr class="footer">
     <td>&nbsp;</td>
     <td><?php echo __('Total') ?></td>
     <td>&nbsp;</td>
-    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($subtotal) ?>&nbsp;Nkr</td>
+    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($subtotal) ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
   </tr>
 </table>
 <?php if($wrap_content): ?>

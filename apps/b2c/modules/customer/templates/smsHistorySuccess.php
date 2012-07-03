@@ -73,7 +73,7 @@
                   $amt = $country->getCbfRate();
                   
                   ?>
-                  <td><?php $amount_total += $amt; echo number_format($amt, 2, ',', '') ?> Nkr</td>
+                  <td><?php $amount_total += $amt; echo BaseUtil::format_number($amt) ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
                 </tr>
                 <?php endforeach; ?>
                 <?php if(count($smsRecords)==0): ?>
@@ -83,10 +83,7 @@
                 <?php else: ?>
                 <tr>
                 	<td colspan="2" align="right"><strong><?php echo __('Subtotal') ?></strong></td>
-                	<!--
-                	<td><?php echo format_number($amount_total-$amount_total*.20) ?> Nkr</td>
-                	 -->
-                         <td><?php echo number_format($amount_total, 2, ',', '') ?> Nkr</td>
+                        <td><?php echo BaseUtil::format_number($amount_total) ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
                 </tr>
                 <?php endif; ?>
               </table>

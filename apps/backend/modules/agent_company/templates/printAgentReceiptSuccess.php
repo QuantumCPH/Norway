@@ -109,7 +109,7 @@ require_once(sfConfig::get('sf_lib_dir') . '/baseUtil.class.php');
     <td>&nbsp;</td>
     <td><?php echo __('Total') ?></td>
     <td>&nbsp;</td>
-    <td class="align"><?php echo BaseUtil::format_number($agent_order->getAmount()) ?>&nbsp;Nkr</td>
+    <td class="align"><?php echo BaseUtil::format_number($agent_order->getAmount()) ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
   </tr>
 </table>
 <p>

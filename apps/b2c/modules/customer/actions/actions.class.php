@@ -6,7 +6,9 @@ require_once(sfConfig::get('sf_lib_dir') . '/changeLanguageCulture.php');
 require_once(sfConfig::get('sf_lib_dir') . '/parsecsv.lib.php');
 require_once(sfConfig::get('sf_lib_dir') . '/telinta.class.php');
 require_once(sfConfig::get('sf_lib_dir') . '/payment.class.php');
+require_once(sfConfig::get('sf_lib_dir') . '/baseUtil.class.php');
 require_once(sfConfig::get('sf_lib_dir') . '/zerocall_out_sms.php');
+
 /**
  * customer actions.
  *
@@ -1786,10 +1788,14 @@ public function executeSmsHistory(sfWebrequest $request){
          $return_url='http://zapna.zerocall.com/refillacceptedpage/';
          $urlcalcel='http://zapna.zerocall.com/reject-refill-payment-page/?orderid=';
         $cancel_url = $urlcalcel.$order_id;
-     // $cancel_url = $this->getTargetUrl().'customer/refillReject?orderid='.$order_id;
-        $notify_url = $this->getTargetUrl().'pScripts/calbackrefill?order_id='.$order_id.'&amountval='.$item_amount;
+      $cancel_url = $this->getTargetUrl().'customer/refillReject?orderid='.$order_id;
+       $notify_url = $this->getTargetUrl().'pScripts/calbackrefill?order_id='.$order_id.'&amountval='.$item_amount;
 
-     
+          $email2 = new DibsCall();
+        $email2->setCallurl($notify_url);
+
+        $email2->save();
+    
         $querystring = '';
         if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])){
 	

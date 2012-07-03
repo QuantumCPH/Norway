@@ -45,15 +45,14 @@
                           echo __($transaction->getDescription());  
                         } 
                   }?></td>
-                  <td><?php echo $transaction->getAmount(); $amount_total += $transaction->getAmount() ?>
-                            <?php 
-//                            if($lang=="pl"){
-//                               // echo ('plz');
-//                            }else if($lang=="en"){
-//                               // echo ('eur');
-//                            }else{
-                                echo ('Nkr');
-//                            } ?></td>
+                  <td>
+                      <?php
+                         echo BaseUtil::format_number($transaction->getAmount());
+                         $amount_total += $transaction->getAmount();
+                         echo "&nbsp;";
+                         echo sfConfig::get('app_currency_code');
+                     ?>
+                  </td>
                   <td><a href="#" class="receipt" onclick="javascript: window.open('<?php echo url_for('payments/showReceipt?tid='.$transaction->getId(), true) ?>')"><?php echo $transaction->getAmount()>=0?__('Paid'):__('Refund') ?></a></td>
 <!--                  <td nowrap="nowrap"><a href="#" style=" white-space: nowrap" class="receipt" onclick="iprint(preview_<?php echo $transaction->getId();?>);return false;"><?php echo __('Print'); ?>
                   </a>
@@ -80,16 +79,14 @@
                 </tr>
                 <?php else: ?>
                 <tr>
-                	<td colspan="3" align="right"><strong>Total</strong></td>
-                	<td colspan="3"><?php echo format_number($amount_total) ?>
-                            <?php 
-//                            if($lang=="pl"){
-//                                echo ('plz');
-//                            }else if($lang=="en"){
-//                                echo ('eur');
-//                            }else{
-                                echo ('Nkr');
-//                            } ?></td>
+                	<td colspan="3" align="right"><strong><?php echo __('Total');?></strong></td>
+                	<td colspan="3">
+                            <?php
+                                echo BaseUtil::format_number($amount_total);
+                                echo "&nbsp;";
+                                echo sfConfig::get('app_currency_code');
+                            ?>
+                        </td>
                 </tr>	
                 <?php endif; ?>
               </table>
