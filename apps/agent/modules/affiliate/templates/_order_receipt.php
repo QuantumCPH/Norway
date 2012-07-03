@@ -147,7 +147,7 @@ Sett forsiktig Zapna SIM-kortet over ditt nåværende SIM-kort og sett kortene t
         <td colspan="2">&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="2" align="left" valign="middle"><p><span style="font-size: 16px; font-weight: bold;">Zapna aktiveres automatisk</span></p></td>
+        <td colspan="2" align="left" valign="middle"><p><span style="font-size: 14px; font-weight: bold;">Zapna aktiveres automatisk</span></p></td>
         </tr>
 		  <tr>
         <td colspan="2">&nbsp;</td>
@@ -208,7 +208,7 @@ Sett forsiktig Zapna SIM-kortet over ditt nåværende SIM-kort og sett kortene t
   </tr>
   <tr>
 	  <td>
-	    <p style="font-size: 16px; font-weight: bold;">Vennlig hilsen<br/> Zapna </p></td>
+	    <p style="font-size: 14px; font-weight: bold;">Vennlig hilsen<br/> Zapna </p></td>
   </tr>
 
 </table>

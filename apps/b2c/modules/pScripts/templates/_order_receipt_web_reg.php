@@ -144,7 +144,7 @@ Sett forsiktig Zapna SIM-kortet over ditt nåværende SIM-kort og sett kortene t
         <td colspan="2">&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="2" align="left" valign="middle"><p><span style="font-size: 16px; font-weight: bold;">Zapna aktiveres  automatisk </span></p></td>
+        <td colspan="2" align="left" valign="middle"><p><span style="font-size: 14px; font-weight: bold;">Zapna aktiveres  automatisk </span></p></td>
         </tr>
 		  <tr>
         <td colspan="2">&nbsp;</td>
@@ -164,7 +164,7 @@ Ditt nåværende mobilabonnement fortsetter å fungere som før når du ringer t
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td><p   style="color: #FFFFFF; font-weight: bold; font-size: 18px; text-align: justify;"><strong>Benytt&nbsp;online selvbetjening</strong></p></td>
+        <td><p   style="color: #FFFFFF; font-weight: bold; font-size: 15px; text-align: justify;"><strong>Benytt&nbsp;online selvbetjening</strong></p></td>
       </tr>
 	  <tr>
         <td>&nbsp;</td>
@@ -205,7 +205,7 @@ Ditt nåværende mobilabonnement fortsetter å fungere som før når du ringer t
   </tr>
   <tr>
 	  <td>
-	    <p style="font-size: 16px; font-weight: bold;"><strong>Vennlig hilsen</strong><br/> 
+	    <p style="font-size: 14px; font-weight: bold;"><strong>Vennlig hilsen</strong><br/> 
 	      Zapna </p>	  </td>
   </tr>
 
@@ -221,7 +221,7 @@ Ditt nåværende mobilabonnement fortsetter å fungere som før når du ringer t
     <td>&nbsp;</td>
   </tr>
   <tr>
-      <td><p style="margin-left: 23px;"><strong style="font-size: 20px;">Din kvittering nedenfor:</strong></p></td>
+      <td><p style=""><strong style="font-size: 20px;">Din kvittering nedenfor:</strong></p></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
