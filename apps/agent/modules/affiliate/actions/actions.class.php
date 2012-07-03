@@ -1370,10 +1370,6 @@ class affiliateActions extends sfActions {
 
                          $mobile_number=substr($mobile_number,1);
                          $number = $countrycode . $mobile_number;
-                         
-                         $zerocalloutSMSObj = new ZeroCallOutSMS();
-                         $zerocalloutSMSObj->toCustomerChangeNumber($customer,$mobile_number);
-                       
                     }
 //exit;
                     if ($agent->getIsPrepaid() == true) {
@@ -1396,8 +1392,12 @@ class affiliateActions extends sfActions {
                     $order->save();
                     $transaction->save();
                     $this->customer = $order->getCustomer();
+                    
+                    $zerocalloutSMSObj = new ZeroCallOutSMS();
+                    $zerocalloutSMSObj->toCustomerChangeNumber($customer,$mobile_number);
+                    
                     emailLib::sendChangeNumberEmail($this->customer, $order);
-                    $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('%1% Mobile Number is changed successfully  with %2% Nkr.', array("%1%" => $customer->getMobileNumber(), "%2%" => $transaction->getAmount())));
+                    $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('%1% Mobile Number is changed successfully with %2% Nkr.', array("%1%" => $customer->getMobileNumber(), "%2%" => $transaction->getAmount())));
 
                     $this->redirect('affiliate/receipts');
                 } else {
