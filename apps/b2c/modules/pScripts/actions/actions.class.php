@@ -3097,10 +3097,10 @@ if(($caltype!="IC") && ($caltype!="hc")){
                     commissionLib::registrationCommissionCustomer($agentid, $productid, $transactionid);
                 }
                 
+                
+                emailLib::sendCustomerRegistrationViaWebEmail($this->customer, $order);
                 $zerocalloutSMSObj = new ZeroCallOutSMS();
                 $zerocalloutSMSObj->toCustomerAfterReg($productid, $customer);
-                emailLib::sendCustomerRegistrationViaWebEmail($this->customer, $order);
-                
 
                 $this->order = $order;
             }//end if

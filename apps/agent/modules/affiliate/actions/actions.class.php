@@ -892,10 +892,11 @@ class affiliateActions extends sfActions {
             Telienta::createAAccount($TelintaMobile, $this->customer);
             //Telienta::createCBAccount($TelintaMobile, $this->customer);
            
+            
+            emailLib::sendCustomerRegistrationViaAgentEmail($this->customer, $order);
             $zerocalloutSMSObj = new ZeroCallOutSMS();
             $zerocalloutSMSObj->toCustomerAfterReg($order->getProductId(), $this->customer);
-            emailLib::sendCustomerRegistrationViaAgentEmail($this->customer, $order);
-          
+            
             $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('Customer ') . $this->customer->getMobileNumber() . $this->getContext()->getI18N()->__(' is registered successfully'));
             $this->redirect('affiliate/receipts');
         }
