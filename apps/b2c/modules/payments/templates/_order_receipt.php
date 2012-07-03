@@ -101,20 +101,15 @@ $wrap_content  = isset($wrap)?$wrap:false;
      <?php     $customer->getMobileNumber()    ?>
       <?php echo __('Mobile Number') ?>: <br />
       <?php echo $customer->getMobileNumber() ?>
- 
-
-
-
-
     </td>
   </tr>
   <tr class="order_summary_header" bgcolor="#CCCCCC"> 
     <td><?php echo __('Date') ?></td>
     <td><?php echo __('Description') ?></td>
     <td><?php echo __('Quantity') ?></td>
-    <td class="align"><?php echo __('Amount') ?>(Nkr)</td>
+    <td style="padding-right:80px; text-align:right"><?php echo __('Amount') ?>(Nkr)</td>
   </tr>
-<?php if($customerorder){?>  
+<?php if($order->getIsFirstOrder()){?>  
   <tr> 
     <td><?php echo $order->getCreatedAt('m-d-Y') ?></td>
     <td>
@@ -124,7 +119,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     ?>
 	</td>
     <td><?php echo $order->getQuantity() ?></td>
-    <td><?php echo format_number($order->getProduct()->getRegistrationFee()); ?></td>
+    <td style="padding-right:80px; text-align:right"><?php echo format_number($order->getProduct()->getRegistrationFee()); ?>&nbsp;Nkr</td>
   </tr>
   <tr>
     <td></td>
@@ -135,7 +130,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     ?>
 	</td>
     <td><?php echo $order->getQuantity() ?></td>
-    <td class="align"><?php echo format_number($order->getProduct()->getPrice()); ?></td>
+    <td style="padding-right:80px; text-align:right"><?php echo format_number($order->getProduct()->getPrice()); ?>&nbsp;Nkr</td>
   </tr>
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>
@@ -144,19 +139,19 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Subtotal') ?></td>
     <td>&nbsp;</td>
-    <td class="align"><?php echo format_number($subtotal = $order->getProduct()->getPrice()+$order->getProduct()->getRegistrationFee()); ?></td>
+    <td style="padding-right:80px; text-align:right"><?php echo format_number($subtotal = $order->getProduct()->getPrice()+$order->getProduct()->getRegistrationFee()); ?>&nbsp;Nkr</td>
   </tr>
    <tr class="footer">
     <td>&nbsp;</td>
     <td><?php echo __('Delivery and Returns') ?>  </td>
     <td>&nbsp;</td>
-    <td class="align"><?php echo format_number($postalcharge) ?></td>
+    <td style="padding-right:80px; text-align:right"><?php echo format_number($postalcharge) ?>&nbsp;Nkr</td>
   </tr>
   <tr class="footer"> 
     <td>&nbsp;</td>
     <td><?php echo __('VAT') ?> (<?php echo $vat==0?'0%':'25%' ?>)</td>
     <td>&nbsp;</td>
-    <td class="align"><?php echo format_number($vat) ?></td>
+    <td style="padding-right:80px; text-align:right"><?php echo format_number($vat) ?>&nbsp;Nkr</td>
   </tr>
   <?php } else{  //////// for Othere orders
   ?>
@@ -173,7 +168,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     ?>
 	</td>
     <td><?php echo $order->getQuantity() ?></td>
-    <td class="align"><?php echo format_number($subtotal = $transaction->getAmount()-$vat) ?></td>
+    <td style="padding-right:80px; text-align:right"><?php echo format_number($subtotal = $transaction->getAmount()-$vat) ?>&nbsp;Nkr</td>
   </tr>
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>
@@ -182,13 +177,13 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Subtotal') ?></td>
     <td>&nbsp;</td>
-    <td class="align"><?php echo format_number($subtotal); ?></td>
+    <td style="padding-right:80px; text-align:right"><?php echo format_number($subtotal); ?>&nbsp;Nkr</td>
   </tr>  
   <tr class="footer"> 
     <td>&nbsp;</td>
     <td><?php echo __('VAT') ?> (<?php echo $vat==0?'0%':'25%' ?>)</td>
     <td>&nbsp;</td>
-    <td class="align"><?php echo format_number($vat) ?></td>
+    <td style="padding-right:80px; text-align:right"><?php echo format_number($vat) ?>&nbsp;Nkr</td>
   </tr>
   <?php    
   }?>
@@ -196,7 +191,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Total') ?></td>
     <td>&nbsp;</td>
-    <td class="align"><?php echo format_number($transaction->getAmount()); ?>Nkr</td>
+    <td style="padding-right:80px; text-align:right"><?php echo format_number($transaction->getAmount()); ?>&nbsp;Nkr</td>
   </tr>
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>

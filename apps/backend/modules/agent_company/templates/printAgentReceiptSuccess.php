@@ -87,7 +87,7 @@ use_helper('Number');
     <td><?php echo $agent_order->getCreatedAt('m-d-Y') ?></td>
     <td></td>
     <td>1</td>
-    <td class="align"><?php echo format_number($subtotal = $agent_order->getAmount()) //($order->getProduct()->getPrice() - $order->getProduct()->getPrice()*.2) * $order->getQuantity()) ?></td>
+    <td class="align"><?php echo format_number($subtotal = $agent_order->getAmount()) //($order->getProduct()->getPrice() - $order->getProduct()->getPrice()*.2) * $order->getQuantity()) ?>&nbsp;Nkr</td>
   </tr>
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>
@@ -96,13 +96,13 @@ use_helper('Number');
     <td>&nbsp;</td>
     <td><?php echo __('Subtotal') ?></td>
     <td>&nbsp;</td>
-    <td class="align"><?php echo format_number($subtotal) ?></td>
+    <td class="align"><?php echo format_number($subtotal) ?>&nbsp;Nkr</td>
   </tr>
   <tr class="footer">
     <td>&nbsp;</td>
     <td><?php echo __('VAT') ?> (<?php echo '0%' ?>)</td>
     <td>&nbsp;</td>
-    <td class="align"><?php echo format_number(0.00) ?></td>
+    <td class="align"><?php echo format_number(0.00) ?>&nbsp;Nkr</td>
   </tr>
   <tr class="footer">
     <td>&nbsp;</td>

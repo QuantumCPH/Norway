@@ -623,7 +623,7 @@ class emailLib{
 
     public static function sendCustomerRegistrationViaWebEmail(Customer $customer,$order)
     {
-
+       
 
         $tc  =new Criteria();
         $tc->add(TransactionPeer::CUSTOMER_ID, $customer->getId() );

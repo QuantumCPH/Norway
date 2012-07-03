@@ -191,7 +191,7 @@ if($is_auto_refill_activated){  ?>  <div class="left-col">
         <input type="hidden" name="cmd" value="_xclick" /> 
         <input type="hidden" name="no_note" value="1" />
         <input type="hidden" name="lc" value="NO" />
-        <input type="hidden" name="currency_code" value="Nkr" />
+        <input type="hidden" name="currency_code" value="NOK" />
         <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
         <input type="hidden" name="firstName" value="<?php echo $order->getCustomer()->getFirstName();?>"  />
         <input type="hidden" name="lastName" value="<?php echo $order->getCustomer()->getLastName();?>"  />

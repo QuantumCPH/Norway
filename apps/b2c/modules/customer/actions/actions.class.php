@@ -581,7 +581,7 @@ class customerActions extends sfActions {
         $this->redirectUnless($this->customer, "@homepage");
 
         $this->form = new ManualRefillForm($customer_id);
-
+        unset($this->form['i_customer']);
 
         //new order
         $this->order = new CustomerOrder();
@@ -847,7 +847,7 @@ class customerActions extends sfActions {
         $this->form = new CustomerForm(CustomerPeer::retrieveByPK($this->customer->getId()));
       
 
-    unset($this->form['first_name']);
+                    unset($this->form['first_name']);
                     unset($this->form['last_name']);
                     unset($this->form['country_id']);
                     unset($this->form['city']);
@@ -887,6 +887,10 @@ class customerActions extends sfActions {
                     unset($this->form['terms_conditions']);
                     unset($this->form['manufacturer']);
                     unset($this->form['product']);
+                    unset($this->form['usage_alert_sms']);
+                    unset($this->form['usage_alert_email']);
+                    unset($this->form['sim_type_id']);
+                    unset($this->form['comments']);
                    //  unset($this->form['password']);
         // unset($this->form['password_confirm']);
         /////////////////////////////////////
@@ -971,6 +975,8 @@ class customerActions extends sfActions {
         unset($this->form['i_customer']);
         unset($this->form['usage_alert_sms']);
         unset($this->form['usage_alert_email']);
+        unset($this->form['sim_type_id']);
+        unset($this->form['comments']);
         $this->uniqueidValue = $this->customer->getUniqueId();
         //This Section For Get the Language Symbol For Set Currency -
         $getvoipInfo = new Criteria();
