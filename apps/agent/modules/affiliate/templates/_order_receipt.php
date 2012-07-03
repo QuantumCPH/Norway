@@ -167,7 +167,7 @@ Sett forsiktig Zapna SIM-kortet over ditt nåværende SIM-kort og sett kortene t
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td><p   style="color: #FFFFFF; font-weight: bold; font-size: 18px; text-align: justify;"><strong>Benytt&nbsp;online selvbetjening</strong></p></td>
+        <td><p   style="color: #FFFFFF; font-weight: bold; font-size: 15px; text-align: justify;"><strong>Benytt&nbsp;online selvbetjening</strong></p></td>
       </tr>
 	  <tr>
         <td>&nbsp;</td>
