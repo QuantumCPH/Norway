@@ -85,7 +85,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td><?php echo __('Date') ?></td>
     <td><?php //echo __('Description') ?></td>
     <td><?php echo __('Quantity') ?></td>
-    <td class="align"><?php echo __('Amount') ?>(Nkr)</td>
+    <td class="align"><?php echo __('Amount') ?>(<?php echo sfConfig::get('app_currency_code')?>)</td>
   </tr>
   <tr>
     <td><?php echo $agent_order->getCreatedAt('m-d-Y') ?></td>
@@ -93,7 +93,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
         
     </td>
     <td>1<?php //echo $agent_order->getQuantity() ?></td>
-    <td class="align"><?php echo BaseUtil::format_number($subtotal = $agent_order->getAmount()) //($order->getProduct()->getPrice() - $order->getProduct()->getPrice()*.2) * $order->getQuantity()) ?>&nbsp;Nkr</td>
+    <td class="align"><?php echo BaseUtil::format_number($subtotal = $agent_order->getAmount()) //($order->getProduct()->getPrice() - $order->getProduct()->getPrice()*.2) * $order->getQuantity()) ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
   </tr>
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>
@@ -102,7 +102,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Subtotal') ?></td>
     <td>&nbsp;</td>
-    <td class="align"><?php echo BaseUtil::format_number($subtotal) ?>&nbsp;Nkr</td>
+    <td class="align"><?php echo BaseUtil::format_number($subtotal) ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
   </tr>
   <tr class="footer">
     <td>&nbsp;</td>
@@ -114,7 +114,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Total') ?></td>
     <td>&nbsp;</td>
-    <td class="align"><?php echo BaseUtil::format_number($agent_order->getAmount()) ?>&nbsp;Nkrr</td>
+    <td class="align"><?php echo BaseUtil::format_number($agent_order->getAmount()) ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
   </tr>
 </table>
 <?php if($wrap_content): ?>

@@ -62,10 +62,10 @@
                     <td align="right"><strong><?php echo __('Total Registration Earnings:') ?></strong></td><td align="right"> <?php echo $i ?></td>
 		</tr>
 		<tr>
-		 <td align="right"><strong><?php echo __('Total Earnings:') ?></strong></td><td align="right"> <?php echo $registration_revenue; ?></td>
+		 <td align="right"><strong><?php echo __('Total Earnings:') ?></strong></td><td align="right"> <?php echo BaseUtil::format_number($registration_revenue); ?></td>
 		</tr>
 		<tr>
-		 <td align="right"><strong><?php echo __('Total Commission Earned:') ?></strong></td><td align="right"> <?php echo $registration_commission; ?></td>
+		 <td align="right"><strong><?php echo __('Total Commission Earned:') ?></strong></td><td align="right"> <?php echo BaseUtil::format_number($registration_commission); ?></td>
 		</tr>
         </table>
         </div>
@@ -121,10 +121,10 @@
                     <td align="right"><strong><?php echo __('Total SMS Registration:') ?></strong></td><td align="right"> <?php echo $i ?></td>
 		</tr>
 		<tr>
-		 <td align="right"><strong><?php echo __('Total Earnings:') ?></strong></td><td align="right"> <?php echo $sms_registration_earnings ?></td>
+		 <td align="right"><strong><?php echo __('Total Earnings:') ?></strong></td><td align="right"> <?php echo BaseUtil::format_number($sms_registration_earnings) ?></td>
 		</tr>
 		<tr>
-		 <td align="right"><strong><?php echo __('Total Commission Earned:') ?></strong></td><td align="right"> <?php echo $sms_commission_earnings ?></td>
+		 <td align="right"><strong><?php echo __('Total Commission Earned:') ?></strong></td><td align="right"> <?php echo BaseUtil::format_number($sms_commission_earnings) ?></td>
 		</tr>
         </table>
         </div>    
@@ -174,10 +174,10 @@
                     <td align="right"><strong><?php echo __('Total Refills:') ?></strong></td><td align="right"> <?php echo $i ?></td>
 		</tr>
 		<tr>
-		 <td align="right"><strong><?php echo __('Total Earnings:') ?></strong></td><td align="right"> <?php echo $refill_revenue ?></td>
+		 <td align="right"><strong><?php echo __('Total Earnings:') ?></strong></td><td align="right"> <?php echo BaseUtil::format_number($refill_revenue) ?></td>
 		</tr>
 		<tr>
-		 <td align="right"><strong><?php echo __('Total Commission Earned:') ?></strong></td><td align="right"> <?php echo $refill_com ?></td>
+		 <td align="right"><strong><?php echo __('Total Commission Earned:') ?></strong></td><td align="right"> <?php echo BaseUtil::format_number($refill_com) ?></td>
 		</tr>
         </table>
         </div>
