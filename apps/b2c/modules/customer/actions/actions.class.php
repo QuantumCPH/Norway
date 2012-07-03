@@ -1819,8 +1819,11 @@ public function executeSmsHistory(sfWebrequest $request){
 
         if($item_amount=="") $item_amount = $request->getParameter('extra_refill');
         
-        $return_url = $this->getTargetUrl().'customer/refillAccept';
-        $cancel_url = $this->getTargetUrl().'customer/refillReject?orderid='.$order_id;
+       // $return_url = $this->getTargetUrl().'customer/refillAccept';
+         $return_url='http://zapna.zerocall.com/refillacceptedpage/';
+       $cancelUrl='http://zapna.zerocall.com/rejectpaymentpage/?orderid=';
+          $cancel_url =$cancelUrl.$order_id;
+     // $cancel_url = $this->getTargetUrl().'customer/refillReject?orderid='.$order_id;
         $notify_url = $this->getTargetUrl().'pScripts/calbackrefill?order_id='.$order_id.'&amountval='.$item_amount;
 
      
