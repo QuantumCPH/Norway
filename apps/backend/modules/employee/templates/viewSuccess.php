@@ -84,6 +84,12 @@
 				  	<?php echo $employee->getMobileNumber() ?>
 				  </div>
 				</div>
+                                <div class="form-row">
+				  <label class="required">Unique Id</label>
+				  <div class="content">
+				  	<?php echo $employee->getUniqueId() ?>
+				  </div>
+				</div>
 
 				<div class="form-row">
 				  <label class="required">Product:</label>
