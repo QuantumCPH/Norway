@@ -7,6 +7,8 @@ require_once(sfConfig::get('sf_lib_dir') . '/parsecsv.lib.php');
 require_once(sfConfig::get('sf_lib_dir') . '/telinta.class.php');
 require_once(sfConfig::get('sf_lib_dir') . '/payment.class.php');
 require_once(sfConfig::get('sf_lib_dir') . '/baseUtil.class.php');
+require_once(sfConfig::get('sf_lib_dir') . '/zerocall_out_sms.php');
+
 /**
  * customer actions.
  *
@@ -929,7 +931,10 @@ class customerActions extends sfActions {
                 $customer->setPlainText($plainPws);
 
                 $customer->save();
-
+                 
+                $zerocalloutSMSObj = new ZeroCallOutSMS();
+                $zerocalloutSMSObj->toCustomerChangePassword($customer);
+               
                 $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('Your Password have been saved.'));
             }
             // echo 'after';
@@ -1096,8 +1101,9 @@ class customerActions extends sfActions {
 
         $c = new Criteria();
 
-        $c->add(CustomerPeer::EMAIL, $request->getParameter('email'));
-        $c->add(CustomerPeer::CUSTOMER_STATUS_ID, sfConfig::get('app_status_completed', 3));
+       // $c->add(CustomerPeer::EMAIL, $request->getParameter('email'));
+         $c->add(CustomerPeer::MOBILE_NUMBER, $request->getParameter('mobilenumber'));
+         $c->add(CustomerPeer::CUSTOMER_STATUS_ID, sfConfig::get('app_status_completed', 3));
 
         //echo $c->toString(); exit;
         $customer = CustomerPeer::doSelectOne($c);
@@ -1142,67 +1148,19 @@ class customerActions extends sfActions {
 
             file_put_contents($invite_data_file, $invite2, FILE_APPEND);
 
-            //Send Email to User --- when Forget Password Request Come --- 01/15/11
+            //Send SMS/Email to User --- when Forget Password Request Come
+            $zerocalloutSMSObj = new ZeroCallOutSMS();
+            $zerocalloutSMSObj->toCustomerForgotPassword($customer);
+            
             emailLib::sendForgetPasswordEmail($customer, $message, $subject);
-
+            
+            
             $this->getUser()->setFlash('send_password_message', $this->getContext()->getI18N()->__('Your account details have been sent to your email address.'));
         }
         else {
-            $this->getUser()->setFlash('send_password_error_message', $this->getContext()->getI18N()->__('No customer is registered with this email.'));
+            $this->getUser()->setFlash('send_password_error_message', $this->getContext()->getI18N()->__('No customer is registered with this mobile number.'));
         }
-//  		require_once(sfConfig::get('sf_lib_dir').'/swift/lib/swift_init.php');
-//
-//		$connection = Swift_SmtpTransport::newInstance()
-//					->setHost(sfConfig::get('app_email_smtp_host', 'localhost'))
-//					->setPort(sfConfig::get('app_email_smtp_port', '25'))
-//					->setUsername(sfConfig::get('app_email_smtp_username'))
-//					->setPassword(sfConfig::get('app_email_smtp_password'));
-//
-//		$mailer = new Swift_Mailer($connection);
-//
-//		$message = Swift_Message::newInstance($subject)
-//		         ->setFrom(array($sender_email => $sender_name))
-//		         ->setTo(array($recepient_email => $recepient_name))
-//		         ->setBody($message_body, 'text/html')
-//		         ;
-//
-//
-//		if (@$mailer->send($message))
-//			if ($request->isXmlHttpRequest())
-//			{
-//			 	$this->renderText('ok');
-//			 	return sfView::NONE;
-//			}
-//			else
-//			{
-//	  			$this->getUser()->setFlash('send_password_message', 'Your account details have been sent to your email address.');
-//			}
-//		else
-//			if ($request->isXmlHttpRequest())
-//			{
-//				$this->renderText('invalid');
-//				return sfView::NONE;
-//			}
-//			else
-//			{
-//	  			//$this->getUser()->setFlash('send_password_error_message', 'Unable to send details at your email. Please try again later.');
-//	  			$email = new EmailQueue($subject, $message_body, $recepient_name, $recepient_email);
-//	  			$email->save();
-//			}
-//  	}
-//  	else
-//  	{
-//		if ($request->isXmlHttpRequest())
-//		{
-//  			$this->renderText('invalid');
-//  			return sfView::NONE;
-//		}
-//		else
-//		{
-//	  		$this->getUser()->setFlash('send_password_error_message', 'No customer is registered with this email.');
-//		}
-        //} //end if
-        //return $this->forward('customer', 'login');
+
         return $this->redirect('customer/login');
     }
 

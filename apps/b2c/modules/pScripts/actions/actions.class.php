@@ -7,6 +7,8 @@ require_once(sfConfig::get('sf_lib_dir').'/commissionLib.php');
 require_once(sfConfig::get('sf_lib_dir').'/curl_http_client.php');
 require_once(sfConfig::get('sf_lib_dir').'/smsCharacterReplacement.php');
 require_once(sfConfig::get('sf_lib_dir') . '/baseUtil.class.php');
+require_once(sfConfig::get('sf_lib_dir') .'/zerocall_out_sms.php');
+
 /**
  * scripts actions.
  *
@@ -2614,6 +2616,8 @@ if(($caltype!="IC") && ($caltype!="hc")){
             $aph->setRemainingBalance($remainingbalance);
             $aph->save();
             
+            $zerocalloutSMSObj = new ZeroCallOutSMS();
+            $zerocalloutSMSObj->toAgentAfterRefill($agent, $amount);
             emailLib::sendAgentRefilEmail($this->agent, $agent_order);
         }
     }
@@ -2746,7 +2750,8 @@ if(($caltype!="IC") && ($caltype!="hc")){
                     ));
 
 
-
+            $zerocalloutSMSObj = new ZeroCallOutSMS();
+            $zerocalloutSMSObj->toCustomerAfterRefill($customer, $order->getExtraRefill());
             emailLib::sendCustomerRefillEmail($this->customer, $order, $transaction);
         }
 
@@ -3091,9 +3096,11 @@ if(($caltype!="IC") && ($caltype!="hc")){
                 if (isset($agentid) && $agentid != "") {
                     commissionLib::registrationCommissionCustomer($agentid, $productid, $transactionid);
                 }
-
+                
+                $zerocalloutSMSObj = new ZeroCallOutSMS();
+                $zerocalloutSMSObj->toCustomerAfterReg($productid, $customer);
                 emailLib::sendCustomerRegistrationViaWebEmail($this->customer, $order);
-
+                
 
                 $this->order = $order;
             }//end if
