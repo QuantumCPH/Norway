@@ -1113,6 +1113,10 @@
                 <source>Please enter a mobile number.</source>
                 <target>Vennligst oppgi et mobilnummer.</target>
             </trans-unit>
+            <trans-unit id="272" translate="yes" reformat="yes" xml:space="default">
+                <source>No customer is registered with this email.</source>
+                <target>Ingen kunde er registrert med denne mobilnummer.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

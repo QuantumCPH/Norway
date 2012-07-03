@@ -1100,8 +1100,8 @@ class customerActions extends sfActions {
         $c = new Criteria();
 
        // $c->add(CustomerPeer::EMAIL, $request->getParameter('email'));
-         $c->add(CustomerPeer::MOBILE_NUMBER, $request->getParameter('mobileNumber'));
-        $c->add(CustomerPeer::CUSTOMER_STATUS_ID, sfConfig::get('app_status_completed', 3));
+         $c->add(CustomerPeer::MOBILE_NUMBER, $request->getParameter('mobilenumber'));
+         $c->add(CustomerPeer::CUSTOMER_STATUS_ID, sfConfig::get('app_status_completed', 3));
 
         //echo $c->toString(); exit;
         $customer = CustomerPeer::doSelectOne($c);
