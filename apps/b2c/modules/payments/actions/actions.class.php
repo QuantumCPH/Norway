@@ -645,8 +645,9 @@ class paymentsActions extends sfActions {
 
        // $return_url = $this->getTargetUrl();
         $return_url ='http://zapna.zerocall.com/thankspage/';
-      $urlcalcel='http://zapna.zerocall.com/reject-refill-payment-page/?orderid=';
-        $cancel_url = $urlcalcel.$order_id;
+     
+         $cancelUrl='http://zapna.zerocall.com/rejectpaymentpage/?orderid=';
+          $cancel_url =$cancelUrl.$order_id;
         $notify_url = $this->getTargetUrl().'payments/confirmpayment?order_id='.$order_id.'&amount='.$item_amount;
  
 
