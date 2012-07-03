@@ -124,10 +124,10 @@
                         </label>
 
 
-                        <label><?php echo $order->getProduct()->getRegistrationFee() ?> Nkr
+                        <label><?php echo BaseUtil::format_number($order->getProduct()->getRegistrationFee()) ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?>
                             <br/>
                             <br/>
-                            <?php echo format_number($order->getProduct()->getPrice()) ?> Nkr
+                            <?php echo BaseUtil::format_number($order->getProduct()->getPrice()) ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?>
                         </label>
 
 
@@ -172,13 +172,13 @@
 
                         <label class="fr ac" >
                             <span id="vat_span">
-<?php echo format_number($product_price_vat) ?>
-                            </span> Nkr
+<?php echo BaseUtil::format_number($product_price_vat) ?>
+                            </span>&nbsp;<?php echo sfConfig::get('app_currency_code')?>
                             <br />
 <?php $total = $product_price + $product_price_vat ?>
                             <span id="total_span">
-<?php echo format_number($total) ?>
-                            </span> Nkr
+<?php echo BaseUtil::format_number($total) ?>
+                            </span>&nbsp;<?php echo sfConfig::get('app_currency_code')?>
                         </label>
                     </li>
 <?php if ($sf_user->hasFlash('error_message')): ?>

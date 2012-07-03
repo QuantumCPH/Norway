@@ -1117,6 +1117,10 @@
                 <source>No customer is registered with this email.</source>
                 <target>Ingen kunde er registrert med denne mobilnummer.</target>
             </trans-unit>
+            <trans-unit id="273" translate="yes" reformat="yes" xml:space="default">
+                <source>Your account details have been sent to your email address and cellphone.</source>
+                <target>Dine kontoopplysninger er blitt sendt til din e-postadresse og mobiltelefon.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
