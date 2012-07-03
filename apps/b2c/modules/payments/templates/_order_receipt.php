@@ -109,7 +109,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td><?php echo __('Quantity') ?></td>
     <td class="align"><?php echo __('Amount') ?>(Nkr)</td>
   </tr>
-<?php if($customerorder){?>  
+<?php if($order->getIsFirstOrder()){?>  
   <tr> 
     <td><?php echo $order->getCreatedAt('m-d-Y') ?></td>
     <td>
