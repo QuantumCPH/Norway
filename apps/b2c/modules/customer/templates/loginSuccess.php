@@ -73,19 +73,19 @@
         <input  style="cursor: pointer;"  class="loginbuttun"  type="submit" name="submit" value="<?php echo __('Send');?>">
 <!--	<button style="cursor: pointer;">Send</button>-->
 	<script language="javascript" type="text/javascript">
-//		jq = jQuery.noConflict();
-//	
-//		jq('#forgot_password_form').submit(function(){
-//			
-//			var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-//			if (reg.test(jq('#forgot_password_email').val())==false)
-//			{
-//				jq('#forgot_password_email').focus();
-//				alert('<?php echo __('Please enter a valid email address.') ?>');
-//				return false;
-//			}
-//
-//		});
+		jq = jQuery.noConflict();
+	
+		jq('#forgot_password_form').submit(function(){
+			
+			
+			if (jq('#forgot_password_email').val()=="")
+			{
+				jq('#forgot_password_email').focus();
+				alert('<?php echo __('Please enter a mobile number.') ?>');
+				return false;
+			}
+
+		});
 	</script>
 	</form></div>
 	</div>

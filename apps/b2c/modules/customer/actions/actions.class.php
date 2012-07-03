@@ -1100,7 +1100,7 @@ class customerActions extends sfActions {
         $c = new Criteria();
 
        // $c->add(CustomerPeer::EMAIL, $request->getParameter('email'));
-         $c->add(CustomerPeer::EMAIL, $request->getParameter('mobileNumber'));
+         $c->add(CustomerPeer::MOBILE_NUMBER, $request->getParameter('mobileNumber'));
         $c->add(CustomerPeer::CUSTOMER_STATUS_ID, sfConfig::get('app_status_completed', 3));
 
         //echo $c->toString(); exit;
@@ -1156,7 +1156,7 @@ class customerActions extends sfActions {
             $this->getUser()->setFlash('send_password_message', $this->getContext()->getI18N()->__('Your account details have been sent to your email address.'));
         }
         else {
-            $this->getUser()->setFlash('send_password_error_message', $this->getContext()->getI18N()->__('No customer is registered with this email.'));
+            $this->getUser()->setFlash('send_password_error_message', $this->getContext()->getI18N()->__('No customer is registered with this mobile number.'));
         }
 
         return $this->redirect('customer/login');
