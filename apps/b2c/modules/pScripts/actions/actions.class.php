@@ -2618,7 +2618,9 @@ if(($caltype!="IC") && ($caltype!="hc")){
     }
     
     public function executeCalbackrefill(sfWebRequest $request) {
-        $this->getUser()->setCulture($request->getParameter('lng'));
+//         $culture = sfContext::getInstance()->getUser()->getCulture();
+//  
+//       echo  $this->getUser()->setCulture($culture);   die;
         $Parameters=$request->getURI();
         $order_id = $request->getParameter("order_id");
         
@@ -2767,7 +2769,7 @@ if(($caltype!="IC") && ($caltype!="hc")){
         $order_id = $request->getParameter('order_id');
         $order_amount = $request->getParameter('amount');
         $ticket_id = "";
-        $this->getUser()->setCulture($request->getParameter('lng'));
+      //  $this->getUser()->setCulture($request->getParameter('lng'));
 
 
         if ($order_id != '') {
