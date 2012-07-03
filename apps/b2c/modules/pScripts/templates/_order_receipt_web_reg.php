@@ -1,6 +1,7 @@
 <?php
 use_helper('I18N');
 use_helper('Number');
+require_once(sfConfig::get('sf_lib_dir') . '/baseUtil.class.php');
 ?>
 <style>
 	p {
@@ -81,7 +82,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
 		<td colspan="4" align="right" style="text-align:right; border:0px solid #fff"><?php echo image_tag('http://customer.zapna.no/images/zapna_logo_small.jpg',array('width' => '170'));?></td>
 	</tr>
 </table>
-<table class="receipt" cellspacing="0" width="600px">
+<table class="receipt" cellspacing="0" width="520px">
   <tr bgcolor="#CCCCCC" class="receipt_header"> 
     <th colspan="3"><?php echo __('Order Receipt')." (".$order->getProduct()->getName()." )" ?></th>
     <th><?php echo __('Order No.') ?> <?php echo $order->getId() ?></th>
@@ -108,7 +109,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td><?php echo __('Date') ?></td>
     <td><?php echo __('Description') ?></td>
     <td><?php echo __('Quantity') ?></td>
-    <td class="align"><?php echo __('Amount') ?>(Nkr)</td>
+    <td style="padding-right:80px; text-align:right"><?php echo __('Amount') ?>(Nkr)</td>
   </tr>
   <tr> 
     <td><?php echo $order->getCreatedAt('m-d-Y') ?></td>
@@ -119,7 +120,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     ?>
 	</td>
     <td><?php echo $order->getQuantity() ?></td>
-    <td class="align"><?php echo format_number($order->getProduct()->getRegistrationFee()); ?>&nbsp;Nkr</td>
+    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($order->getProduct()->getRegistrationFee()); ?>&nbsp;Nkr</td>
   </tr>
   <tr>
     <td></td>
@@ -130,7 +131,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     ?>
 	</td>
     <td><?php echo $order->getQuantity() ?></td>
-    <td class="align"><?php echo format_number($order->getProduct()->getPrice()); ?>&nbsp;Nkr</td>
+    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($order->getProduct()->getPrice()); ?>&nbsp;Nkr</td>
   </tr>
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>
@@ -139,27 +140,27 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Subtotal') ?></td>
     <td>&nbsp;</td>
-    <td class="align"><?php echo format_number($subTotal = $order->getProduct()->getPrice()+$order->getProduct()->getRegistrationFee()) ?>&nbsp;Nkr</td>
+    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($subTotal = $order->getProduct()->getPrice()+$order->getProduct()->getRegistrationFee()) ?>&nbsp;Nkr</td>
   </tr>
   
   <tr class="footer">
     <td>&nbsp;</td>
     <td><?php echo __('Delivery and Returns') ?>  </td>
     <td>&nbsp;</td>
-    <td class="align"><?php echo format_number($postalcharge) ?>&nbsp;Nkr</td>
+    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($postalcharge) ?>&nbsp;Nkr</td>
   </tr>
   <tr class="footer">
     <td>&nbsp;</td>
     <td><?php echo __('VAT') ?> (<?php echo $vat==0?'0%':'25%' ?>)</td>
     <td>&nbsp;</td>
-    <td class="align"><?php echo format_number($vat) ?>&nbsp;Nkr</td>
+    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($vat) ?>&nbsp;Nkr</td>
   </tr>
      
   <tr class="footer">
     <td>&nbsp;</td>
     <td><?php echo __('Total') ?></td>
     <td>&nbsp;</td>
-    <td class="align"><?php echo format_number($subTotal+$vat+$postalcharge) ?>&nbsp;Nkr</td>
+    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($subTotal+$vat+$postalcharge) ?>&nbsp;Nkr</td>
   </tr>
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>

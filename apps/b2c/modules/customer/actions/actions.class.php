@@ -888,6 +888,10 @@ class customerActions extends sfActions {
                     unset($this->form['terms_conditions']);
                     unset($this->form['manufacturer']);
                     unset($this->form['product']);
+                    unset($this->form['usage_alert_sms']);
+                    unset($this->form['usage_alert_email']);
+                    unset($this->form['sim_type_id']);
+                    unset($this->form['comments']);
                    //  unset($this->form['password']);
         // unset($this->form['password_confirm']);
         /////////////////////////////////////
@@ -975,6 +979,8 @@ class customerActions extends sfActions {
         unset($this->form['i_customer']);
         unset($this->form['usage_alert_sms']);
         unset($this->form['usage_alert_email']);
+        unset($this->form['sim_type_id']);
+        unset($this->form['comments']);
         $this->uniqueidValue = $this->customer->getUniqueId();
         //This Section For Get the Language Symbol For Set Currency -
         $getvoipInfo = new Criteria();
@@ -1776,8 +1782,11 @@ public function executeSmsHistory(sfWebrequest $request){
 
         if($item_amount=="") $item_amount = $request->getParameter('extra_refill');
         
-        $return_url = $this->getTargetUrl().'customer/refillAccept';
-        $cancel_url = $this->getTargetUrl().'customer/refillReject?orderid='.$order_id;
+       // $return_url = $this->getTargetUrl().'customer/refillAccept';
+         $return_url='http://zapna.zerocall.com/refillacceptedpage/';
+       $urlcalcel='http://zapna.zerocall.com/reject-refill-payment-page/?orderid=';
+        $cancel_url = $urlcalcel.$order_id;
+     // $cancel_url = $this->getTargetUrl().'customer/refillReject?orderid='.$order_id;
         $notify_url = $this->getTargetUrl().'pScripts/calbackrefill?order_id='.$order_id.'&amountval='.$item_amount;
 
      
