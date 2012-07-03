@@ -81,7 +81,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
 		<td colspan="4" align="right" style="text-align:right; border:0px solid #fff"><?php echo image_tag('http://customer.zapna.no/images/zapna_logo_small.jpg',array('width' => '170'));?></td>
 	</tr>
 </table>
-<table class="receipt" cellspacing="0" width="600px">
+<table class="receipt" cellspacing="0" width="520px">
   <tr bgcolor="#CCCCCC" class="receipt_header"> 
     <th colspan="3"><?php echo __('Order Receipt')." (".$order->getProduct()->getName()." )" ?></th>
     <th><?php echo __('Order No.') ?> <?php echo $order->getId() ?></th>
