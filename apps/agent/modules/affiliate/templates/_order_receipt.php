@@ -269,7 +269,7 @@ Sett forsiktig Zapna SIM-kortet over ditt nåværende SIM-kort og sett kortene t
     <td><?php echo $order->getQuantity() ?></td>
     <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($order->getProduct()->getRegistrationFee()); ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
   </tr>
-  <tr>
+<!--  <tr>
     <td></td>
     <td>
     <?php
@@ -279,7 +279,7 @@ Sett forsiktig Zapna SIM-kortet over ditt nåværende SIM-kort og sett kortene t
 	</td>
     <td><?php echo $order->getQuantity() ?></td>
     <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($order->getProduct()->getPrice()); ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
-  </tr>
+  </tr>-->
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>
   </tr>
