@@ -511,7 +511,9 @@ margin-bottom:10px;
     width: 331px;
     height: 27px;
     border:0px !important;
-/*    padding-left:10px;*/
+    line-height: 25px;
+    padding-left: 11px;
+    width: 320px;
     margin-left: 0px !important;
     margin-bottom: 0px !important;
 }

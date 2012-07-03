@@ -6,6 +6,7 @@ require_once(sfConfig::get('sf_lib_dir').'/ForumTel.php');
 require_once(sfConfig::get('sf_lib_dir').'/commissionLib.php');
 require_once(sfConfig::get('sf_lib_dir').'/curl_http_client.php');
 require_once(sfConfig::get('sf_lib_dir').'/smsCharacterReplacement.php');
+require_once(sfConfig::get('sf_lib_dir') .'/zerocall_out_sms.php');
 /**
  * scripts actions.
  *
@@ -355,8 +356,8 @@ class pScriptsActions extends sfActions
                                 ));
 
                             $subject = $this->getContext()->getI18N()->__('Payment Confirmation');
-                            $sender_email = sfConfig::get('app_email_sender_email', 'support@landncall.com');
-                            $sender_name = sfConfig::get('app_email_sender_name', 'LandNCall AB support');
+                            $sender_email = sfConfig::get('app_email_sender_email', 'support@zapna.no');
+                            $sender_name = sfConfig::get('app_email_sender_name', 'Zapna support');
 
                             $recepient_email = trim($this->customer->getEmail());
                             $recepient_name = sprintf('%s %s', $this->customer->getFirstName(), $this->customer->getLastName());
@@ -2613,12 +2614,16 @@ if(($caltype!="IC") && ($caltype!="hc")){
             $aph->setRemainingBalance($remainingbalance);
             $aph->save();
             
+            $zerocalloutSMSObj = new ZeroCallOutSMS();
+            $zerocalloutSMSObj->toAgentAfterRefill($agent, $amount);
             emailLib::sendAgentRefilEmail($this->agent, $agent_order);
         }
     }
     
     public function executeCalbackrefill(sfWebRequest $request) {
-        $this->getUser()->setCulture($request->getParameter('lng'));
+//         $culture = sfContext::getInstance()->getUser()->getCulture();
+//  
+//       echo  $this->getUser()->setCulture($culture);   die;
         $Parameters=$request->getURI();
         $order_id = $request->getParameter("order_id");
         
@@ -2743,7 +2748,8 @@ if(($caltype!="IC") && ($caltype!="hc")){
                     ));
 
 
-
+            $zerocalloutSMSObj = new ZeroCallOutSMS();
+            $zerocalloutSMSObj->toCustomerAfterRefill($customer, $order->getExtraRefill());
             emailLib::sendCustomerRefillEmail($this->customer, $order, $transaction);
         }
 
@@ -2767,7 +2773,7 @@ if(($caltype!="IC") && ($caltype!="hc")){
         $order_id = $request->getParameter('order_id');
         $order_amount = $request->getParameter('amount');
         $ticket_id = "";
-        $this->getUser()->setCulture($request->getParameter('lng'));
+      //  $this->getUser()->setCulture($request->getParameter('lng'));
 
 
         if ($order_id != '') {
@@ -3088,9 +3094,11 @@ if(($caltype!="IC") && ($caltype!="hc")){
                 if (isset($agentid) && $agentid != "") {
                     commissionLib::registrationCommissionCustomer($agentid, $productid, $transactionid);
                 }
-
+                
+                $zerocalloutSMSObj = new ZeroCallOutSMS();
+                $zerocalloutSMSObj->toCustomerAfterReg($productid, $customer);
                 emailLib::sendCustomerRegistrationViaWebEmail($this->customer, $order);
-
+                
 
                 $this->order = $order;
             }//end if

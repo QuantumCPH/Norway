@@ -6,6 +6,7 @@ require_once(sfConfig::get('sf_lib_dir') . '/changeLanguageCulture.php');
 require_once(sfConfig::get('sf_lib_dir') . '/parsecsv.lib.php');
 require_once(sfConfig::get('sf_lib_dir') . '/telinta.class.php');
 require_once(sfConfig::get('sf_lib_dir') . '/payment.class.php');
+require_once(sfConfig::get('sf_lib_dir') . '/zerocall_out_sms.php');
 /**
  * customer actions.
  *
@@ -581,7 +582,7 @@ class customerActions extends sfActions {
         $this->redirectUnless($this->customer, "@homepage");
 
         $this->form = new ManualRefillForm($customer_id);
-
+        unset($this->form['i_customer']);
 
         //new order
         $this->order = new CustomerOrder();
@@ -847,7 +848,7 @@ class customerActions extends sfActions {
         $this->form = new CustomerForm(CustomerPeer::retrieveByPK($this->customer->getId()));
       
 
-    unset($this->form['first_name']);
+                    unset($this->form['first_name']);
                     unset($this->form['last_name']);
                     unset($this->form['country_id']);
                     unset($this->form['city']);
@@ -887,6 +888,10 @@ class customerActions extends sfActions {
                     unset($this->form['terms_conditions']);
                     unset($this->form['manufacturer']);
                     unset($this->form['product']);
+                    unset($this->form['usage_alert_sms']);
+                    unset($this->form['usage_alert_email']);
+                    unset($this->form['sim_type_id']);
+                    unset($this->form['comments']);
                    //  unset($this->form['password']);
         // unset($this->form['password_confirm']);
         /////////////////////////////////////
@@ -924,7 +929,10 @@ class customerActions extends sfActions {
                 $customer->setPlainText($plainPws);
 
                 $customer->save();
-
+                 
+                $zerocalloutSMSObj = new ZeroCallOutSMS();
+                $zerocalloutSMSObj->toCustomerChangePassword($customer);
+               
                 $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('Your Password have been saved.'));
             }
             // echo 'after';
@@ -971,6 +979,8 @@ class customerActions extends sfActions {
         unset($this->form['i_customer']);
         unset($this->form['usage_alert_sms']);
         unset($this->form['usage_alert_email']);
+        unset($this->form['sim_type_id']);
+        unset($this->form['comments']);
         $this->uniqueidValue = $this->customer->getUniqueId();
         //This Section For Get the Language Symbol For Set Currency -
         $getvoipInfo = new Criteria();
@@ -1089,8 +1099,9 @@ class customerActions extends sfActions {
 
         $c = new Criteria();
 
-        $c->add(CustomerPeer::EMAIL, $request->getParameter('email'));
-        $c->add(CustomerPeer::CUSTOMER_STATUS_ID, sfConfig::get('app_status_completed', 3));
+       // $c->add(CustomerPeer::EMAIL, $request->getParameter('email'));
+         $c->add(CustomerPeer::MOBILE_NUMBER, $request->getParameter('mobilenumber'));
+         $c->add(CustomerPeer::CUSTOMER_STATUS_ID, sfConfig::get('app_status_completed', 3));
 
         //echo $c->toString(); exit;
         $customer = CustomerPeer::doSelectOne($c);
@@ -1135,67 +1146,19 @@ class customerActions extends sfActions {
 
             file_put_contents($invite_data_file, $invite2, FILE_APPEND);
 
-            //Send Email to User --- when Forget Password Request Come --- 01/15/11
+            //Send SMS/Email to User --- when Forget Password Request Come
+            $zerocalloutSMSObj = new ZeroCallOutSMS();
+            $zerocalloutSMSObj->toCustomerForgotPassword($customer);
+            
             emailLib::sendForgetPasswordEmail($customer, $message, $subject);
-
+            
+            
             $this->getUser()->setFlash('send_password_message', $this->getContext()->getI18N()->__('Your account details have been sent to your email address.'));
         }
         else {
-            $this->getUser()->setFlash('send_password_error_message', $this->getContext()->getI18N()->__('No customer is registered with this email.'));
+            $this->getUser()->setFlash('send_password_error_message', $this->getContext()->getI18N()->__('No customer is registered with this mobile number.'));
         }
-//  		require_once(sfConfig::get('sf_lib_dir').'/swift/lib/swift_init.php');
-//
-//		$connection = Swift_SmtpTransport::newInstance()
-//					->setHost(sfConfig::get('app_email_smtp_host', 'localhost'))
-//					->setPort(sfConfig::get('app_email_smtp_port', '25'))
-//					->setUsername(sfConfig::get('app_email_smtp_username'))
-//					->setPassword(sfConfig::get('app_email_smtp_password'));
-//
-//		$mailer = new Swift_Mailer($connection);
-//
-//		$message = Swift_Message::newInstance($subject)
-//		         ->setFrom(array($sender_email => $sender_name))
-//		         ->setTo(array($recepient_email => $recepient_name))
-//		         ->setBody($message_body, 'text/html')
-//		         ;
-//
-//
-//		if (@$mailer->send($message))
-//			if ($request->isXmlHttpRequest())
-//			{
-//			 	$this->renderText('ok');
-//			 	return sfView::NONE;
-//			}
-//			else
-//			{
-//	  			$this->getUser()->setFlash('send_password_message', 'Your account details have been sent to your email address.');
-//			}
-//		else
-//			if ($request->isXmlHttpRequest())
-//			{
-//				$this->renderText('invalid');
-//				return sfView::NONE;
-//			}
-//			else
-//			{
-//	  			//$this->getUser()->setFlash('send_password_error_message', 'Unable to send details at your email. Please try again later.');
-//	  			$email = new EmailQueue($subject, $message_body, $recepient_name, $recepient_email);
-//	  			$email->save();
-//			}
-//  	}
-//  	else
-//  	{
-//		if ($request->isXmlHttpRequest())
-//		{
-//  			$this->renderText('invalid');
-//  			return sfView::NONE;
-//		}
-//		else
-//		{
-//	  		$this->getUser()->setFlash('send_password_error_message', 'No customer is registered with this email.');
-//		}
-        //} //end if
-        //return $this->forward('customer', 'login');
+
         return $this->redirect('customer/login');
     }
 
@@ -1819,8 +1782,11 @@ public function executeSmsHistory(sfWebrequest $request){
 
         if($item_amount=="") $item_amount = $request->getParameter('extra_refill');
         
-        $return_url = $this->getTargetUrl().'customer/refillAccept';
-        $cancel_url = $this->getTargetUrl().'customer/refillReject?orderid='.$order_id;
+       // $return_url = $this->getTargetUrl().'customer/refillAccept';
+         $return_url='http://zapna.zerocall.com/refillacceptedpage/';
+       $urlcalcel='http://zapna.zerocall.com/reject-refill-payment-page/?orderid=';
+        $cancel_url = $urlcalcel.$order_id;
+     // $cancel_url = $this->getTargetUrl().'customer/refillReject?orderid='.$order_id;
         $notify_url = $this->getTargetUrl().'pScripts/calbackrefill?order_id='.$order_id.'&amountval='.$item_amount;
 
      

@@ -4,6 +4,7 @@ require_once(sfConfig::get('sf_lib_dir') . '/Browser.php');
 require_once(sfConfig::get('sf_lib_dir') . '/emailLib.php');
 require_once(sfConfig::get('sf_lib_dir') . '/changeLanguageCulture.php');
 require_once(sfConfig::get('sf_lib_dir') . '/sms.class.php');
+require_once(sfConfig::get('sf_lib_dir') . '/zerocall_out_sms.php');
 /**
  * affiliate actions.
  * @package    zapnacrm
@@ -434,6 +435,9 @@ class affiliateActions extends sfActions {
                     $transaction->save();
                     $this->customer = $order->getCustomer();
                   //  $this->getUser()->setCulture('de');
+                    $zerocalloutSMSObj = new ZeroCallOutSMS();
+                    $zerocalloutSMSObj->toCustomerAfterRefill($this->customer, $order->getExtraRefill());
+                    
                     emailLib::sendRefillEmail($this->customer, $order);
                  //   $this->getUser()->setCulture('en');
                     $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('%1% account is successfully refilled with %2% Nkr.', array("%1%" => $customer->getMobileNumber(), "%2%" => $transaction->getAmount())));
@@ -1366,15 +1370,6 @@ class affiliateActions extends sfActions {
 
                          $mobile_number=substr($mobile_number,1);
                          $number = $countrycode . $mobile_number;
-                         $sms = SmsTextPeer::retrieveByPK(1);
-                         $sms_text = $sms->getMessageText();
-                         $sms_text = str_replace(array("(oldnumber)", "(newnumber)"),array($mobile_number, $newnumber),$sms_text);
-                                   
-                         //ROUTED_SMS::Send($number, $sms_text,"Zapna");
-                         //Send SMS ----
-                         $number = $newMobileNo;
-                         //ROUTED_SMS::Send($number, $sms_text,"Zapna");
-                       
                     }
 //exit;
                     if ($agent->getIsPrepaid() == true) {
@@ -1397,8 +1392,12 @@ class affiliateActions extends sfActions {
                     $order->save();
                     $transaction->save();
                     $this->customer = $order->getCustomer();
+                    
+                    $zerocalloutSMSObj = new ZeroCallOutSMS();
+                    $zerocalloutSMSObj->toCustomerChangeNumber($customer,$mobile_number);
+                    
                     emailLib::sendChangeNumberEmail($this->customer, $order);
-                    $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('%1% Mobile Number is changed successfully  with %2% Nkr.', array("%1%" => $customer->getMobileNumber(), "%2%" => $transaction->getAmount())));
+                    $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('%1% Mobile Number is changed successfully with %2% Nkr.', array("%1%" => $customer->getMobileNumber(), "%2%" => $transaction->getAmount())));
 
                     $this->redirect('affiliate/receipts');
                 } else {
