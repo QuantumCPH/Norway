@@ -92,7 +92,7 @@ class ZeroCallOutSMS {
             'UN' => 'zapna1',
             'P' => 'Zapna2010',
             'DA' => $mobile_number,
-            'SA' => 'Zerocall',
+            'SA' => 'Zapna',
             'M' => $sms_text,
             'ST' => '5'
         );
