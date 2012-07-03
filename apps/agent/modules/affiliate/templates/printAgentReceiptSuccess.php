@@ -108,7 +108,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('VAT') ?> (<?php echo '0%' ?>)</td>
     <td>&nbsp;</td>
-    <td class="align"><?php echo BaseUtil::format_number(0.00) ?>&nbsp;Nkr</td>
+    <td class="align"><?php echo BaseUtil::format_number(0.00) ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
   </tr>
   <tr class="footer">
     <td>&nbsp;</td>

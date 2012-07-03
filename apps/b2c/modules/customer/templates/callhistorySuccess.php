@@ -90,7 +90,7 @@
                         <th  width="20%"  align="left"><?php echo __('To Number') ?></th>
                         <th  width="20%"  align="left"><?php echo __('From Number') ?></th>
                         <th width="10%"   align="left"><?php echo __('Duration') ?></th>
-                        <th width="20%"   align="left"><?php echo __('Cost') ?> (Nkr)</th>
+                        <th width="20%"   align="left"><?php echo __('Cost') ?> (<?php echo sfConfig::get('app_currency_code')?>)</th>
                         <th width="10%"   align="left"><?php echo __('Typ') ?></th>
                     </tr>
                 <?php
@@ -185,7 +185,7 @@
                             <tr>
                                 <td><?php echo date("Y-m-d H:i:s", strtotime($xdr->bill_time)); ?></td>
                                 <td><?php echo __($xdr->CLD); ?></td>
-                                <td><?php echo $xdr->charged_amount; ?>&nbsp;Nkr</td>
+                                <td><?php echo BaseUtil::format_number($xdr->charged_amount); ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
                             </tr>
                             <?php } }else {
 
@@ -261,9 +261,9 @@
 
                                     echo date('i:s', $callval);
                                 } ?></td>
-                            <td><?php echo number_format($xdr->charged_amount / 4, 2); ?></td>
-                            <td><?php echo number_format($xdr->charged_amount, 2);
-                                $amount_total+= number_format($xdr->charged_amount, 2); ?>&nbsp;Nkr</td>
+                            <td><?php echo BaseUtil::format_number($xdr->charged_amount / 4); ?></td>
+                            <td><?php echo BaseUtil::format_number($xdr->charged_amount);
+                                $amount_total+= BaseUtil::format_number($xdr->charged_amount); ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
                             <td><?php
                                 $typecall = substr($xdr->account_id, 0, 1);
                                 if ($typecall == 'a') {
@@ -304,7 +304,7 @@
                                         <!--
                                         <td><?php echo format_number($amount_total - $amount_total * .20) ?> Nkr</td>
                                     	 -->
-                                        <td><?php echo number_format($amount_total, 2, ',', '') ?>&nbsp;Nkr</td>
+                                        <td><?php echo BaseUtil::format_number($amount_total) ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
                                         <td>&nbsp;</td>
                                     </tr>
 <?php

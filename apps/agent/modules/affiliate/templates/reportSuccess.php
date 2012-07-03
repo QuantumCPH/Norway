@@ -195,7 +195,7 @@
         ?>
     <tr>
                 <td><strong><?php echo __('Your Balance is:') ?></strong></td>
-		<td align="right"><?php echo $agent->getBalance(); ?></td>
+		<td align="right"><?php echo BaseUtil::format_number($agent->getBalance()); ?></td>
     </tr>
         <?php } ?>
 
@@ -209,7 +209,7 @@
 	<tr>
 		<td><?php echo __('Total') ?> <strong><?php echo __('revenue on registration') ?></strong></td>
 		<td align="right">
-		<?php echo $registration_revenue
+		<?php echo BaseUtil::format_number($registration_revenue);
 
 		?>
 		</td>
@@ -217,7 +217,7 @@
 	<tr>
 		<td><?php echo __('Total commission earned on registration:') ?></td>
 		<td align="right">
-		<?php echo $registration_commission;
+		<?php echo BaseUtil::format_number($registration_commission);
 
 		?>
 		</td>
@@ -229,7 +229,7 @@
 	<tr>
 		<td><?php echo __('Total') ?> <strong><?php echo __('revenue on refill') ?></strong></td>
 		<td align="right">
-		<?php echo $refill_revenue
+		<?php echo BaseUtil::format_number($refill_revenue);
 
 		?>
 		</td>
@@ -237,7 +237,7 @@
 	<tr>
 		<td><?php echo __('Total commission earned on refill:') ?></td>
 		<td align="right">
-		<?php echo $refill_com
+		<?php echo BaseUtil::format_number($refill_com);
 
 		?>
 		</td>
@@ -249,7 +249,7 @@
         <tr>
             <td><?php echo __('Total') ?> <strong><?php echo __('revenue earned') ?>  </strong><?php echo __('on refill from shop:') ?></td>
 		<td align="right">
-		<?php echo $ef_sum;
+		<?php echo BaseUtil::format_number($ef_sum);;
 
 		?>
 		</td>
@@ -257,7 +257,7 @@
         <tr>
 		<td><?php echo __('Total') ?> <strong><?php echo __('commission earned')?> </strong><?php echo __('on refill from shop:') ?></td>
 		<td align="right">
-		<?php echo $ef_com;?>
+		<?php echo BaseUtil::format_number($ef_com);?>
                 </td>
         </tr>
         <tr>

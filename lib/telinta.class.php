@@ -334,7 +334,7 @@ class Telienta {
         $retry_count = 0;
 
         $pb = new PortaBillingSoapClient(self::$telintaSOAPUrl, 'Admin', 'Account');
-        $uniqueid="NOB2C".$customer->getUniqueid();
+        $uniqueid="NOB2C".$customer->getId().$customer->getUniqueid();
         $accountName = $accountType . $mobileNumber;
         while (!$account && $retry_count < $max_retries) {
             try {
