@@ -130,7 +130,7 @@ Sett forsiktig Zapna SIM-kortet over ditt nåværende SIM-kort og sett kortene t
       </tr>
       <tr>
         <td align="center" valign="top"><div align="center" style="font-size: 36px; color: #FFFFFF; background-color: #f07c00;">3</div></td>
-        <td valign="top" style="text-align: justify;">Se hvordan du installerer&nbsp;Zapna&nbsp;SIM-kortet&nbsp;<a href="https://zapna.no/?p=634">her</a> </td>
+        <td valign="top" style="text-align: justify;">Se hvordan du installerer&nbsp;Zapna&nbsp;SIM-kortet&nbsp;<a href="https://zapna.no/">her</a> </td>
       </tr>
       <tr>
           <td width="33" align="center" valign="top">&nbsp;</td>
@@ -155,7 +155,7 @@ Ditt nåværende mobilabonnement fortsetter å fungere som før når du ringer t
          Du har valgt: <br />
          <strong>Brukernamn:</strong> <?php echo $customer->getMobileNumber();?><br />
          <strong>Lösenord:</strong> <?php echo $customer->getPlainText();?>
-          God fornøyelse med din nye utenlandsforbindelse, som gjør at du ringer mobilligere  til hele verden!</p></td>
+          <br />God fornøyelse med din nye utenlandsforbindelse, som gjør at du ringer mobilligere  til hele verden!</p></td>
       </tr>
     </table>
     <p  >&nbsp;</p></td>
@@ -227,7 +227,7 @@ Ditt nåværende mobilabonnement fortsetter å fungere som før når du ringer t
     <td>&nbsp;</td>
   </tr>
   <tr><td>
-  <table width="520px">
+  <table width="602">
 	<tr style="border:0px solid #fff">
 		<td colspan="4" align="right" style="text-align:right; border:0px solid #fff"><?php echo image_tag('http://customer.zapna.no/images/zapna_logo_small.jpg',array('width' => '170'));?></td>
 	</tr>
