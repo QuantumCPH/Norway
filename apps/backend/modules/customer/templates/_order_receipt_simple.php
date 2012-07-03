@@ -1,6 +1,7 @@
 <?php
 use_helper('I18N');
 use_helper('Number');
+require_once(sfConfig::get('sf_lib_dir') . '/baseUtil.class.php');
 ?>
 <style>
 	p {
@@ -9,9 +10,6 @@ use_helper('Number');
 	
 	table.receipt {
 		width: 600px;
-		//font-family: arial;
-		//font-size: .7em;
-		
 		border: 2px solid #ccc;
 	}
 	
@@ -116,7 +114,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     ?>
 	</td>
     <td><?php echo $order->getQuantity() ?></td>
-    <td style="padding-right:80px; text-align:right"><?php echo format_number($subtotal = $transaction->getAmount()-$vat) //($order->getProduct()->getPrice() - $order->getProduct()->getPrice()*.2) * $order->getQuantity()) ?>&nbsp;Nkr</td>
+    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($subtotal = $transaction->getAmount()-$vat) //($order->getProduct()->getPrice() - $order->getProduct()->getPrice()*.2) * $order->getQuantity()) ?>&nbsp;Nkr</td>
   </tr>
   
   
@@ -127,13 +125,13 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td>&nbsp;</td>
     <td><?php echo __('Subtotal') ?></td>
     <td>&nbsp;</td>
-    <td style="padding-right:80px; text-align:right"><?php echo format_number($subtotal) ?>&nbsp;Nkr</td>
+    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($subtotal) ?>&nbsp;Nkr</td>
   </tr>
   <tr class="footer"> 
     <td>&nbsp;</td>
     <td><?php echo __('VAT') ?> (<?php echo $vat==0?'0%':'25%' ?>)</td>
     <td>&nbsp;</td>
-    <td style="padding-right:80px; text-align:right"><?php echo format_number($vat) ?>&nbsp;Nkr</td>
+    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($vat) ?>&nbsp;Nkr</td>
   </tr>
   <?php 
   //echo $postalcharge.'ss';
@@ -146,14 +144,14 @@ $wrap_content  = isset($wrap)?$wrap:false;
      ?>    
     </td>
     <td><?php //echo $order->getQuantity() ?></td>
-    <td style="padding-right:80px; text-align:right"><?php echo @$postalcharge ; ?>&nbsp;Nkr</td>
+    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($postalcharge) ; ?>&nbsp;Nkr</td>
   </tr>
   <?php } ?>
   <tr class="footer">
     <td>&nbsp;</td>
     <td><?php echo __('Total') ?></td>
     <td>&nbsp;</td>
-    <td style="padding-right:80px; text-align:right"><?php if($postalcharge && $order->getIsFirstOrder()){ echo format_number($transaction->getAmount()+$postalcharge); }else{ echo format_number($transaction->getAmount()); } ?>&nbsp;Nkr</td>
+    <td style="padding-right:80px; text-align:right"><?php if($postalcharge && $order->getIsFirstOrder()){ echo BaseUtil::format_number($transaction->getAmount()+$postalcharge); }else{ echo BaseUtil::format_number($transaction->getAmount()); } ?>&nbsp;Nkr</td>
 
   </tr>
 </table>

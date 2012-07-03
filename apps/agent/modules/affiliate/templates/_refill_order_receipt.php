@@ -1,6 +1,7 @@
 <?php
 use_helper('I18N');
 use_helper('Number');
+require_once(sfConfig::get('sf_lib_dir') . '/baseUtil.class.php');
 ?>
 <style>
 	p {
@@ -89,7 +90,7 @@ use_helper('Number');
     ?>
 	</td>
     <td><?php echo $order->getQuantity() ?></td>
-    <td style="padding-right:80px; text-align:right"><?php echo format_number($transaction->getAmount()); ?>&nbsp;Nkr</td>
+    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($transaction->getAmount()); ?>&nbsp;Nkr</td>
   </tr>
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>
@@ -98,20 +99,20 @@ use_helper('Number');
     <td>&nbsp;</td>
     <td><?php echo __('Subtotal') ?></td>
     <td>&nbsp;</td>
-    <td style="padding-right:80px; text-align:right"><?php echo format_number($subTotal = $transaction->getAmount()) ?>&nbsp;Nkr</td>
+    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($subTotal = $transaction->getAmount()) ?>&nbsp;Nkr</td>
   </tr>
 
   <tr class="footer">
     <td>&nbsp;</td>
     <td><?php echo __('VAT') ?> (<?php echo $vat==0?'0%':'25%' ?>)</td>
     <td>&nbsp;</td>
-    <td style="padding-right:80px; text-align:right"><?php echo format_number($vat) ?>&nbsp;Nkr</td>
+    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($vat) ?>&nbsp;Nkr</td>
   </tr>
   <tr class="footer">
     <td>&nbsp;</td>
     <td><?php echo __('Total') ?></td>
     <td>&nbsp;</td>
-    <td style="padding-right:80px; text-align:right"><?php echo format_number($subTotal+$vat) ?>&nbsp;Nkr</td>
+    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($subTotal+$vat) ?>&nbsp;Nkr</td>
   </tr>
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>

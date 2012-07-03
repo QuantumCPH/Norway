@@ -65,8 +65,8 @@
               $class = 'class="text1"';
           }
         ?>    
-	<p <?php echo $class;?>><?php echo __('Write e-mail address you used for registration.<br />Your password will be sent to you via this email.') ?></p>
-	<input   class="input"  type="text" name="email" id="forgot_password_email" /><br />
+	<p <?php echo $class;?>><?php echo __('Write mobile number you used for registration.<br />Your password will be sent to you via this sms and email.') ?></p>
+	<input   class="input"  type="text" name="mobilenumber" id="forgot_password_email" /><br />
 	<?php if ($sf_user->hasFlash('send_password_error_message')): ?>
 	<p style="color: red; margin:6px auto;"><?php echo $sf_user->getFlash('send_password_error_message') ?></p>
 	<?php endif;?>
@@ -77,11 +77,11 @@
 	
 		jq('#forgot_password_form').submit(function(){
 			
-			var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-			if (reg.test(jq('#forgot_password_email').val())==false)
+			
+			if (jq('#forgot_password_email').val()=="")
 			{
 				jq('#forgot_password_email').focus();
-				alert('<?php echo __('Please enter a valid email address.') ?>');
+				alert('<?php echo __('Please enter a mobile number.') ?>');
 				return false;
 			}
 

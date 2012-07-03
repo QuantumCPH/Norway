@@ -54,7 +54,7 @@
             </trans-unit>
             <trans-unit id="13" translate="yes" reformat="yes" xml:space="default">
                 <source>US Mobile Number</source>
-                <target>USA Mobilnummer</target>
+                <target>USA mobilnummer</target>
             </trans-unit>
             <trans-unit id="14" translate="yes" reformat="yes" xml:space="default">
                 <source>Date</source>
@@ -102,7 +102,7 @@
             </trans-unit>
             <trans-unit id="25" translate="yes" reformat="yes" xml:space="default">
                 <source>International calls from 0 cents * With Zapna, you can call the whole world.</source>
-                <target>Internasjonale samtaler fra 0 cents * Med Zapna, kan du ringe hele verden.</target>
+                <target>Internasjonale samtaler fra 0 øre * Med Zapna, kan du ringe hele verden..</target>
             </trans-unit>
             
             <trans-unit id="26" translate="yes" reformat="yes" xml:space="default">
@@ -263,8 +263,8 @@
                 <target>Glemt passord?</target>
             </trans-unit>
             <trans-unit id="65" translate="yes" reformat="yes" xml:space="default">
-                <source>Write e-mail address you used for registration.&lt;br /&gt;Your password will be sent to you via this email.</source>
-                <target>e-mail du brukte ved registering. &lt;br /&gt;Du mottar deretter mail med passord.</target>
+                <source>Write mobile number you used for registration.&lt;br /&gt;Your password will be sent to you via this sms and email.</source>
+                <target>Skriv mobilnummeret du brukte for registrering.&lt;br /&gt;Ditt passord vil bli sendt til deg via denne sms og e-post.</target>
             </trans-unit>
             <trans-unit id="66" translate="yes" reformat="yes" xml:space="default">
                 <source>Please enter a valid email address.</source>
@@ -304,7 +304,7 @@
             </trans-unit>
             <trans-unit id="75" translate="yes" reformat="yes" xml:space="default">
                 <source>Date &amp; time</source>
-                <target>Dato og tid</target>
+                <target>Dato &amp; tid</target>
             </trans-unit>
             <trans-unit id="76" translate="yes" reformat="yes" xml:space="default">
                 <source>Description</source>
@@ -347,7 +347,7 @@
             </trans-unit>
             <trans-unit id="85" translate="yes" reformat="yes" xml:space="default">
                 <source>The most convenient way to fill the pot is to enable automatic refilling (below), then you do not need to worry about the pot running out. Especially important is such trip abroad where it can be difficult to fill in in any other way.</source>
-                <target>Den mest praktiske måten å fylle potten er å aktivere automatisk etterfylling (under), så du trenger ikke å bekymre potten går ut. Spesielt viktig er en slik tur i utlandet der det kan være vanskelig å fylle på noen annen måte.</target>
+                <target>Den mest praktiske måten å fylle kontoen på er ved å aktivere "Automatisk etterfylling" (under). På denne måten behøver du ikke å bekymre deg for at kontoen går tom. Spesielt viktig er dette ved reise io utlandet der online påfylling kan være vanskelig.</target>
             </trans-unit>
             <trans-unit id="86" translate="yes" reformat="yes" xml:space="default">
                 <source>Automatic Replenishment is: Inactive</source>
@@ -360,7 +360,7 @@
             </trans-unit>
             <trans-unit id="88" translate="yes" reformat="yes" xml:space="default">
                 <source>Tell your friends about Zapna and earn extra balance!</source>
-                <target>Fortell vennene dine om Zapna and tjene ekstra balanse!</target>
+                <target>Fortell vennene dine om Zapna. Opptjen ekstra ringetid!</target>
             </trans-unit>
             <trans-unit id="89" translate="yes" reformat="yes" xml:space="default">
                 <source>Tell your friends about Zapna and earn 10 Nkr as soon as your friends have made their first payment with Zapna! Spread the word about Zapna and let your friends know about Zapna services.</source>
@@ -368,11 +368,11 @@
             </trans-unit>
             <trans-unit id="90" translate="yes" reformat="yes" xml:space="default">
                 <source>You can tell your friends about Zapna in two simple ways:</source>
-                <target>Du kan fortelle dine venner om Zapna i to enkle måter:</target>
+                <target>Du kan fortelle dine venner om Zapna på to enkle måter:</target>
             </trans-unit>
             <trans-unit id="91" translate="yes" reformat="yes" xml:space="default">
                 <source>Fill out the fields below and click the Send Email button - your friend will receive an Email</source>
-                <target>Fyll ut feltene nedenfor og klikk på Send knappen E-post - din venn vil motta en e-post</target>
+                <target>Fyll ut feltene nedenfor og klikk på "Send e-post" knappen -  Din venn vil motta en e-post</target>
             </trans-unit>
             <trans-unit id="92" translate="yes" reformat="yes" xml:space="default">
                 <source>What you'll get from this?</source>
@@ -380,7 +380,7 @@
             </trans-unit>
             <trans-unit id="93" translate="yes" reformat="yes" xml:space="default">
                 <source>As soon as your friends have made their first payment with Zapna, you will automatically receive 10 Nkr in your Zapna balance - so if 10 of your friends register on Zapna, youll gain 100 Nkr in your account. Just share the news and enjoy this great new treat from Zapna.</source>
-                <target>Så snart dine venner har gjort sin første innbetaling med Zapna, vil du automatisk motta 10 Nkr i din Zapna balanse - så hvis 10 av vennene dine registrerer seg på Zapna, youll få 100 Nkr på kontoen din. Bare dele nyhetene og nyte denne flotte nye godbiten fra Zapna.</target>
+                <target>Så snart dine venner har gjort sin første innbetaling med Zapna, vil du  automatisk motta 10 euro på din Zapna balanse - så hvis 10 av vennene dine registrerer seg på Zapna får du dermed 100 euro inn på din konto..</target>
             </trans-unit>
       
             <trans-unit id="94" translate="yes" reformat="yes" xml:space="default">
@@ -474,7 +474,7 @@
             </trans-unit>
             <trans-unit id="116" translate="yes" reformat="yes" xml:space="default">
                 <source>Dashboard</source>
-                <target>Dashbord</target>
+                <target>Dashboard</target>
             </trans-unit>
             <trans-unit id="117" translate="yes" reformat="yes" xml:space="default">
                 <source>Buy credit</source>
@@ -590,7 +590,7 @@
             </trans-unit>
              <trans-unit id="145" translate="yes" reformat="yes" xml:space="default">
                 <source>Zapna recommends to activate this service so you &lt;br /&gt; do not have to manually  refill when your account&lt;br /&gt;  balance runs low. 100 or 200 Nkr each  when the &lt;br /&gt; balances reaches 25 or 50 Nkr. This facility is &lt;br /&gt; added to your account in minutes.</source>
-                <target>Zapna to anbefaler å aktivere denne tjenesten slik at du &lt;br /&gt; trenger ikke å manuelt fylle når kontoen &lt;br /&gt;balanse kjører lav. 100 eller 200 Nkr hver da &lt;br /&gt; saldo når 25 eller 50 Nkr. Dette anlegget er &lt;br /&gt; lagt til kontoen din på minutter</target>
+                <target>Zapna anbefaler at du aktiverer denne tjenesten slik at du ikke behøver å fylle på kontoen din manuellt når saldoen blir for lav.</target>
             </trans-unit>
              <trans-unit id="146" translate="yes" reformat="yes" xml:space="default">
                 <source>Enter cell phone number</source>
@@ -618,7 +618,7 @@
             </trans-unit>
               <trans-unit id="152" translate="yes" reformat="yes" xml:space="default">
                 <source>Most convenient way to fill the pot call is To enable automatic &lt;br /&gt; filling (below). then you need Do not worry about the pot runs out. &lt;br /&gt; Especially important in such trip abroad when it can be difficult to fill in any other way.</source>
-                <target>Mest praktisk måte å fylle potten samtalen er å muliggjøre automatisk &lt;br /&gt; fylling (nedenfor). Da trenger du ikke bry deg om potten går ut. &lt;br /&gt; Spesielt viktig i en slik tur i utlandet når det kan være vanskelig å fylle på annen måte.</target>
+                <target>Mest praktisk måte å fylle potten samtalen er å muliggjøre automatisk &lt;br /&gt; fylling (nedenfor). Da trenger du ikke bry deg om potten går ut. &lt;br /&gt; Spesielt viktig i en slik tur i utlandet når det kan være vanskelig å fylle på annen måte..</target>
             </trans-unit>
               <trans-unit id="153" translate="yes" reformat="yes" xml:space="default">
                 <source>Manual filling:</source>
@@ -749,7 +749,7 @@
             </trans-unit>
             <trans-unit id="183" translate="yes" reformat="yes" xml:space="default">
                 <source>Thank you for ordering &lt;b&gt;%1%&lt;/b&gt; and becoming Zapna Customer. We welcome you to a new and huge mobile world. </source>
-                <target>Takk for bestilling &lt;b&gt;%1%&lt;/b&gt; og bli Zapna Kunden. Vi ønsker deg velkommen til en ny og stor mobile verden. </target>
+                <target>Takk for bestilling &lt;b&gt;%1%&lt;/b&gt; og bli Zapna Kunden. Vi ønsker deg velkommen til en ny og stor mobile verden.. </target>
             </trans-unit>
             <trans-unit id="184" translate="yes" reformat="yes" xml:space="default">
                 <source>Your customer number is </source>
@@ -804,8 +804,8 @@
                 <target>Vennligst klikk godta å begynne å spare penger umiddelbart med SmartSim.</target>
             </trans-unit>
               <trans-unit id="197" translate="yes" reformat="yes" xml:space="default">
-                <source>navigation</source>
-                <target>navigasjon</target>
+                <source>dash-nav</source>
+                <target>dash-nav</target>
             </trans-unit>
             <trans-unit id="198" translate="yes" reformat="yes" xml:space="default">
                 <source>Accept</source>
@@ -837,7 +837,7 @@
             </trans-unit>
             <trans-unit id="205" translate="yes" reformat="yes" xml:space="default">
                 <source>Password "%value%" at least six characters.</source>
-                <target>Passord "%value%" minst seks tegn.</target>
+                <target>passord "%value%" minst seks tegn..</target>
             </trans-unit>
             <trans-unit id="206" translate="yes" reformat="yes" xml:space="default">
                 <source>Please enter a valid Email address. </source>
@@ -1108,6 +1108,14 @@
             <trans-unit id="270" translate="yes" reformat="yes" xml:space="default">
                 <source>You do not have enough money in the account, you are kindly asked to refill</source>
                 <target>Du har ikke nok penger på konto, er du bes om å fylle</target>
+            </trans-unit>
+            <trans-unit id="271" translate="yes" reformat="yes" xml:space="default">
+                <source>Please enter a mobile number.</source>
+                <target>Vennligst oppgi et mobilnummer.</target>
+            </trans-unit>
+            <trans-unit id="272" translate="yes" reformat="yes" xml:space="default">
+                <source>No customer is registered with this email.</source>
+                <target>Ingen kunde er registrert med denne mobilnummer.</target>
             </trans-unit>
         </body>
     </file>
