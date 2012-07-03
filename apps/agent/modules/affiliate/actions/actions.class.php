@@ -890,6 +890,8 @@ class affiliateActions extends sfActions {
             Telienta::createAAccount($TelintaMobile, $this->customer);
             //Telienta::createCBAccount($TelintaMobile, $this->customer);
            
+            $zerocalloutSMSObj = new ZeroCallOutSMS();
+            $zerocalloutSMSObj->toCustomerAfterReg($order->getProductId(), $this->customer);
             emailLib::sendCustomerRegistrationViaAgentEmail($this->customer, $order);
           
             $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('Customer ') . $this->customer->getMobileNumber() . $this->getContext()->getI18N()->__(' is registered successfully'));
@@ -1367,7 +1369,8 @@ class affiliateActions extends sfActions {
                             $callbacklog->setuniqueId($uniqueId);
                             $callbacklog->setcallingCode($countrycode);
                             $callbacklog->save();
-
+                            
+                         $oldmobilenumber = $mobile_number;
                          $mobile_number=substr($mobile_number,1);
                          $number = $countrycode . $mobile_number;
                     }
@@ -1394,7 +1397,7 @@ class affiliateActions extends sfActions {
                     $this->customer = $order->getCustomer();
                     
                     $zerocalloutSMSObj = new ZeroCallOutSMS();
-                    $zerocalloutSMSObj->toCustomerChangeNumber($customer,$mobile_number);
+                    $zerocalloutSMSObj->toCustomerChangeNumber($customer,$oldmobilenumber);
                     
                     emailLib::sendChangeNumberEmail($this->customer, $order);
                     $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('%1% Mobile Number is changed successfully with %2% Nkr.', array("%1%" => $customer->getMobileNumber(), "%2%" => $transaction->getAmount())));
