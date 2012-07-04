@@ -2,7 +2,7 @@
 
 require_once(sfConfig::get('sf_lib_dir') . '/company_employe_activation.class.php');
 require_once(sfConfig::get('sf_lib_dir') . '/emailLib.php');
-
+require_once(sfConfig::get('sf_lib_dir') . '/baseUtil.class.php');
 /**
  * employee actions.
  *

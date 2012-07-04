@@ -36,7 +36,7 @@
         <div class="form-row">
             <label for="agent_commission_agent_company_id"><strong>Refill Amount</strong></label>
             <div class="content">
-                <input type="text" name="refill_amount"  class="required number" min="0"/>  Nkr
+                <input type="text" name="refill_amount"  class="required number" min="0"/>&nbsp;<?php echo sfConfig::get('app_currency_code')?>
             </div>
         </div>
         <div class="form-row">

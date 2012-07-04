@@ -46,7 +46,7 @@ if($pus==1){
         <th  width="20%"  align="left"><?php echo __('To Number') ?></th>
         <th  width="20%"  align="left"><?php echo __('From Number') ?></th>
         <th width="10%"   align="left"><?php echo __('Duration') ?></th>
-        <th width="20%"   align="left"><?php echo __('Cost') ?> (Nkr)</th>
+        <th width="20%"   align="left"><?php echo __('Cost') ?> (<?php echo sfConfig::get('app_currency_code')?>)</th>
         <th width="10%"   align="left"><?php echo __('Type') ?></th>
     </tr>
         <?php
@@ -109,7 +109,7 @@ if($pus==1){
                 <td ><?php
             $cld = 'called-date';
             echo $calls->$cld; ?></td> <td><?php echo $calls->to; ?></td><td><?php echo $calls->from; ?></td><td> <?php echo $calls->duration; ?></td><td>
-        <?php echo CurrencyConverter::convertUsdToSek($calls->cost); ?></td>
+        <?php echo BaseUtil::format_number(CurrencyConverter::convertUsdToSek($calls->cost)); ?></td>
              <td> <?php  echo   $calls->type;   ?></td></tr>
 <?php } ?>
 
@@ -166,7 +166,7 @@ if($pus==1){
                         <tr class="headings">
                             <th class="title"><?php echo __('Date &amp; time') ?></th>
                             <th class="title" width="40%"><?php echo __('Description') ?></th>
-                                <th class="title"><?php echo __('Amount') ?> Nkr</th>
+                                <th class="title"><?php echo __('Amount') ?>(<?php echo sfConfig::get('app_currency_code')?>)</th>
                             </tr>
                         <?php
                         $tilentaCallHistryResult = Telienta::callHistory($customer, $fromdate . ' 00:00:00', $todate . ' 23:59:59', false, 1);
@@ -178,7 +178,7 @@ if($pus==1){
                             <tr>
                                 <td><?php echo date("Y-m-d H:i:s", strtotime($xdr->bill_time)); ?></td>
                                 <td><?php echo $xdr->CLD; ?></td>
-                                <td><?php echo $xdr->charged_amount; ?></td>
+                                <td><?php echo BaseUtil::format_number($xdr->charged_amount); ?></td>
                             </tr>
                             <?php } }else {
 
@@ -204,7 +204,7 @@ if($pus==1){
                             <tr>
                                 <td><?php echo date("Y-m-d H:i:s", strtotime($xdr->bill_time)); ?></td>
                                 <td><?php echo $xdr->CLD; ?></td>
-                                <td><?php echo $xdr->charged_amount*-1; ?></td>
+                                <td><?php echo BaseUtil::format_number($xdr->charged_amount*-1); ?></td>
                             </tr>
                             <?php } }else {
 
@@ -223,7 +223,7 @@ if($pus==1){
                     <th  width="20%"  align="left"><?php echo __('Phone Number') ?></th>
                     <th width="10%"   align="left"><?php echo __('Duration') ?></th>
                     <th  width="10%"  align="left"><?php echo __('VAT') ?></th>
-                    <th width="20%"   align="left"><?php echo __('Cost') ?> Nkr</th>
+                    <th width="20%"   align="left"><?php echo __('Cost') ?>(<?php echo sfConfig::get('app_currency_code')?>)</th>
                    
                     <th  width="20%"   align="left">Call Type</th>
                   </tr>
@@ -277,9 +277,9 @@ $minute=date('i',$rval);
 echo  date('i:s',$callval);
 
 }       ?></td>
-                                    <td><?php echo number_format($xdr->charged_amount / 4, 2); ?></td>
-                                    <td><?php echo number_format($xdr->charged_amount, 2);
-                                $amount_total+= number_format($xdr->charged_amount, 2); ?> Nkr</td>
+                                    <td><?php echo BaseUtil::format_number($xdr->charged_amount / 4); ?></td>
+                                    <td><?php echo BaseUtil::format_number($xdr->charged_amount);
+                                $amount_total+= BaseUtil::format_number($xdr->charged_amount); ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
                                    
                                     <td><?php
                                 $typecall = substr($xdr->account_id, 0, 1);
@@ -319,10 +319,7 @@ echo  date('i:s',$callval);
         <?php else: ?>
                     <tr>
                         <td colspan="4" align="right"><strong><?php echo __('Subtotal') ?></strong></td>
-                        <!--
-                        <td><?php echo format_number($amount_total - $amount_total * .20) ?> SEK</td>
-                                        	 -->
-                        <td><?php echo number_format($amount_total, 2, ',', '') ?> Nkr</td>
+                        <td><?php echo BaseUtil::format_number($amount_total) ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
                     <td>&nbsp;</td>
                 </tr>
         <?php endif;

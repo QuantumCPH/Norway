@@ -155,8 +155,10 @@
 
         }
         }
-      echo  $balnc=(float)$telintaGetBalance+(float)$telintaGetBalancecb+(float)$telintaGetBalanceres;
-          echo " Nkr";
+          $balnc=$telintaGetBalance+$telintaGetBalancecb+$telintaGetBalanceres;
+          echo  BaseUtil::format_number($balnc);
+          echo "&nbsp;";
+          echo sfConfig::get('app_currency_code');
                                                 ?></td>
 
       <?php } ?>

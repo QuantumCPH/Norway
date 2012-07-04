@@ -43,7 +43,7 @@
       <th  width="15%"  class="title"><?php echo __('Order Numer') ?></th>
       <th  width="20%" class="title"><?php echo __('Date &amp; Time') ?></th>
       <th  width="55%" class="title"><?php echo __('Description') ?></th>
-      <th width="10%" class="title"><?php echo __('Amount') ?>(Nkr)</th>       
+      <th width="10%" class="title"><?php echo __('Amount') ?>(<?php echo sfConfig::get('app_currency_code')?>)</th>
     </tr>
                 <?php 
                 $amount_total = 0;
@@ -62,15 +62,13 @@
                   <td><?php  echo $transaction->getOrderId() ?></td>
                   <td><?php echo  $transaction->getCreatedAt() ?></td>
                   <td><?php echo $transaction->getDescription() ?></td>
-                  <td><?php echo $transaction->getAmount(); $amount_total += $transaction->getAmount() ?>
-                            <?php 
-//                            if($lang=="pl"){
-//                                echo ('plz');
-//                            }else if($lang=="en"){
-//                                echo ('eur');
-//                            }else{
-                                echo ('Nkr');
-//                            } ?></td>
+                  <td style="text-align: right; padding-right: 5px">
+                      <?php
+                      echo BaseUtil::format_number($transaction->getAmount()); $amount_total += $transaction->getAmount();
+                      echo "&nbsp;";
+                      echo sfConfig::get('app_currency_code');
+                      ?>
+                  </td>
                 
                 </tr>
                 <?php endforeach; ?>
@@ -81,15 +79,10 @@
                 <?php else: ?>
                 <tr>
                 	<td align="right" colspan="3"><strong>Total</strong></td>
-                	<td ><?php echo format_number($amount_total) ?>
-                            <?php 
-//                            if($lang=="pl"){
-//                                echo ('plz');
-//                            }else if($lang=="en"){
-//                                echo ('eur');
-//                            }else{
-                                echo ('Nkr');
-//                            } ?></td>
+                	<td style="text-align: right; padding-right: 5px"><?php echo BaseUtil::format_number($amount_total);echo "&nbsp;";
+                                  echo sfConfig::get('app_currency_code');
+                            ?>
+                        </td>
                 </tr>	
                 <?php endif; ?>
               </table>

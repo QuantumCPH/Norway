@@ -27,10 +27,10 @@ foreach ($callHistory->xdr_list as $xdr) {
             <tr>
                 <td><?php echo $xdr->connect_time; ?></td>
                 <td><?php echo $xdr->CLD; ?></td>
-                <td><?php echo number_format($xdr->charged_quantity / 60, 2); ?></td>
-                <td><?php echo number_format($xdr->charged_amount / 4, 2); ?></td>
-                <td><?php echo number_format($xdr->charged_amount, 2);
-            $amount_total+= number_format($xdr->charged_amount, 2); ?> Nkr</td>
+                <td><?php echo BaseUtil::format_number($xdr->charged_quantity / 60); ?></td>
+                <td><?php echo BaseUtil::format_number($xdr->charged_amount / 4); ?></td>
+                <td><?php echo BaseUtil::format_number($xdr->charged_amount);
+            $amount_total+= BaseUtil::format_number($xdr->charged_amount); ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
                 <td><?php
             $typecall = substr($xdr->account_id, 0, 1);
             if ($typecall == 'a') {
@@ -40,7 +40,7 @@ foreach ($callHistory->xdr_list as $xdr) {
                 echo "R";
             }
             if ($typecall == 'c') {
-                if ($CLI == '**24') {
+                if ($xdr->CLI == '**24') {
                     echo "Cb M";
                 } else {
                     echo "Cb S";
@@ -59,10 +59,10 @@ foreach ($callHistory->xdr_list as $xdr) {
             <tr>
                 <td><?php echo $xdrcb->connect_time; ?></td>
                 <td><?php echo $xdrcb->CLD; ?></td>
-                <td><?php echo number_format($xdrcb->charged_quantity / 60, 2); ?></td>
-                <td><?php echo number_format($xdrcb->charged_amount / 4, 2); ?></td>
-                <td><?php echo number_format($xdrcb->charged_amount, 2);
-            $amount_total+= number_format($xdrcb->charged_amount, 2); ?> Nkr</td>
+                <td><?php echo BaseUtil::format_number($xdrcb->charged_quantity / 60); ?></td>
+                <td><?php echo BaseUtil::format_number($xdrcb->charged_amount / 4); ?></td>
+                <td><?php echo BaseUtil::format_number($xdrcb->charged_amount);
+            $amount_total+= BaseUtil::format_number($xdrcb->charged_amount); ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
                 <td><?php
             $typecall = substr($xdrcb->account_id, 0, 1);
             if ($typecall == 'a') {
@@ -72,7 +72,7 @@ foreach ($callHistory->xdr_list as $xdr) {
                 echo "R";
             }
             if ($typecall == 'c') {
-                if ($CLI == '**24') {
+                if ($xdrcb->CLI == '**24') {
                     echo "Cb M";
                 } else {
                     echo "Cb S";
@@ -103,12 +103,12 @@ foreach ($callHistoryres->xdr_list as $xdrres) {
     <tr>
         <td><?php echo $xdrres->connect_time; ?></td>
         <td><?php echo $xdrres->CLD; ?></td>
-        <td><?php echo number_format($xdrres->charged_quantity / 60, 2); ?></td>
-        <td><?php echo number_format($xdrres->charged_amount / 4, 2); ?></td>
-        <td><?php echo number_format($xdrres->charged_amount, 2);
-    $amount_total+= number_format($xdrres->charged_amount, 2); ?> Nkr</td>
+        <td><?php echo BaseUtil::format_number($xdrres->charged_quantity / 60); ?></td>
+        <td><?php echo BaseUtil::format_number($xdrres->charged_amount / 4); ?></td>
+        <td><?php echo BaseUtil::format_number($xdrres->charged_amount);
+    $amount_total+= BaseUtil::format_number($xdrres->charged_amount); ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
         <td><?php
-    $typecall = substr($xdrcb->account_id, 0, 1);
+    $typecall = substr($xdrres->account_id, 0, 1);
     if ($typecall == 'a') {
         echo "Int.";
     }
@@ -116,7 +116,7 @@ foreach ($callHistoryres->xdr_list as $xdrres) {
         echo "R";
     }
     if ($typecall == 'c') {
-        if ($CLI == '**24') {
+        if ($xdrres->CLI == '**24') {
             echo "Cb M";
         } else {
             echo "Cb S";
@@ -138,13 +138,15 @@ foreach ($callHistoryres->xdr_list as $xdrres) {
 <?php }else{ ?>
     <tr>
         <td colspan="4" align="right"><strong><?php echo __('Subtotal') ?></strong></td>
-        <td><?php echo number_format($amount_total, 2, ',', '') ?> Nkr</td>
+        <td><?php echo BaseUtil::format_number($amount_total) ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
         <td>&nbsp;</td>
     </tr>
 <?php } ?>
 
     <tr>
-        <td colspan="6" align="left">Samtalstyp  type detail <br/> Int. = Internationella samtal<br/>
+        <td colspan="6" align="left">
+            Samtalstyp  type detail <br/>
+            Int. = Internationella samtal<br/>
             Cb M = Callback mottaga<br/>
             Cb S = Callback samtal<br/>
             R = resenummer samtal<br/>

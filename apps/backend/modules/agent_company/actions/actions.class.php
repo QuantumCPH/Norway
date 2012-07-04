@@ -1,5 +1,6 @@
 <?php
 require_once(sfConfig::get('sf_lib_dir') . '/emailLib.php');
+require_once(sfConfig::get('sf_lib_dir') . '/baseUtil.class.php');
 /**
  * agent_company actions.
  *

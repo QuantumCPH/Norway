@@ -35,13 +35,13 @@ $pus=0;
                                   $pus=$products->getProductCountryUs();
                if($pus==1){
                             $Tes=ForumTel::getBalanceForumtel($customer->getId());
-                               echo  $amt=CurrencyConverter::convertUsdToSek($Tes);
-   echo " Nkr";
+                               $amt=CurrencyConverter::convertUsdToSek($Tes);
+                               echo  BaseUtil::format_number($amt);
+                               echo "&nbsp;";
+                               echo sfConfig::get('app_currency_code');
                             }else{
-
-
-        echo  $customer_balance;
-          echo " Nkr";
+                               echo  BaseUtil::format_number($customer_balance);echo "&nbsp;";
+                               echo sfConfig::get('app_currency_code');
                             }
                           
                      ?> </td>

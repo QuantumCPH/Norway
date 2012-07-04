@@ -11,7 +11,7 @@
       <tr class="headings">
         <th class="title"><?php echo __('Date &amp; time') ?></th>
         <th class="title" width="40%"><?php echo __('Description') ?></th>
-        <th class="title"><?php echo __('Amount') ?> Nkr</th>
+        <th class="title"><?php echo __('Amount') ?></th>
       </tr>
     <?php
     if(count($events)>0){
@@ -20,7 +20,7 @@
     <tr>
         <td><?php echo date("Y-m-d H:i:s", strtotime($xdr->bill_time)); ?></td>
         <td><?php echo $xdr->CLD; ?></td>
-        <td><?php echo $xdr->charged_amount; ?></td>
+        <td><?php echo BaseUtil::format_number($xdr->charged_amount); ?></td>
     </tr>
     <?php } }else {
 
@@ -43,7 +43,7 @@
         <tr>
             <td><?php echo date("Y-m-d H:i:s", strtotime($xdr->bill_time)); ?></td>
             <td><?php echo $xdr->CLD; ?></td>
-            <td><?php echo $xdr->charged_amount*-1; ?></td>
+            <td><?php echo BaseUtil::format_number($xdr->charged_amount*-1); ?></td>
         </tr>
         <?php } }else {
 
@@ -79,9 +79,9 @@
                 <td><?php echo $xdr->connect_time; ?></td>
                 <td><?php echo $xdr->CLD; ?></td>
                 <td><?php  echo  date('i:s',$xdr->charged_quantity); ?></td>
-                <td><?php echo number_format($xdr->charged_amount / 4, 2); ?></td>
-                <td><?php echo number_format($xdr->charged_amount, 2);
-            $amount_total+= number_format($xdr->charged_amount, 2); ?> Nkr</td>
+                <td><?php echo BaseUtil::format_number($xdr->charged_amount / 4); ?></td>
+                <td><?php echo BaseUtil::format_number($xdr->charged_amount);
+            $amount_total+= BaseUtil::format_number($xdr->charged_amount); ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
             <td><?php
                 $typecall = substr($xdr->account_id, 0, 1);
                 if ($typecall == 'a') {
@@ -113,7 +113,7 @@
                 <tr>
                     <td colspan="4" align="right"><strong><?php echo __('Subtotal') ?></strong></td>
 
-                    <td><?php echo number_format($amount_total, 2, ',', '') ?> Nkr</td>
+                    <td><?php echo BaseUtil::format_number($amount_total) ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
                     <td>&nbsp;</td>
                 </tr>
 <?php } ?>
