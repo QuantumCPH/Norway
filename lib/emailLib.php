@@ -644,7 +644,7 @@ class emailLib{
         }
 
           $lang = 'no';
-           // $this->lang = $lang;
+            $this->lang = $lang;
 
             $countrylng = new Criteria();
             $countrylng->add(EnableCountryPeer::LANGUAGE_SYMBOL, $lang);
