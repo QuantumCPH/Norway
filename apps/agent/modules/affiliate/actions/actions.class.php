@@ -895,7 +895,7 @@ class affiliateActions extends sfActions {
 
             $this->getUser()->setCulture('no');
             emailLib::sendCustomerRegistrationViaAgentEmail($this->customer, $order);
-               $this->getUser()->setCulture('en');
+            $this->getUser()->setCulture('en');
             $zerocalloutSMSObj = new ZeroCallOutSMS();
             $zerocalloutSMSObj->toCustomerAfterReg($order->getProductId(), $this->customer);
             
