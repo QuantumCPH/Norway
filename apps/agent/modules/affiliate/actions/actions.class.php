@@ -892,8 +892,10 @@ class affiliateActions extends sfActions {
             Telienta::createAAccount($TelintaMobile, $this->customer);
             //Telienta::createCBAccount($TelintaMobile, $this->customer);
            
-            
+
+            $this->getUser()->setCulture('no');
             emailLib::sendCustomerRegistrationViaAgentEmail($this->customer, $order);
+               $this->getUser()->setCulture('en');
             $zerocalloutSMSObj = new ZeroCallOutSMS();
             $zerocalloutSMSObj->toCustomerAfterReg($order->getProductId(), $this->customer);
             
