@@ -1121,6 +1121,10 @@
                 <source>Your account details have been sent to your email address and cellphone.</source>
                 <target>Dine kontoopplysninger er blitt sendt til din e-postadresse og mobiltelefon.</target>
             </trans-unit>
+             <trans-unit id="274" translate="yes" reformat="yes" xml:space="default">
+                <source>Agent Name</source>
+                <target>Agent Navn</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
