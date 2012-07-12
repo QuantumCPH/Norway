@@ -35,11 +35,10 @@ class AgentCompany extends BaseAgentCompany
        $c->add(TransactionPeer::DESCRIPTION,'Registration' );
        $transactions=TransactionPeer::doSelect($c);       
        $sum=0.00;
-       $per=0.00;
+       $per=BaseUtil::format_number(0);
        foreach($transactions as $transaction){
         $sum = $sum+ $transaction->getCommissionAmount();
-        //$per=($sum*8)/100;
-        $per=$sum;
+        $per=BaseUtil::format_number($sum);
        }
 
        return $per;
@@ -54,15 +53,12 @@ class AgentCompany extends BaseAgentCompany
        $c->add(TransactionPeer::AGENT_COMPANY_ID,$this->getId());
        $c->add(TransactionPeer::DESCRIPTION,'Refill' );
        $transactions=TransactionPeer::doSelect($c);
-       //$agent
-       //$str=array();
 
        $sum=0.00;
-       $per=0.00;
+       $per=BaseUtil::format_number(0);
        foreach($transactions as $transaction){
         $sum = $sum+ $transaction->getCommissionAmount();
-        //$per=($sum*10)/100;
-        $per=$sum;
+        $per=BaseUtil::format_number($sum);
        }
 
        return $per;
@@ -78,19 +74,17 @@ class AgentCompany extends BaseAgentCompany
        $con=new Criteria();
        //$con->add(TransactionPeer::DESCRIPTION);
        $sum=0.00;
-       $per=0.00;
+       $per=BaseUtil::format_number(0);
        foreach($transactions as $transaction)
        {
            $description=substr($transaction->getDescription(),0 ,26);
            if($description== 'Refill')
            {
-              // echo $description;
                $name=substr($transaction->getDescription(),27,-1 );
-               // echo $name;
                if($name==$this->getName())
                 {                  
                    $sum = $sum+ $transaction->getAmount();
-                   $per=($sum*10)/100;
+                   $per=BaseUtil::format_number(($sum*10)/100);
                   
                 }              
            }
@@ -107,11 +101,9 @@ class AgentCompany extends BaseAgentCompany
        $c->add(TransactionPeer::AGENT_COMPANY_ID,$this->getId());
        $c->add(TransactionPeer::DESCRIPTION,'Registration' );
        $transactions=TransactionPeer::doSelect($c);
-       $sum=0.00;
-       $per=0.00;
+       $sum=BaseUtil::format_number(0);
        foreach($transactions as $transaction){
-        $sum = $sum+ $transaction->getAmount();
-        //$per=($sum*8)/100;
+        $sum = BaseUtil::format_number($sum+ $transaction->getAmount());
        }
 
        return $sum;
@@ -126,14 +118,10 @@ class AgentCompany extends BaseAgentCompany
        $c->add(TransactionPeer::AGENT_COMPANY_ID,$this->getId());
        $c->add(TransactionPeer::DESCRIPTION,'Refill' );
        $transactions=TransactionPeer::doSelect($c);
-       //$agent
-       //$str=array();
 
-       $sum=0.00;
-       $per=0.00;
+       $sum=BaseUtil::format_number(0);
        foreach($transactions as $transaction){
-        $sum = $sum+ $transaction->getAmount();
-        //$per=($sum*10)/100;
+        $sum = BaseUtil::format_number($sum+ $transaction->getAmount());
        }
 
        return $sum;
@@ -146,21 +134,16 @@ class AgentCompany extends BaseAgentCompany
        $c->add(TransactionPeer::AGENT_COMPANY_ID,$this->getId());       
        $transactions=TransactionPeer::doSelect($c);
        $con=new Criteria();       
-       $sum=0.00;
-       $per=0.00;
+       $sum=BaseUtil::format_number(0);
        foreach($transactions as $transaction)
        {
            $description=substr($transaction->getDescription(),0 ,26);
            if($description== 'Refill')
            {
-              // echo $description;
                $name=substr($transaction->getDescription(),27,-1 );
-               // echo $name;
                if($name==$this->getName())
                 {
-                   $sum = $sum+ $transaction->getAmount();
-                   //$per=($sum*10)/100;
-
+                   $sum = BaseUtil::format_number($sum+ $transaction->getAmount());
                 }
            }
        }

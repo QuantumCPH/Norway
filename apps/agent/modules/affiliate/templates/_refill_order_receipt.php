@@ -1,7 +1,6 @@
 <?php
 use_helper('I18N');
 use_helper('Number');
-require_once(sfConfig::get('sf_lib_dir') . '/baseUtil.class.php');
 ?>
 <style>
 	p {

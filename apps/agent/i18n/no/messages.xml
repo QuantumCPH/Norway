@@ -140,7 +140,7 @@
             </trans-unit>
             <trans-unit id="34" translate="yes" reformat="yes" xml:space="default">
                 <source>city</source>
-                <target>By</target>
+                <target>by</target>
             </trans-unit>
             <trans-unit id="35" translate="yes" reformat="yes" xml:space="default">
                 <source>country id</source>
@@ -534,7 +534,7 @@
             </trans-unit>
                <trans-unit id="131" translate="yes" reformat="yes" xml:space="default">
                 <source>City</source>
-                <target>By</target>
+                <target>by</target>
             </trans-unit>
                <trans-unit id="132" translate="yes" reformat="yes" xml:space="default">
                 <source>Birth date &lt;br /&gt;(dd-mm-yyyy)</source>
@@ -1121,13 +1121,9 @@
                 <source>Your account details have been sent to your email address and cellphone.</source>
                 <target>Dine kontoopplysninger er blitt sendt til din e-postadresse og mobiltelefon.</target>
             </trans-unit>
-             <trans-unit id="274" translate="yes" reformat="yes" xml:space="default">
+              <trans-unit id="274" translate="yes" reformat="yes" xml:space="default">
                 <source>Agent Name</source>
                 <target>Agent Navn</target>
-            </trans-unit>
-              <trans-unit id="274" translate="yes" reformat="yes" xml:space="default">
-                <source>Sim Type</source>
-                <target>Velg Sim Type</target>
             </trans-unit>
         </body>
     </file>

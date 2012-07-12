@@ -42,41 +42,192 @@ use_helper('Number');
 	
 	
 </style>
+<table width="600" align="center"  cellspacing="0">
+   <tr>
+    <td><span class="payer_summary"><?php echo sprintf("%s %s", $customer->getFirstName(), $customer->getLastName())?></span>,<br/>
+      <?php echo $customer->getAddress() ?><br/>
+      <?php echo sprintf('%s %s', $customer->getPoBoxNumber(), $customer->getCity()) ?><br/>
 
-<?php
-$wrap_content  = isset($wrap)?$wrap:false;
+     </td>
+  </tr>
+  <tr>
+    <td align="right">
+        Oslo, <?php echo $customer->getCreatedAt('d-m-Y') ?>
+    </td>
+  </tr>
+   <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><strong>Takk for din bestilling</strong><strong>&nbsp;</strong><strong>og velkommen som kunde hos Zapna <br/>
+      Ditt telefonnummer <?php echo $customer->getMobileNumber(); ?> er satt opp</strong><strong>&nbsp;</strong><strong>for</strong><strong>
+      <?php if ($order->getIsFirstOrder())
+    {
+		echo $order->getProduct()->getName() ;
 
-//wrap_content also tells  wheather its a refill or 
-//a product order. we wrap the receipt with extra
-// text only if its a product order.
+    }
+    else
+    {
+		echo $transaction->getDescription();
+    }
+    ?>	 
+      </strong></td>
+  </tr>
+ <tr>
+ <td>
 
- ?>
- 
-<?php if($wrap_content): ?>
-	<p><?php echo __('Hi') ?>&nbsp;<?php echo $customer->getFirstName();?></p>
-	
-	<p>
-	<?php echo __('Thank you for your order of <b>%1%</b>.', array('%1%'=>$order->getProduct()->getName())) ?>
-	</p>
-	
-	<p>
-	<?php echo __('Your goods will be shipped today. You should have delivery within two days. Your customer number is '); echo $customer->getUniqueid();?>. <?php echo __(' There, you can use in your dealings with customer service'); ?></p>
-	
-	<p>
-	<?php echo __('Do not hesitate to contact us if you have any questions.') ?>
-	</p>
-        <p>
-            <a href="mailto:support@zapna.no">support@zapna.no</a>
-	</p>
-        <p>
-	<?php echo __('Yours sincerely,') ?>
-	</p>
-        <p>
-	<?php echo __('Zapn APs') ?>
-	</p>
-	<br />
-<?php endif; ?>
-<table width="520px">
+
+<table width="600" align="center" cellpadding="5" cellspacing="5" id="mailbody" style="font-family: Geneva, Arial, Helvetica, sans-serif; font-size: 13px; line-height: 1.5;">
+  <tr valign="top">
+    <td width="344" height="588"><table width="344">
+      <tr>
+          <td colspan="2"><p style="text-align: justify;" >Vi er glade for å ønske  deg velkommen til en ny og mer  mobiligere verden. Vi håper du  blir fornøyd med din
+            <?php if ($order->getIsFirstOrder())
+    {
+		echo $order->getProduct()->getName() ;
+    }
+    else
+    {
+		echo $transaction->getDescription();
+    }
+    ?>
+            og våre lave priser.
+    <?php if($customer->getReferrerId()!=null or $customer->getReferrerId()!="" ): ?>
+     <?php $c = new Criteria();
+            $c->add(AgentCompanyPeer::ID, $customer->getReferrerId());
+            $agent_name  = AgentCompanyPeer::doSelectOne($c)->getName();
+            ?>
+          <?php echo $agent_name; ?> har levert startpakke som du skal benytte for å komme i gang.
+              <?php endif; ?>
+              </p></td>
+      </tr>
+
+	    <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="2"><p style="color: #f07c00;	font-weight: bold; 	font-size: 16px;">Kom raskt i gang!</p></td>
+      </tr>
+	    <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td width="33" align="center" valign="top"><div align="center" style="font-size: 36px; color: #FFFFFF; background-color: #f07c00;">1</div></td>
+        <td width="295" valign="top" style="text-align: justify;">Ta ditt nåværende SIM-kort forsiktig ut av din mobiltelefon.</td>
+      </tr>
+      <tr>
+          <td width="33" align="center" valign="top">&nbsp;</td>
+          <td width="295" valign="top" style="text-align: justify;">&nbsp;</td>
+      </tr>
+      <tr>
+        <td align="center" valign="top"><div align="center" style="font-size: 36px; color: #FFFFFF; background-color: #f07c00;">2</div></td>
+        <td valign="top" style="text-align: justify;">Fjern beskyttelsestapen over klistreområdet nederst på Zapna SIM-kortet.
+Sett forsiktig Zapna SIM-kortet over ditt nåværende SIM-kort og sett kortene tilbake i din mobiltelefon. </td>
+      </tr>
+      <tr>
+          <td width="33" align="center" valign="top">&nbsp;</td>
+          <td width="295" valign="top" style="text-align: justify;">&nbsp;</td>
+      </tr>
+      <tr>
+        <td align="center" valign="top"><div align="center" style="font-size: 36px; color: #FFFFFF; background-color: #f07c00;">3</div></td>
+        <td valign="top" style="text-align: justify;">Se hvordan du installerer&nbsp;Zapna&nbsp;SIM-kortet&nbsp;<a href="https://zapna.no/">her</a> </td>
+      </tr>
+      <tr>
+          <td width="33" align="center" valign="top">&nbsp;</td>
+          <td width="295" valign="top" style="text-align: justify;">&nbsp;</td>
+      </tr>
+      <tr>
+        <td align="center" valign="top"><div align="center" style="font-size: 36px; color: #FFFFFF; background-color: #f07c00;">4</div></td>
+        <td valign="top" style="text-align: justify;">Kontakt din nåværende norske mobiloperatør og be om at de sperrer ditt abonnement for utenlandssamtaler.</td>
+      </tr>
+	    <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="2" align="left" valign="middle"><p><span style="font-size: 14px; font-weight: bold;">Zapna aktiveres  automatisk </span></p></td>
+        </tr>
+		  <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="2" align="left" valign="middle"><p style="text-align: justify;">Etter at du har satt ditt smartSIM i din mobiltelefon, vil alle dine utenlandsamtaler automatisk skje via Zapna.
+Ditt nåværende mobilabonnement fortsetter å fungere som før når du ringer til norske telefonnumre.<br /><br />
+         Du har valgt: <br />
+         <strong>Brukernamn:</strong> <?php echo $customer->getMobileNumber();?><br />
+         <strong>Lösenord:</strong> <?php echo $customer->getPlainText();?>
+          <br />God fornøyelse med din nye utenlandsforbindelse, som gjør at du ringer mobilligere  til hele verden!</p></td>
+      </tr>
+    </table>
+    <p  >&nbsp;</p></td>
+    <td width="240" align="left" bgcolor="#f07c00"><table width="263">
+	  <tr>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><p   style="color: #FFFFFF; font-weight: bold; font-size: 15px; text-align: justify;"><strong>Benytt&nbsp;online selvbetjening</strong></p></td>
+      </tr>
+	  <tr>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><p   style="color: #FFFFFF; text-align: justify;">På <a href="www.zapna.no">www.zapna.no</a> kan du holde øye med ditt forbruk og fylle på samtaletid.</p></td>
+      </tr>
+      <tr>
+        <td><p   style="color: #FFFFFF; text-align: justify;">Nå kan du også sende webSMS til hele verden for omkring 30 øre fra din kundportal.</p></td>
+      </tr>
+      <tr>
+        <td><p   style="color: #FFFFFF;text-align: justify;">Du kan også sikre deg automatisk påfylling  <a href="http://www.zapna.no/" title="Du kan ogs&aring; tanke her!">her</a>.</p></td>
+      </tr>
+      <tr>
+        <td height="130"><p   style="color: #FFFFFF; text-align: justify;">Når du benytter Zapna vil du høre ”Zerocall is connecting your call”. For å forsikre deg om at du alltid ringer via Zapna er det viktig at du sperrer ditt abonnement for utenlandske samtaler hos din nåværende mobiloperatør.</p></td>
+      </tr>
+	  <tr>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><p style="color: #FFFFFF;text-align: justify;"><strong>Har du bru</strong><strong>k</strong><strong>&nbsp;</strong><strong>for hj</strong><strong>e</strong><strong>lp?</strong></p></td>
+      </tr>
+	  <tr>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td height="42"><p   style="color: #FFFFFF;text-align: justify;">Så kan du kontakte oss på følgende måte:</p></td>
+      </tr>
+      <tr>
+        <td>
+          <ul style="color: #FFFFFF;text-align: justify;">
+            <li>Email: <a href="mailto:support@zapna.no">support@zapna.no</a></li>
+            <li>Finn svarene på de vanligste spørsmål (FAQ) på vår hjemmeside <a href="http://www.zapna.no">www.zapna.no</a></li>
+            <li>Eller ring til vår kundeservice  2162 7500</li>
+          </ul>          </td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+	  <td>
+	    <p style="font-size: 14px; font-weight: bold;"><strong>Vennlig hilsen</strong><br/> 
+	      Zapna </p>	  </td>
+  </tr>
+
+</table>
+
+
+ </td>
+ </tr>
+  <tr>
+    <td><hr /></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+      <td><p style=""><strong style="font-size: 20px;">Din kvittering nedenfor:</strong></p></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr><td>
+  <table width="602">
 	<tr style="border:0px solid #fff">
 		<td colspan="4" align="right" style="text-align:right; border:0px solid #fff"><?php echo image_tag('http://customer.zapna.no/images/zapna_logo_small.jpg',array('width' => '170'));?></td>
 	</tr>
@@ -121,7 +272,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <td><?php echo $order->getQuantity() ?></td>
     <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($order->getProduct()->getRegistrationFee()); ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
   </tr>
-  <tr>
+<!--  <tr>
     <td></td>
     <td>
     <?php
@@ -130,8 +281,10 @@ $wrap_content  = isset($wrap)?$wrap:false;
     ?>
 	</td>
     <td><?php echo $order->getQuantity() ?></td>
-    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($order->getProduct()->getPrice()); ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
-  </tr>
+
+    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($order->getProduct()->getPrice()); ?>&nbsp;Nkr</td>
+  </tr>-->
+
   <tr>
   	<td colspan="4" style="border-bottom: 2px solid #c0c0c0;">&nbsp;</td>
   </tr>
@@ -169,4 +322,7 @@ $wrap_content  = isset($wrap)?$wrap:false;
     <?php echo __('Zapna Aps – Softgarden, Postboks 5093 Majorstua - 0301 Oslo')?> </td>
   </tr>
 </table>
-        
+    
+  </td></tr>
+</table>
+

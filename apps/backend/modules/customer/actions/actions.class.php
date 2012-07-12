@@ -1,6 +1,7 @@
 <?php
 require_once(sfConfig::get('sf_lib_dir').'/parsecsv.lib.php');
 require_once(sfConfig::get('sf_lib_dir').'/ForumTel.php');
+require_once(sfConfig::get('sf_lib_dir') . '/baseUtil.class.php');
 /**
  * customer actions.
  *

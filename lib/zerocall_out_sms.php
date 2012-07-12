@@ -25,12 +25,9 @@ class ZeroCallOutSMS {
          if (isset($agentid) && $agentid != "") {
              $agent = AgentCompanyPeer::retrieveByPK($agentid);
              $agentMobileNumber = $agent->getMobileNumber();
-             $agentMobileNumber = "923334414765";
+             
              $this->toAgentAfterReg($telephoneNumber, $agentMobileNumber);
         }
-
-
-        $recipientMobileNumber = "923334414765";
 
 
         $sms_dk_object = SmsTextPeer::retrieveByPK(4);
@@ -82,7 +79,7 @@ class ZeroCallOutSMS {
         $sms_text         = $sms_dk_object->getMessageText();
         $sms_text         = str_replace("(mobilenumber)", $customerCell, $sms_text);
         $sms_text         = str_replace("(password)", $customerPassword, $sms_text);
-        $MobileNumber = '923334414765';
+        
         $this->carbordfishSMS($MobileNumber, $sms_text);
     }
     
@@ -111,14 +108,14 @@ class ZeroCallOutSMS {
         $agentid                = $customer->getReferrerId();
          if (isset($agentid) && $agentid != "") {
              $agent = AgentCompanyPeer::retrieveByPK($agentid);
-             $agentMobileNumber = $agent->getMobileNumber();
-             $agentMobileNumber = "923334414765";
+             $agentMobileNumber = $agent->getMobileNumber();             
+             
              $this->toAgentAfterCustomerRefill($telephoneNumber, $agentMobileNumber, $amount);
          }
         $sms_dk_object    = SmsTextPeer::retrieveByPK(8);
         $sms_text         = $sms_dk_object->getMessageText();        
         $sms_text         = str_replace("(amount)", $amount, $sms_text);
-        $MobileNumber = '923334414765';
+       
         $this->carbordfishSMS($MobileNumber, $sms_text);
     }
    
@@ -139,7 +136,8 @@ class ZeroCallOutSMS {
         $customerPassword       = $customer->getPlainText();
         $callingCode            = '47';
         $MobileNumber           = $callingCode.$customerCell;
-        $MobileNumber = '923334414765';
+        
+        
         $sms_dk_object    = SmsTextPeer::retrieveByPK(10);
         $sms_text         = $sms_dk_object->getMessageText();
         $sms_text         = str_replace("(mobilenumber)", $customerCell, $sms_text);
@@ -161,7 +159,8 @@ class ZeroCallOutSMS {
         $sms_dk_object    = SmsTextPeer::retrieveByPK(11);
         $sms_text         = $sms_dk_object->getMessageText();        
         $sms_text         = str_replace("(amount)", $amount, $sms_text);
-        $MobileNumber = '923334414765';
+        
+        
         $this->carbordfishSMS($MobileNumber, $sms_text);
     }
     
@@ -171,7 +170,7 @@ class ZeroCallOutSMS {
         $customerPassword       = $customer->getPlainText();
         $callingCode            = '47';
         $MobileNumber           = $callingCode.$customerCell;
-        $MobileNumber = '923334414765';
+        
         
         $sms = SmsTextPeer::retrieveByPK(1);
         $sms_text = $sms->getMessageText();

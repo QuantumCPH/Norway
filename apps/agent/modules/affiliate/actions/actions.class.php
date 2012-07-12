@@ -366,8 +366,8 @@ class affiliateActions extends sfActions {
                 $transaction->setAmount($extra_refill);
 
                 //get agent name
-                //$transaction->setDescription($this->getContext()->getI18N()->__('Refill via agent') . '(' . $agent->getName() . ')');
-                $transaction->setDescription('Refill');
+                $transaction->setDescription($this->getContext()->getI18N()->__('Refill via agent') . '(' . $agent->getName() . ')');
+               // $transaction->setDescription('Refill');
                 $transaction->setAgentCompanyId($agent->getId());
 
                 $order->setAgentCommissionPackageId($agent->getAgentCommissionPackageId());
@@ -892,8 +892,13 @@ class affiliateActions extends sfActions {
             Telienta::createAAccount($TelintaMobile, $this->customer);
             //Telienta::createCBAccount($TelintaMobile, $this->customer);
            
+
+            $this->getUser()->setCulture('no');
             emailLib::sendCustomerRegistrationViaAgentEmail($this->customer, $order);
-          
+            $this->getUser()->setCulture('en');
+            $zerocalloutSMSObj = new ZeroCallOutSMS();
+            $zerocalloutSMSObj->toCustomerAfterReg($order->getProductId(), $this->customer);
+            
             $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('Customer ') . $this->customer->getMobileNumber() . $this->getContext()->getI18N()->__(' is registered successfully'));
             $this->redirect('affiliate/receipts');
         }
@@ -1369,7 +1374,8 @@ class affiliateActions extends sfActions {
                             $callbacklog->setuniqueId($uniqueId);
                             $callbacklog->setcallingCode($countrycode);
                             $callbacklog->save();
-
+                            
+                         $oldmobilenumber = $mobile_number;
                          $mobile_number=substr($mobile_number,1);
                          $number = $countrycode . $mobile_number;
                     }
@@ -1396,7 +1402,7 @@ class affiliateActions extends sfActions {
                     $this->customer = $order->getCustomer();
                     
                     $zerocalloutSMSObj = new ZeroCallOutSMS();
-                    $zerocalloutSMSObj->toCustomerChangeNumber($customer,$mobile_number);
+                    $zerocalloutSMSObj->toCustomerChangeNumber($customer,$oldmobilenumber);
                     
                     emailLib::sendChangeNumberEmail($this->customer, $order);
                     $this->getUser()->setFlash('message', $this->getContext()->getI18N()->__('%1% Mobile Number is changed successfully with %2% Nkr.', array("%1%" => $customer->getMobileNumber(), "%2%" => $transaction->getAmount())));
