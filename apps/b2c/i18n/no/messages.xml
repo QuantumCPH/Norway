@@ -1125,9 +1125,13 @@
                 <source>Agent Name</source>
                 <target>Agent Navn</target>
             </trans-unit>
-              <trans-unit id="274" translate="yes" reformat="yes" xml:space="default">
+              <trans-unit id="275" translate="yes" reformat="yes" xml:space="default">
                 <source>Sim Type</source>
                 <target>Velg Sim Type</target>
+            </trans-unit>
+            <trans-unit id="276" translate="yes" reformat="yes" xml:space="default">
+                <source>Back</source>
+                <target>Vtilbake</target>
             </trans-unit>
         </body>
     </file>

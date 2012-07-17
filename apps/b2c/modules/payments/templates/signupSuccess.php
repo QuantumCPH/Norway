@@ -160,10 +160,10 @@ $customer_form->unsetAllExcept(array('auto_refill_amount', 'auto_refill_min_bala
               
               
               <label class="fr ac">
-              	<span class="product_price_span"><?php echo $order->getProduct()->getRegistrationFee() ?> </span>Nkr            	<br />
+              	<span class="product_price_span"><?php echo BaseUtil::format_number($order->getProduct()->getRegistrationFee()) ?> </span><?php echo sfConfig::get('app_currency_code')?>            	<br />
               	<span id="extra_refill_span">
-					<?php echo $order->getProduct()->getPrice() ?>
-				</span>Nkr
+					<?php echo BaseUtil::format_number($order->getProduct()->getPrice()) ?>
+				</span><?php echo sfConfig::get('app_currency_code')?>
 			  </label>
 
             </li>
@@ -202,19 +202,19 @@ $customer_form->unsetAllExcept(array('auto_refill_amount', 'auto_refill_min_bala
               <input type="hidden" id="vat" value="<?php echo $product_price_vat; ?>" />
                 <input type="hidden" id="postal" value="<?php  echo $postalcharge; ?>" />
               <label class="fr ac" >
-                  <?php echo $postalcharge;  ?>&nbsp; Nkr
+                  <?php echo BaseUtil::format_number($postalcharge);  ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?>
                 <br />
               	<span id="vat_span">
-                    <?php echo format_number($product_price_vat) ?>
-              	</span>Nkr
+                    <?php echo BaseUtil::format_number($product_price_vat) ?>
+              	</span><?php echo sfConfig::get('app_currency_code')?>
                 <br />
               	<?php //$total = $product_price + $extra_refill + $vat 
  //$order->getProduct()->getPrice() + $this->postalcharge + $order->getProduct()->getRegistrationFee()+(($this->postalcharge + $order->getProduct()->getRegistrationFee())*.25)     
                 ?>
                 <?php $total = $product_price + $postalcharge + $product_price_vat ?>
               	<span id="total_span">
-              	<?php echo format_number($total) ?>
-              	</span>Nkr
+              	<?php echo BaseUtil::format_number($total) ?>
+              	</span><?php echo sfConfig::get('app_currency_code')?>
               </label>
             </li>
 	
@@ -250,7 +250,8 @@ $customer_form->unsetAllExcept(array('auto_refill_amount', 'auto_refill_min_bala
 		<input type="hidden" name="cancelurl" value="<?php echo url_for('@epay_reject_url', true)  ?>?accept=cancel&subscriptionid=&lng=<?php echo  $sf_user->getCulture() ?>&orderid=<?php echo $order->getId(); ?>&amount=<?php echo $order->getExtraRefill(); ?>" />
                 <input type="hidden" name="callbackurl" id="idcallbackurl" value="<?php echo url_for('@dibs_accept_url', true);  ?>?accept=yes&lng=<?php echo  $sf_user->getCulture() ?>&subscriptionid=&orderid=<?php echo $order_id; ?>&amount=<?php echo $total*100; ?>" />
 		<input type="hidden" name="accepturl" id="idaccepturl"  value="<?php echo url_for('@epay_accept_url', true);  ?>?accept=yes&lng=<?php echo  $sf_user->getCulture() ?>&subscriptionid=&orderid=<?php echo $order_id; ?>&amount=<?php echo $total*100; ?>" />-->
-       <input type="submit"  class="butonsigninsmall"  name="paybutan"  style="cursor: pointer;margin-left: 0px !important;" value="<?php echo __('Pay') ?>" /> 
+       <input type="submit"  class="butonsigninsmall"  name="paybutan"  style="cursor: pointer;margin-left: 0px !important;" value="<?php echo __('Pay') ?>" />
+       <input type="button"  class="butonsigninsmall"  style="cursor: pointer;margin-left: 10px !important;" value="<?php echo __('Back') ?>" onclick="history.back()" />
 		      </div>
       <div class="fr col">
           
