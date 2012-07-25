@@ -146,7 +146,7 @@ public function executeDeActivateCustomer(sfWebRequest $request) {
 
                 $uc = new Criteria();
                 $uc->add(UniqueIdsPeer::UNIQUE_NUMBER,$customer->getUniqueid());
-                $uniqueIdObj = UniqueIdsPeer::doSelectOne($uc);                var_dump($uniqueIdObj);
+                $uniqueIdObj = UniqueIdsPeer::doSelectOne($uc);          //      var_dump($uniqueIdObj);
                 $uniqueIdObj->setStatus(0);
                 $uniqueIdObj->setAssignedAt("0000-00-00 00:00:00");
                 $uniqueIdObj->save();
