@@ -146,18 +146,20 @@ public function executeDeActivateCustomer(sfWebRequest $request) {
 
                 $uc = new Criteria();
                 $uc->add(UniqueIdsPeer::UNIQUE_NUMBER,$customer->getUniqueid());
-                $uniqueIdObj = UniqueIdsPeer::doSelectOne($uc);          //      var_dump($uniqueIdObj);
-                $uniqueIdObj->setStatus(0);
-                $uniqueIdObj->setAssignedAt("0000-00-00 00:00:00");
-                $uniqueIdObj->save();
-                $customer->setCustomerStatusId(5);
-                $customer->save();
+                if(UniqueIdsPeer::doCount($uc)>0 ){
+                    $uniqueIdObj = UniqueIdsPeer::doSelectOne($uc);         
+                    $uniqueIdObj->setStatus(0);
+                    $uniqueIdObj->setAssignedAt("0000-00-00 00:00:00");
+                    $uniqueIdObj->save();
+                    $customer->setCustomerStatusId(5);
+                    $customer->save();
+                }  
                 $response_text .= "Customer De-activated, Customer Id=" . $customer_id;
                 $response_text .= '<br/>';
 
                 $response_text .= "Exiting gracefully ... done!";
 
-
+               
                 $this->response_text = $response_text;
             }
         }
