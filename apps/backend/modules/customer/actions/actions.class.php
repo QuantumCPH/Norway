@@ -151,9 +151,10 @@ public function executeDeActivateCustomer(sfWebRequest $request) {
                     $uniqueIdObj->setStatus(0);
                     $uniqueIdObj->setAssignedAt("0000-00-00 00:00:00");
                     $uniqueIdObj->save();
-                    $customer->setCustomerStatusId(5);
-                    $customer->save();
+                    
                 }  
+                $customer->setCustomerStatusId(5);
+                $customer->save();
                 $response_text .= "Customer De-activated, Customer Id=" . $customer_id;
                 $response_text .= '<br/>';
 
