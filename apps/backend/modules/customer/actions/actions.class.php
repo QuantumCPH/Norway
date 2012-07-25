@@ -143,7 +143,7 @@ public function executeDeActivateCustomer(sfWebRequest $request) {
                                Telienta::terminateAccount($account);
                            }
                        }
-
+echo $customer->getUniqueid();
                 $uc = new Criteria();
                 $uc->add(UniqueIdsPeer::UNIQUE_NUMBER,$customer->getUniqueid());
                 $uniqueIdObj = UniqueIdsPeer::doSelectOne($uc);
