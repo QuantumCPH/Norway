@@ -347,7 +347,7 @@ class Telienta {
                                 'opening_balance' => 0,
                                 'credit_limit' => null,
                                 'i_product' => $iProduct,
-                                'i_routing_plan' => 2034,
+                                'i_routing_plan' => 2830,
                                 'billing_model' => 1,
                                 'password' => 'asdf1asd',
                                 'h323_password' => 'asdf1asd',
