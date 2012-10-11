@@ -38,6 +38,10 @@ all:
  telinta_reseller: 82214
  telinta_currency: NOK
  telinta_soap_uri: https://mybilling.telinta.com
- a_iProduct: 11720
- cb_iProduct: 11748
- voip_iProduct: 11749
+ a_iproduct: 11720
+ cb_iproduct: 11748
+ voip_iproduct: 11749
+ recipient_name_rs: Support
+ recipient_email_rs: rs@zapna.com
+ recipient_name_support: Support
+ recipient_email_support: supporttech@zerocall.com

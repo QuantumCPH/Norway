@@ -351,7 +351,7 @@ class paymentsActions extends sfActions {
             if (CustomerProductPeer::doCount($c) != 0) {
 
                 //Customer is already registered.
-                echo __('The customer is already registered');
+                echo 'The customer is already registered';
                 //exit the script successfully
                 return sfView::NONE;
             }
@@ -481,12 +481,13 @@ class paymentsActions extends sfActions {
                 $customerPassword = $this->customer->getPlainText();
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 //Section For Telinta Add Cusomter
-             
-                    Telienta::ResgiterCustomer($this->customer, $OpeningBalance);
+                    $telintaObj = new Telienta();
+                    $telintaObj->ResgiterCustomer($this->customer, $OpeningBalance);
                       // For Telinta Add Account
-               
-                   Telienta::createAAccount($TelintaMobile,$this->customer);
-                  // Telienta::createCBAccount($TelintaMobile, $this->customer);
+                 //     var_dump($telintaObj);
+              // die();
+                   $telintaObj->createAAccount($TelintaMobile,$this->customer);
+                  // $telintaObj->createCBAccount($TelintaMobile, $this->customer);
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 //if the customer is invited, Give the invited customer a bonus of 10NOK
                 $invite_c = new Criteria();
@@ -533,8 +534,8 @@ class paymentsActions extends sfActions {
                     $uniqueId = $this->customers->getUniqueid();
                     $OpeningBalance = $comsion;
                     //This is for Recharge the Customer
-                
-                         Telienta::recharge($this->customers, $OpeningBalance,"Tipsa en van " . $invite->getInviteNumber());
+                         $telintaObj = new Telienta();
+                         $telintaObj->recharge($this->customers, $OpeningBalance,"Tipsa en van " . $invite->getInviteNumber());
 
                     //This is for Recharge the Account
                   
@@ -650,7 +651,11 @@ class paymentsActions extends sfActions {
           $cancel_url =$cancelUrl.$order_id;
         $notify_url = $this->getTargetUrl().'payments/confirmpayment?order_id='.$order_id.'&amount='.$item_amount;
  
+        
+        $email2 = new DibsCall();
+        $email2->setCallurl("transaction:".$notify_url);
 
+        $email2->save();
      
         $querystring = '';
         if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])){

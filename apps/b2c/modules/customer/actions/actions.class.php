@@ -297,7 +297,8 @@ class customerActions extends sfActions {
         }
         //This is for Retrieve balance From Telinta
        // $telintaGetBalance = file_get_contents('https://mybilling.telinta.com/htdocs/zapna/zapna.pl?action=getbalance&name=' . $uniqueId . '&type=customer');
-        $telintaGetBalance=Telienta::getBalance($this->customer);
+        $telintaObj = new Telienta();
+        $telintaGetBalance = $telintaObj->getBalance($this->customer);
        
 
       
@@ -357,7 +358,8 @@ class customerActions extends sfActions {
         $emailId = $this->customer->getEmail();
         $uniqueId = $this->customer->getUniqueid();
         //This is for Retrieve balance From Telinta
-        $this->customer_balance = Telienta::getBalance($this->customer);
+        $telintaObj = new Telienta();
+        $this->customer_balance = $telintaObj->getBalance($this->customer);
 
 
         //$this->customer_balance = 100;
@@ -455,8 +457,8 @@ class customerActions extends sfActions {
                         $TelintaMobile = $MaxUniqueRec->getMobileNumber();
                     }
                     //------------------------------
-
-                    Telienta::createReseNumberAccount($voipnumbers, $this->customer, $TelintaMobile);
+                    $telintaObj = new Telienta();
+                    $telintaObj->createReseNumberAccount($voipnumbers, $this->customer, $TelintaMobile);
 
 
                     $OpeningBalance = '40';
@@ -464,7 +466,7 @@ class customerActions extends sfActions {
                     //type=<account_customer>&action=manual_charge&name=<name>&amount=<amount>
                     //This is for Recharge the Customer
 
-                    Telienta::charge($this->customer, $OpeningBalance,"Resenumber Payment");
+                    $telintaObj->charge($this->customer, $OpeningBalance,"Resenumber Payment");
 
                 }
 
@@ -564,7 +566,8 @@ class customerActions extends sfActions {
                     $res->add(TelintaAccountsPeer::ACCOUNT_TITLE, $voipnumbers);
                     $res->addAnd(TelintaAccountsPeer::STATUS, 3);
                     $telintaAccountres = TelintaAccountsPeer::doSelectOne($res);
-                    Telienta::terminateAccount($telintaAccountres);
+                    $telintaObj = new Telienta();
+                    $telintaObj->terminateAccount($telintaAccountres);
         }
     }
 
@@ -1229,7 +1232,8 @@ class customerActions extends sfActions {
         $this->msgSent = "";
         $this->countries = $countries;
         $this->res_cbf = "";
-        $this->balance = (double) Telienta::getBalance($this->customer);
+        $telintaObj = new Telienta();
+        $this->balance = (double) $telintaObj->getBalance($this->customer);
 
         $message = $request->getParameter('message');
 
@@ -1271,9 +1275,10 @@ class customerActions extends sfActions {
 
 
                 if (CARBORDFISH_SMS::Send($destination, $sms_text, $this->customer->getMobileNumber())) {
-                    Telienta::charge($this->customer, $amt);
+                    $telintaObj = new Telienta();
+                    $telintaObj->charge($this->customer, $amt);
                     $this->msgSent = "Yes";
-                    $this->balance = (double) Telienta::getBalance($this->customer);
+                    $this->balance = (double) $telintaObj->getBalance($this->customer);
                 }
             }
         }

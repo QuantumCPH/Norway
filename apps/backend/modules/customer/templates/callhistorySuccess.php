@@ -169,7 +169,8 @@ if($pus==1){
                                 <th class="title"><?php echo __('Amount') ?>(<?php echo sfConfig::get('app_currency_code')?>)</th>
                             </tr>
                         <?php
-                        $tilentaCallHistryResult = Telienta::callHistory($customer, $fromdate . ' 00:00:00', $todate . ' 23:59:59', false, 1);
+                        $telintaObj = new Telienta();
+                        $tilentaCallHistryResult = $telintaObj->callHistory($customer, $fromdate . ' 00:00:00', $todate . ' 23:59:59', false, 1);
                         if(count($tilentaCallHistryResult)>0){
                         foreach ($tilentaCallHistryResult->xdr_list as $xdr) {
                          ?>
@@ -195,7 +196,8 @@ if($pus==1){
                                 <th class="title"><?php echo __('Amount') ?></th>
                             </tr>
                         <?php
-                        $tilentaCallHistryResult = Telienta::callHistory($customer, $fromdate . ' 00:00:00', $todate . ' 23:59:59', false, 2);
+                        $telintaObj = new Telienta();
+                        $tilentaCallHistryResult = $telintaObj->callHistory($customer, $fromdate . ' 00:00:00', $todate . ' 23:59:59', false, 2);
                         if(count($tilentaCallHistryResult)>0){
                         foreach ($tilentaCallHistryResult->xdr_list as $xdr) {
                          ?>
@@ -246,8 +248,8 @@ if($getFirstnumberofMobile==0){
 }
 $numbername=$customer->getUniqueid();
 
-
-                          $tilentaCallHistryResult = Telienta::callHistory($customer, $fromdate, $todate);
+                          $telintaObj = new Telienta();
+                          $tilentaCallHistryResult = $telintaObj->callHistory($customer, $fromdate, $todate);
 
 
                             foreach ($tilentaCallHistryResult->xdr_list as $xdr) { //echo "<pre>";echo var_dump($tilentaCallHistryResult);echo "</pre>";

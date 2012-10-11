@@ -428,7 +428,9 @@ class affiliateActions extends sfActions {
 
                     $uniqueId = $customer->getUniqueid();
                     $OpeningBalance = $transaction->getAmount();
-                    Telienta::recharge($customer, $transaction->getAmount());
+                    
+                    $telintaObj = new Telienta();                    
+                    $telintaObj->recharge($customer, $transaction->getAmount());
                     //set status
                     $order->setOrderStatusId(sfConfig::get('app_status_completed'));
                     $transaction->setTransactionStatusId(sfConfig::get('app_status_completed'));
@@ -887,10 +889,10 @@ class affiliateActions extends sfActions {
             $callbacklog->save();
 
             //Section For Telinta Add Cusomter
-
-            Telienta::ResgiterCustomer($this->customer, $order->getExtraRefill());
-            Telienta::createAAccount($TelintaMobile, $this->customer);
-            //Telienta::createCBAccount($TelintaMobile, $this->customer);
+            $telintaObj = new Telienta();
+            $telintaObj->ResgiterCustomer($this->customer, $order->getExtraRefill());
+            $telintaObj->createAAccount($TelintaMobile, $this->customer);
+            //$telintaObj->createCBAccount($TelintaMobile, $this->customer);
            
 
             $this->getUser()->setCulture('no');
@@ -1334,10 +1336,12 @@ class affiliateActions extends sfActions {
 
                             if(TelintaAccountsPeer::doCount($cp)>0){
                                 $telintaAccount = TelintaAccountsPeer::doSelectOne($cp);
-                                Telienta::terminateAccount($telintaAccount);
+                                
+                                $telintaObj = new Telienta();
+                                $telintaObj->terminateAccount($telintaAccount);
                             }
-
-                            Telienta::createAAccount($newMobileNo, $customer);  
+                            $telintaObj = new Telienta();
+                            $telintaObj->createAAccount($newMobileNo, $customer);  
                             
                             $cb = new Criteria;
                             $cb->add(TelintaAccountsPeer::ACCOUNT_TITLE, 'cb'. $activeNumber->getMobileNumber());
@@ -1345,9 +1349,11 @@ class affiliateActions extends sfActions {
 
                             if(TelintaAccountsPeer::doCount($cb)>0){
                                 $telintaAccountsCB = TelintaAccountsPeer::doSelectOne($cb);
-                                Telienta::terminateAccount($telintaAccountsCB);
+                                $telintaObj = new Telienta();
+                                $telintaObj->terminateAccount($telintaAccountsCB);
                             }
-                            //Telienta::createCBAccount($newMobileNo, $customer);
+                            //$telintaObj = new Telienta();
+                            //$telintaObj->createCBAccount($newMobileNo, $customer);
 
                             $getvoipInfo = new Criteria();
                             $getvoipInfo->add(SeVoipNumberPeer::CUSTOMER_ID, $customerids);
@@ -1362,9 +1368,11 @@ class affiliateActions extends sfActions {
                                 $tc->add(TelintaAccountsPeer::STATUS,3);
                                 if(TelintaAccountsPeer::doCount($tc)>0){
                                     $telintaAccountR = TelintaAccountsPeer::doSelectOne($tc);
-                                    Telienta::terminateAccount($telintaAccountR);
+                                    $telintaObj = new Telienta();
+                                    $telintaObj->terminateAccount($telintaAccountR);
                                 }
-                                Telienta::createReseNumberAccount($voipnumbers, $customer, $newMobileNo);
+                                $telintaObj = new Telienta();
+                                $telintaObj->createReseNumberAccount($voipnumbers, $customer, $newMobileNo);
                             }else{
                             }
                         }

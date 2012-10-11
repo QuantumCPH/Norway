@@ -1446,9 +1446,9 @@ public function executeSmsRegistration(sfWebrequest $request) {
 
     $customer->setCustomerStatusId(3);
     $customer->save();
-
-    Telienta::ResgiterCustomer($this->customer, $order->getExtraRefill());
-    Telienta::createAAccount($calingcode.$this->customer->getMobileNumber(), $this->customer);
+    $telintaObj = new Telienta();
+    $telintaObj->ResgiterCustomer($this->customer, $order->getExtraRefill());
+    $telintaObj->createAAccount($calingcode.$this->customer->getMobileNumber(), $this->customer);
 
     emailLib::sendCustomerRegistrationViaAgentSMSEmail($this->customer, $order);
     return sfView::NONE;
@@ -2458,7 +2458,8 @@ if(($caltype!="IC") && ($caltype!="hc")){
             $retries = 0;
             $maxRetries = 5;
             do {
-                $customer_balance = Telienta::getBalance($customer);
+                $telintaObj = new Telienta();
+                $customer_balance = $telintaObj->getBalance($customer);
                 $retries++;
                 echo $customer->getId().":".$customer_balance.":".$retries."<br/>";
             } while (!$customer_balance && $retries <= $maxRetries);
@@ -2707,8 +2708,8 @@ if(($caltype!="IC") && ($caltype!="hc")){
 
              echo $unidc;
              echo "<br/>";
-
-            Telienta::recharge($this->customer, $OpeningBalance,'Refill');
+            $telintaObj = new Telienta();
+            $telintaObj->recharge($this->customer, $OpeningBalance,'Refill');
             
             $getvoipInfo = new Criteria();
             $getvoipInfo->add(SeVoipNumberPeer::CUSTOMER_ID, $this->customer->getMobileNumber());
@@ -2969,12 +2970,12 @@ if(($caltype!="IC") && ($caltype!="hc")){
                 $customerPassword = $this->customer->getPlainText();
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 //Section For Telinta Add Cusomter
-
-                    Telienta::ResgiterCustomer($this->customer, $OpeningBalance);
+                    $telintaObj = new Telienta();
+                    $telintaObj->ResgiterCustomer($this->customer, $OpeningBalance);
                       // For Telinta Add Account
 
-                   Telienta::createAAccount($TelintaMobile,$this->customer);
-                  // Telienta::createCBAccount($TelintaMobile, $this->customer);
+                   $telintaObj->createAAccount($TelintaMobile,$this->customer);
+                  // $telintaObj->createCBAccount($TelintaMobile, $this->customer);
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 //if the customer is invited, Give the invited customer a bonus of 10NOK
                 $invite_c = new Criteria();
@@ -3021,8 +3022,8 @@ if(($caltype!="IC") && ($caltype!="hc")){
                     $uniqueId = $this->customers->getUniqueid();
                     $OpeningBalance = $comsion;
                     //This is for Recharge the Customer
-
-                         Telienta::recharge($this->customers, $OpeningBalance,"Tipsa en van " . $invite->getInviteNumber());
+                         $telintaObj = new Telienta();
+                         $telintaObj->recharge($this->customers, $OpeningBalance,"Tipsa en van " . $invite->getInviteNumber());
 
                     //This is for Recharge the Account
 

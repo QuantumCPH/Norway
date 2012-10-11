@@ -140,7 +140,8 @@ public function executeDeActivateCustomer(sfWebRequest $request) {
                            $telintaAccounts = TelintaAccountsPeer::doSelect($cp);
                            foreach ($telintaAccounts as $account) {
                                $response_text .="Deleting Account: " . $account->getAccountTitle() . "<br/>";
-                               Telienta::terminateAccount($account);
+                               $telintaObj = new Telienta();
+                               $telintaObj->terminateAccount($account);
                            }
                        }
 
@@ -263,9 +264,10 @@ public function executeDeActivateCustomer(sfWebRequest $request) {
         $c->add(CustomerPeer::ID, $id);
         $c->add(CustomerPeer::CUSTOMER_STATUS_ID, 3);
         $this->customer = CustomerPeer::doSelectOne($c);
-
-//$this->customer_balance =Telienta::getBalance($this->customer->getUniqueid());
-        $this->customer_balance =Telienta::getBalance($this->customer);
+        
+        $telintaObj = new Telienta();
+//$this->customer_balance = $telintaObj->getBalance($this->customer->getUniqueid());
+        $this->customer_balance = $telintaObj->getBalance($this->customer);
     }
 public function executePaymenthistory(sfWebRequest $request)
 	{
@@ -448,7 +450,8 @@ public function executePaymenthistory(sfWebRequest $request)
                 $transaction->setTransactionFrom(2);
 
                     $transaction->save();
-                    Telienta::charge($customer, $extra_refill,$request->getParameter('transaction_description'));
+                    $telintaObj = new Telienta();
+                    $telintaObj->charge($customer, $extra_refill,$request->getParameter('transaction_description'));
                     //set status
                     $order->setOrderStatusId(3);
                     $transaction->setTransactionStatusId(3);
@@ -527,7 +530,8 @@ public function executePaymenthistory(sfWebRequest $request)
                 $transaction->setDescription($request->getParameter('transaction_description'));
                 $transaction->setTransactionFrom('2');
                 $transaction->save();
-                Telienta::recharge($customer, $transaction->getAmount(),$request->getParameter('transaction_description'));
+                $telintaObj = new Telienta();
+                $telintaObj->recharge($customer, $transaction->getAmount(),$request->getParameter('transaction_description'));
                 //set status
                 $order->setOrderStatusId(3);
                 $transaction->setTransactionStatusId(3);

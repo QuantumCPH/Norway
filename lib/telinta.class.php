@@ -15,26 +15,34 @@ set_time_limit(10000000);
 
 class Telienta {
 
-    private static $currency;
-    private static $iParentReseller;
-    private static $a_iProduct ;
-    private static $cb_iProduct;
-    private static $voip_iProduct;
+    private $currency;
+    private $iParentReseller;
+    private $a_iProduct ;
+    private $cb_iProduct;
+    private $voip_iProduct;
+    private $telintaSOAPUrl;
+    
 //    private static $a_iProduct = 11720;
 //    private static $cb_iProduct = 11748;
 //    private static $voip_iProduct = 11749;
+//    private static $telintaSOAPUser = 'API_login';
+//    private static $telintaSOAPPassword = 'ee4eriny';
     
 
     public function __construct() {
-        $this->iParentReseller = sfConfig::get("app_telinta_reseller");
-        $this->currency = sfConfig::get("app_telinta_currency");
-        $this->telintaSOAPUrl = sfConfig::get("app_telinta_soap_uri");
-        $this->a_iProduct = sfConfig::get("app_a_iProduct");
-        $this->cb_iProduct = sfConfig::get("app_cb_iProduct");
-        $this->voip_iProduct = sfConfig::get("app_voip_iProduct");
+         $this->iParentReseller = sfConfig::get("app_telinta_reseller");
+         $this->currency = sfConfig::get("app_telinta_currency");
+         $this->telintaSOAPUrl = sfConfig::get("app_telinta_soap_uri");
+         $this->a_iProduct = sfConfig::get("app_a_iproduct");
+         $this->cb_iProduct = sfConfig::get("app_cb_iproduct");
+         $this->voip_iProduct = sfConfig::get("app_voip_iproduct");
+ 
     }
     
-    public static function ResgiterCustomer(Customer $customer, $OpeningBalance, $creditLimit=0) {
+    public function ResgiterCustomer(Customer $customer, $OpeningBalance, $creditLimit=0) {
+        
+        
+        
         $tCustomer = false;
         $max_retries = 10;
         $retry_count = 0;
@@ -58,10 +66,11 @@ class Telienta {
                                 'dialing_rules' => array('ip' => '00'),
                                 'email' => 'okh@zapna.com'
                                 )));
-            } catch (SoapFault $e) {
+            
+            } catch (SoapFault $e) { 
                 if ($e->faultstring != 'Could not connect to host' && $e->faultstring != 'Internal Server Error') {
-                    emailLib::sendErrorInTelinta("Error in Customer Registration", "We have faced an issue in Customer registration on telinta. this is the error for cusotmer with  id: " . $customer->getId() . " and error is " . $e->faultstring . "  <br/> Please Investigate.");
-
+                   
+                   emailLib::sendErrorInTelinta("Error in Customer Registration", "We have faced an issue in Customer registration on telinta. this is the error for cusotmer with  id: " . $customer->getId() . " and error is " . $e->faultstring . "  <br/> Please Investigate.");
                     return false;
                 }
             }
@@ -75,22 +84,21 @@ class Telienta {
 
         $customer->setICustomer($tCustomer->i_customer);
         $customer->save();
-        
         return true;
     }
 
-    public static function createAAccount($mobileNumber, Customer $customer) {
-        return self::createAccount($customer, $mobileNumber, 'a', $this->a_iProduct);
+    public function createAAccount($mobileNumber, Customer $customer) {
+        return $this->createAccount($customer, $mobileNumber, 'a', $this->a_iProduct);
     }
 
-    public static function createCBAccount($mobileNumber, Customer $customer) {
+    public function createCBAccount($mobileNumber, Customer $customer) {
         $iProduct=$this->cb_iProduct;
-        return self::createAccount($customer, $mobileNumber, 'cb',  $iProduct);
+        return $this->createAccount($customer, $mobileNumber, 'cb',  $iProduct);
     }
 
-    public static function createReseNumberAccount($VOIPNumber, Customer $customer, $currentActiveNumber) {
+    public function createReseNumberAccount($VOIPNumber, Customer $customer, $currentActiveNumber) {
         $voip_iProduct=$this->voip_iProduct;
-        if (self::createAccount($customer, $VOIPNumber, '', $voip_iProduct, 'Y')) {
+        if ($this->createAccount($customer, $VOIPNumber, '', $voip_iProduct, 'Y')) {
             $accounts = false;
             $max_retries = 10;
             $retry_count = 0;
@@ -160,7 +168,7 @@ class Telienta {
         }
     }
 
-    public static function terminateAccount(TelintaAccounts $telintaAccount) {
+    public function terminateAccount(TelintaAccounts $telintaAccount) {
         $account = false;
         $max_retries = 10;
         $retry_count = 0;
@@ -190,7 +198,7 @@ class Telienta {
         return true;
     }
 
-    public static function getBalance(Customer $customer) {
+    public function getBalance(Customer $customer) {
         $cInfo = false;
         $max_retries = 10;
         $retry_count = 0;
@@ -225,12 +233,12 @@ class Telienta {
     }
 
 
-    public static function charge(Customer $customer, $amount, $description="Charge") {
-        return self::makeTransaction($customer, "Manual charge", $amount, $description);
+    public function charge(Customer $customer, $amount, $description="Charge") {
+        return $this->makeTransaction($customer, "Manual charge", $amount, $description);
 
     }
 
-    public static function recharge(Customer $customer, $amount, $description) {
+    public function recharge(Customer $customer, $amount, $description) {
         $c = new Criteria;
         $c->add(EmailAlertSentPeer::USAGE_ALERT_STATUS_ID, null, Criteria::ISNOTNULL);
         $c->addAnd(EmailAlertSentPeer::CUSTOMER_ID,$customer->getId());
@@ -255,12 +263,12 @@ class Telienta {
            }
         }
 
-        return self::makeTransaction($customer, "Manual payment", $amount, $description);
+        return $this->makeTransaction($customer, "Manual payment", $amount, $description);
 
     }
 
 
-    public static function callHistory($customer, $fromDate, $toDate, $reseller=false,$iService=3) {
+    public function callHistory($customer, $fromDate, $toDate, $reseller=false,$iService=3) {
         $xdrList = false;
         $max_retries = 10;
         $retry_count = 0;
@@ -295,7 +303,7 @@ class Telienta {
 
 
 
-    public static function getCustomerInfo($uniqueId) {
+    public function getCustomerInfo($uniqueId) {
         $cInfo = false;
         $max_retries = 10;
         $retry_count = 0;
@@ -311,32 +319,38 @@ class Telienta {
         return $i_customer;
     }
 
-    public static function getCustomerAccountList($iCustomer) {
+    public function getCustomerAccountList($iCustomer) {
         $cInfo = false;
         $max_retries = 10;
         $retry_count = 0;
 
         $pb = new PortaBillingSoapClient($this->telintaSOAPUrl, 'Admin', 'Account');
+        while (!$cInfo && $retry_count < $max_retries) {
+            try {
+                $cInfo = $pb->get_account_list(array(
+                            'i_customer' => $iCustomer,
+                            'offset' => 0,
+                            'limit' => 100
+                        ));
+            } catch (SoapFault $e) {
+                emailLib::sendErrorInTelinta("Error in Customer Registration", "We have faced an issue in Customer registration on telinta. this is the error for customer with  id: " . $customer->getId() . " and error is " . $e->faultstring . "  <br/> Please Investigate.");
+                die($e->faultstring);
 
-        try {
-            $cInfo = $pb->get_account_list(array(
-                        'i_customer' => $iCustomer,
-                        'offset' => 0,
-                        'limit' => 100
-                    ));
-        } catch (SoapFault $e) {
-            #emailLib::sendErrorInTelinta("Error in Customer Registration", "We have faced an issue in Customer registration on telinta. this is the error for cusotmer with  id: " . $customer->getId() . " and error is " . $e->faultstring . "  <br/> Please Investigate.");
-            die($e->faultstring);
-
+                return false;
+            }
+            sleep(0.5);
+            $retry_count++;
+        }
+        if ($retry_count == $max_retries) {
+            emailLib::sendErrorInTelinta("Error in Customer Registration", "We have faced an issue in Customer registration on telinta. this is the error for customer with  id: " . $customer->getId() . " and error is " . $e->faultstring . "  <br/> Please Investigate.");
             return false;
         }
-
         return $cInfo;
     }
 
     //// Private Area.
 
-    private static function createAccount(Customer $customer, $mobileNumber, $accountType, $iProduct, $followMeEnabled='N') {
+    private function createAccount(Customer $customer, $mobileNumber, $accountType, $iProduct, $followMeEnabled='N') {
         $account = false;
         $max_retries = 10;
         $retry_count = 0;
@@ -388,7 +402,7 @@ class Telienta {
         return true;
     }
 
-    private static function makeTransaction(Customer $customer, $action, $amount,$description) {
+    private function makeTransaction(Customer $customer, $action, $amount,$description) {
         $accounts = false;
         $max_retries = 10;
         $retry_count = 0;

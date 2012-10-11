@@ -176,7 +176,8 @@
                                 <td class="title"><?php echo __('Amount') ?></td>
                             </tr>
                         <?php
-                        $tilentaCallHistryResult = Telienta::callHistory($customer, $fromdate . ' 00:00:00', $todate . ' 23:59:59', false, 1);
+                        $telintaObj = new Telienta();
+                        $tilentaCallHistryResult = $telintaObj->callHistory($customer, $fromdate . ' 00:00:00', $todate . ' 23:59:59', false, 1);
                         if(count($tilentaCallHistryResult)>0){
                         foreach ($tilentaCallHistryResult->xdr_list as $xdr) {
                          ?>
@@ -202,7 +203,8 @@
                                 <td class="title"><?php echo __('Amount') ?></td>
                             </tr>
                         <?php
-                        $tilentaCallHistryResult = Telienta::callHistory($customer, $fromdate . ' 00:00:00', $todate . ' 23:59:59', false, 2);
+                        $telintaObj = new Telienta();
+                        $tilentaCallHistryResult = $telintaObj->callHistory($customer, $fromdate . ' 00:00:00', $todate . ' 23:59:59', false, 2);
                         if(count($tilentaCallHistryResult)>0){
                         foreach ($tilentaCallHistryResult->xdr_list as $xdr) {
                          ?>
@@ -232,7 +234,8 @@
 
 <?php
                             $amount_total = 0;
-                            $tilentaCallHistryResult = Telienta::callHistory($customer, $fromdate . ' 00:00:00', $todate . ' 23:59:59');
+                            $telintaObj = new Telienta();
+                            $tilentaCallHistryResult = $telintaObj->callHistory($customer, $fromdate . ' 00:00:00', $todate . ' 23:59:59');
 
 
                             foreach ($tilentaCallHistryResult->xdr_list as $xdr) {
