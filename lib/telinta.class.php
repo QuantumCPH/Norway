@@ -15,35 +15,42 @@ set_time_limit(10000000);
 
 class Telienta {
 
-    private static $currency = 'NOK';
-    private static $iParentRLandnCall = 82214;
-    private static $iParentUS = 82214;
-    private static $a_iProduct = 11720;
-    private static $cb_iProduct = 11748;
-    private static $voip_iProduct = 11749;
-    private static $telintaSOAPUrl = "https://mybilling.telinta.com";
-    private static $telintaSOAPUser = 'API_login';
-    private static $telintaSOAPPassword = 'ee4eriny';
+    private static $currency;
+    private static $iParentReseller;
+    private static $a_iProduct ;
+    private static $cb_iProduct;
+    private static $voip_iProduct;
+//    private static $a_iProduct = 11720;
+//    private static $cb_iProduct = 11748;
+//    private static $voip_iProduct = 11749;
+    
 
-    public static function ResgiterCustomer(Customer $customer, $OpeningBalance, $creditLimit=0, $USReseller = false) {
+    public function __construct() {
+        $this->iParentReseller = sfConfig::get("app_telinta_reseller");
+        $this->currency = sfConfig::get("app_telinta_currency");
+        $this->telintaSOAPUrl = sfConfig::get("app_telinta_soap_uri");
+        $this->a_iProduct = sfConfig::get("app_a_iProduct");
+        $this->cb_iProduct = sfConfig::get("app_cb_iProduct");
+        $this->voip_iProduct = sfConfig::get("app_voip_iProduct");
+    }
+    
+    public static function ResgiterCustomer(Customer $customer, $OpeningBalance, $creditLimit=0) {
         $tCustomer = false;
         $max_retries = 10;
         $retry_count = 0;
 
-        $pb = new PortaBillingSoapClient(self::$telintaSOAPUrl, 'Admin', 'Customer');
+        $pb = new PortaBillingSoapClient($this->telintaSOAPUrl, 'Admin', 'Customer');
 
         $uniqueid="NOB2C".$customer->getId().$customer->getUniqueid();
-        if ($USReseller) {
-            $Parent = self::$iParentUS;
-        } else {
-            $Parent = self::$iParentRLandnCall;
-        }
+        
+        $Parent = $this->iParentReseller;
+        
         while (!$tCustomer && $retry_count < $max_retries) {
             try {
 
                 $tCustomer = $pb->add_customer(array('customer_info' => array(
                                 'name' => $uniqueid,
-                                'iso_4217' => self::$currency,
+                                'iso_4217' => $this->currency,
                                 'i_parent' => $Parent,
                                 'i_customer_type' => 1,
                                 'opening_balance' => -($OpeningBalance),
@@ -73,15 +80,16 @@ class Telienta {
     }
 
     public static function createAAccount($mobileNumber, Customer $customer) {
-        return self::createAccount($customer, $mobileNumber, 'a', self::$a_iProduct);
+        return self::createAccount($customer, $mobileNumber, 'a', $this->a_iProduct);
     }
 
-    public static function createCBAccount($mobileNumber, Customer $customer,$iProduct=11748) {
+    public static function createCBAccount($mobileNumber, Customer $customer) {
+        $iProduct=$this->cb_iProduct;
         return self::createAccount($customer, $mobileNumber, 'cb',  $iProduct);
     }
 
-    public static function createReseNumberAccount($VOIPNumber, Customer $customer, $currentActiveNumber, $voip_iProduct=11749) {
-
+    public static function createReseNumberAccount($VOIPNumber, Customer $customer, $currentActiveNumber) {
+        $voip_iProduct=$this->voip_iProduct;
         if (self::createAccount($customer, $VOIPNumber, '', $voip_iProduct, 'Y')) {
             $accounts = false;
             $max_retries = 10;
@@ -91,7 +99,7 @@ class Telienta {
             $ct->add(TelintaAccountsPeer::ACCOUNT_TITLE, $VOIPNumber);
             $ct->addAnd(TelintaAccountsPeer::STATUS, 3);
             $telintaAccount = TelintaAccountsPeer::doSelectOne($ct);
-            $pb = new PortaBillingSoapClient(self::$telintaSOAPUrl, 'Admin', 'Account');
+            $pb = new PortaBillingSoapClient($this->telintaSOAPUrl, 'Admin', 'Account');
 
             while (!$accounts && $retry_count < $max_retries) {
                 try {
@@ -157,7 +165,7 @@ class Telienta {
         $max_retries = 10;
         $retry_count = 0;
 
-        $pb = new PortaBillingSoapClient(self::$telintaSOAPUrl, 'Admin', 'Account');
+        $pb = new PortaBillingSoapClient($this->telintaSOAPUrl, 'Admin', 'Account');
 
         while (!$account && $retry_count < $max_retries) {
             try {
@@ -187,7 +195,7 @@ class Telienta {
         $max_retries = 10;
         $retry_count = 0;
 
-        $pb = new PortaBillingSoapClient(self::$telintaSOAPUrl, 'Admin', 'Customer');
+        $pb = new PortaBillingSoapClient($this->telintaSOAPUrl, 'Admin', 'Customer');
 
 
         while (!$cInfo && $retry_count < $max_retries) {
@@ -256,7 +264,7 @@ class Telienta {
         $xdrList = false;
         $max_retries = 10;
         $retry_count = 0;
-        $pb = new PortaBillingSoapClient(self::$telintaSOAPUrl, 'Admin', 'Customer');
+        $pb = new PortaBillingSoapClient($this->telintaSOAPUrl, 'Admin', 'Customer');
 
         if ($reseller)
             $icustomer = $customer;
@@ -292,7 +300,7 @@ class Telienta {
         $max_retries = 10;
         $retry_count = 0;
 
-        $pb = new PortaBillingSoapClient(self::$telintaSOAPUrl, 'Admin', 'Customer');
+        $pb = new PortaBillingSoapClient($this->telintaSOAPUrl, 'Admin', 'Customer');
 
 
         $cInfo = $pb->get_customer_info(array(
@@ -308,7 +316,7 @@ class Telienta {
         $max_retries = 10;
         $retry_count = 0;
 
-        $pb = new PortaBillingSoapClient(self::$telintaSOAPUrl, 'Admin', 'Account');
+        $pb = new PortaBillingSoapClient($this->telintaSOAPUrl, 'Admin', 'Account');
 
         try {
             $cInfo = $pb->get_account_list(array(
@@ -333,7 +341,7 @@ class Telienta {
         $max_retries = 10;
         $retry_count = 0;
 
-        $pb = new PortaBillingSoapClient(self::$telintaSOAPUrl, 'Admin', 'Account');
+        $pb = new PortaBillingSoapClient($this->telintaSOAPUrl, 'Admin', 'Account');
         $uniqueid="NOB2C".$customer->getId().$customer->getUniqueid();
         $accountName = $accountType . $mobileNumber;
         while (!$account && $retry_count < $max_retries) {
@@ -343,7 +351,7 @@ class Telienta {
                                 'i_customer' => $customer->getICustomer(),
                                 'name' => $accountName, //75583 03344090514
                                 'id' => $accountName,
-                                'iso_4217' => self::$currency,
+                                'iso_4217' => $this->currency,
                                 'opening_balance' => 0,
                                 'credit_limit' => null,
                                 'i_product' => $iProduct,
@@ -385,7 +393,7 @@ class Telienta {
         $max_retries = 10;
         $retry_count = 0;
 
-        $pb = new PortaBillingSoapClient(self::$telintaSOAPUrl, 'Admin', 'Customer');
+        $pb = new PortaBillingSoapClient($this->telintaSOAPUrl, 'Admin', 'Customer');
 
         while (!$accounts && $retry_count < $max_retries) {
             try {

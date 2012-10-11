@@ -35,3 +35,9 @@ all:
    - { module: payments,  action: reject}
  dialer_pin: 9998889999
  currency_code: Nkr
+ telinta_reseller: 82214
+ telinta_currency: NOK
+ telinta_soap_uri: https://mybilling.telinta.com
+ a_iProduct: 11720
+ cb_iProduct: 11748
+ voip_iProduct: 11749
