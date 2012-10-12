@@ -39,22 +39,18 @@ class emailLib{
         $subject = __('Agent Payment Confirmation');
      
 
-        //Support Information
-      $sender_email = sfConfig::get('app_email_sender_email', 'okhan@zapna.com');
-        $sender_emailcdu = sfConfig::get('app_email_sender_email_cdu', 'rs@zapna.com');
-        $sender_name = sfConfig::get('app_email_sender_name', 'Zapna');
-        $sender_namecdu = sfConfig::get('app_email_sender_name_cdu', 'Zapna');
-
+        $recipient_name_rs = sfConfig::get('app_recipient_name_rs');
+        $recipient_email_rs = sfConfig::get('app_recipient_email_rs');
+        
         $recipient_name_cdu = sfConfig::get('app_recipient_name_cdu');
         $recipient_email_cdu = sfConfig::get('app_recipient_email_cdu');
-
-        //------------------Sent The Email To Customer
         
-        //----------------------------------------
+        $recipient_name_ok = sfConfig::get('app_recipient_name_ok');
+        $recipient_email_ok = sfConfig::get('app_recipient_email_ok');
+
 
         //------------------Sent the Email To Agent
         if (trim($recepient_agent_email)!=''):
-
             $email2 = new EmailQueue();
             $email2->setSubject($subject);
             $email2->setReceipientName($recepient_agent_name);
@@ -68,11 +64,11 @@ class emailLib{
         //---------------------------------------
 
        //--------------Sent The Email To okhan
-         if (trim($sender_email)!=''):
+         if (trim($recipient_email_ok)!=''):
             $email3 = new EmailQueue();
             $email3->setSubject($subject);
-            $email3->setReceipientName($sender_name);
-            $email3->setReceipientEmail($sender_email);
+            $email3->setReceipientName($recipient_name_ok);
+            $email3->setReceipientEmail($recipient_email_ok);
             $email3->setAgentId($agent_company_id);
             $email3->setEmailType('Zapna refill via agent');
             $email3->setMessage($message_body);
@@ -80,24 +76,24 @@ class emailLib{
         endif;
         //-----------------------------------------
           //--------------Sent The Email To cdu
-         if (trim($sender_emailcdu)!=''):
+         if (trim($recipient_email_cdu)!=''):
             $email4 = new EmailQueue();
             $email4->setSubject($subject);
-            $email4->setReceipientName($sender_namecdu);
-            $email4->setReceipientEmail($sender_emailcdu);
+            $email4->setReceipientName($recipient_name_cdu);
+            $email4->setReceipientEmail($recipient_email_cdu);
             $email4->setAgentId($agent_company_id);
             $email4->setEmailType('Zapna refill via agent');
             $email4->setMessage($message_body);
             $email4->save();
         endif;
         //-----------------------------------------
-        //*************************Sent Email to CDU****************************
+        //*************************Sent Email to RS****************************
 
-        if (trim($recipient_email_cdu)!=''):
+        if (trim($recipient_email_rs)!=''):
             $email = new EmailQueue();
             $email->setSubject($subject);
-            $email->setReceipientName($recipient_name_cdu);
-            $email->setReceipientEmail($recipient_email_cdu);
+            $email->setReceipientName($recipient_name_rs);
+            $email->setReceipientEmail($recipient_email_rs);
             $email->setAgentId($agent_company_id);
             $email->setEmailType('Zapna refill via agent');
             $email->setMessage($message_body);
@@ -107,22 +103,10 @@ class emailLib{
         //**********************************************************************
     }
 
-
-
-
-
-
-
     public static function sendRefillEmail(Customer $customer,$order)
     {        
         $vat = 0;
-        
-        //create transaction
-//        $transaction = new Transaction();
-//        $transaction->setOrderId($order->getId());
-//        $transaction->setCustomer($customer);
-//        $transaction->setAmount($order->getExtraRefill());
-        
+       
 
         $tc  =new Criteria();
         $tc->add(TransactionPeer::CUSTOMER_ID, $customer->getId() );
@@ -157,13 +141,15 @@ class emailLib{
         $customer_id        = trim($customer->getId());
 
         //Support Information
-      $sender_email = sfConfig::get('app_email_sender_email', 'okhan@zapna.com');
-        $sender_emailcdu = sfConfig::get('app_email_sender_email_cdu', 'rs@zapna.com');
-        $sender_name = sfConfig::get('app_email_sender_name', 'Zapna');
-        $sender_namecdu = sfConfig::get('app_email_sender_name_cdu', 'Zapna');
-
+                
+        $recipient_name_rs = sfConfig::get('app_recipient_name_rs');
+        $recipient_email_rs = sfConfig::get('app_recipient_email_rs');
+        
         $recipient_name_cdu = sfConfig::get('app_recipient_name_cdu');
         $recipient_email_cdu = sfConfig::get('app_recipient_email_cdu');
+        
+        $recipient_name_ok = sfConfig::get('app_recipient_name_ok');
+        $recipient_email_ok = sfConfig::get('app_recipient_email_ok');
 
         //------------------Sent The Email To Customer
         if(trim($recepient_email)!=''){
@@ -196,11 +182,11 @@ class emailLib{
         //---------------------------------------
 
        //--------------Sent The Email To okhan
-         if (trim($sender_email)!=''):
+         if (trim($recipient_email_ok)!=''):
             $email3 = new EmailQueue();
             $email3->setSubject($subject);
-            $email3->setReceipientName($sender_name);
-            $email3->setReceipientEmail($sender_email);
+            $email3->setReceipientName($recipient_name_ok);
+            $email3->setReceipientEmail($recipient_email_ok);
             $email3->setAgentId($agent_company_id);
             $email3->setCutomerId($customer_id);
             $email3->setEmailType('Zapna refill via agent');
@@ -208,12 +194,12 @@ class emailLib{
             $email3->save();
         endif;
         //-----------------------------------------
-          //--------------Sent The Email To cdu
-         if (trim($sender_emailcdu)!=''):
+          //--------------Sent The Email To RS
+         if (trim($recipient_email_rs)!=''):
             $email4 = new EmailQueue();
             $email4->setSubject($subject);
-            $email4->setReceipientName($sender_namecdu);
-            $email4->setReceipientEmail($sender_emailcdu);
+            $email4->setReceipientName($recipient_name_rs);
+            $email4->setReceipientEmail($recipient_email_rs);
             $email4->setAgentId($agent_company_id);
             $email4->setCutomerId($customer_id);
             $email4->setEmailType('Zapna refill via agent');
@@ -278,13 +264,15 @@ class emailLib{
         $customer_id        = trim($customer->getId());
 
         //Support Information
-        $sender_email = sfConfig::get('app_email_sender_email', 'okhan@zapna.com');
-        $sender_emailcdu = sfConfig::get('app_email_sender_email_cdu', 'rs@zapna.com');
-        $sender_name = sfConfig::get('app_email_sender_name', 'Zapna');
-        $sender_namecdu = sfConfig::get('app_email_sender_name_cdu', 'Zapna');
 
+        $recipient_name_rs = sfConfig::get('app_recipient_name_rs');
+        $recipient_email_rs = sfConfig::get('app_recipient_email_rs');
+        
         $recipient_name_cdu = sfConfig::get('app_recipient_name_cdu');
         $recipient_email_cdu = sfConfig::get('app_recipient_email_cdu');
+        
+        $recipient_name_ok = sfConfig::get('app_recipient_name_ok');
+        $recipient_email_ok = sfConfig::get('app_recipient_email_ok');
 
         //------------------Sent The Email To Customer
         if(trim($recepient_email)!=''){
@@ -317,11 +305,11 @@ class emailLib{
         //---------------------------------------
 
        //--------------Sent The Email To Okhan
-         if (trim($sender_email)!=''):
+         if (trim($recipient_email_ok)!=''):
             $email3 = new EmailQueue();
             $email3->setSubject($subject);
-            $email3->setReceipientName($sender_name);
-            $email3->setReceipientEmail($sender_email);
+            $email3->setReceipientName($recipient_name_ok);
+            $email3->setReceipientEmail($recipient_email_ok);
             $email3->setAgentId($agent_company_id);
             $email3->setCutomerId($customer_id);
             $email3->setEmailType('Zapna Customer registration via agent');
@@ -331,11 +319,11 @@ class emailLib{
         //-----------------------------------------
 
        //--------------Sent The Email To CDU
-         if (trim($sender_emailcdu)!=''):
+         if (trim($recipient_email_cdu)!=''):
             $email4 = new EmailQueue();
             $email4->setSubject($subject);
-            $email4->setReceipientName($sender_namecdu);
-            $email4->setReceipientEmail($sender_emailcdu);
+            $email4->setReceipientName($recipient_name_cdu);
+            $email4->setReceipientEmail($recipient_email_cdu);
             $email4->setAgentId($agent_company_id);
             $email4->setCutomerId($customer_id);
             $email4->setEmailType('Zapna Customer registration via agent');
@@ -343,13 +331,13 @@ class emailLib{
             $email4->save();
         endif;
         //-----------------------------------------
-        //*************************Sent Email to CDU****************************
+        //*************************Sent Email to RS ****************************
 
-        if (trim($recipient_email_cdu)!=''):
+        if (trim($recipient_email_rs)!=''):
             $email = new EmailQueue();
             $email->setSubject($subject);
-            $email->setReceipientName($recipient_name_cdu);
-            $email->setReceipientEmail($recipient_email_cdu);
+            $email->setReceipientName($recipient_name_rs);
+            $email->setReceipientEmail($recipient_email_rs);
             $email->setAgentId($agent_company_id);
             $email->setCutomerId($customer_id);
             $email->setEmailType('Zapna Customer registration via agent');
@@ -422,13 +410,16 @@ class emailLib{
         $subject = __('Payment Confirmation');
 
         //Support Information
-        $sender_email = sfConfig::get('app_email_sender_email', 'okhan@zapna.com');
-        $sender_name = sfConfig::get('app_email_sender_name', 'Zapna');
-         $sender_emailcdu = sfConfig::get('app_email_sender_email', 'rs@zapna.com');
-        $sender_namecdu = sfConfig::get('app_email_sender_name', 'Zapna');
-
+        
+        $recipient_name_rs = sfConfig::get('app_recipient_name_rs');
+        $recipient_email_rs = sfConfig::get('app_recipient_email_rs');
+        
         $recipient_name_cdu = sfConfig::get('app_recipient_name_cdu');
         $recipient_email_cdu = sfConfig::get('app_recipient_email_cdu');
+        
+        $recipient_name_ok = sfConfig::get('app_recipient_name_ok');
+        $recipient_email_ok = sfConfig::get('app_recipient_email_ok');
+        
         //------------------Sent The Email To Customer
         if(trim($recepient_email)!=''){
             $email = new EmailQueue();
@@ -458,11 +449,11 @@ class emailLib{
         //---------------------------------------
 
        //--------------Sent The Email To okhan
-         if (trim($sender_email)!=''):
+         if (trim($recipient_email_ok)!=''):
             $email3 = new EmailQueue();
             $email3->setSubject($subject);
-            $email3->setReceipientName($sender_name);
-            $email3->setReceipientEmail($sender_email);
+            $email3->setReceipientName($recipient_name_ok);
+            $email3->setReceipientEmail($recipient_email_ok);
             $email3->setAgentId($referrer_id);
             $email3->setCutomerId($customer_id);
             $email3->setEmailType('Zapna refill via agent');
@@ -470,12 +461,12 @@ class emailLib{
             $email3->save();
         endif;
         //-----------------------------------------
-         //--------------Sent The Email To CDU
-         if (trim($sender_emailcdu)!=''):
+         //--------------Sent The Email To RS
+         if (trim($recipient_email_rs)!=''):
             $email4 = new EmailQueue();
             $email4->setSubject($subject);
-            $email4->setReceipientName($sender_namecdu);
-            $email4->setReceipientEmail($sender_emailcdu);
+            $email4->setReceipientName($recipient_name_rs);
+            $email4->setReceipientEmail($recipient_email_rs);
             $email4->setAgentId($referrer_id);
             $email4->setCutomerId($customer_id);
             $email4->setEmailType('Zapna refill via agent');
@@ -503,13 +494,15 @@ class emailLib{
     public static function sendCustomerAutoRefillEmail(Customer $customer,$message_body){
 
         $subject = 'Payment Confirmation';
-        $sender_email = sfConfig::get('app_email_sender_email', 'okhan@zapna.com');
-        $sender_name = sfConfig::get('app_email_sender_name', 'Zapna ');
-         $sender_emailcdu = sfConfig::get('app_email_sender_email_cdu', 'rs@zapna.com');
-        $sender_namecdu = sfConfig::get('app_email_sender_name_cdu', 'Zapna ');
-
+        
+        $recipient_name_rs = sfConfig::get('app_recipient_name_rs');
+        $recipient_email_rs = sfConfig::get('app_recipient_email_rs');
+        
         $recipient_name_cdu = sfConfig::get('app_recipient_name_cdu');
         $recipient_email_cdu = sfConfig::get('app_recipient_email_cdu');
+        
+        $recipient_name_ok = sfConfig::get('app_recipient_name_ok');
+        $recipient_email_ok = sfConfig::get('app_recipient_email_ok');
 
         $recepient_email = trim($customer->getEmail());
         $recepient_name = sprintf('%s %s', $customer->getFirstName(), $customer->getLastName());
@@ -531,25 +524,25 @@ class emailLib{
         endif;
 
         //send to OKHAN
-        if(trim($sender_email)!=''):
+        if(trim($recipient_email_ok)!=''):
             $email2 = new EmailQueue();
             $email2->setSubject($subject);
             $email2->setMessage($message_body);
-            $email2->setReceipientEmail($sender_email);
-            $email2->setReceipientName($sender_name);
+            $email2->setReceipientEmail($recipient_email_ok);
+            $email2->setReceipientName($recipient_name_ok);
             $email2->setCutomerId($customer_id);
             $email2->setAgentId($referrer_id);
             $email2->setEmailType('Zapna Customer Auto Refill');
             $email2->save();
          endif;
 ////////////////////////////////////////////////////////
-           //send to CDU
-        if(trim($sender_emailcdu)!=''):
+           //send to RS
+        if(trim($recipient_email_rs)!=''):
             $email3 = new EmailQueue();
             $email3->setSubject($subject);
             $email3->setMessage($message_body);
-            $email3->setReceipientEmail($sender_emailcdu);
-            $email3->setReceipientName($sender_namecdu);
+            $email3->setReceipientEmail($recipient_email_rs);
+            $email3->setReceipientName($recipient_name_rs);
             $email3->setCutomerId($customer_id);
             $email3->setAgentId($referrer_id);
             $email3->setEmailType('Zapna Customer Auto Refill');
@@ -577,14 +570,16 @@ class emailLib{
 
 
         $subject            = 'Payment Confirmation';
-        $sender_email       = sfConfig::get('app_email_sender_email', 'okhan@zapna.com');
-        $sender_name        = sfConfig::get('app_email_sender_name', 'Zapna ');
-        $sender_emailcdu       = sfConfig::get('app_email_sender_email_cdu', 'rs@zapna.com');
-        $sender_namecdu        = sfConfig::get('app_email_sender_name_cdu', 'Zapna ');
-
+        
+        $recipient_name_rs = sfConfig::get('app_recipient_name_rs');
+        $recipient_email_rs = sfConfig::get('app_recipient_email_rs');
+        
         $recipient_name_cdu = sfConfig::get('app_recipient_name_cdu');
         $recipient_email_cdu = sfConfig::get('app_recipient_email_cdu');
-
+        
+        $recipient_name_ok = sfConfig::get('app_recipient_name_ok');
+        $recipient_email_ok = sfConfig::get('app_recipient_email_ok');
+        
         $recepient_email    = trim($customer->getEmail());
         $recepient_name     = sprintf('%s %s', $customer->getFirstName(), $customer->getLastName());
         $customer_id        = trim($customer->getId());
@@ -606,24 +601,24 @@ class emailLib{
         endif;
 
         //send to okhan
-        if(trim($sender_email)!=''):
+        if(trim($recipient_email_ok)!=''):
             $email2 = new EmailQueue();
             $email2->setSubject($subject);
             $email2->setMessage($message_body);
-            $email2->setReceipientEmail($sender_email);
-            $email2->setReceipientName($sender_name);
+            $email2->setReceipientEmail($recipient_email_ok);
+            $email2->setReceipientName($recipient_name_ok);
             $email2->setCutomerId($customer_id);
             $email2->setAgentId($referrer_id);
             $email2->setEmailType('Zapna Customer Confirm Payment');
             $email2->save();
         endif;
-            //send to cdu
-        if(trim($sender_emailcdu)!=''):
+            //send to RS
+        if(trim($recipient_email_rs)!=''):
             $email3 = new EmailQueue();
             $email3->setSubject($subject);
             $email3->setMessage($message_body);
-            $email3->setReceipientEmail($sender_emailcdu);
-            $email3->setReceipientName($sender_namecdu);
+            $email3->setReceipientEmail($recipient_email_rs);
+            $email3->setReceipientName($recipient_email_rs);
             $email3->setCutomerId($customer_id);
             $email3->setAgentId($referrer_id);
             $email3->setEmailType('Zapna Customer Confirm Payment');
@@ -659,15 +654,16 @@ class emailLib{
         $customer_id        = trim($customer->getId());
 
 
-     $subject =$subject;
-  $subject=$subject;
-        $sender_email       = sfConfig::get('app_email_sender_email', 'okhan@zapna.com');
-        $sender_name        = sfConfig::get('app_email_sender_name', 'Zapna support');
-        $sender_emailcdu       = sfConfig::get('app_email_sender_email_cdu', 'rs@zapna.com');
-        $sender_namecdu        = sfConfig::get('app_email_sender_name_cdu', 'Zapna support');
-
+        $subject = $subject; 
+        
+        $recipient_name_rs = sfConfig::get('app_recipient_name_rs');
+        $recipient_email_rs = sfConfig::get('app_recipient_email_rs');
+        
         $recipient_name_cdu = sfConfig::get('app_recipient_name_cdu');
         $recipient_email_cdu = sfConfig::get('app_recipient_email_cdu');
+        
+        $recipient_name_ok = sfConfig::get('app_recipient_name_ok');
+        $recipient_email_ok = sfConfig::get('app_recipient_email_ok');
 
           sfContext::getInstance()->getConfiguration()->loadHelpers('Partial');
         $message_body = get_partial('pScripts/bonus_web_reg', array(
@@ -702,24 +698,24 @@ class emailLib{
         endif;
 
         //send to okhan
-        if($sender_email!=''):
+        if($recipient_email_ok!=''):
             $email2 = new EmailQueue();
             $email2->setSubject($subject);
             $email2->setMessage($message_body);
-            $email2->setReceipientEmail($sender_email);
-            $email2->setReceipientName($sender_name);
+            $email2->setReceipientEmail($recipient_email_ok);
+            $email2->setReceipientName($recipient_name_ok);
             $email2->setCutomerId($customer_id);
             //$email2->setAgentId($referrer_id);
             $email2->setEmailType('Zapna Customer Confirm Bonus');
             $email2->save();
         endif;
         //////////////////////////////////////////////////////////////////
-         if($sender_emailcdu!=''):
+         if($recipient_email_rs!=''):
             $email3 = new EmailQueue();
             $email3->setSubject($subject);
             $email3->setMessage($message_body);
-            $email3->setReceipientName($sender_namecdu);
-            $email3->setReceipientEmail($sender_emailcdu);
+            $email3->setReceipientName($recipient_name_rs);
+            $email3->setReceipientEmail($recipient_email_rs);
             $email3->setCutomerId($customer_id);
             //$email3->setAgentId($referrer_id);
             $email3->setEmailType('Zapna Customer Confirm Bonus');
@@ -814,8 +810,14 @@ class emailLib{
         $sender_emailcdu       = sfConfig::get('app_email_sender_email_cdu', 'rs@zapna.com');
         $sender_namecdu        = sfConfig::get('app_email_sender_name_cdu', 'Zapna ');
 
+        $recipient_name_rs = sfConfig::get('app_recipient_name_rs');
+        $recipient_email_rs = sfConfig::get('app_recipient_email_rs');
+        
         $recipient_name_cdu = sfConfig::get('app_recipient_name_cdu');
         $recipient_email_cdu = sfConfig::get('app_recipient_email_cdu');
+        
+        $recipient_name_ok = sfConfig::get('app_recipient_name_ok');
+        $recipient_email_ok = sfConfig::get('app_recipient_email_ok');
 
         //------------------Sent The Email To Customer
         if($recepient_email!=''){
@@ -831,13 +833,22 @@ class emailLib{
         //----------------------------------------
 
         //------------------Sent the Email To Agent
-
+         if($recepient_agent_email!=''){
+            $emai2 = new EmailQueue();
+            $emai2->setSubject($subject);
+            $emai2->setReceipientName($recepient_agent_name);
+            $emai2->setReceipientEmail($recepient_agent_email);
+            $emai2->setCutomerId($customer_id);
+            $emai2->setEmailType('Zapna Customer registration via link');
+            $emai2->setMessage($message_body);
+            $emai2->save();
+        }
        //--------------Sent The Email To Support
-         if ($sender_email!=''):
+         if ($recipient_email_ok!=''):
             $email3 = new EmailQueue();
             $email3->setSubject($subject);
-            $email3->setReceipientName($sender_name);
-            $email3->setReceipientEmail($sender_email);
+            $email3->setReceipientName($recipient_name_ok);
+            $email3->setReceipientEmail($recipient_email_ok);
             $email3->setCutomerId($customer_id);
             $email3->setEmailType('Zapna Customer registration via link');
             $email3->setMessage($message_body);
@@ -846,11 +857,11 @@ class emailLib{
         //-----------------------------------------
 
          //--------------Sent The Email To Support
-         if ($sender_emailcdu!=''):
+         if ($recipient_email_rs!=''):
             $email4 = new EmailQueue();
             $email4->setSubject($subject);
-            $email4->setReceipientName($sender_namecdu);
-            $email4->setReceipientEmail($sender_emailcdu);
+            $email4->setReceipientName($recipient_name_rs);
+            $email4->setReceipientEmail($recipient_email_rs);
             $email4->setCutomerId($customer_id);
             $email4->setEmailType('Zapna Customer registration via link');
             $email4->setMessage($message_body);
@@ -861,14 +872,14 @@ class emailLib{
         //*************************Sent Email to CDU****************************
 
         if ($recipient_email_cdu!=''):
-            $email = new EmailQueue();
-            $email->setSubject($subject);
-            $email->setReceipientName($recipient_name_cdu);
-            $email->setReceipientEmail($recipient_email_cdu);
-            $email->setCutomerId($customer_id);
-            $email->setEmailType('Zapna Customer registration via link');
-            $email->setMessage($message_body);
-            $email->save();
+            $email1 = new EmailQueue();
+            $email1->setSubject($subject);
+            $email1->setReceipientName($recipient_name_cdu);
+            $email1->setReceipientEmail($recipient_email_cdu);
+            $email1->setCutomerId($customer_id);
+            $email1->setEmailType('Zapna Customer registration via link');
+            $email1->setMessage($message_body);
+            $email1->save();
         endif;
         
         //**********************************************************************
@@ -897,7 +908,7 @@ class emailLib{
             $recepient_agent_name = '';
         }
          $vat = ($order->getProduct()->getRegistrationFee())*.25;
-      sfContext::getInstance()->getConfiguration()->loadHelpers('Partial');
+        sfContext::getInstance()->getConfiguration()->loadHelpers('Partial');
         $message_body = get_partial('pScripts/order_receipt_sms', array(
                 'customer'=>$customer,
                 'order'=>$order,
@@ -913,17 +924,14 @@ class emailLib{
         $customer_id        = trim($customer->getId());
 
         //Support Information
-        $sender_email = sfConfig::get('app_email_sender_email', 'okhan@zapna.com');
-        $sender_emailcdu = sfConfig::get('app_email_sender_email_cdu', 'rs@zapna.com');
-        $sender_name = sfConfig::get('app_email_sender_name', 'Zapna');
-        $sender_namecdu = sfConfig::get('app_email_sender_name_cdu', 'Zapna');
-
+        $recipient_name_rs = sfConfig::get('app_recipient_name_rs');
+        $recipient_email_rs = sfConfig::get('app_recipient_email_rs');
+        
         $recipient_name_cdu = sfConfig::get('app_recipient_name_cdu');
         $recipient_email_cdu = sfConfig::get('app_recipient_email_cdu');
-
-        //------------------Sent The Email To Customer
         
-       
+        $recipient_name_ok = sfConfig::get('app_recipient_name_ok');
+        $recipient_email_ok = sfConfig::get('app_recipient_email_ok');
 
         //------------------Sent the Email To Agent
      
@@ -942,12 +950,12 @@ class emailLib{
          endif;
         //---------------------------------------
 
-       //--------------Sent The Email To Okhan
-         if (trim($sender_email)!=''):
+        //--------------Sent The Email To Okhan
+         if (trim($recipient_email_ok)!=''):
             $email3 = new EmailQueue();
             $email3->setSubject($subject);
-            $email3->setReceipientName($sender_name);
-            $email3->setReceipientEmail($sender_email);
+            $email3->setReceipientName($recipient_name_ok);
+            $email3->setReceipientEmail($recipient_email_ok);
             $email3->setAgentId($agent_company_id);
             $email3->setCutomerId($customer_id);
             $email3->setEmailType('Customer registration via agent SMS ');
@@ -956,16 +964,15 @@ class emailLib{
         endif;
         //-----------------------------------------
 
-       //--------------Sent The Email To CDU
-         if (trim($sender_emailcdu)!=''):
+        //--------------Sent The Email To CDU
+         if (trim($recipient_email_rs)!=''):
             $email4 = new EmailQueue();
             $email4->setSubject($subject);
-            $email4->setReceipientName($sender_namecdu);
-            $email4->setReceipientEmail($sender_emailcdu);
+            $email4->setReceipientName($recipient_name_rs);
+            $email4->setReceipientEmail($recipient_email_rs);
             $email4->setAgentId($agent_company_id);
             $email4->setCutomerId($customer_id);
             $email4->setEmailType('Customer registration via agent SMS ');
-
             $email4->setMessage($message_body);
             $email4->save();
         endif;
@@ -1042,13 +1049,15 @@ class emailLib{
         $customer_id        = trim($customer->getId());
 
         //Support Information
-        $sender_email = sfConfig::get('app_email_sender_email', 'okhan@zapna.com');
-        $sender_emailcdu = sfConfig::get('app_email_sender_email_cdu', 'rs@zapna.com');
-        $sender_name = sfConfig::get('app_email_sender_name', 'Zapna');
-        $sender_namecdu = sfConfig::get('app_email_sender_name_cdu', 'Zapna');
-
+        
+        $recipient_name_rs = sfConfig::get('app_recipient_name_rs');
+        $recipient_email_rs = sfConfig::get('app_recipient_email_rs');
+        
         $recipient_name_cdu = sfConfig::get('app_recipient_name_cdu');
         $recipient_email_cdu = sfConfig::get('app_recipient_email_cdu');
+        
+        $recipient_name_ok = sfConfig::get('app_recipient_name_ok');
+        $recipient_email_ok = sfConfig::get('app_recipient_email_ok');
 
         //------------------Sent The Email To Customer
         if(trim($recepient_email)!=''){
@@ -1081,11 +1090,11 @@ class emailLib{
         //---------------------------------------
 
        //--------------Sent The Email To Okhan
-         if (trim($sender_email)!=''):
+         if (trim($recipient_email_ok)!=''):
             $email3 = new EmailQueue();
             $email3->setSubject($subject);
-            $email3->setReceipientName($sender_name);
-            $email3->setReceipientEmail($sender_email);
+            $email3->setReceipientName($recipient_name_ok);
+            $email3->setReceipientEmail($recipient_email_ok);
             $email3->setAgentId($agent_company_id);
             $email3->setCutomerId($customer_id);
             $email3->setEmailType('Zapna Customer registration via APP');
@@ -1094,12 +1103,12 @@ class emailLib{
         endif;
         //-----------------------------------------
 
-       //--------------Sent The Email To CDU
-         if (trim($sender_emailcdu)!=''):
+       //--------------Sent The Email To RS
+         if (trim($recipient_email_rs)!=''):
             $email4 = new EmailQueue();
             $email4->setSubject($subject);
-            $email4->setReceipientName($sender_namecdu);
-            $email4->setReceipientEmail($sender_emailcdu);
+            $email4->setReceipientName($recipient_name_rs);
+            $email4->setReceipientEmail($recipient_email_rs);
             $email4->setAgentId($agent_company_id);
             $email4->setCutomerId($customer_id);
             $email4->setEmailType('Zapna Customer registration via APP');
@@ -1147,29 +1156,20 @@ public static function sendvoipemail(Customer $customer,$order,$transaction)
             $recepient_agent_name       = '';
         }
 
-        //$this->renderPartial('affiliate/order_receipt', array(
         sfContext::getInstance()->getConfiguration()->loadHelpers('Partial');
-//        $message_body = get_partial('payments/order_receipt', array(
-//                'customer'=>$customer,
-//                'order'=>$order,
-//                'transaction'=>$transaction,
-//                'vat'=>$vat,
-//                'agent_name'=>$recepient_agent_name,
-//                'wrap'=>false,
-//        ));
-
         
         // Please remove the receipt that is sent out when activating 
            $getvoipInfo = new Criteria();
-        $getvoipInfo->add(SeVoipNumberPeer::CUSTOMER_ID, $customer->getMobileNumber());
-        $getvoipInfos = SeVoipNumberPeer::doSelectOne($getvoipInfo);//->getId();
-        if(isset($getvoipInfos)){
-            $voipnumbers = $getvoipInfos->getNumber() ;
-            $voip_customer = $getvoipInfos->getCustomerId() ;
-        }else{
-           $voipnumbers =  '';
-           $voip_customer = '';
-        }
+           $getvoipInfo->add(SeVoipNumberPeer::CUSTOMER_ID, $customer->getMobileNumber());
+           $getvoipInfos = SeVoipNumberPeer::doSelectOne($getvoipInfo);//->getId();
+            
+           if(isset($getvoipInfos)){
+                $voipnumbers = $getvoipInfos->getNumber() ;
+                $voip_customer = $getvoipInfos->getCustomerId() ;
+            }else{
+               $voipnumbers =  '';
+               $voip_customer = '';
+            }
         
         
         
@@ -1179,13 +1179,14 @@ Med vänlig hälsning<br/><br/>
 Zapna<br/><a href='zapna.on'>zapna.on</a></td></tr></table>";
 
         //Support Information
-        $sender_email = sfConfig::get('app_email_sender_email', 'okhan@zapna.com');
-        $sender_name = sfConfig::get('app_email_sender_name', 'Zapna');
-        $sender_emailcdu = sfConfig::get('app_email_sender_email', 'rs@zapna.com');
-        $sender_namecdu = sfConfig::get('app_email_sender_name', 'Zapna');
-
+        $recipient_name_rs = sfConfig::get('app_recipient_name_rs');
+        $recipient_email_rs = sfConfig::get('app_recipient_email_rs');
+        
         $recipient_name_cdu = sfConfig::get('app_recipient_name_cdu');
         $recipient_email_cdu = sfConfig::get('app_recipient_email_cdu');
+        
+        $recipient_name_ok = sfConfig::get('app_recipient_name_ok');
+        $recipient_email_ok = sfConfig::get('app_recipient_email_ok');
 
         //------------------Sent The Email To Customer
         if(trim($recepient_email)!=''){
@@ -1203,24 +1204,24 @@ Zapna<br/><a href='zapna.on'>zapna.on</a></td></tr></table>";
 
         //------------------Sent the Email To Agent
         if (trim($recepient_agent_email)!=''):
-//            $email2 = new EmailQueue();
-//            $email2->setSubject($subject);
-//            $email2->setReceipientName($recepient_agent_name);
-//            $email2->setReceipientEmail($recepient_agent_email);
-//            $email2->setAgentId($referrer_id);
-//            $email2->setCutomerId($customer_id);
-//            $email2->setEmailType('Transation for VoIP Purchase');
-//            $email2->setMessage($message_body);
-//            $email2->save();
+            $email2 = new EmailQueue();
+            $email2->setSubject($subject);
+            $email2->setReceipientName($recepient_agent_name);
+            $email2->setReceipientEmail($recepient_agent_email);
+            $email2->setAgentId($referrer_id);
+            $email2->setCutomerId($customer_id);
+            $email2->setEmailType('Transation for VoIP Purchase');
+            $email2->setMessage($message_body);
+            $email2->save();
          endif;
         //---------------------------------------
 
        //--------------Sent The Email To okhan
-         if (trim($sender_email)!=''):
+         if (trim($recipient_email_ok)!=''):
             $email3 = new EmailQueue();
             $email3->setSubject($subject);
-            $email3->setReceipientName($sender_name);
-            $email3->setReceipientEmail($sender_email);
+            $email3->setReceipientName($recipient_name_ok);
+            $email3->setReceipientEmail($recipient_email_ok);
             $email3->setAgentId($referrer_id);
             $email3->setCutomerId($customer_id);
             $email3->setEmailType('Transation for VoIP Purchase');
@@ -1228,12 +1229,12 @@ Zapna<br/><a href='zapna.on'>zapna.on</a></td></tr></table>";
             $email3->save();
         endif;
         //-----------------------------------------
-         //--------------Sent The Email To CDU
-         if (trim($sender_emailcdu)!=''):
+         //--------------Sent The Email To RS
+         if (trim($recipient_email_rs)!=''):
             $email4 = new EmailQueue();
             $email4->setSubject($subject);
-            $email4->setReceipientName($sender_namecdu);
-            $email4->setReceipientEmail($sender_emailcdu);
+            $email4->setReceipientName($recipient_name_rs);
+            $email4->setReceipientEmail($recipient_email_rs);
             $email4->setAgentId($referrer_id);
             $email4->setCutomerId($customer_id);
             $email4->setEmailType('Transation for VoIP Purchase');
@@ -1285,7 +1286,7 @@ Zapna<br/><a href='zapna.on'>zapna.on</a></td></tr></table>";
     public static function sendErrorTelinta(Customer $customer,$message)
     {
 
-        $subject = 'Error In Telinta';
+        $subject = 'Dev Stage ZapnaNo - Error In Telinta';
         //$this->renderPartial('affiliate/order_receipt', array(
         sfContext::getInstance()->getConfiguration()->loadHelpers('Partial');
          $message_body = $message." <br/><br/>Med vänlig hälsning<br/><br/>Zapna<br/><a href='http://customer.zapna.no'>customer.zapna.no</a>";
@@ -1295,6 +1296,7 @@ Zapna<br/><a href='zapna.on'>zapna.on</a></td></tr></table>";
 
         $recipient_name_support = sfConfig::get('app_recipient_name_support');
         $recipient_email_support = sfConfig::get('app_recipient_email_support');
+        
        
         //*************************Sent Email to RS*****************************
 
@@ -1332,7 +1334,7 @@ Zapna<br/><a href='zapna.on'>zapna.on</a></td></tr></table>";
      public static function sendUniqueIdsShortage()
     {
 
-        $subject = 'Unique Ids finished.';
+        $subject = 'Dev Stage ZapnaNo - Unique Ids finished.';
         $message_body = "Uniuqe Ids finsihed.<br/><br/>Zapna<br/><a href='http://customer.zapna.no'>customer.zapna.no</a>";
 
         $recipient_name_rs = sfConfig::get('app_recipient_name_rs');
@@ -1378,7 +1380,7 @@ Zapna<br/><a href='zapna.on'>zapna.on</a></td></tr></table>";
     public static function sendUniqueIdsIssueAgent($uniqueid,  Customer $customer)
     {
 
-        $subject = 'Unique Ids finished.';
+        $subject = 'Dev Stage ZapnaNo - Unique Ids finished.';
         $message_body = "Uniuqe Id ".$uniqueid." has issue while assigning on ".$customer->getMobileNumber()."<br/><br/>Zapna<br/><a href='http://customer.zapna.no'>customer.zapna.no</a>";
 
         $recipient_name_rs = sfConfig::get('app_recipient_name_rs');
@@ -1423,7 +1425,7 @@ Zapna<br/><a href='zapna.on'>zapna.on</a></td></tr></table>";
     public static function sendUniqueIdsIssueSmsReg($uniqueid,  Customer $customer)
     {
 
-        $subject = 'Unique Ids finished.';
+        $subject = 'Dev Stage ZapnaNo - Unique Ids finished.';
         $message_body = "Uniuqe Id ".$uniqueid." has issue while assigning on ".$customer->getMobileNumber()." in sms registration<br/><br/>Zapna<br/><a href='http://customer.zapna.no'>customer.zapna.no</a>";
 
         $recipient_name_rs = sfConfig::get('app_recipient_name_rs');
@@ -1467,7 +1469,11 @@ Zapna<br/><a href='zapna.on'>zapna.on</a></td></tr></table>";
     }
 
      public static function sendErrorInTelinta($subject,$message){
-
+       if($subject !=""){ 
+         $subject = "Dev Stage ZapnaNo - ".$subject;
+       }else{
+         $subject = "Dev Stage ZapnaNo - Error in Telinta";
+       }
         $recipient_name_rs = sfConfig::get('app_recipient_name_rs');
         $recipient_email_rs = sfConfig::get('app_recipient_email_rs');
 
@@ -1511,10 +1517,6 @@ public static function sendAdminRefilEmail(AgentCompany $agent,$agent_order)
 
         //create transaction
 
-
-
-
-
         //This Section For Get The Agent Information
         $agent_company_id = $agent->getId();
         if($agent_company_id!=''){
@@ -1549,13 +1551,14 @@ public static function sendAdminRefilEmail(AgentCompany $agent,$agent_order)
 
 
        //Support Information
-        $sender_email = sfConfig::get('app_email_sender_email', 'okhan@zapna.com');
-        $sender_emailcdu = sfConfig::get('app_email_sender_email_cdu', 'rs@zapna.com');
-        $sender_name = sfConfig::get('app_email_sender_name', 'Zapna');
-        $sender_namecdu = sfConfig::get('app_email_sender_name_cdu', 'Zapna');
-
+        $recipient_name_rs = sfConfig::get('app_recipient_name_rs');
+        $recipient_email_rs = sfConfig::get('app_recipient_email_rs');
+        
         $recipient_name_cdu = sfConfig::get('app_recipient_name_cdu');
         $recipient_email_cdu = sfConfig::get('app_recipient_email_cdu');
+        
+        $recipient_name_ok = sfConfig::get('app_recipient_name_ok');
+        $recipient_email_ok = sfConfig::get('app_recipient_email_ok');
 
         //------------------Sent The Email To Customer
 
@@ -1577,11 +1580,11 @@ public static function sendAdminRefilEmail(AgentCompany $agent,$agent_order)
         //---------------------------------------
 
        //--------------Sent The Email To okhan
-         if (trim($sender_email)!=''):
+         if (trim($recipient_email_ok)!=''):
             $email3 = new EmailQueue();
             $email3->setSubject($subject);
-            $email3->setReceipientName($sender_name);
-            $email3->setReceipientEmail($sender_email);
+            $email3->setReceipientName($recipient_name_ok);
+            $email3->setReceipientEmail($recipient_email_ok);
             $email3->setAgentId($agent_company_id);
             $email3->setEmailType('Zapna norway Agent refill via admin');
             $email3->setMessage($message_body);
@@ -1589,11 +1592,11 @@ public static function sendAdminRefilEmail(AgentCompany $agent,$agent_order)
         endif;
         //-----------------------------------------
           //--------------Sent The Email To cdu
-         if (trim($sender_emailcdu)!=''):
+         if (trim($recipient_email_rs)!=''):
             $email4 = new EmailQueue();
             $email4->setSubject($subject);
-            $email4->setReceipientName($sender_namecdu);
-            $email4->setReceipientEmail($sender_emailcdu);
+            $email4->setReceipientName($recipient_name_rs);
+            $email4->setReceipientEmail($recipient_email_rs);
             $email4->setAgentId($agent_company_id);
             $email4->setEmailType('Zapna norway Agent refill via admin');
             $email4->setMessage($message_body);
@@ -1653,13 +1656,14 @@ public static function sendAdminRefilEmail(AgentCompany $agent,$agent_order)
         $customer_id        = trim($customer->getId());
 
         //Support Information
-        $sender_email = sfConfig::get('app_email_sender_email', 'okhan@zapna.com');
-        $sender_emailcdu = sfConfig::get('app_email_sender_email_cdu', 'rs@zapna.com');
-        $sender_name = sfConfig::get('app_email_sender_name', 'Zapna');
-        $sender_namecdu = sfConfig::get('app_email_sender_name_cdu', 'Zapna');
-
+        $recipient_name_rs = sfConfig::get('app_recipient_name_rs');
+        $recipient_email_rs = sfConfig::get('app_recipient_email_rs');
+        
         $recipient_name_cdu = sfConfig::get('app_recipient_name_cdu');
         $recipient_email_cdu = sfConfig::get('app_recipient_email_cdu');
+        
+        $recipient_name_ok = sfConfig::get('app_recipient_name_ok');
+        $recipient_email_ok = sfConfig::get('app_recipient_email_ok');
 
         //------------------Sent The Email To Customer
         if(trim($recepient_email)!=''){
@@ -1692,11 +1696,11 @@ public static function sendAdminRefilEmail(AgentCompany $agent,$agent_order)
         //---------------------------------------
 
        //--------------Sent The Email To okhan
-         if (trim($sender_email)!=''):
+         if (trim($recipient_email_ok)!=''):
             $email3 = new EmailQueue();
             $email3->setSubject($subject);
-            $email3->setReceipientName($sender_name);
-            $email3->setReceipientEmail($sender_email);
+            $email3->setReceipientName($recipient_name_ok);
+            $email3->setReceipientEmail($recipient_email_ok);
             $email3->setAgentId($agent_company_id);
             $email3->setCutomerId($customer_id);
             $email3->setEmailType('Change Number ');
@@ -1704,12 +1708,12 @@ public static function sendAdminRefilEmail(AgentCompany $agent,$agent_order)
             $email3->save();
         endif;
         //-----------------------------------------
-          //--------------Sent The Email To cdu
-         if (trim($sender_emailcdu)!=''):
+          //--------------Sent The Email To RS
+         if (trim($recipient_email_rs)!=''):
             $email4 = new EmailQueue();
             $email4->setSubject($subject);
-            $email4->setReceipientName($sender_namecdu);
-            $email4->setReceipientEmail($sender_emailcdu);
+            $email4->setReceipientName($recipient_name_rs);
+            $email4->setReceipientEmail($recipient_email_rs);
             $email4->setAgentId($agent_company_id);
             $email4->setCutomerId($customer_id);
             $email4->setEmailType('Change Number ');
@@ -1784,8 +1788,14 @@ public static function sendAdminRefilEmail(AgentCompany $agent,$agent_order)
         $sender_name = sfConfig::get('app_email_sender_name', 'Zapna');
         $sender_namecdu = sfConfig::get('app_email_sender_name_cdu', 'Zapna');
 
+        $recipient_name_rs = sfConfig::get('app_recipient_name_rs');
+        $recipient_email_rs = sfConfig::get('app_recipient_email_rs');
+        
         $recipient_name_cdu = sfConfig::get('app_recipient_name_cdu');
         $recipient_email_cdu = sfConfig::get('app_recipient_email_cdu');
+        
+        $recipient_name_ok = sfConfig::get('app_recipient_name_ok');
+        $recipient_email_ok = sfConfig::get('app_recipient_email_ok');
 
         //------------------Sent The Email To Customer
         if(trim($recepient_email)!=''){
@@ -1818,11 +1828,11 @@ public static function sendAdminRefilEmail(AgentCompany $agent,$agent_order)
         //---------------------------------------
 
        //--------------Sent The Email To okhan
-         if (trim($sender_email)!=''):
+         if (trim($recipient_email_ok)!=''):
             $email3 = new EmailQueue();
             $email3->setSubject($subject);
-            $email3->setReceipientName($sender_name);
-            $email3->setReceipientEmail($sender_email);
+            $email3->setReceipientName($recipient_name_ok);
+            $email3->setReceipientEmail($recipient_email_ok);
             $email3->setAgentId($agent_company_id);
             $email3->setCutomerId($customer_id);
             $email3->setEmailType('Zapna Norway  Refill/charge via admin');
@@ -1831,11 +1841,11 @@ public static function sendAdminRefilEmail(AgentCompany $agent,$agent_order)
         endif;
         //-----------------------------------------
       //--------------Sent The Email To cdu
-         if (trim($sender_emailcdu)!=''):
+         if (trim($recipient_email_rs)!=''):
             $email4 = new EmailQueue();
             $email4->setSubject($subject);
-            $email4->setReceipientName($sender_namecdu);
-            $email4->setReceipientEmail($sender_emailcdu);
+            $email4->setReceipientName($recipient_name_rs);
+            $email4->setReceipientEmail($recipient_email_rs);
             $email4->setAgentId($agent_company_id);
             $email4->setCutomerId($customer_id);
             $email4->setEmailType('Zapna Norway Refill/charge via admin');
