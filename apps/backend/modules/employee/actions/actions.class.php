@@ -587,8 +587,8 @@ class employeeActions extends sfActions {
 
         $c = new Criteria();
         //$c->setLimit(10);
-        $sim_type = $request->getParameter('sim_type_id');
-        $sim_type = SimTypesPeer::retrieveByPK($sim_type);
+        $product = $request->getParameter('product_id');
+        $product = ProductPeer::retrieveByPK($product);
 
         $c->add(UniqueIdsPeer::SIM_TYPE_ID, $sim_type->getId());
         $c->addAnd(UniqueIdsPeer::REGISTRATION_TYPE_ID, 1);
