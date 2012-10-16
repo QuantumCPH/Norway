@@ -139,8 +139,9 @@ class companyActions extends sfActions {
 
     protected function saveCompany($company) {
         $companyData = $this->getRequestParameter('company');
+        $ComtelintaObj = new CompanyEmployeActivation();
         if ($company->isNew()) {
-            $res = CompanyEmployeActivation::telintaRegisterCompany($company);
+            $res = $ComtelintaObj->telintaRegisterCompany($company);
         }
         $company->isNew() . ":" . $res;
 
@@ -162,7 +163,7 @@ class companyActions extends sfActions {
         } elseif (!$company->isNew()) {
             $update_customer['i_customer']=$company->getICustomer();
             $update_customer['credit_limit']=($company->getCreditLimit()!='')?$company->getCreditLimit():'0';
-            $res = CompanyEmployeActivation::updateCustomer($update_customer);
+            $res = $ComtelintaObj->updateCustomer($update_customer);
             $company->save();
         } elseif (!$res) {
             throw new PropelException("You cannot save an object that has been deleted.");
@@ -386,24 +387,27 @@ class companyActions extends sfActions {
 
     public function executeView($request) {
         $this->company = CompanyPeer::retrieveByPK($request->getParameter('id'));
-        $this->balance = CompanyEmployeActivation::getBalance($this->company);
+        $ComtelintaObj = new CompanyEmployeActivation();
+        $this->balance = $ComtelintaObj->getBalance($this->company);
     }
 
     public function executeUsage($request) {
-        $this->company = CompanyPeer::retrieveByPK($request->getParameter('company_id'));
+        $this->company = CompanyPeer::retrieveByPK($request->getParameter('company_id'));        
+        $ComtelintaObj = new CompanyEmployeActivation();
         $tomorrow1 = mktime(0, 0, 0, date("m"), date("d") - 15, date("Y"));
         $fromdate = date("Y-m-d", $tomorrow1);
         $tomorrow = mktime(0, 0, 0, date("m"), date("d") + 1, date("Y"));
         $todate = date("Y-m-d", $tomorrow);
-        $this->events = CompanyEmployeActivation::callHistory($this->company, $fromdate . ' 00:00:00', $todate . ' 23:59:59', false, 1);
-        $this->paymentHistory = CompanyEmployeActivation::callHistory($this->company, $fromdate . ' 00:00:00', $todate . ' 23:59:59', false, 2);
-        $this->callHistory = CompanyEmployeActivation::callHistory($this->company, $fromdate . ' 00:00:00', $todate . ' 23:59:59');
+        $this->events = $ComtelintaObj->callHistory($this->company, $fromdate . ' 00:00:00', $todate . ' 23:59:59', false, 1);
+        $this->paymentHistory = $ComtelintaObj->callHistory($this->company, $fromdate . ' 00:00:00', $todate . ' 23:59:59', false, 2);
+        $this->callHistory = $ComtelintaObj->callHistory($this->company, $fromdate . ' 00:00:00', $todate . ' 23:59:59');
     }
 
     public function executeRefill(sfWebRequest $request) {
 
         $c = new Criteria();
         $this->companys = CompanyPeer::doSelect($c);
+        $ComtelintaObj = new CompanyEmployeActivation();
         if ($request->isMethod('post')) {
 
             $company_id = $request->getParameter('company_id');
@@ -424,7 +428,7 @@ class companyActions extends sfActions {
             $transaction->save();
 
             if ($companyCVR != '') {
-                CompanyEmployeActivation::recharge($this->company, $refill_amount);
+                $ComtelintaObj->recharge($this->company, $refill_amount);
                 $transaction->setTransactionStatusId(3);
                 $transaction->save();
                 $this->getUser()->setFlash('message', 'B2B Company Refill Successfully');
@@ -474,7 +478,7 @@ class companyActions extends sfActions {
       $count=0;
       $count=count($request->getParameter('company_id'));
       $creditlimit=$request->getParameter('creditlimit');
-
+      $ComtelintaObj = new CompanyEmployeActivation();
         for($i=0; $i<$count; $i++){
             $id=$request->getParameter('company_id');
 
@@ -484,7 +488,7 @@ class companyActions extends sfActions {
             $company->save();
                $update_customer['i_customer']=$company->getICustomer();
             $update_customer['credit_limit']=($company->getCreditLimit()!='')?$company->getCreditLimit():'0';
-          if(!CompanyEmployeActivation::updateCustomer($update_customer)){
+          if(!$ComtelintaObj->updateCustomer($update_customer)){
                $company->setCreditLimit($oldcreditlimit);
             $company->save();
           }
