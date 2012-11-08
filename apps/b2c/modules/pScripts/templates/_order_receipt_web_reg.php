@@ -223,8 +223,8 @@ Ditt nåværende mobilabonnement fortsetter å fungere som før når du ringer t
 
 <table class="receipt" cellspacing="0" width="520px">
   <tr bgcolor="#CCCCCC" class="receipt_header"> 
-    <th colspan="3"><?php echo "Kvittering" ." (".$order->getProduct()->getName()." )"  ?></th>
-    <th style="padding-right:80px; text-align:right"><?php echo __('Ordre No.') ?> <?php echo $order->getId() ?></th>
+    <th colspan="3" style="text-align:left;text-transform:uppercase;"><?php echo "Kvittering" ." (".$order->getProduct()->getName()." )"  ?></th>
+    <th style="padding-right:80px; text-align:right;text-transform:uppercase;"><?php echo __('Ordre No.') ?> <?php echo $order->getId() ?></th>
   </tr>
     <tr> 
     <td colspan="4" class="payer_summary">
@@ -248,7 +248,7 @@ Ditt nåværende mobilabonnement fortsetter å fungere som før når du ringer t
     <td><?php echo __('Dato') ?></td>
     <td><?php echo __('Beskrivelse') ?></td>
     <td><?php echo __('Antall') ?></td>
-    <td style="padding-right:80px; text-align:right"><?php echo __('Sum NOK') ?>(<?php echo sfConfig::get('app_currency_code')?>)</td>
+    <td style="padding-right:80px; text-align:right"><?php echo __('Sum') ?>(<?php echo sfConfig::get('app_currency_code')?>)</td>
   </tr>
   <tr> 
     <td><?php echo $order->getCreatedAt('m-d-Y') ?></td>
