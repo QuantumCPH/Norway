@@ -843,44 +843,44 @@ class emailLib{
             $emai2->setMessage($message_body);
             $emai2->save();
         }
-       //--------------Sent The Email To Support
-         if ($recipient_email_ok!=''):
-            $email3 = new EmailQueue();
-            $email3->setSubject($subject);
-            $email3->setReceipientName($recipient_name_ok);
-            $email3->setReceipientEmail($recipient_email_ok);
-            $email3->setCutomerId($customer_id);
-            $email3->setEmailType('Zapna Customer registration via link');
-            $email3->setMessage($message_body);
-            $email3->save();
-        endif;
+       //--------------Sent The Email To OK
+//         if ($recipient_email_ok!=''):
+//            $email3 = new EmailQueue();
+//            $email3->setSubject($subject);
+//            $email3->setReceipientName($recipient_name_ok);
+//            $email3->setReceipientEmail($recipient_email_ok);
+//            $email3->setCutomerId($customer_id);
+//            $email3->setEmailType('Zapna Customer registration via link');
+//            $email3->setMessage($message_body);
+//            $email3->save();
+//        endif;
         //-----------------------------------------
 
          //--------------Sent The Email To Support
-         if ($recipient_email_rs!=''):
-            $email4 = new EmailQueue();
-            $email4->setSubject($subject);
-            $email4->setReceipientName($recipient_name_rs);
-            $email4->setReceipientEmail($recipient_email_rs);
-            $email4->setCutomerId($customer_id);
-            $email4->setEmailType('Zapna Customer registration via link');
-            $email4->setMessage($message_body);
-            $email4->save();
-        endif;
+//         if ($recipient_email_rs!=''):
+//            $email4 = new EmailQueue();
+//            $email4->setSubject($subject);
+//            $email4->setReceipientName($recipient_name_rs);
+//            $email4->setReceipientEmail($recipient_email_rs);
+//            $email4->setCutomerId($customer_id);
+//            $email4->setEmailType('Zapna Customer registration via link');
+//            $email4->setMessage($message_body);
+//            $email4->save();
+//        endif;
         //-----------------------------------------
 
         //*************************Sent Email to CDU****************************
 
-        if ($recipient_email_cdu!=''):
-            $email1 = new EmailQueue();
-            $email1->setSubject($subject);
-            $email1->setReceipientName($recipient_name_cdu);
-            $email1->setReceipientEmail($recipient_email_cdu);
-            $email1->setCutomerId($customer_id);
-            $email1->setEmailType('Zapna Customer registration via link');
-            $email1->setMessage($message_body);
-            $email1->save();
-        endif;
+//        if ($recipient_email_cdu!=''):
+//            $email1 = new EmailQueue();
+//            $email1->setSubject($subject);
+//            $email1->setReceipientName($recipient_name_cdu);
+//            $email1->setReceipientEmail($recipient_email_cdu);
+//            $email1->setCutomerId($customer_id);
+//            $email1->setEmailType('Zapna Customer registration via link');
+//            $email1->setMessage($message_body);
+//            $email1->save();
+//        endif;
         
         //**********************************************************************
 
