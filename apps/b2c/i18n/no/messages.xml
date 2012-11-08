@@ -364,23 +364,23 @@
             </trans-unit>
             <trans-unit id="89" translate="yes" reformat="yes" xml:space="default">
                 <source>Tell your friends about Zapna and earn 10 Nkr as soon as your friends have made their first payment with Zapna! Spread the word about Zapna and let your friends know about Zapna services.</source>
-                <target>Fortell vennene dine om Zapna og tjene 10 Nkr så snart dine venner har gjort sin første innbetaling med Zapna! Spre ordet om Zapna og la vennene dine om Zapna tjenester.</target>
+                <target>Fortell en venn om Zapna og opptjen 10 kroner i ringetid straks din venn har foretatt sin første innbetaling til Zapna!</target>
             </trans-unit>
             <trans-unit id="90" translate="yes" reformat="yes" xml:space="default">
                 <source>You can tell your friends about Zapna in two simple ways:</source>
-                <target>Du kan fortelle dine venner om Zapna på to enkle måter:</target>
+                <target>Du kan fortelle vennene dine om Zapna på to enkle måter:</target>
             </trans-unit>
             <trans-unit id="91" translate="yes" reformat="yes" xml:space="default">
                 <source>Fill out the fields below and click the Send Email button - your friend will receive an Email</source>
-                <target>Fyll ut feltene nedenfor og klikk på "Send e-post" knappen -  Din venn vil motta en e-post</target>
+                <target>Fyll ut feltene nedenfor og klikk på «Send e-post» knappen. Din venn vil deretter motta en e-post fra Zapna</target>
             </trans-unit>
             <trans-unit id="92" translate="yes" reformat="yes" xml:space="default">
                 <source>What you'll get from this?</source>
-                <target>Hva får du av dette?</target>
+                <target>Hva får du ut av dette?</target>
             </trans-unit>
             <trans-unit id="93" translate="yes" reformat="yes" xml:space="default">
                 <source>As soon as your friends have made their first payment with Zapna, you will automatically receive 10 Nkr in your Zapna balance - so if 10 of your friends register on Zapna, youll gain 100 Nkr in your account. Just share the news and enjoy this great new treat from Zapna.</source>
-                <target>Så snart dine venner har gjort sin første innbetaling med Zapna, vil du  automatisk motta 10 euro på din Zapna balanse - så hvis 10 av vennene dine registrerer seg på Zapna får du dermed 100 euro inn på din konto..</target>
+                <target>Så snart dine venner har gjort sine første innbetalinger til Zapna, vil du automatisk motta 10 kroner på din Zapna ringe konto! Hvis 10 av vennene dine registrerer seg på Zapna, får du dermed 100 kroner til anvendelse av ringetid inn på din samtalekonto.</target>
             </trans-unit>
       
             <trans-unit id="94" translate="yes" reformat="yes" xml:space="default">
@@ -389,7 +389,7 @@
             </trans-unit>
             <trans-unit id="95" translate="yes" reformat="yes" xml:space="default">
                 <source>Your Friend's Phone Number</source>
-                <target>Din venn telefonnummer</target>
+                <target>Din venns telefonnummer</target>
             </trans-unit>
             <trans-unit id="96" translate="yes" reformat="yes" xml:space="default">
                 <source>Your Friend's Email</source>
@@ -401,7 +401,7 @@
             </trans-unit>
             <trans-unit id="98" translate="yes" reformat="yes" xml:space="default">
                 <source>Smartsim use to make extremely cheap international calls (save up to 90%) and to cut prices when you are abroad (you'll save 30-80%). Right now costing Smartsim 99 Nkr and you can call for the full amount. Smartsim has no monthly fee or hidden charges.</source>
-                <target>SmartSim bruke til å lage ekstremt billige internasjonale samtaler (lagre opptil 90%) og å kutte prisene når du er i utlandet (du vil spare 30-80%). Akkurat nå koster SmartSim 99 Nkr, og du kan ringe for hele beløpet. SmartSim har ingen månedspris eller skjulte kostnader.</target>
+                <target>Zapna benyttes til å foreta ekstremt rimelige internasjonale samtaler, med en besparelse på opptil 90%. Samtidig kutter du prisene på roaming i utlandet med 30-80%. Akkurat nå koster Zapna 499 kroner, og du kan ringe for 200 kroner av beløpet. Zapna har ingen månedspris eller skjulte kostnader og benyttes i kombinasjon med ditt nåværende abonnement!</target>
             </trans-unit>
             <trans-unit id="99" translate="yes" reformat="yes" xml:space="default">
                 <source>Send Email to join Smartsim</source>
