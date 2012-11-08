@@ -223,7 +223,7 @@ Ditt nåværende mobilabonnement fortsetter å fungere som før når du ringer t
 
 <table class="receipt" cellspacing="0" width="520px">
   <tr bgcolor="#CCCCCC" class="receipt_header"> 
-    <th colspan="3"><?php echo "Kvittering" ." (Liten utland)" ?></th>
+    <th colspan="3"><?php echo "Kvittering" ." (".$order->getProduct()->getName()." )"  ?></th>
     <th style="padding-right:80px; text-align:right"><?php echo __('Ordre No.') ?> <?php echo $order->getId() ?></th>
   </tr>
     <tr> 
