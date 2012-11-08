@@ -2764,7 +2764,7 @@ if(($caltype!="IC") && ($caltype!="hc")){
 
     public function executeConfirmpayment(sfWebRequest $request) {
         $Parameters=$request->getURI();
-          $this->getUser()->setCulture('no');
+        $this->getUser()->setCulture('no');
         $Parameters=$Parameters.$request->getParameter('amount');
         $email2 = new DibsCall();
         $email2->setCallurl($Parameters);
@@ -3040,7 +3040,7 @@ if(($caltype!="IC") && ($caltype!="hc")){
                                  $subject ='Bonus tildeles';
                            }
 
-
+                        $this->getUser()->setCulture('no');
                         emailLib::sendCustomerConfirmRegistrationEmail($invite->getCustomerId(),$this->customer,$subject);
                     }
                 }
@@ -3067,7 +3067,7 @@ if(($caltype!="IC") && ($caltype!="hc")){
              }
              //$product_price = $order->getProduct()->getPrice() - $order->getExtraRefill();
             $product_price = $order->getProduct()->getPrice() - $order->getExtraRefill();
-
+            $this->getUser()->setCulture('no'); 
             $product_price_vat = .25 * ($order->getProduct()->getRegistrationFee()+$postalcharge);
                 $message_body = $this->getPartial('payments/order_receipt', array(
                             'customer' => $this->customer,
@@ -3098,12 +3098,13 @@ if(($caltype!="IC") && ($caltype!="hc")){
                     commissionLib::registrationCommissionCustomer($agentid, $productid, $transactionid);
                 }
                 
-                
+                $this->getUser()->setCulture('no');
                 emailLib::sendCustomerRegistrationViaWebEmail($this->customer, $order);
                 $zerocalloutSMSObj = new ZeroCallOutSMS();
                 $zerocalloutSMSObj->toCustomerAfterReg($productid, $customer);
 
                 $this->order = $order;
+                $this->getUser()->setCulture('no');
             }//end if
             else {
                 $this->logMessage('Error in transaction.');

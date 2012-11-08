@@ -1,6 +1,7 @@
 <?php
 use_helper('I18N');
 use_helper('Number');
+
 ?>
 <style>
 	p {
@@ -59,7 +60,7 @@ use_helper('Number');
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td><strong>Takk for din bestilling</strong><strong>&nbsp;</strong><strong>og velkommen som kunde hos Zapna <br/>
+    <td><strong>Takk for din bestilling</strong><strong>&nbsp;</strong><strong>og velkommen som kunde hos Zapna. <br/>
       Ditt telefonnummer <?php echo $customer->getMobileNumber(); ?> er satt opp</strong><strong>&nbsp;</strong><strong>for</strong><strong>
       <?php if ($order->getIsFirstOrder())
     {
@@ -70,7 +71,7 @@ use_helper('Number');
     {
 		echo $transaction->getDescription();
     }
-    ?>	 
+    ?>.	 
       </strong></td>
   </tr>
  <tr>
@@ -81,23 +82,13 @@ use_helper('Number');
   <tr valign="top">
     <td width="344" height="588"><table width="344">
       <tr>
-          <td colspan="2"><p style="text-align: justify;" >Vi er glade for å ønske  deg velkommen til en ny og mer  mobiligere verden. Vi håper du  blir fornøyd med din
-            <?php if ($order->getIsFirstOrder())
-    {
-		echo $order->getProduct()->getName() ;
-    }
-    else
-    {
-		echo $transaction->getDescription();
-    }
-    ?>
-            og våre lave priser.
+          <td colspan="2"><p style="text-align: justify;" >Vi er glade for å ønske  deg velkommen til en ny og rimeligere mobilverden. og håper du  blir fornøyd med  våre lave priser.
     <?php if($customer->getReferrerId()!=null or $customer->getReferrerId()!="" ): ?>
      <?php $c = new Criteria();
             $c->add(AgentCompanyPeer::ID, $customer->getReferrerId());
             $agent_name  = AgentCompanyPeer::doSelectOne($c)->getName();
             ?>
-          <?php echo $agent_name; ?> har levert startpakke som du skal benytte for å komme i gang.
+          <?php echo $agent_name; ?> har levert startpakken som du skal benytte for å komme i gang.
               <?php endif; ?>
               </p></td>
       </tr>
@@ -150,12 +141,14 @@ Sett forsiktig Zapna SIM-kortet over ditt nåværende SIM-kort og sett kortene t
         <td colspan="2">&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="2" align="left" valign="middle"><p style="text-align: justify;">Etter at du har satt ditt smartSIM i din mobiltelefon, vil alle dine utenlandsamtaler automatisk skje via Zapna.
-Ditt nåværende mobilabonnement fortsetter å fungere som før når du ringer til norske telefonnumre.<br /><br />
-         Du har valgt: <br />
+        <td colspan="2" align="left" valign="middle"><p style="text-align: justify;">Etter at du har satt ditt Zapna SIM i din mobiltelefon, vil alle dine utenlandsamtaler automatisk skje via Zapna.
+Ditt nåværende mobilabonnement fortsetter å fungere som før når du ringer til norske telefonnumre.<br />
+<br />
+         Du har valgt følgende  adgangsinformasjon for innlogging på <a href="http://www.zapna.no">www.zapna.no</a>: <br />
          <strong>Brukernamn:</strong> <?php echo $customer->getMobileNumber();?><br />
          <strong>Lösenord:</strong> <?php echo $customer->getPlainText();?>
-          <br />God fornøyelse med din nye utenlandsforbindelse, som gjør at du ringer mobilligere  til hele verden!</p></td>
+          <br />
+          God fornøyelse med din nye utenlandsforbindelse, som gjør at du ringer kjempebillig    til hele verden!</p></td>
       </tr>
     </table>
     <p  >&nbsp;</p></td>
@@ -173,10 +166,10 @@ Ditt nåværende mobilabonnement fortsetter å fungere som før når du ringer t
         <td><p   style="color: #FFFFFF; text-align: justify;">På <a href="www.zapna.no">www.zapna.no</a> kan du holde øye med ditt forbruk og fylle på samtaletid.</p></td>
       </tr>
       <tr>
-        <td><p   style="color: #FFFFFF; text-align: justify;">Nå kan du også sende webSMS til hele verden for omkring 30 øre fra din kundportal.</p></td>
+        <td><p   style="color: #FFFFFF; text-align: justify;">Nå kan du også sende webSMS til hele verden  fra din kundeportal.</p></td>
       </tr>
       <tr>
-        <td><p   style="color: #FFFFFF;text-align: justify;">Du kan også sikre deg automatisk påfylling  <a href="http://www.zapna.no/" title="Du kan ogs&aring; tanke her!">her</a>.</p></td>
+        <td><p   style="color: #FFFFFF;text-align: justify;">Du kan også sette opp automatisk påfylling av ringetid  <a href="http://www.zapna.no/" title="Du kan ogs&aring; tanke her!">her</a>.</p></td>
       </tr>
       <tr>
         <td height="130"><p   style="color: #FFFFFF; text-align: justify;">Når du benytter Zapna vil du høre ”Zerocall is connecting your call”. For å forsikre deg om at du alltid ringer via Zapna er det viktig at du sperrer ditt abonnement for utenlandske samtaler hos din nåværende mobiloperatør.</p></td>
@@ -191,14 +184,14 @@ Ditt nåværende mobilabonnement fortsetter å fungere som før når du ringer t
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td height="42"><p   style="color: #FFFFFF;text-align: justify;">Så kan du kontakte oss på følgende måte:</p></td>
+        <td height="42"><p   style="color: #FFFFFF;text-align: justify;">Du kan kontakte oss på følgende måte:</p></td>
       </tr>
       <tr>
         <td>
           <ul style="color: #FFFFFF;text-align: justify;">
             <li>Email: <a href="mailto:support@zapna.no">support@zapna.no</a></li>
-            <li>Finn svarene på de vanligste spørsmål (FAQ) på vår hjemmeside <a href="http://www.zapna.no">www.zapna.no</a></li>
-            <li>Eller ring til vår kundeservice  2162 7500</li>
+            <li>Web: Finn svarene på de vanligste spørsmål (FAQ) på vår hjemmeside <a href="http://www.zapna.no">www.zapna.no</a></li>
+            <li>Telefon  kundeservice:  2162 7500</li>
           </ul>          </td>
       </tr>
     </table></td>
@@ -221,25 +214,21 @@ Ditt nåværende mobilabonnement fortsetter å fungere som før når du ringer t
     <td>&nbsp;</td>
   </tr>
   <tr>
-      <td><p style=""><strong style="font-size: 20px;">Din kvittering nedenfor:</strong></p></td>
+      <td><p style=""><strong style="font-size: 20px;">Din kvittering :</strong></p></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
   </tr>
   <tr><td>
-  <table width="602">
-	<tr style="border:0px solid #fff">
-		<td colspan="4" align="right" style="text-align:right; border:0px solid #fff"><?php echo image_tag('http://customer.zapna.no/images/zapna_logo_small.jpg',array('width' => '170'));?></td>
-	</tr>
-</table>
+
 <table class="receipt" cellspacing="0" width="520px">
   <tr bgcolor="#CCCCCC" class="receipt_header"> 
-    <th colspan="3"><?php echo __('Order Receipt')." (".$order->getProduct()->getName()." )" ?></th>
-    <th><?php echo __('Order No.') ?> <?php echo $order->getId() ?></th>
+    <th colspan="3"><?php echo "Kvittering" ." (Liten utland)" ?></th>
+    <th style="padding-right:80px; text-align:right"><?php echo __('Ordre No.') ?> <?php echo $order->getId() ?></th>
   </tr>
     <tr> 
     <td colspan="4" class="payer_summary">
-      <?php echo __('Customer Number') ?>   <?php echo $customer->getUniqueId(); ?><br/>
+      <?php echo __('Kunde nummer') ?>   <?php echo $customer->getUniqueId(); ?><br/>
       <?php echo sprintf("%s %s", $customer->getFirstName(), $customer->getLastName())?><br/>
       <?php echo $customer->getAddress() ?><br/>
       <?php echo sprintf('%s, %s', $customer->getCity(), $customer->getPoBoxNumber()) ?><br/>
@@ -249,23 +238,23 @@ Ditt nåværende mobilabonnement fortsetter å fungere som før når du ringer t
 	  $eC = EnableCountryPeer::doSelectOne($eC);
 	  echo $eC->getName();
       ?>    <br /><br />
-      <?php echo __('Mobile Number') ?>: <br />
+      <?php echo __('Mobilnummer') ?>: <br />
       <?php echo $customer->getMobileNumber() ?><br />
 
-      <?php if($agent_name!=''){ echo __('Agent Name') ?>:  <?php echo $agent_name; } ?>
+      <?php if($agent_name!=''){ echo __('Agent navn') ?>:  <?php echo $agent_name; } ?>
     </td>
   </tr>
   <tr class="order_summary_header" bgcolor="#CCCCCC"> 
-    <td><?php echo __('Date') ?></td>
-    <td><?php echo __('Description') ?></td>
-    <td><?php echo __('Quantity') ?></td>
-    <td style="padding-right:80px; text-align:right"><?php echo __('Amount') ?>(<?php echo sfConfig::get('app_currency_code')?>)</td>
+    <td><?php echo __('Dato') ?></td>
+    <td><?php echo __('Beskrivelse') ?></td>
+    <td><?php echo __('Antall') ?></td>
+    <td style="padding-right:80px; text-align:right"><?php echo __('Sum NOK') ?>(<?php echo sfConfig::get('app_currency_code')?>)</td>
   </tr>
   <tr> 
     <td><?php echo $order->getCreatedAt('m-d-Y') ?></td>
     <td>
     <?php 
-         echo __("Registration Fee");
+         echo __("Registrering");
     
     ?>
 	</td>
@@ -297,13 +286,7 @@ Ditt nåværende mobilabonnement fortsetter å fungere som før når du ringer t
   
   <tr class="footer">
     <td>&nbsp;</td>
-    <td><?php echo __('Delivery and Returns') ?>  </td>
-    <td>&nbsp;</td>
-    <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($postalcharge) ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
-  </tr>
-  <tr class="footer">
-    <td>&nbsp;</td>
-    <td><?php echo __('VAT') ?> (<?php echo $vat==0?'0%':'25%' ?>)</td>
+    <td><?php echo __('MVA') ?> (<?php echo $vat==0?'0%':'25%' ?>)</td>
     <td>&nbsp;</td>
     <td style="padding-right:80px; text-align:right"><?php echo BaseUtil::format_number($vat) ?>&nbsp;<?php echo sfConfig::get('app_currency_code')?></td>
   </tr>
@@ -319,7 +302,7 @@ Ditt nåværende mobilabonnement fortsetter å fungere som før når du ringer t
   </tr>
   <tr class="footer">
     <td class="payer_summary" colspan="4" style="font-weight:normal; white-space: nowrap;"> 
-    <?php echo __('Zapna Aps – Softgarden, Postboks 5093 Majorstua - 0301 Oslo')?> </td>
+    <?php echo __('Zapna - Postboks 5093 Majorstua - 0301 Oslo')?> </td>
   </tr>
 </table>
     

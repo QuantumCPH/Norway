@@ -118,7 +118,7 @@ use_helper('Number');
   </tr>
   <tr class="footer">
     <td class="payer_summary" colspan="4" style="font-weight:normal; white-space: nowrap;">
-    <?php echo __('Zapna Aps – Softgarden, Postboks 5093 Majorstua - 0301 Oslo');?> </td>
+    <?php echo __('Zapna - Postboks 5093 Majorstua - 0301 Oslo');?> </td>
   </tr>
 </table>
         
