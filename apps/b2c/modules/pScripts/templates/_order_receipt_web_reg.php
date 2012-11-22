@@ -248,7 +248,7 @@ Ditt nåværende mobilabonnement fortsetter å fungere som før når du ringer t
     <td><?php echo __('Dato') ?></td>
     <td><?php echo __('Beskrivelse') ?></td>
     <td><?php echo __('Antall') ?></td>
-    <td style="padding-right:80px; text-align:right"><?php echo __('Sum NOK') ?>(<?php echo sfConfig::get('app_currency_code')?>)</td>
+    <td style="padding-right:80px; text-align:right"><?php echo __('Sum') ?>(<?php echo sfConfig::get('app_currency_code')?>)</td>
   </tr>
   <tr> 
     <td><?php echo $order->getCreatedAt('m-d-Y') ?></td>

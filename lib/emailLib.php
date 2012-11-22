@@ -843,7 +843,7 @@ class emailLib{
             $emai2->setMessage($message_body);
             $emai2->save();
         }
-       //--------------Sent The Email To Support
+       //--------------Sent The Email To OK
          if ($recipient_email_ok!=''):
             $email3 = new EmailQueue();
             $email3->setSubject($subject);

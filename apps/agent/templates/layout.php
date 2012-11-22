@@ -5,7 +5,7 @@
         <?php include_http_metas() ?>
         <?php include_metas() ?>
         <?php include_title() ?>
-         <link rel="shortcut icon" href="http://agent.zapna.no/images/favicon.ico" type="image/x-icon">
+         <link rel="shortcut icon" href="<?php echo sfConfig::get("app_web_url");?>images/favicon.ico" type="image/x-icon" />
         <?php
         $va = new Criteria();
         $va->add(AgentCompanyPeer::ID, $sf_user->getAttribute('agent_company_id', '', 'agentsession'));
