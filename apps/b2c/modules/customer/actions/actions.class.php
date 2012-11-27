@@ -1028,7 +1028,7 @@ class customerActions extends sfActions {
        
 
         if ($this->customer) {
-            $lang = PreferredLanguagesPeer::retrieveByPK($this->customer->getPreferredLanguageId());
+         
             
                 $this->redirect($this->getTargetUrl() . 'customer/dashboard');
             
@@ -1073,7 +1073,7 @@ class customerActions extends sfActions {
         $this->redirect($pathArray['HTTP_REFERER']);
 
 }else{
-                      $this->redirect($this->getTargetUrl().'customer/dashboard');
+                      $this->redirect($this->getTargetUrl().'/customer/dashboard');
 
 }
 
