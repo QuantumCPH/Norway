@@ -1022,8 +1022,19 @@ class customerActions extends sfActions {
     public function executeLogin(sfWebRequest $request) {
         
     $this->target = $this->getTargetUrl();   
-           
-        
+         
+        $this->customer = CustomerPeer::retrieveByPK($this->getUser()->getAttribute('customer_id', '', 'usersession'));
+
+       
+
+        if ($this->customer) {
+         
+            
+                $this->redirect($this->getTargetUrl() . 'customer/dashboard');
+            
+        } else {
+            
+               
         if ($request->isMethod('post') &&
                 $request->getParameter('mobile_number') != '' &&
                 $request->getParameter('password') != '') {
@@ -1062,7 +1073,7 @@ class customerActions extends sfActions {
         $this->redirect($pathArray['HTTP_REFERER']);
 
 }else{
-                      $this->redirect($this->getTargetUrl().'customer/dashboard');
+                      $this->redirect($this->getTargetUrl().'/customer/dashboard');
 
 }
 
@@ -1082,6 +1093,7 @@ class customerActions extends sfActions {
                 $this->renderPartial('login');
                 return sfView::NONE;
             }
+        }
         }
     }
 
