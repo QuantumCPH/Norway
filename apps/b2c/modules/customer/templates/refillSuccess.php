@@ -101,7 +101,7 @@ if($is_auto_refill_activated){  ?>  <div class="left-col">
               </div>  
       <div class="fl col">
       <div class="split-form">  
-   <form action="https://payment.architrade.com/paymentweb/start.action" method="post" id="frmarchitrade" style="display: none;" >
+   <form action="https://payment.architrade.com/paymentweb/start.action" method="post" id="frmarchitrade" style="display: none;"  target="_parent">
   <input type="hidden" name="merchant" value="90049676" />
   <input type="hidden" name="amount" value="1" />
       <input type="hidden" name="customerid" value="<?php echo   $customer_form->getObject()->getId() ?>" />
@@ -151,7 +151,7 @@ if($is_auto_refill_activated){  ?>  <div class="left-col">
           
 <br/>
 <br/>
-  <form action="<?php echo $target;?>customer/refilTransaction"  method="post" id="refill"  target="_new">
+  <form action="<?php echo $target;?>customer/refilTransaction"  method="post" id="refill"    target="_parent">
      <div style="width:500px;">
      <div  style="width:340px;float:left;">    <ul>
          	<!-- customer product -->
