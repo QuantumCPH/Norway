@@ -31,7 +31,7 @@ dibs_refill_accept:
   param: { module: customer, action: calbackrefill }
   
 epay_refill_reject:
-  url: /customer/refill/rejeceted
+  url: /refill/rejeceted
   param: { module: customer, action: refillReject }
   
 customer_login:
