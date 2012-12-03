@@ -102,7 +102,7 @@ class ZeroCallOutSMS {
         $smsLog->setMessage($sms_text);
         $smsLog->setStatus($res);
         $smsLog->setSmsType(1);
-        $smsLog->setSenderName("Zerocall");
+        $smsLog->setSenderName("Zapna");
         $smsLog->setMobileNumber($mobile_number);
         $smsLog->save();
         if (substr($res, 0, 2) == 'OK')
