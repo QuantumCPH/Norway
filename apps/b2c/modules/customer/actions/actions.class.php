@@ -1805,7 +1805,7 @@ public function executeSmsHistory(sfWebrequest $request){
          $return_url='http://zapna.no/refill-accepted/';
          $urlcalcel='http://zapna.no/refill-rejected/?orderid=';
         $cancel_url = $urlcalcel.$order_id;
-      $cancel_url = $this->getTargetUrl().'customer/refillReject?orderid='.$order_id;
+      //$cancel_url = $this->getTargetUrl().'customer/refillReject?orderid='.$order_id;
        $notify_url = $this->getTargetUrl().'pScripts/calbackrefill?order_id='.$order_id.'&amountval='.$item_amount;
 
           $email2 = new DibsCall();
