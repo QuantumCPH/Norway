@@ -120,7 +120,7 @@ class ZeroCallOutSMS {
          if (isset($agentid) && $agentid != "") {
              $agent = AgentCompanyPeer::retrieveByPK($agentid);
              $agentMobileNumber = $agent->getMobileNumber();             
-             
+             $telephoneNumber = $MobileNumber;
              $this->toAgentAfterCustomerRefill($telephoneNumber, $agentMobileNumber, $amount);
          }
         $sms_dk_object    = SmsTextPeer::retrieveByPK(8);
