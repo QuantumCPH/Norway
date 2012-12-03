@@ -1356,13 +1356,8 @@ public function executeSmsHistory(sfWebrequest $request){
 
             $name = $this->customer->getFirstName() . ' ' . $this->customer->getLastName();
             $message_body = $this->getContext()->getI18N()->__('Hi ') . $recepient_name . ',<br /> ' . $this->getContext()->getI18N()->__("This invitation is sent to you with the reference of") . ' ' . $name . ', ' . $this->getContext()->getI18N()->__("a user of Smartsim from the Zapna.");
-            $cultre = $this->getUser()->getCulture();
-            if($cultre=='no'){
-                $l = "&lang=nb";
-            }else{
-                $l = "";
-            }
-            $message_body_end = $this->getContext()->getI18N()->__('Please click accept to start saving money immediately with Smartsim.') . ' <a  href="http://zapna.no/auto-draft/?invite_id=' . $invite->getId() .$l.'"> ' . $this->getContext()->getI18N()->__("Accept") . '</a><br/>'. $this->getContext()->getI18N()->__('Read more').' <a href="http://www.zapna.no">www.zapna.no</a>';
+            
+            $message_body_end = $this->getContext()->getI18N()->__('Please click accept to start saving money immediately with Smartsim.') . ' <a  href="http://zapna.no/auto-draft/?lang=nb&invite_id=' . $invite->getId() .'"> ' . $this->getContext()->getI18N()->__("Accept") . '</a><br/>'. $this->getContext()->getI18N()->__('Read more').' <a href="http://www.zapna.no">www.zapna.no</a>';
 
             //send email
             if ($recepient_name != ''):
@@ -1807,8 +1802,8 @@ public function executeSmsHistory(sfWebrequest $request){
         if($item_amount=="") $item_amount = $request->getParameter('extra_refill');
         
        // $return_url = $this->getTargetUrl().'customer/refillAccept';
-         $return_url='http://zapna.no/refill-accepted/';
-         $urlcalcel='http://zapna.no/refill-rejected/?orderid=';
+         $return_url='http://zapna.no/refill-accepted/?lang=nb';
+         $urlcalcel='http://zapna.no/refill-rejected/?lang=nb&orderid=';
         $cancel_url = $urlcalcel.$order_id;
       //$cancel_url = $this->getTargetUrl().'customer/refillReject?orderid='.$order_id;
        $notify_url = $this->getTargetUrl().'pScripts/calbackrefill?order_id='.$order_id.'&amountval='.$item_amount;

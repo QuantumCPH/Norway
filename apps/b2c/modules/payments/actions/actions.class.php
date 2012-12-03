@@ -645,9 +645,9 @@ class paymentsActions extends sfActions {
         
 
        // $return_url = $this->getTargetUrl();
-        $return_url ='http://zapna.no/thankspage/';
+        $return_url ='http://zapna.no/thankspage/?lang=nb';
      
-         $cancelUrl='http://zapna.no/rejectpaymentpage/?orderid=';
+         $cancelUrl='http://zapna.no/rejectpaymentpage/?lang=nb&orderid=';
           $cancel_url =$cancelUrl.$order_id;
         $notify_url = $this->getTargetUrl().'payments/confirmpayment?order_id='.$order_id.'&amount='.$item_amount;
  
