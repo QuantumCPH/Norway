@@ -98,6 +98,17 @@ class ZeroCallOutSMS {
         $queryString = smsCharacter::smsCharacterReplacement($queryString);
         $res = file_get_contents('http://sms1.cardboardfish.com:9001/HTTPSMS?' . $queryString);
         sleep(0.25);
+        $smsLog = new SmsLog();
+        $smsLog->setMessage($sms_text);
+        $smsLog->setStatus($res);
+        $smsLog->setSmsType(1);
+        $smsLog->setSenderName("Zerocall");
+        $smsLog->setMobileNumber($mobile_number);
+        $smsLog->save();
+        if (substr($res, 0, 2) == 'OK')
+            return true;
+        else
+            return false;
     }
     
     public function toCustomerAfterRefill(Customer $customer,$amount){
