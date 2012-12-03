@@ -134,8 +134,8 @@ class ZeroCallOutSMS {
         
         $sms_dk_object = SmsTextPeer::retrieveByPK(9);
         $sms_text_dk = $sms_dk_object->getMessageText();
-        $sms_text_dk = str_replace("(customer-telephone-number)", $customerMobileNumber, $sms_text_dk);
-        $sms_text_dk = str_replace("(refillAmount)", $refillAmount, $sms_text_dk);
+        $sms_text_dk = str_replace("(mobileNumber)", $customerMobileNumber, $sms_text_dk);
+        $sms_text_dk = str_replace("(amount)", $refillAmount, $sms_text_dk);
         $sms_text_dk = str_replace("(datetime)", date('H:i d-m-Y'), $sms_text_dk);
        
         $this->carbordfishSMS($agentMobileNumber, $sms_text_dk);
