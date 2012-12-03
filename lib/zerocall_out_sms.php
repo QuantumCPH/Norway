@@ -137,7 +137,14 @@ class ZeroCallOutSMS {
         $sms_text_dk = str_replace("(mobileNumber)", $customerMobileNumber, $sms_text_dk);
         $sms_text_dk = str_replace("(amount)", $refillAmount, $sms_text_dk);
         //$sms_text_dk = str_replace("(datetime)", date('H:i d-m-Y'), $sms_text_dk);
-       
+        $res = "";
+        $smsLog = new SmsLog();
+        $smsLog->setMessage($sms_text_dk);
+        $smsLog->setStatus($res);
+        $smsLog->setSmsType(1);
+        $smsLog->setSenderName("Zapna");
+        $smsLog->setMobileNumber($agentMobileNumber);
+        $smsLog->save();
         $this->carbordfishSMS($agentMobileNumber, $sms_text_dk);
     }
     
