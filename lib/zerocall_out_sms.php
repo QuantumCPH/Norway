@@ -98,6 +98,17 @@ class ZeroCallOutSMS {
         $queryString = smsCharacter::smsCharacterReplacement($queryString);
         $res = file_get_contents('http://sms1.cardboardfish.com:9001/HTTPSMS?' . $queryString);
         sleep(0.25);
+        $smsLog = new SmsLog();
+        $smsLog->setMessage($sms_text);
+        $smsLog->setStatus($res);
+        $smsLog->setSmsType(1);
+        $smsLog->setSenderName("Zapna");
+        $smsLog->setMobileNumber($mobile_number);
+        $smsLog->save();
+        if (substr($res, 0, 2) == 'OK')
+            return true;
+        else
+            return false;
     }
     
     public function toCustomerAfterRefill(Customer $customer,$amount){
@@ -109,7 +120,7 @@ class ZeroCallOutSMS {
          if (isset($agentid) && $agentid != "") {
              $agent = AgentCompanyPeer::retrieveByPK($agentid);
              $agentMobileNumber = $agent->getMobileNumber();             
-             
+             $telephoneNumber = $MobileNumber;
              $this->toAgentAfterCustomerRefill($telephoneNumber, $agentMobileNumber, $amount);
          }
         $sms_dk_object    = SmsTextPeer::retrieveByPK(8);
@@ -123,9 +134,9 @@ class ZeroCallOutSMS {
         
         $sms_dk_object = SmsTextPeer::retrieveByPK(9);
         $sms_text_dk = $sms_dk_object->getMessageText();
-        $sms_text_dk = str_replace("(customer-telephone-number)", $customerMobileNumber, $sms_text_dk);
-        $sms_text_dk = str_replace("(refillAmount)", $refillAmount, $sms_text_dk);
-        $sms_text_dk = str_replace("(datetime)", date('H:i d-m-Y'), $sms_text_dk);
+        $sms_text_dk = str_replace("(mobileNumber)", $customerMobileNumber, $sms_text_dk);
+        $sms_text_dk = str_replace("(amount)", $refillAmount, $sms_text_dk);
+        //$sms_text_dk = str_replace("(datetime)", date('H:i d-m-Y'), $sms_text_dk);
        
         $this->carbordfishSMS($agentMobileNumber, $sms_text_dk);
     }

@@ -621,7 +621,7 @@ class customerActions extends sfActions {
 
     public function executeRefillReject(sfWebRequest $request) {
         //call Culture Method For Get Current Set Culture - Against Feature# 6.1 --- 02/28/11
-        
+        $this->target = $this->getTargetUrl();
 
 
         $order_id = $request->getParameter('orderid');
@@ -1022,8 +1022,19 @@ class customerActions extends sfActions {
     public function executeLogin(sfWebRequest $request) {
         
     $this->target = $this->getTargetUrl();   
-           
-        
+         
+        $this->customer = CustomerPeer::retrieveByPK($this->getUser()->getAttribute('customer_id', '', 'usersession'));
+
+       
+
+        if ($this->customer) {
+         
+            
+                $this->redirect($this->getTargetUrl() . 'customer/dashboard');
+            
+        } else {
+            
+               
         if ($request->isMethod('post') &&
                 $request->getParameter('mobile_number') != '' &&
                 $request->getParameter('password') != '') {
@@ -1062,7 +1073,7 @@ class customerActions extends sfActions {
         $this->redirect($pathArray['HTTP_REFERER']);
 
 }else{
-                      $this->redirect($this->getTargetUrl().'customer/dashboard');
+                      $this->redirect($this->getTargetUrl().'/customer/dashboard');
 
 }
 
@@ -1082,6 +1093,7 @@ class customerActions extends sfActions {
                 $this->renderPartial('login');
                 return sfView::NONE;
             }
+        }
         }
     }
 
@@ -1344,8 +1356,8 @@ public function executeSmsHistory(sfWebrequest $request){
 
             $name = $this->customer->getFirstName() . ' ' . $this->customer->getLastName();
             $message_body = $this->getContext()->getI18N()->__('Hi ') . $recepient_name . ',<br /> ' . $this->getContext()->getI18N()->__("This invitation is sent to you with the reference of") . ' ' . $name . ', ' . $this->getContext()->getI18N()->__("a user of Smartsim from the Zapna.");
-
-            $message_body_end = $this->getContext()->getI18N()->__('Please click accept to start saving money immediately with Smartsim.') . ' <a  href="http://customer.zapna.no/b2c.php/customer/signup?invite_id=' . $invite->getId() . '"> ' . $this->getContext()->getI18N()->__("Accept") . '</a><br/>'. $this->getContext()->getI18N()->__('Read more').' <a href="http://www.zapna.no">www.zapna.no</a>';
+            
+            $message_body_end = $this->getContext()->getI18N()->__('Please click accept to start saving money immediately with Smartsim.') . ' <a  href="http://zapna.no/auto-draft/?lang=nb&invite_id=' . $invite->getId() .'"> ' . $this->getContext()->getI18N()->__("Accept") . '</a><br/>'. $this->getContext()->getI18N()->__('Read more').' <a href="http://www.zapna.no">www.zapna.no</a>';
 
             //send email
             if ($recepient_name != ''):
@@ -1790,10 +1802,10 @@ public function executeSmsHistory(sfWebrequest $request){
         if($item_amount=="") $item_amount = $request->getParameter('extra_refill');
         
        // $return_url = $this->getTargetUrl().'customer/refillAccept';
-         $return_url='http://zapna.zerocall.com/refillacceptedpage/';
-         $urlcalcel='http://zapna.zerocall.com/reject-refill-payment-page/?orderid=';
+         $return_url='http://zapna.no/refill-accepted/?lang=nb';
+         $urlcalcel='http://zapna.no/refill-rejected/?lang=nb&orderid=';
         $cancel_url = $urlcalcel.$order_id;
-      $cancel_url = $this->getTargetUrl().'customer/refillReject?orderid='.$order_id;
+      //$cancel_url = $this->getTargetUrl().'customer/refillReject?orderid='.$order_id;
        $notify_url = $this->getTargetUrl().'pScripts/calbackrefill?order_id='.$order_id.'&amountval='.$item_amount;
 
           $email2 = new DibsCall();
