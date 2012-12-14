@@ -263,7 +263,7 @@
             </span>
             <?php } ?>
              <?php echo $form['terms_conditions'] ?>
-             <span><a href="../../termsandcondition.pdf" target="_blank" style="outline:none"><?php echo $form['terms_conditions']->renderHelp() ?></a></span>             
+             <span><a href="http://zapna.no/wp-content/uploads/2012/12/termsandcondition.pdf" target="_blank" style="outline:none"><?php echo $form['terms_conditions']->renderHelp() ?></a></span>             
           </li>
           <li>
              <?php

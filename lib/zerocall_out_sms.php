@@ -102,7 +102,7 @@ class ZeroCallOutSMS {
         $smsLog->setMessage($sms_text);
         $smsLog->setStatus($res);
         $smsLog->setSmsType(1);
-        $smsLog->setSenderName("Zerocall");
+        $smsLog->setSenderName("Zapna");
         $smsLog->setMobileNumber($mobile_number);
         $smsLog->save();
         if (substr($res, 0, 2) == 'OK')
@@ -120,7 +120,7 @@ class ZeroCallOutSMS {
          if (isset($agentid) && $agentid != "") {
              $agent = AgentCompanyPeer::retrieveByPK($agentid);
              $agentMobileNumber = $agent->getMobileNumber();             
-             
+             $telephoneNumber = $MobileNumber;
              $this->toAgentAfterCustomerRefill($telephoneNumber, $agentMobileNumber, $amount);
          }
         $sms_dk_object    = SmsTextPeer::retrieveByPK(8);
@@ -136,7 +136,7 @@ class ZeroCallOutSMS {
         $sms_text_dk = $sms_dk_object->getMessageText();
         $sms_text_dk = str_replace("(mobileNumber)", $customerMobileNumber, $sms_text_dk);
         $sms_text_dk = str_replace("(amount)", $refillAmount, $sms_text_dk);
-        $sms_text_dk = str_replace("(datetime)", date('H:i d-m-Y'), $sms_text_dk);
+        //$sms_text_dk = str_replace("(datetime)", date('H:i d-m-Y'), $sms_text_dk);
        
         $this->carbordfishSMS($agentMobileNumber, $sms_text_dk);
     }
