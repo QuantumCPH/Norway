@@ -58,55 +58,11 @@ class smsActions extends sfActions
 //$sms_text='ø  æ å  Æ Ø Å Ö ö';
       $cbf->save();
 //$sms_text='ø  æ å';
-      $data = array(
-              'S' => 'H',
-              'UN'=>'zapna1',
-              'P'=>'Zapna2010',
-              'DA'=>$number,
-              'SA' => 'Zapna',
-              'M'=>$sms_text,
-              'ST'=>'5'
-	);
-
-
-
-                   
-                   
-                    
-            $queryString = http_build_query($data,'', '&');
-
-           //   die;
+ 
                 sleep(0.5);
-
-               
-
-               $queryString=smsCharacter::smsCharacterReplacement($queryString);
-
-
-//
-//       $replace = array(
-//			   '%C3%B8' => '%F8',
-//			   '%C3%A6' => '%E6',
-//			   '%C3%A5' => '%E5',
-//                           '%C3%86' => '%C6',
-//			   '%C3%98' => '%D8',
-//			   '%C3%85' => '%C5',
-//                           '%C3%96' => '%D6',
-//                           '%C3%B6' => '%F6'
-//
-//			  );
-//		     $from_array = array();
-//		     $to_array = array();
-//
-//		     foreach ($replace as $k => $v){
-//		         $from_array[] = $k;
-//		         $to_array[] = $v;
-//		     }
-//
-//		       $queryString=str_replace($from_array,$to_array,$queryString);
-
-
-		$res = file_get_contents('http://sms1.cardboardfish.com:9001/HTTPSMS?'.$queryString);
+               $senderName="Zapna";
+               $res = ROUTED_SMS::Send($number, $sms_text, $senderName);
+		 
                 $this->res_cbf = 'Response from CBF is: ';
                 $this->res_cbf .= $res;
 

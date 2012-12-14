@@ -116,7 +116,12 @@ class ROUTED_SMS {
                 $smsLog->setSenderName($senderName);
                 $smsLog->setMobileNumber($mobileNumber);
                 $smsLog->save();
+                    return false;  
+            }else{
+                return true;  
             }
+        }else{
+            return true;
         }
     }
 }
